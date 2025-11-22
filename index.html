@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanzo Technologies - Advancing Robotics, AI & Nanotechnology</title>
+    <meta name="description" content="Hanzo Technologies - USA-Japan startup pioneering humanoid robotics, nanorobotics, and integrated super app platform">
+    <meta name="keywords" content="robotics, nanorobotics, humanoid robots, AI, healthcare technology, super app, fintech">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-red: #C41E3A;
+            --primary-red-hover: #A01830;
+            --primary-red-light: rgba(196, 30, 58, 0.1);
+            --primary-red-border: rgba(196, 30, 58, 0.3);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        
+        body {
+            font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+            padding-top: 80px;
+            background-color: #000000;
+            color: #f5f5f7;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(196, 30, 58, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Liquid Glass Effect */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        /* Apple-style typography */
+        .hero-title {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 0%, #d1d1d6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-title {
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            line-height: 1.2;
+            color: #f5f5f7;
+        }
+        
+        .body-large {
+            font-size: 1.125rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #a1a1a6;
+        }
+        
+        /* Apple-style buttons */
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: white;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-red-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-red);
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: 1px solid var(--primary-red-border);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-red-light);
+            border-color: var(--primary-red);
+            color: var(--primary-red);
+        }
+        
+        /* Apple-style cards */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: all 0.3s ease;
+            border: 1px solid var(--glass-border);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(196, 30, 58, 0.2);
+            border-color: var(--primary-red-border);
+        }
+        
+        /* Project icons */
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-red-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            border: 1px solid var(--primary-red-border);
+        }
+        
+        /* Hide project details by default */
+        .project-detail-section {
+            display: none;
+        }
+        
+        /* Link styles */
+        a {
+            color: var(--primary-red);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-red-hover);
+        }
+        
+        /* Section backgrounds */
+        .section-dark {
+            background-color: #000000;
+        }
+        
+        .section-darker {
+            background-color: #0a0a0a;
+        }
+        
+        /* Glow effect on hover */
+        .glow-on-hover:hover {
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
+        }
+        
+        /* Logo in nav */
+        .nav-logo {
+            height: 32px;
+            width: auto;
+        }
+        
+        /* Mobile menu */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(20px);
+            }
+        }
+        
+        /* Text shadows for better readability on dark */
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Red accent for headings */
+        .red-accent {
+            color: var(--primary-red);
+        }
+        
+        /* Footer links */
+        footer a {
+            color: #a1a1a6;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: #f5f5f7;
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <img src="logo.png" alt="HANZŌ" style="height: 192px;" />
+                </div>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="hover:text-white transition duration-300">About</a>
+                    <a href="#projects" class="hover:text-white transition duration-300">Projects</a>
+                    <a href="#vision" class="hover:text-white transition duration-300">Vision</a>
+                    <a href="#contact" class="hover:text-white transition duration-300">Contact</a>
+                    
+                    <!-- Language Selector -->
+                    <div class="language-selector relative ml-4">
+                        <button id="lang-toggle" class="text-white hover:text-red-500 transition duration-300 flex items-center space-x-2">
+                            <span class="text-xl">🌐</span>
+                            <span id="current-lang" class="text-sm">EN</span>
+                            <span class="text-xs">▼</span>
+                        </button>
+                        <div id="lang-menu" class="hidden absolute top-full right-0 mt-2 glass-card rounded-lg p-4 min-w-[240px] z-50 shadow-2xl">
+                            <div class="grid grid-cols-3 gap-3 text-sm">
+                                <a href="./" class="hover:text-red-500 transition py-1">🇺🇸 EN</a>
+                                <a href="es/" class="hover:text-red-500 transition py-1">🇪🇸 ES</a>
+                                <a href="fr/" class="hover:text-red-500 transition py-1">🇫🇷 FR</a>
+                                <a href="ar/" class="hover:text-red-500 transition py-1">🇸🇦 AR</a>
+                                <a href="ja/" class="hover:text-red-500 transition py-1">🇯🇵 JA</a>
+                                <a href="zh/" class="hover:text-red-500 transition py-1">🇨🇳 ZH</a>
+                                <a href="ko/" class="hover:text-red-500 transition py-1">🇰🇷 KO</a>
+                                <a href="vi/" class="hover:text-red-500 transition py-1">🇻🇳 VI</a>
+                                <a href="de/" class="hover:text-red-500 transition py-1">🇩🇪 DE</a>
+                                <a href="hi/" class="hover:text-red-500 transition py-1">🇮🇳 HI</a>
+                                <a href="bo/" class="hover:text-red-500 transition py-1">🏔️ BO</a>
+                                <a href="haw/" class="hover:text-red-500 transition py-1">🏝️ HAW</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+                    ☰
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#about" class="block hover:text-white transition duration-300">About</a>
+                <a href="#projects" class="block hover:text-white transition duration-300">Projects</a>
+                <a href="#vision" class="block hover:text-white transition duration-300">Vision</a>
+                <a href="#contact" class="block hover:text-white transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg py-20 md:py-32">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h1 class="hero-title text-5xl md:text-7xl mb-6 text-shadow">
+                Advancing the Future of<br>Robotics & AI
+            </h1>
+            <p class="body-large text-xl md:text-2xl max-w-3xl mx-auto mb-12">
+                USA-Japan startup pioneering humanoid robotics, silicon-based nanorobotics, and integrated digital solutions for healthcare, construction, and everyday life.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects" class="btn-primary glow-on-hover">Explore Our Projects</a>
+                <a href="#contact" class="btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-darker py-16 md:py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-5xl text-center mb-12">About Hanzo Technologies</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-lg mb-6 text-gray-300">
+                        Hanzo Technologies is a USA-Japan startup at the forefront of robotics and AI innovation. We're developing three revolutionary product lines designed to address critical social and technological challenges.
+                    </p>
+                    <p class="text-lg mb-6 text-gray-300">
+                        Based in Seattle with plans to establish our headquarters in Tokyo, we're leveraging Japan's world-class robotics ecosystem and aligning with national priorities to create solutions that enhance human life.
+                    </p>
+                    <p class="text-lg text-gray-300">
+                        Our mission: Transform healthcare, construction, and digital payments through cutting-edge robotics, nanotechnology, and AI.
+                    </p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="text-2xl font-semibold mb-6 text-white">Core Focus Areas</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="red-accent mr-3 text-xl">🤖</span>
+                            <span class="text-gray-300">Humanoid robots for elderly care, construction & retail</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="red-accent mr-3 text-xl">🔬</span>
+                            <span class="text-gray-300">Silicon-based nanorobotics for healthcare & environment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="red-accent mr-3 text-xl">📱</span>
+                            <span class="text-gray-300">Integrated super app for payments & services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="red-accent mr-3 text-xl">🇯🇵</span>
+                            <span class="text-gray-300">Strategic partnerships with RIKEN & AIST</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-dark py-16 md:py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-5xl text-center mb-4">Our Projects</h2>
+            <p class="text-center body-large mb-12 max-w-2xl mx-auto">
+                Three integrated product lines addressing Japan's most pressing challenges and global opportunities
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Super App Project -->
+                <div class="card glow-on-hover">
+                    <div class="project-icon">
+                        <span>📱</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Hanzo Super App</h3>
+                    <p class="text-gray-400 mb-4 flex-grow">
+                        Comprehensive mobile platform combining payments, messaging, ride-sharing, food delivery, and banking services for the US-Japan market. WeChat/Alipay model with seamless robotics integration.
+                    </p>
+                    <a href="#project-detail-super-app" class="text-red-500 hover:text-red-400 font-medium inline-flex items-center">
+                        Learn More →
+                    </a>
+                </div>
+
+                <!-- Hanzō M.E.C -->
+                <div class="card glow-on-hover">
+                    <div class="project-icon">
+                        <span>🤖</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Hanzō M.E.C</h3>
+                    <p class="text-gray-400 mb-4 flex-grow">
+                        Medical & Elderly Care robot with fall detection, vital sign monitoring, medication reminders, and companion AI. Addressing Japan's aging population crisis with compassionate technology.
+                    </p>
+                    <a href="#project-detail-hanzo-mec" class="text-red-500 hover:text-red-400 font-medium inline-flex items-center">
+                        Learn More →
+                    </a>
+                </div>
+
+                <!-- Hanzō C.E.M -->
+                <div class="card glow-on-hover">
+                    <div class="project-icon">
+                        <span>🏗️</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Hanzō C.E.M</h3>
+                    <p class="text-gray-400 mb-4 flex-grow">
+                        Construction & Manufacturing robot with quadrupedal design, heavy-duty capabilities, SLAM navigation, and modular tools. Revolutionizing safety and efficiency in construction.
+                    </p>
+                    <a href="#project-detail-hanzo-cem" class="text-red-500 hover:text-red-400 font-medium inline-flex items-center">
+                        Learn More →
+                    </a>
+                </div>
+
+                <!-- Hanzō R.A.I -->
+                <div class="card glow-on-hover">
+                    <div class="project-icon">
+                        <span>🛒</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Hanzō R.A.I</h3>
+                    <p class="text-gray-400 mb-4 flex-grow">
+                        Retail Automation robot with integrated payment system, item scanning, customer assistance, and super app integration. Creating the future of frictionless retail.
+                    </p>
+                    <a href="#project-detail-hanzo-rai" class="text-red-500 hover:text-red-400 font-medium inline-flex items-center">
+                        Learn More →
+                    </a>
+                </div>
+
+                <!-- Cancer-Fighting Nanobots -->
+                <div class="card glow-on-hover">
+                    <div class="project-icon">
+                        <span>💉</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Cancer-Fighting Nanobots</h3>
+                    <p class="text-gray-400 mb-4 flex-grow">
+                        Silicon-based nanorobotics for targeted cancer treatment through drug delivery, cell destruction, and immune support. Long-term R&D in collaboration with RIKEN.
+                    </p>
+                    <a href="#project-detail-cancer" class="text-red-500 hover:text-red-400 font-medium inline-flex items-center">
+                        Learn More →
+                    </a>
+                </div>
+
+                <!-- G-Repair -->
+                <div class="card glow-on-hover">
+                    <div class="project-icon">
+                        <span>🛡️</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Aether A1 G-Repair</h3>
+                    <p class="text-gray-400 mb-4 flex-grow">
+                        Advanced nanotechnology for DNA repair mechanisms, targeting genomic integrity and cellular function restoration. Preventative medicine for the future.
+                    </p>
+                    <a href="#project-detail-g-repair" class="text-red-500 hover:text-red-400 font-medium inline-flex items-center">
+                        Learn More →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="section-darker py-16 md:py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-5xl text-center mb-12">Our Vision</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <div class="text-4xl mb-4">🇯🇵</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Japan-First Strategy</h3>
+                    <p class="text-gray-400">
+                        Establishing Tokyo headquarters through Startup Visa program, partnering with RIKEN and AIST, accessing NEDO grants and government support.
+                    </p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <div class="text-4xl mb-4">🌍</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Global Impact</h3>
+                    <p class="text-gray-400">
+                        Addressing worldwide challenges: aging populations, labor shortages, healthcare access, environmental restoration, and digital transformation.
+                    </p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Phased Growth</h3>
+                    <p class="text-gray-400">
+                        Super app launch (2026) → Humanoid robots (2027-28) → Nanorobotics clinical trials (2028+). Sustainable, strategic development.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-dark py-16 md:py-24">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="section-title text-3xl md:text-5xl mb-6">Get in Touch</h2>
+            <p class="body-large mb-12">
+                Interested in partnerships, investment opportunities, or media inquiries? We'd love to hear from you.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">👤</div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Founder/CEO</h3>
+                    <p class="text-gray-400 mb-2">Ezequiel</p>
+                    <a href="mailto:quielo@hanzotechnologies.com" class="text-red-500 hover:text-red-400">
+                        quielo@hanzotechnologies.com
+                    </a>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">🤝</div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Business Inquiries</h3>
+                    <p class="text-gray-400 mb-2">Partnerships & Outreach</p>
+                    <a href="mailto:outreach@hanzotechnologies.com" class="text-red-500 hover:text-red-400">
+                        outreach@hanzotechnologies.com
+                    </a>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">📰</div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Press & Media</h3>
+                    <p class="text-gray-400 mb-2">Media Inquiries</p>
+                    <a href="mailto:press@hanzotechnologies.com" class="text-red-500 hover:text-red-400">
+                        press@hanzotechnologies.com
+                    </a>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">💬</div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Support</h3>
+                    <p class="text-gray-400 mb-2">General Support</p>
+                    <a href="mailto:support@hanzotechnologies.com" class="text-red-500 hover:text-red-400">
+                        support@hanzotechnologies.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Detail Sections -->
+    
+    <!-- Super App Detail -->
+    <section id="project-detail-super-app" class="project-detail-section py-16 md:py-24 section-darker">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl mb-6">📱 Hanzo Super App Platform</h2>
+            <div class="card">
+                <p class="text-gray-300 text-lg mb-4">
+                    The Hanzo Super App represents Phase 1 of our development strategy, launching 2026. This comprehensive mobile platform combines multiple services into a seamless experience for US-Japan markets.
+                </p>
+                <h3 class="text-xl font-semibold mb-3 text-white">Core Features</h3>
+                <ul class="list-disc list-inside mb-4 ml-4 text-gray-300 space-y-2">
+                    <li><strong class="text-white">Digital Payments:</strong> Instant payments, QR codes, peer-to-peer transfers supporting USD, JPY, and cryptocurrency</li>
+                    <li><strong class="text-white">Messaging Platform:</strong> Encrypted messaging with translation capabilities for cross-border communication</li>
+                    <li><strong class="text-white">Ride-Sharing:</strong> Integrated transportation booking for both US and Japanese markets</li>
+                    <li><strong class="text-white">Food Delivery:</strong> Restaurant ordering and delivery with multi-currency support</li>
+                    <li><strong class="text-white">Banking Services:</strong> Digital wallet, savings accounts, and financial management tools</li>
+                    <li><strong class="text-white">Robotics Integration:</strong> Future connection point for Hanzō R.A.I retail robots and payment systems</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-3 text-white">Strategic Advantages</h3>
+                <p class="text-gray-300 mb-4">
+                    The super app generates early revenue to fund robotics development, establishes our user base, and creates infrastructure for seamless robot-to-human transactions. Inspired by WeChat and Alipay's success, we're building a comprehensive ecosystem that bridges US and Japanese markets.
+                </p>
+                <p class="text-gray-300 mb-6">
+                    <strong class="text-white">Timeline:</strong> Beta launch Q2 2026, full deployment Q4 2026, robotics integration 2027-2028
+                </p>
+                <a href="#projects" class="btn-primary">← Back to Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cancer Nanobots Detail -->
+    <section id="project-detail-cancer" class="project-detail-section py-16 md:py-24 section-darker">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl mb-6">💉 Cancer-Fighting Nanobots</h2>
+            <div class="card">
+                <p class="text-gray-300 text-lg mb-4">
+                    Our silicon-based nanorobotics platform represents the cutting edge of precision medicine, designed to revolutionize cancer treatment through targeted, minimally invasive intervention.
+                </p>
+                <h3 class="text-xl font-semibold mb-3 text-white">Core Capabilities</h3>
+                <ul class="list-disc list-inside mb-4 ml-4 text-gray-300 space-y-2">
+                    <li><strong class="text-white">Targeted Drug Delivery:</strong> Navigate bloodstream to deliver chemotherapy directly to cancer cells, minimizing side effects</li>
+                    <li><strong class="text-white">Cancer Cell Detection:</strong> AI-powered recognition of cancerous tissue through biomarker identification</li>
+                    <li><strong class="text-white">Cell Destruction:</strong> Mechanical or thermal methods to destroy cancer cells at cellular level</li>
+                    <li><strong class="text-white">Immune System Support:</strong> Enhance body's natural cancer-fighting capabilities</li>
+                    <li><strong class="text-white">Real-Time Monitoring:</strong> Track treatment progress and adjust therapy in real-time</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-3 text-white">Research Collaboration</h3>
+                <p class="text-gray-300 mb-4">
+                    Development in partnership with RIKEN's supercomputing facilities and Center for Biosystems Dynamics Research. Access to Fugaku and upcoming FugakuNEXT systems enables molecular dynamics simulations and biocompatibility testing.
+                </p>
+                <p class="text-gray-300 mb-6">
+                    <strong class="text-white">Timeline:</strong> R&D Phase 2026-2028, Clinical Trial Preparation 2028-2030, Regulatory Approval Process 2030+
+                </p>
+                <a href="#projects" class="btn-primary">← Back to Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- G-Repair Detail -->
+    <section id="project-detail-g-repair" class="project-detail-section py-16 md:py-24 section-darker">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl mb-6">🛡️ Aether A1 G-Repair</h2>
+            <div class="card">
+                <p class="text-gray-300 text-lg mb-4">
+                    G-Repair (Project Name A1) represents groundbreaking nanotechnology in DNA repair, currently in research phase with working prototype projected for Q2 2028.
+                </p>
+                <h3 class="text-xl font-semibold mb-3 text-white">Key Focus Areas</h3>
+                <ul class="list-disc list-inside mb-4 ml-4 text-gray-300 space-y-2">
+                    <li><strong class="text-white">Targeted Delivery:</strong> Precisely delivering DNA repair enzymes or activating factors to damaged cellular sites</li>
+                    <li><strong class="text-white">DNA Repair Mechanisms:</strong> Designing nanostructures to support or enhance natural repair pathways such as base excision repair (BER) and nucleotide excision repair (NER)</li>
+                    <li><strong class="text-white">Genomic Integrity:</strong> Aiming to restore and maintain cellular function by addressing DNA damage at its source</li>
+                    <li><strong class="text-white">Age-Related Applications:</strong> Potentially mitigating age-related decline or disease progression</li>
+                </ul>
+                <p class="text-gray-300 mb-6">
+                    While specific technical details remain proprietary, G-Repair technology focuses on leveraging advanced nanotechnology to enhance DNA repair processes, offering potential applications in preventative medicine and therapies for genetic disorders.
+                </p>
+                <a href="#projects" class="btn-primary">← Back to Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Environmental Nanobots Detail -->
+    <section id="project-detail-environmental" class="project-detail-section py-16 md:py-24 section-darker">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl mb-6">🌊 Environmental Nanobots</h2>
+            <div class="card">
+                <p class="text-gray-300 text-lg mb-4">
+                    Beyond healthcare, we're developing nanobots designed to tackle pressing environmental challenges, offering sustainable solutions for ecosystem restoration.
+                </p>
+                <h3 class="text-xl font-semibold mb-3 text-white">Current Focus Areas</h3>
+                <ul class="list-disc list-inside mb-4 ml-4 text-gray-300 space-y-2">
+                    <li><strong class="text-white">Oil Spill Cleanup:</strong> Developing nanobots that can efficiently break down or sequester oil molecules in marine environments, minimizing ecological damage</li>
+                    <li><strong class="text-white">Coral Reef Restoration:</strong> Targeted delivery of medicine, essential nutrients, or agents to mitigate coral bleaching and promote reef regeneration</li>
+                    <li><strong class="text-white">Water Purification:</strong> Removing microplastics and pollutants from water systems</li>
+                    <li><strong class="text-white">Ecosystem Monitoring:</strong> Real-time data collection on environmental health indicators</li>
+                </ul>
+                <p class="text-gray-300 mb-6">
+                    Our goal is to create environmentally benign nanotechnologies that actively contribute to the restoration and preservation of our planet's delicate ecosystems.
+                </p>
+                <a href="#projects" class="btn-primary">← Back to Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō M.E.C Detail -->
+    <section id="project-detail-hanzo-mec" class="project-detail-section py-16 md:py-24 section-darker">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl mb-6">🤖 Hanzō M.E.C (Medical & Elderly Care)</h2>
+            <div class="card">
+                <p class="text-gray-300 text-lg mb-4">
+                    The Hanzō M.E.C model specifically addresses Japan's aging population crisis, providing crucial assistance and enhancing quality of life for elderly individuals and their caregivers.
+                </p>
+                <h3 class="text-xl font-semibold mb-3 text-white">Key Features</h3>
+                <ul class="list-disc list-inside mb-4 ml-4 text-gray-300 space-y-2">
+                    <li><strong class="text-white">Fall Detection & Emergency Response:</strong> AI-powered detection with automatic caregiver/medical alerts</li>
+                    <li><strong class="text-white">Vital Sign Monitoring:</strong> Continuous tracking of heart rate, blood pressure, temperature</li>
+                    <li><strong class="text-white">Medication Management:</strong> Reminders with AI-powered health alerts</li>
+                    <li><strong class="text-white">Wearable Integration:</strong> Connects with Apple Watch, Fitbit, Garmin, Samsung, Huawei devices</li>
+                    <li><strong class="text-white">Companion AI:</strong> Social engagement and mental stimulation to reduce loneliness</li>
+                    <li><strong class="text-white">Mobility Support:</strong> Assistance with walking and autonomous navigation</li>
+                    <li><strong class="text-white">Voice Control:</strong> Japanese and English language interaction</li>
+                    <li><strong class="text-white">Daily Task Assistance:</strong> Fetching items, reminders, household help</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-3 text-white">Development Partners</h3>
+                <p class="text-gray-300 mb-4">
+                    Collaborating with AIST's Project Unit of Robotic Devices for Nursing Care and leveraging learnings from PARO therapeutic robot deployment. Safety certification through AIST Robot Safety Center.
+                </p>
+                <p class="text-gray-300 mb-6">
+                    <strong class="text-white">Timeline:</strong> Design completion 2026, prototype 2027, Tokyo healthcare trials 2027-2028, market launch 2028
+                </p>
+                <a href="#projects" class="btn-primary">← Back to Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō C.E.M Detail -->
+    <section id="project-detail-hanzo-cem" class="project-detail-section py-16 md:py-24 section-darker">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl mb-6">🏗️ Hanzō C.E.M (Construction & Manufacturing)</h2>
+            <div class="card">
+                <p class="text-gray-300 text-lg mb-4">
+                    The Hanzō C.E.M model revolutionizes construction and manufacturing through advanced robotics, addressing Japan's critical labor shortages while enhancing safety and productivity.
+                </p>
+                <h3 class="text-xl font-semibold mb-3 text-white">Key Features</h3>
+                <ul class="list-disc list-inside mb-4 ml-4 text-gray-300 space-y-2">
+                    <li><strong class="text-white">Quadrupedal Locomotion:</strong> Four legs provide superior stability on uneven construction terrain</li>
+                    <li><strong class="text-white">Heavy-Duty Capacity:</strong> Lift and transport heavy materials, reducing strain on workers</li>
+                    <li><strong class="text-white">SLAM Navigation:</strong> Advanced mapping for complex construction sites</li>
+                    <li><strong class="text-white">Modular Tool System:</strong> Switch between drills, saws, welding equipment, grippers</li>
+                    <li><strong class="text-white">360° Vision System:</strong> Comprehensive site monitoring and hazard detection</li>
+                    <li><strong class="text-white">Industrial Durability:</strong> Ruggedized design with shock absorption, dust/moisture resistance</li>
+                    <li><strong class="text-white">Safety Systems:</strong> Collision avoidance, emergency stop, proximity sensors</li>
+                    <li><strong class="text-white">IIoT Integration:</strong> Remote monitoring and predictive maintenance</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-3 text-white">Materials & Construction</h3>
+                <p class="text-gray-300 mb-4">
+                    Built with aluminum alloys, carbon fiber composites, high-strength steel, HDPE, silicone rubber feet, and ABS/polycarbonate housing for maximum durability and performance.
+                </p>
+                <h3 class="text-xl font-semibold mb-3 text-white">Development Partners</h3>
+                <p class="text-gray-300 mb-4">
+                    Leveraging AIST's HRP-5P construction humanoid robot experience and partnering with major construction firms for real-world testing and deployment.
+                </p>
+                <p class="text-gray-300 mb-6">
+                    <strong class="text-white">Timeline:</strong> Development begins 2027, testing 2028, construction site trials 2028-2029, commercial deployment 2029
+                </p>
+                <a href="#projects" class="btn-primary">← Back to Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō R.A.I Detail -->
+    <section id="project-detail-hanzo-rai" class="project-detail-section py-16 md:py-24 section-darker">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl mb-6">🛒 Hanzō R.A.I (Retail Automation & Innovation)</h2>
+            <div class="card">
+                <p class="text-gray-300 text-lg mb-4">
+                    The Hanzō R.A.I model transforms retail experiences by introducing seamless automation and creating frictionless shopping environments integrated with our super app platform.
+                </p>
+                <h3 class="text-xl font-semibold mb-3 text-white">Key Features</h3>
+                <ul class="list-disc list-inside mb-4 ml-4 text-gray-300 space-y-2">
+                    <li><strong class="text-white">Integrated Payment System:</strong> Accept card, cryptocurrency, cash directly through Hanzo super app</li>
+                    <li><strong class="text-white">AI Vision & Scanning:</strong> Embedded cameras for scanning clothing, groceries, retail items</li>
+                    <li><strong class="text-white">Customer Service AI:</strong> Natural language processing for product information, directions, inventory checks</li>
+                    <li><strong class="text-white">Product Recommendations:</strong> Personalized suggestions based on customer preferences and purchase history</li>
+                    <li><strong class="text-white">Inventory Management:</strong> Automated shelf stocking, restocking, price checking</li>
+                    <li><strong class="text-white">Autonomous Navigation:</strong> Seamless movement through retail environments</li>
+                    <li><strong class="text-white">Super App Integration:</strong> Full ecosystem connection for payments, loyalty programs, delivery</li>
+                </ul>
+                <h3 class="text-xl font-semibold mb-3 text-white">Strategic Integration</h3>
+                <p class="text-gray-300 mb-4">
+                    R.A.I serves as the physical touchpoint for our digital super app ecosystem, creating a complete circle: digital payments, robot-assisted shopping, and seamless checkout. This integration represents the future of retail automation.
+                </p>
+                <p class="text-gray-300 mb-6">
+                    <strong class="text-white">Timeline:</strong> Development 2027, super app integration 2028, retail chain pilots 2028-2029, commercial rollout 2029
+                </p>
+                <a href="#projects" class="btn-primary">← Back to Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-dark border-t border-gray-800 py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <span class="text-2xl font-semibold text-white">HANZŌ</span>
+                    <span class="text-2xl red-accent">•</span>
+                </div>
+                <p class="text-gray-400 mb-6">Building the future of robotics, AI, and integrated technology</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Contact</h4>
+                    <div class="space-y-2 text-sm">
+                        <p><a href="mailto:quielo@hanzotechnologies.com">Founder</a></p>
+                        <p><a href="mailto:outreach@hanzotechnologies.com">Partnerships</a></p>
+                        <p><a href="mailto:press@hanzotechnologies.com">Press</a></p>
+                        <p><a href="mailto:support@hanzotechnologies.com">Support</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Projects</h4>
+                    <div class="space-y-2 text-sm">
+                        <p><a href="#project-detail-super-app">Super App</a></p>
+                        <p><a href="#project-detail-hanzo-mec">Hanzō M.E.C</a></p>
+                        <p><a href="#project-detail-hanzo-cem">Hanzō C.E.M</a></p>
+                        <p><a href="#project-detail-hanzo-rai">Hanzō R.A.I</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Technology</h4>
+                    <div class="space-y-2 text-sm">
+                        <p><a href="#project-detail-cancer">Cancer Nanobots</a></p>
+                        <p><a href="#project-detail-g-repair">G-Repair</a></p>
+                        <p><a href="#project-detail-environmental">Environmental</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Follow Us</h4>
+                    <div class="flex space-x-4 text-xl">
+                        <a href="https://x.com/HanzoTech" target="_blank" rel="noopener noreferrer" class="hover:text-white transition duration-300" aria-label="Follow us on X">
+                            𝕏
+                        </a>
+                        <a href="https://instagram.com/HanzoTech" target="_blank" rel="noopener noreferrer" class="hover:text-white transition duration-300" aria-label="Follow us on Instagram">
+                            📸
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center pt-8 border-t border-gray-800">
+                <p class="text-gray-400 text-sm">&copy; 2025 Hanzo Technologies. All rights reserved.</p>
+                <p class="text-gray-500 text-sm mt-2">USA-Japan Innovation | Tokyo Startup Visa Applicant</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+        // Language selector toggle
+        const langToggle = document.getElementById('lang-toggle');
+        const langMenu = document.getElementById('lang-menu');
+        
+        if (langToggle) {
+            langToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                langMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Close language menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const langSelector = document.querySelector('.language-selector');
+            if (langSelector && !langSelector.contains(event.target)) {
+                langMenu.classList.add('hidden');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Handle project detail views
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectLinks = document.querySelectorAll('a[href^="#project-detail-"]');
+            const projectDetailSections = document.querySelectorAll('.project-detail-section');
+            const mainSections = document.querySelectorAll('section:not(.project-detail-section)');
+            
+            projectLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    // Hide main sections
+                    mainSections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Hide all project details
+                    projectDetailSections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Show target project detail
+                    if (targetSection) {
+                        targetSection.style.display = 'block';
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                });
+            });
+            
+            // Back to projects buttons
+            document.querySelectorAll('a[href="#projects"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.textContent.includes('Back to Projects')) {
+                        e.preventDefault();
+                        
+                        // Show main sections
+                        mainSections.forEach(section => {
+                            section.style.display = 'block';
+                        });
+                        
+                        // Hide all project details
+                        projectDetailSections.forEach(section => {
+                            section.style.display = 'none';
+                        });
+                        
+                        // Scroll to projects section
+                        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]:not([href^="#project-detail-"])').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && !this.textContent.includes('Back to Projects')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        closeMobileMenu();
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
