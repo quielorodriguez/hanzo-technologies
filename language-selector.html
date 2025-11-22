@@ -1,0 +1,38 @@
+<!-- Language Selector Component - Add this to navigation -->
+<div class="language-selector relative">
+    <button id="lang-toggle" class="text-white hover:text-red-500 transition duration-300 flex items-center space-x-2">
+        <span class="text-xl">🌐</span>
+        <span id="current-lang">EN</span>
+        <span class="text-sm">▼</span>
+    </button>
+    <div id="lang-menu" class="hidden absolute top-full right-0 mt-2 glass-card rounded-lg p-4 min-w-[200px] z-50">
+        <div class="grid grid-cols-2 gap-2 text-sm">
+            <a href="/" class="hover:text-red-500 transition">🇺🇸 EN</a>
+            <a href="/es/" class="hover:text-red-500 transition">🇪🇸 ES</a>
+            <a href="/fr/" class="hover:text-red-500 transition">🇫🇷 FR</a>
+            <a href="/ar/" class="hover:text-red-500 transition">🇸🇦 AR</a>
+            <a href="/ja/" class="hover:text-red-500 transition">🇯🇵 JA</a>
+            <a href="/zh/" class="hover:text-red-500 transition">🇨🇳 ZH</a>
+            <a href="/ko/" class="hover:text-red-500 transition">🇰🇷 KO</a>
+            <a href="/vi/" class="hover:text-red-500 transition">🇻🇳 VI</a>
+            <a href="/de/" class="hover:text-red-500 transition">🇩🇪 DE</a>
+            <a href="/hi/" class="hover:text-red-500 transition">🇮🇳 HI</a>
+            <a href="/bo/" class="hover:text-red-500 transition">🏔️ BO</a>
+            <a href="/haw/" class="hover:text-red-500 transition">🏝️ HAW</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('lang-toggle').addEventListener('click', function() {
+    document.getElementById('lang-menu').classList.toggle('hidden');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const langSelector = document.querySelector('.language-selector');
+    if (!langSelector.contains(event.target)) {
+        document.getElementById('lang-menu').classList.add('hidden');
+    }
+});
+</script>
