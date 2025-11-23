@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Hanzo Technologies</title>
+    <meta name="description" content="Hanzo Technologies is pioneering robotics and AI innovation in Japan, addressing critical challenges in healthcare, construction, and environmental sustainability.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .accent-red {
+            color: #DC143C;
+        }
+        
+        .bg-accent-red {
+            background-color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        h1 {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link accent-red">About</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="technology.html" class="nav-link">Technology</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 EN</button>
+                        <div class="language-dropdown">
+                            <a href="about.html">🇺🇸 English</a>
+                            <a href="ja/about.html">🇯🇵 日本語</a>
+                            <a href="es/about.html">🇪🇸 Español</a>
+                            <a href="zh/about.html">🇨🇳 中文</a>
+                            <a href="ko/about.html">🇰🇷 한국어</a>
+                            <a href="fr/about.html">🇫🇷 Français</a>
+                            <a href="de/about.html">🇩🇪 Deutsch</a>
+                            <a href="vi/about.html">🇻🇳 Tiếng Việt</a>
+                            <a href="ar/about.html">🇸🇦 العربية</a>
+                            <a href="hi/about.html">🇮🇳 हिन्दी</a>
+                            <a href="bo/about.html">🏔️ བོད་ཡིག</a>
+                            <a href="haw/about.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient section-padding text-center" style="margin-top: 100px;">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem);">About Hanzo Technologies</h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light">
+                Pioneering robotics and AI innovation to address humanity's greatest challenges.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-card p-10 rounded-3xl">
+                    <h2 class="mb-6">Our Mission</h2>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        To develop advanced robotics, AI, and nanotechnology solutions that enhance human life, 
+                        address critical societal challenges, and contribute to global sustainability. We focus on 
+                        creating practical, impactful technologies that serve real-world needs in healthcare, 
+                        construction, and daily life.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-10 rounded-3xl">
+                    <h2 class="mb-6">Our Vision</h2>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        To become a leading innovator in robotics and AI technology, establishing Japan as our 
+                        global headquarters while creating solutions that address demographic shifts, labor shortages, 
+                        and environmental challenges facing societies worldwide.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Japan -->
+    <section class="section-padding hero-gradient">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="mb-8" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">Why Japan</h2>
+            <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                Japan represents the ideal environment for robotics innovation. With the world's most advanced 
+                robotics ecosystem, supportive government policies, and pressing demographic challenges that demand 
+                innovative solutions, Japan provides both the infrastructure and the market need for our technologies.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="text-4xl mb-4">🏭</div>
+                    <h3 class="text-xl font-semibold mb-3">World-Class Ecosystem</h3>
+                    <p class="text-gray-400">
+                        Access to premier research institutions, advanced manufacturing, and robotics expertise.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="text-4xl mb-4">👥</div>
+                    <h3 class="text-xl font-semibold mb-3">Demographic Need</h3>
+                    <p class="text-gray-400">
+                        Aging population and labor shortages create immediate market demand for our solutions.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="text-xl font-semibold mb-3">Government Support</h3>
+                    <p class="text-gray-400">
+                        Strategic funding programs and policies supporting robotics innovation and startups.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Values -->
+    <section class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="mb-6" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">Our Values</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    The principles that guide our innovation and operations.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-4 flex items-center">
+                        <span class="accent-red text-3xl mr-4">🔬</span>
+                        Innovation-Driven
+                    </h3>
+                    <p class="text-gray-300">
+                        We push the boundaries of what's possible in robotics, AI, and nanotechnology, pursuing 
+                        breakthrough solutions that create meaningful impact.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-4 flex items-center">
+                        <span class="accent-red text-3xl mr-4">🌱</span>
+                        Ethical Technology
+                    </h3>
+                    <p class="text-gray-300">
+                        We develop technology responsibly, prioritizing data privacy, human-centric AI principles, 
+                        and sustainable solutions that benefit society.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-4 flex items-center">
+                        <span class="accent-red text-3xl mr-4">🎯</span>
+                        Problem-Focused
+                    </h3>
+                    <p class="text-gray-300">
+                        Every product we develop addresses real-world challenges—from elderly care to 
+                        environmental restoration—with practical, deployable solutions.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-4 flex items-center">
+                        <span class="accent-red text-3xl mr-4">🌍</span>
+                        Global Impact
+                    </h3>
+                    <p class="text-gray-300">
+                        While focused on Japan, our innovations are designed to scale globally, addressing 
+                        challenges faced by aging societies and labor-constrained industries worldwide.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Status -->
+    <section class="section-padding hero-gradient">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="mb-6" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">Current Development</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+                    Hanzo Technologies is currently in the research and development phase, advancing our 
+                    six core innovation projects with a strategic focus on establishing operations in Japan.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-xl font-semibold mb-3">Super App Platform</h3>
+                    <p class="text-sm text-gray-400">
+                        Phase 1 development: Building integrated digital services for US-Japan markets
+                    </p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🤖</div>
+                    <h3 class="text-xl font-semibold mb-3">Hanzō Robot Series</h3>
+                    <p class="text-sm text-gray-400">
+                        R&D phase: Designing humanoid robots for elderly care, hospitals, construction, and retail
+                    </p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">⚛️</div>
+                    <h3 class="text-xl font-semibold mb-3">Nanorobotics</h3>
+                    <p class="text-sm text-gray-400">
+                        Research phase: Developing proprietary silicon-based nanorobotics for medical applications
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="mb-6" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">Leadership</h2>
+            </div>
+            
+            <div class="glass-card p-10 rounded-3xl max-w-2xl mx-auto">
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold mb-2">Ezequiel</h3>
+                    <p class="accent-red mb-6">Founder & CEO</p>
+                    <p class="text-gray-300 leading-relaxed">
+                        Leading Hanzo Technologies' mission to develop transformative robotics and AI solutions 
+                        that address critical global challenges. Focused on establishing world-class operations 
+                        in Japan while building innovative technologies for healthcare, construction, and 
+                        environmental sustainability.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Expansion -->
+    <section class="section-padding hero-gradient">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="mb-6" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">Building Our Team</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+                    As we establish operations in Japan, we're planning significant team expansion to support 
+                    our ambitious development roadmap and commercialization goals.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-4 flex items-center">
+                        <span class="accent-red text-3xl mr-4">🎯</span>
+                        Expansion Plan
+                    </h3>
+                    <p class="text-gray-300 mb-4">
+                        Our goal is to grow to at least 50 team members in Japan, building world-class 
+                        capabilities across robotics engineering, AI development, nanorobotics research, 
+                        software development, and business operations.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-4 flex items-center">
+                        <span class="accent-red text-3xl mr-4">🌟</span>
+                        Key Roles
+                    </h3>
+                    <p class="text-gray-300 mb-4">
+                        Japanese Operations Manager, robotics engineers, AI specialists, software developers, 
+                        nanorobotics researchers, business development professionals, and partnerships team.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-8 rounded-3xl">
+                <h3 class="mb-4 flex items-center">
+                    <span class="accent-red text-3xl mr-4">🤝</span>
+                    Partnership Approach
+                </h3>
+                <p class="text-gray-300">
+                    We're pursuing collaborations with premier Japanese research institutions including RIKEN and AIST, 
+                    providing access to world-class facilities, expertise, and talent pipelines. These partnerships 
+                    will accelerate our technology development and help us attract top engineering and research talent.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="mb-6">Join Our Mission</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                Interested in partnering, investing, or joining our team as we build the future of robotics in Japan?
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html"><button class="bg-accent-red text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition">Get in Touch</button></a>
+                <a href="projects.html"><button class="border-2 border-accent-red text-accent-red px-8 py-3 rounded-full font-medium hover:bg-red-900 hover:bg-opacity-10 transition">View Our Projects</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZŌ</span>
+                        <span class="accent-red text-2xl">•</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Advancing robotics, AI, and healthcare innovation.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">About</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">Technology</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="projects.html#hhc" class="hover:text-white transition">Hanzō H.H.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">Nanorobotics</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">Super App</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">General Inquiries</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">Partnerships</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. All rights reserved.</p>
+                <p class="mt-2">Pioneering robotics innovation in Japan and globally.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
