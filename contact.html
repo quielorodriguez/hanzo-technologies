@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Hanzo Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .red-accent {
+            color: #DC143C;
+        }
+        
+        .red-glow {
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .contact-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(220, 20, 60, 0.2);
+        }
+        
+        input, textarea, select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #DC143C;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .submit-button {
+            background: #DC143C;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            background: #bc0230;
+            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="technology.html" class="nav-link">Technology</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 EN</button>
+                        <div class="language-dropdown">
+                            <a href="contact.html">🇺🇸 English</a>
+                            <a href="ja/contact.html">🇯🇵 日本語</a>
+                            <a href="es/contact.html">🇪🇸 Español</a>
+                            <a href="zh/contact.html">🇨🇳 中文</a>
+                            <a href="ko/contact.html">🇰🇷 한국어</a>
+                            <a href="fr/contact.html">🇫🇷 Français</a>
+                            <a href="de/contact.html">🇩🇪 Deutsch</a>
+                            <a href="vi/contact.html">🇻🇳 Tiếng Việt</a>
+                            <a href="ar/contact.html">🇸🇦 العربية</a>
+                            <a href="hi/contact.html">🇮🇳 हिन्दी</a>
+                            <a href="bo/contact.html">🏔️ བོད་ཡིག</a>
+                            <a href="haw/contact.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-48 pb-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    Get in <span class="red-accent">Touch</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Whether you're interested in partnerships, investments, or learning more about our technology, we'd love to hear from you.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Contact Information</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                Choose the best way to reach us based on your inquiry
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- General Inquiries -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">📧</div>
+                    <h3 class="text-xl font-bold mb-3">General Inquiries</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        For general questions about our company and products
+                    </p>
+                    <a href="/cdn-cgi/l/email-protection#0372766a666f6c436b626d796c7766606b6d6c6f6c646a66702d606c6e" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        <span class="__cf_email__" data-cfemail="2455514d41484b644c454a5e4b5041474c4a4b484b434d41570a474b49">[email&#160;protected]</span>
+                    </a>
+                </div>
+
+                <!-- Partnerships -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold mb-3">Partnerships</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Business development, research collaborations, and strategic partnerships
+                    </p>
+                    <a href="/cdn-cgi/l/email-protection#86e9f3f2f4e3e7e5eec6eee7e8fce9f2e3e5eee8e9eae9e1efe3f5a8e5e9eb" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        <span class="__cf_email__" data-cfemail="e18e94959384808289a189808f9b8e958482898f8e8d8e86888492cf828e8c">[email&#160;protected]</span>
+                    </a>
+                </div>
+
+                <!-- Support -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">🛟</div>
+                    <h3 class="text-xl font-bold mb-3">Customer Support</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Technical support and customer service inquiries
+                    </p>
+                    <a href="/cdn-cgi/l/email-protection#e2919792928d9096a28a838c988d9687818a8c8d8e8d858b8791cc818d8f" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        <span class="__cf_email__" data-cfemail="45363035352a3731052d242b3f2a3120262d2b2a292a222c20366b262a28">[email&#160;protected]</span>
+                    </a>
+                </div>
+
+                <!-- Press -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">📰</div>
+                    <h3 class="text-xl font-bold mb-3">Press & Media</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Media inquiries, press releases, and interview requests
+                    </p>
+                    <a href="/cdn-cgi/l/email-protection#671715021414270f06091d081302040f09080b08000e02144904080a" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        <span class="__cf_email__" data-cfemail="28585a4d5b5b6840494652475c4d4b40464744474f414d5b064b4745">[email&#160;protected]</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-effect p-10">
+                <h2 class="text-3xl font-bold mb-4 text-center">Send Us a Message</h2>
+                <p class="text-center text-gray-400 mb-10">
+                    Fill out the form below and we'll get back to you as soon as possible
+                </p>
+                
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">First Name *</label>
+                            <input type="text" required placeholder="John" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Last Name *</label>
+                            <input type="text" required placeholder="Doe" />
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Email Address *</label>
+                            <input type="email" required placeholder="john@example.com" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Phone Number</label>
+                            <input type="tel" placeholder="+1 (555) 123-4567" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Company/Organization</label>
+                        <input type="text" placeholder="Your Company Name" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Inquiry Type *</label>
+                        <select required>
+                            <option value="">Select an option</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="investment">Investment Interest</option>
+                            <option value="research">Research Collaboration</option>
+                            <option value="press">Press/Media</option>
+                            <option value="support">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Message *</label>
+                        <textarea required rows="6" placeholder="Tell us more about your inquiry..."></textarea>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" id="privacy" required class="mt-1 w-4 h-4" />
+                        <label for="privacy" class="ml-2 text-sm text-gray-400">
+                            I agree to the processing of my personal data in accordance with privacy policies *
+                        </label>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="submit-button">
+                            Send Message
+                        </button>
+                        <p class="text-xs text-gray-500 mt-4">
+                            * Required fields
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Our Locations</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                Operating across the Pacific with strategic positioning in key innovation hubs
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- USA Operations -->
+                <div class="glass-effect p-8">
+                    <div class="flex items-start mb-6">
+                        <span class="text-4xl mr-4">🇺🇸</span>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">United States</h3>
+                            <p class="text-red-400 text-sm font-semibold">Current Operations</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <div>
+                            <p class="font-semibold mb-1">Seattle, Washington</p>
+                            <p class="text-sm text-gray-400">
+                                Primary development hub for software and AI research
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">Time Zone:</p>
+                            <p class="font-semibold">Pacific Time (UTC-8/UTC-7)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Japan Operations -->
+                <div class="glass-effect p-8 red-glow">
+                    <div class="flex items-start mb-6">
+                        <span class="text-4xl mr-4">🇯🇵</span>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Japan</h3>
+                            <p class="text-red-400 text-sm font-semibold">Future Headquarters</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <div>
+                            <p class="font-semibold mb-1">Tokyo, Japan</p>
+                            <p class="text-sm text-gray-400">
+                                Planned primary headquarters for robotics development and manufacturing
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">Target Areas:</p>
+                            <ul class="text-sm space-y-1">
+                                <li>• Shibuya Ward - Innovation district</li>
+                                <li>• Minato Ward - Business hub</li>
+                                <li>• Chiyoda Ward - Tech center</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">Time Zone:</p>
+                            <p class="font-semibold">Japan Standard Time (UTC+9)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Response Times -->
+            <div class="mt-16 max-w-3xl mx-auto">
+                <div class="glass-effect p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-6">Expected Response Times</h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div>
+                            <div class="text-3xl mb-2">⚡</div>
+                            <p class="font-semibold mb-1">General Inquiries</p>
+                            <p class="text-gray-400">Within 24-48 hours</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl mb-2">🤝</div>
+                            <p class="font-semibold mb-1">Partnerships</p>
+                            <p class="text-gray-400">Within 48-72 hours</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl mb-2">🛟</div>
+                            <p class="font-semibold mb-1">Support</p>
+                            <p class="text-gray-400">Within 72 hours</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-6">
+                        Response times are estimates and may vary during high-volume periods or holidays
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Frequently Asked Questions</h2>
+            <p class="text-center text-gray-400 mb-16">
+                Quick answers to common inquiries
+            </p>
+
+            <div class="space-y-6">
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">Are you currently hiring?</h3>
+                    <p class="text-gray-300">
+                        We're actively building our team as we establish operations in Tokyo. While we're not openly advertising positions yet, we welcome inquiries from talented robotics engineers, AI specialists, and business development professionals. Send your resume to <a href="/cdn-cgi/l/email-protection#a9d8dcc0ccc5c6e9c1c8c7d3c6ddcccac1c7c6c5c6cec0ccda87cac6c4" class="text-red-400 hover:text-red-300"><span class="__cf_email__" data-cfemail="70010519151c1f3018111e0a1f041513181e1f1c1f171915035e131f1d">[email&#160;protected]</span></a>.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">Do you accept investment inquiries?</h3>
+                    <p class="text-gray-300">
+                        Yes! We're actively seeking strategic investors and venture capital partners who share our vision for robotics innovation. Please contact us at <a href="/cdn-cgi/l/email-protection#c2b3b7aba7aead82aaa3acb8adb6a7a1aaacadaeada5aba7b1eca1adaf" class="text-red-400 hover:text-red-300"><span class="__cf_email__" data-cfemail="1c6d69757970735c747d72667368797f74727370737b75796f327f7371">[email&#160;protected]</span></a> for investment opportunities and pitch deck materials.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">Can I schedule a product demonstration?</h3>
+                    <p class="text-gray-300">
+                        Our products are currently in development. We'll be scheduling demonstrations once prototypes are available. If you're interested in early access or pilot programs, please reach out to <a href="/cdn-cgi/l/email-protection#b6d9c3c2c4d3d7d5def6ded7d8ccd9c2d3d5ded8d9dad9d1dfd3c598d5d9db" class="text-red-400 hover:text-red-300"><span class="__cf_email__" data-cfemail="c0afb5b4b2a5a1a3a880a8a1aebaafb4a5a3a8aeafacafa7a9a5b3eea3afad">[email&#160;protected]</span></a>.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">How can research institutions partner with you?</h3>
+                    <p class="text-gray-300">
+                        We're actively seeking research partnerships with institutions like RIKEN, AIST, and leading universities. For collaboration opportunities, please contact <a href="/cdn-cgi/l/email-protection#cfa0babbbdaaaeaca78fa7aea1b5a0bbaaaca7a1a0a3a0a8a6aabce1aca0a2" class="text-red-400 hover:text-red-300"><span class="__cf_email__" data-cfemail="cca3b9b8bea9adafa48ca4ada2b6a3b8a9afa4a2a3a0a3aba5a9bfe2afa3a1">[email&#160;protected]</span></a> with details about your research focus and potential synergies.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">Do you have any products available for purchase?</h3>
+                    <p class="text-gray-300">
+                        Our products are currently in development and not yet commercially available. We're following a phased development strategy with our super app launching first, followed by our robotics platforms. Join our contact list to be notified when products become available.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">What languages do you support?</h3>
+                    <p class="text-gray-300">
+                        Our primary business languages are English and Japanese. Our website offers 12 language options to serve our global audience. Our robots will support voice interaction in Japanese and English, with additional languages planned for future releases.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social & Newsletter -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-effect p-10 text-center">
+                <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+                <p class="text-gray-400 mb-8">
+                    Follow our journey as we build the future of robotics and AI
+                </p>
+                
+                <!-- Newsletter Signup -->
+                <div class="max-w-md mx-auto mb-8">
+                    <form class="flex gap-3">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email" 
+                            class="flex-1"
+                        />
+                        <button type="submit" class="submit-button whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
+                    <p class="text-xs text-gray-500 mt-3">
+                        Get updates on product launches, partnerships, and company news
+                    </p>
+                </div>
+
+                <!-- Social Links Placeholder -->
+                <div class="pt-8 border-t border-gray-800">
+                    <p class="text-sm text-gray-400 mb-4">Follow us on social media (coming soon)</p>
+                    <div class="flex justify-center gap-6 text-2xl text-gray-600">
+                        <span>📱</span>
+                        <span>💼</span>
+                        <span>🐦</span>
+                        <span>📺</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">
+                            H A N Z <span class="text-lg">Ō</span>
+                            <span class="red-accent text-2xl">•</span>
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Advancing robotics, AI, and healthcare technology for a better future.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">Technology</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Projects</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">Nanorobotics</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">Super App</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="/cdn-cgi/l/email-protection#6312160a060f0c230b020d190c1706000b0d0c0f0c040a06104d000c0e" class="hover:text-white transition">General Inquiries</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#e48b9190968185878ca48c858a9e8b9081878c8a8b888b838d8197ca878b89" class="hover:text-white transition">Partnerships</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#f2818782829d8086b29a939c889d8697919a9c9d9e9d959b9781dc919d9f" class="hover:text-white transition">Support</a></li>
+                        <li><a href="/cdn-cgi
