@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロジェクト - Hanzo Technologies</title>
+    <meta name="description" content="Hanzo Technologiesの6つのイノベーションプロジェクトをご覧ください：高齢者介護、病院、建設、小売向けのヒューマノイドロボット、ナノロボティクス、スーパーアプリプラットフォーム。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .accent-red {
+            color: #DC143C;
+        }
+        
+        .bg-accent-red {
+            background-color: #DC143C;
+        }
+        
+        .border-accent-red {
+            border-color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .product-nav {
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 40;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .product-nav-link {
+            color: #9ca3af;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: inline-block;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .product-nav-link:hover,
+        .product-nav-link.active {
+            color: #DC143C;
+            border-bottom-color: #DC143C;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .product-icon {
+            font-size: 4rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">ホーム</a>
+                    <a href="about.html" class="nav-link">会社概要</a>
+                    <a href="projects.html" class="nav-link accent-red">プロジェクト</a>
+                    <a href="technology.html" class="nav-link">技術</a>
+                    <a href="contact.html" class="nav-link">お問い合わせ</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 JA</button>
+                        <div class="language-dropdown">
+                            <a href="../projects.html">🇺🇸 English</a>
+                            <a href="projects.html">🇯🇵 日本語</a>
+                            <a href="../es/projects.html">🇪🇸 Español</a>
+                            <a href="../zh/projects.html">🇨🇳 中文</a>
+                            <a href="../ko/projects.html">🇰🇷 한국어</a>
+                            <a href="../fr/projects.html">🇫🇷 Français</a>
+                            <a href="../de/projects.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/projects.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/projects.html">🇸🇦 العربية</a>
+                            <a href="../hi/projects.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/projects.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/projects.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Navigation -->
+    <div class="product-nav">
+        <div class="max-w-6xl mx-auto px-6 overflow-x-auto">
+            <div class="flex space-x-1 justify-center">
+                <a href="#mec" class="product-nav-link">M.E.C</a>
+                <a href="#hhc" class="product-nav-link">H.H.C</a>
+                <a href="#cem" class="product-nav-link">C.E.M</a>
+                <a href="#rai" class="product-nav-link">R.A.I</a>
+                <a href="#nano" class="product-nav-link">ナノロボティクス</a>
+                <a href="#app" class="product-nav-link">スーパーアプリ</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="hero-gradient section-padding text-center" style="margin-top: 100px;">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem);">プロジェクト</h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light">
+                ヘルスケア、建設、日常生活における重要な課題に取り組む6つのイノベーション。
+            </p>
+        </div>
+    </section>
+
+    <!-- Hanzō M.E.C -->
+    <section id="mec" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">♿</div>
+                <h2 class="mb-4">Hanzō M.E.C</h2>
+                <p class="text-xl accent-red font-medium mb-4">医療・高齢者介護ロボット</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    日本の高齢化社会向けに設計された先進的なコンパニオンロボット。
+                    健康モニタリング、緊急対応、社会的交流を提供します。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主な機能
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>緊急対応AIによる転倒検出</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>継続的なバイタルサインモニタリング（心拍数、血圧、体温）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>AI搭載健康アラート付き服薬リマインダーシステム</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>ウェアラブルとの連携（Apple Watch、Fitbit、Garmin、Samsung、Huawei）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>社会的交流と精神的刺激のためのコンパニオンAI</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>移動支援と自律ナビゲーション</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>日本語と英語での音声コントロール対応</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        ターゲット市場
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>日本の高齢者介護施設</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>高齢者向け在宅介護</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>医療プロバイダーと介護施設</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>高齢の親族がいるご家族</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技術仕様
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• 自律ナビゲーション機能付きヒューマノイドデザイン</li>
+                        <li>• 高度なAIと機械学習機能</li>
+                        <li>• マルチセンサー健康モニタリングシステム</li>
+                        <li>• ワイヤレス接続とクラウド統合</li>
+                        <li>• 24時間稼働のための長時間バッテリー</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō H.H.C -->
+    <section id="hhc" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">🏥</div>
+                <h2 class="mb-4">Hanzō H.H.C</h2>
+                <p class="text-xl accent-red font-medium mb-4">病院ヘルスケアロボット</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    専用レーンナビゲーションを備えた高速病院アシスタント。
+                    医師を時間のかかる作業から解放し、患者ケアの効率を向上させます。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主な機能
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>患者カルテ作成と医療文書作成</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>物品補充と在庫管理</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>継続的な患者モニタリングとバイタルサイン追跡</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>電子カルテ（EMR）システム連携</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>完璧な空間記憶による3D病院マッピング</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>高速移動のための専用病院レーンナビゲーション</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>薬剤室へのアクセスと取得支援</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        ターゲット市場
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>大規模病院と医療センター</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>集中治療室（ICU）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>救急部門</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>専門クリニックと医療施設</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技術仕様
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• スピードに最適化されたヒューマノイドデザイン</li>
+                        <li>• 3D環境マッピングによる高度なナビゲーション</li>
+                        <li>• 医療グレードの素材と滅菌設計</li>
+                        <li>• リアルタイム電子カルテ連携とデータ同期</li>
+                        <li>• AI搭載在庫追跡・管理システム</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō C.E.M -->
+    <section id="cem" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">🏗️</div>
+                <h2 class="mb-4">Hanzō C.E.M</h2>
+                <p class="text-xl accent-red font-medium mb-4">建設・製造ロボット</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    複雑な建設現場向けに設計された重量級四足歩行ロボット。
+                    モジュラーツールアタッチメントと高度な地形ナビゲーション機能を搭載。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主な機能
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>不整地向け四足歩行移動</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>モジュラーツールアタッチメント付き重量物運搬</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>複雑な現場向け高度SLAMベースナビゲーション</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>衝撃吸収機能付き産業グレード耐久性</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>安全センサーと衝突回避システム</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>リモートモニタリングとIIoT連携</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>自己診断と予知保全</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        ターゲット市場
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>建設会社と請負業者</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>製造施設</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>インフラ開発プロジェクト</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>産業自動化セクター</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技術仕様
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• 産業グレード素材（アルミニウム、カーボンファイバー、鋼鉄）</li>
+                        <li>• 過酷な環境向け堅牢設計</li>
+                        <li>• 安定システム付き高積載容量</li>
+                        <li>• 耐候性・防塵構造</li>
+                        <li>• ツール交換用モジュラーアーキテクチャ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō R.A.I -->
+    <section id="rai" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">🛍️</div>
+                <h2 class="mb-4">Hanzō R.A.I</h2>
+                <p class="text-xl accent-red font-medium mb-4">小売自動化・インテリジェンスロボット</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    自然言語処理を搭載したAI搭載小売アシスタント。
+                    Hanzoスーパーアプリとシームレスに統合し、次世代の顧客体験を提供。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主な機能
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>自然言語処理による顧客サービスAI</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>在庫管理と補充自動化</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>シームレス決済のためのHanzoスーパーアプリ連携</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>パーソナライズされた商品レコメンデーション</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>小売環境での自律ナビゲーション</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>海外からのお客様向け多言語サポート</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>リアルタイム分析と顧客インサイト</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        ターゲット市場
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>小売店舗とショッピングセンター</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>スーパーマーケットとコンビニエンスストア</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>倉庫と物流センター</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>EC物流施設</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技術仕様
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• 顧客対応向けヒューマノイドデザイン</li>
+                        <li>• 高度なコンピュータービジョンと物体認識</li>
+                        <li>• 継続学習のためのクラウド接続AI</li>
+                        <li>• 決済処理連携</li>
+                        <li>• 様々な小売形態向けモジュラー設計</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nanorobotics Platform -->
+    <section id="nano" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">⚛️</div>
+                <h2 class="mb-4">ナノロボティクスプラットフォーム</h2>
+                <p class="text-xl accent-red font-medium mb-4">医療用ナノロボティクス</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    標的がん治療、DNA修復、環境修復アプリケーション向けの
+                    独自シリコンベースナノロボット。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主な機能
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>標的がん細胞の識別と治療</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>分子レベルでのDNA修復メカニズム</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>精密薬物送達システム</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>石油流出の環境浄化</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>サンゴ礁修復技術</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>生体適合性シリコンベース設計</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>制御された活性化と不活性化</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        ターゲット市場
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>がん治療センターと病院</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>精密医療クリニック</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>環境浄化機関</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>海洋保全プロジェクト</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技術仕様
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• 独自シリコンベースナノ構造</li>
+                        <li>• 分子スケール標的システム</li>
+                        <li>• 生体適合性材料とコーティング</li>
+                        <li>• 高度な計算モデリング</li>
+                        <li>• 多段階臨床開発パスウェイ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Super App Platform -->
+    <section id="app" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">💳</div>
+                <h2 class="mb-4">スーパーアプリプラットフォーム</h2>
+                <p class="text-xl accent-red font-medium mb-4">統合デジタルサービス</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    決済、メッセージング、ライドシェアリング、フードデリバリー、
+                    銀行サービスをロボティクス連携とシームレスに組み合わせた包括的モバイルプラットフォーム。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主な機能
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>統合決済処理（PayPal、Stripe、暗号通貨）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>セキュアなメッセージングとコミュニケーションプラットフォーム</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>ライドシェアリングと交通サービス</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>フードデリバリーとレストラン注文</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>デジタルバンキングと金融サービス</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>Hanzō R.A.I小売ロボットとのシームレス連携</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>日米間クロスボーダー機能</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        ターゲット市場
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>日米市場の消費者</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>海外旅行者と駐在員</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>中小企業と小売業者</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>テクノロジーに精通した都市部のプロフェッショナル</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技術仕様
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• ネイティブiOS/Androidアプリケーション</li>
+                        <li>• クラウドベースのスケーラブルインフラ</li>
+                        <li>• エンタープライズグレードのセキュリティと暗号化</li>
+                        <li>• 多通貨・多言語サポート</li>
+                        <li>• ロボティクスエコシステム向けAPI連携</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="mb-6">プロジェクトに興味がありますか？</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                当社の技術やパートナーシップについて詳しく知りたい方、または協業の機会についてご相談ください。
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="technology.html"><button class="bg-accent-red text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition">技術を見る</button></a>
+                <a href="contact.html"><button class="border-2 border-accent-red text-accent-red px-8 py-3 rounded-full font-medium hover:bg-red-900 hover:bg-opacity-10 transition">お問い合わせ</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZŌ</span>
+                        <span class="accent-red text-2xl">•</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        ロボティクス、AI、ヘルスケアイノベーションを前進させる。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">会社</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">会社概要</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">プロジェクト</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">技術</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">製品</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="#hhc" class="hover:text-white transition">Hanzō H.H.C</a></li>
+                        <li><a href="#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="#nano" class="hover:text-white transition">ナノロボティクス</a></li>
+                        <li><a href="#app" class="hover:text-white transition">スーパーアプリ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">お問い合わせ</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">一般お問い合わせ</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">パートナーシップ</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">サポート</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. All rights reserved.</p>
+                <p class="mt-2">日本と世界でロボティクスイノベーションを先導。</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

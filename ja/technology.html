@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技術・イノベーション - Hanzo Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .red-accent {
+            color: #DC143C;
+        }
+        
+        .red-glow {
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .tech-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(220, 20, 60, 0.2);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid rgba(220, 20, 60, 0.3);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: #DC143C;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">ホーム</a>
+                    <a href="about.html" class="nav-link">会社概要</a>
+                    <a href="projects.html" class="nav-link">プロジェクト</a>
+                    <a href="technology.html" class="nav-link red-accent">技術</a>
+                    <a href="contact.html" class="nav-link">お問い合わせ</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 JA</button>
+                        <div class="language-dropdown">
+                            <a href="../technology.html">🇺🇸 English</a>
+                            <a href="technology.html">🇯🇵 日本語</a>
+                            <a href="../es/technology.html">🇪🇸 Español</a>
+                            <a href="../zh/technology.html">🇨🇳 中文</a>
+                            <a href="../ko/technology.html">🇰🇷 한국어</a>
+                            <a href="../fr/technology.html">🇫🇷 Français</a>
+                            <a href="../de/technology.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/technology.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/technology.html">🇸🇦 العربية</a>
+                            <a href="../hi/technology.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/technology.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/technology.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient section-padding text-center fade-in" style="margin-top: 100px;">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;">
+                技術と<span class="red-accent">イノベーション</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
+                先進的なロボティクス、AI、ナノテクノロジー研究を通じて未来を開拓
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Technologies Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">コアテクノロジー</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                私たちのイノベーションは、世界的な課題に対応する3つの革新的な技術領域にまたがっています
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Humanoid Robotics -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold mb-4">ヒューマノイドロボティクス</h3>
+                    <p class="text-gray-400 mb-6">
+                        高齢者介護、建設自動化、小売環境向けに設計された先進的な二足・四足歩行ロボット
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• AI搭載ビジョンとナビゲーション</li>
+                        <li>• ダイナミックバランシングシステム</li>
+                        <li>• モジュラーツール統合</li>
+                        <li>• 人間-ロボット協調</li>
+                        <li>• SLAMベースナビゲーション</li>
+                    </ul>
+                </div>
+
+                <!-- Nanorobotics -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🔬</div>
+                    <h3 class="text-2xl font-bold mb-4">シリコンベースナノロボティクス</h3>
+                    <p class="text-gray-400 mb-6">
+                        がん治療、DNA修復、環境修復を目指す精密医療向けの独自ナノスケールロボット
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• 分子レベルの精度</li>
+                        <li>• 生体適合性材料</li>
+                        <li>• 標的薬物送達</li>
+                        <li>• 環境浄化</li>
+                        <li>• DNA修復メカニズム</li>
+                    </ul>
+                </div>
+
+                <!-- AI & Software -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-2xl font-bold mb-4">AI & ソフトウェアプラットフォーム</h3>
+                    <p class="text-gray-400 mb-6">
+                        決済、メッセージング、サービスとロボティクス統合をシームレスに組み合わせた統合スーパーアプリエコシステム
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• 自然言語処理</li>
+                        <li>• 機械学習アルゴリズム</li>
+                        <li>• リアルタイム意思決定</li>
+                        <li>• マルチサービス統合</li>
+                        <li>• クロスプラットフォーム互換性</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- R&D Approach -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">研究開発</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                私たちのR&D哲学は、協調、反復開発、世界クラスの研究機関との連携を重視しています
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Left Column -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent mr-3">◆</span>
+                        協調研究モデル
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        私たちは、画期的なイノベーションは協調から生まれると信じています。開発ロードマップには、技術の検証と商業化を加速するための世界クラスの研究機関との戦略的パートナーシップの確立が含まれています。
+                    </p>
+                    
+                    <div class="glass-effect p-6 mb-6">
+                        <h4 class="font-bold mb-3">目標研究パートナーシップ</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>
+                                <strong class="text-white">理化学研究所（RIKEN）</strong> - 日本最高峰の研究機関
+                                <p class="text-sm text-gray-400 mt-1">ナノロボティクスシミュレーションとAI開発のためのスーパーコンピューティングインフラへのアクセス</p>
+                            </li>
+                            <li>
+                                <strong class="text-white">産業技術総合研究所（AIST）</strong> - 国立研究開発法人
+                                <p class="text-sm text-gray-400 mt-1">産業用ロボティクスの検証、安全認証、商業化サポート</p>
+                            </li>
+                            <li>
+                                <strong class="text-white">東京大学</strong> - 日本を代表する学術機関
+                                <p class="text-sm text-gray-400 mt-1">ロボティクスとAI研究協力、人材パイプライン</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-effect p-6">
+                        <h4 class="font-bold mb-3">パートナーシップのメリット</h4>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li>• 世界クラスの計算リソースへのアクセス</li>
+                            <li>• 科学的検証と信頼性</li>
+                            <li>• 規制コンプライアンスガイダンス</li>
+                            <li>• 製造ネットワークへの接続</li>
+                            <li>• 共同研究資金調達の機会</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent mr-3">◆</span>
+                        イノベーションインフラ
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        私たちの技術能力は、ハードウェアエンジニアリング、ソフトウェア開発、先端材料科学にまたがり、複数の領域にわたる複雑な課題に対応できる態勢を整えています。
+                    </p>
+
+                    <div class="space-y-6">
+                        <!-- Robotics Engineering -->
+                        <div class="glass-effect p-6">
+                            <h4 class="font-bold mb-3">🔧 ロボティクスエンジニアリング</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• 二足・四足歩行システム</li>
+                                <li>• 高度なセンサー統合（LIDAR、ビジョン、触覚）</li>
+                                <li>• ダイナミックバランシングと安定化</li>
+                                <li>• モジュラーハードウェアアーキテクチャ</li>
+                                <li>• 産業グレードの耐久性設計</li>
+                            </ul>
+                        </div>
+
+                        <!-- AI & Machine Learning -->
+                        <div class="glass-effect p-6">
+                            <h4 class="font-bold mb-3">🧠 AI & 機械学習</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• コンピュータービジョンと物体認識</li>
+                                <li>• 自然言語処理（日本語、英語）</li>
+                                <li>• タスク適応のための強化学習</li>
+                                <li>• 予知保全アルゴリズム</li>
+                                <li>• リアルタイム意思決定システム</li>
+                            </ul>
+                        </div>
+
+                        <!-- Materials Science -->
+                        <div class="glass-effect p-6">
+                            <h4 class="font-bold mb-3">⚗️ 材料 & ナノテクノロジー</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• シリコンベースナノ構造設計</li>
+                                <li>• 生体適合性材料研究</li>
+                                <li>• カーボンファイバーとアルミニウム複合材料</li>
+                                <li>• 先端センサー材料</li>
+                                <li>• 環境グレードコンポーネント</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Timeline -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">段階的開発戦略</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                早期の収益を生み出しながら、革新的なイノベーションに向けて構築する体系的な3フェーズアプローチ
+            </p>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Phase 1 -->
+                <div class="timeline-item glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold red-accent mr-4">フェーズ1</span>
+                        <span class="text-gray-400">1〜18ヶ月目</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">スーパーアプリ基盤</h3>
+                    <p class="text-gray-300 mb-4">
+                        日米市場向け統合メッセージングおよび決済プラットフォームをローンチし、将来のロボティクス統合のためのインフラを構築しながら、ユーザーベースと収益源を確立します。
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <strong class="text-white">主要マイルストーン：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• ベータ版ローンチ（6ヶ月目）</li>
+                                <li>• 決済処理統合</li>
+                                <li>• 10,000ユーザー以上目標</li>
+                                <li>• 初期収益創出</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">テクノロジースタック：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• クロスプラットフォームモバイルアプリ</li>
+                                <li>• セキュア決済インフラ</li>
+                                <li>• リアルタイムメッセージング</li>
+                                <li>• クラウドベースアーキテクチャ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="timeline-item glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold red-accent mr-4">フェーズ2</span>
+                        <span class="text-gray-400">12〜36ヶ月目</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Hanzōロボティクスシリーズ</h3>
+                    <p class="text-gray-300 mb-4">
+                        3種類の専用ヒューマノイドロボットを開発・テストし、東京の病院、建設会社、小売チェーンとの実世界導入パートナーシップを確立します。
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                        <div>
+                            <strong class="text-white">M.E.Cロボット：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• 設計仕様（12ヶ月目）</li>
+                                <li>• プロトタイプ（18ヶ月目）</li>
+                                <li>• 医療機関トライアル（24ヶ月目）</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">C.E.Mロボット：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• 開発開始（18ヶ月目）</li>
+                                <li>• 建設現場テスト</li>
+                                <li>• 安全認証</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">R.A.Iロボット：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• 小売統合設計</li>
+                                <li>• アプリエコシステム接続</li>
+                                <li>• パイロット導入</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="timeline-item glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold red-accent mr-4">フェーズ3</span>
+                        <span class="text-gray-400">24〜60ヶ月目</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">ナノロボティクス研究</h3>
+                    <p class="text-gray-300 mb-4">
+                        研究パートナーシップを通じてシリコンベースナノロボティクスR&Dを開始し、臨床試験への道筋を持つがん治療とDNA修復アプリケーションを開発します。
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <strong class="text-white">研究フォーカス：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• 計算モデリング</li>
+                                <li>• 材料生体適合性</li>
+                                <li>• 標的薬物送達</li>
+                                <li>• DNA修復メカニズム</li>
+                                <li>• 環境アプリケーション</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">パートナーシップ目標：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• RIKENスーパーコンピューティングアクセス</li>
+                                <li>• 共同研究論文発表</li>
+                                <li>• 臨床試験準備</li>
+                                <li>• 規制パスウェイ開発</li>
+                                <li>• 国際協力</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">技術能力</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                ロボティクス、AI、先端製造にわたる深い技術専門知識
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Vision Systems -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">👁️</span>
+                        ビジョン & 知覚
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>3Dビジョン：</strong>深度知覚と空間認識</li>
+                        <li><strong>物体認識：</strong>AI搭載識別</li>
+                        <li><strong>SLAMナビゲーション：</strong>リアルタイムマッピングと位置特定</li>
+                        <li><strong>欠陥検出：</strong>品質管理自動化</li>
+                        <li><strong>マルチモーダルセンシング：</strong>ビジョン、LIDAR、超音波</li>
+                    </ul>
+                </div>
+
+                <!-- Mobility -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">🦿</span>
+                        移動 & モビリティ
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>二足歩行：</strong>人間のような動きパターン</li>
+                        <li><strong>四足安定性：</strong>強化された荷重運搬</li>
+                        <li><strong>ダイナミックバランシング：</strong>リアルタイム調整</li>
+                        <li><strong>地形適応：</strong>不整地ナビゲーション</li>
+                        <li><strong>障害物回避：</strong>安全な経路計画</li>
+                    </ul>
+                </div>
+
+                <!-- Manipulation -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">🤲</span>
+                        マニピュレーション & ツール
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>モジュラーエンドエフェクター：</strong>ツール交換機能</li>
+                        <li><strong>精密グリッピング：</strong>デリケートな物体のハンドリング</li>
+                        <li><strong>重量物リフティング：</strong>産業用積載容量</li>
+                        <li><strong>多軸アーム：</strong>複雑なタスク実行</li>
+                        <li><strong>力フィードバック：</strong>触覚センシング</li>
+                    </ul>
+                </div>
+
+                <!-- AI & Learning -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">🤖</span>
+                        AI & 学習
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>タスク適応：</strong>経験からの学習</li>
+                        <li><strong>自然言語：</strong>音声インタラクション（日/英）</li>
+                        <li><strong>意思決定：</strong>自律的計画立案</li>
+                        <li><strong>予測分析：</strong>保全予測</li>
+                        <li><strong>協調AI：</strong>人間-ロボットチームワーク</li>
+                    </ul>
+                </div>
+
+                <!-- Safety Systems -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">🛡️</span>
+                        安全性 & コンプライアンス
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>衝突回避：</strong>マルチセンサー保護</li>
+                        <li><strong>緊急停止：</strong>即時応答システム</li>
+                        <li><strong>人間検出：</strong>近接認識</li>
+                        <li><strong>安全規格：</strong>産業認証</li>
+                        <li><strong>フェイルセーフ設計：</strong>冗長システム</li>
+                    </ul>
+                </div>
+
+                <!-- Connectivity -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">📡</span>
+                        IoT & コネクティビティ
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>IIoT統合：</strong>産業用IoT互換性</li>
+                        <li><strong>リモートモニタリング：</strong>リアルタイムテレメトリ</li>
+                        <li><strong>クラウドコネクティビティ：</strong>データ同期</li>
+                        <li><strong>マルチロボット連携：</strong>スワーム機能</li>
+                        <li><strong>アプリ統合：</strong>スーパーアプリエコシステム</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Principles -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">イノベーション原則</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">人間中心設計</h3>
+                    <p class="text-gray-300 mb-4">
+                        私たちが開発するすべての技術は、人間の幸福、安全、尊厳を最優先しています。ロボットは人間のつながりを置き換えるのではなく、人間の能力を拡張するために設計されています。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>• 最小限のトレーニングで使える直感的なインターフェース</li>
+                        <li>• あらゆるレベルでの安全第一エンジニアリング</li>
+                        <li>• 高齢者ユーザーへの敬意あるインタラクション</li>
+                        <li>• 置き換えではなく協調のマインドセット</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">倫理的技術</h3>
+                    <p class="text-gray-300 mb-4">
+                        私たちは日本のAIガイドラインに沿い、責任あるイノベーション、データプライバシー、透明な開発慣行にコミットしています。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>• プライバシー・バイ・デザインアーキテクチャ</li>
+                        <li>• 透明なAI意思決定</li>
+                        <li>• ベースラインとしての規制コンプライアンス</li>
+                        <li>• 社会的影響の考慮</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">モジュラーアーキテクチャ</h3>
+                    <p class="text-gray-300 mb-4">
+                        私たちの技術プラットフォームは適応性を考慮して設計されており、迅速な反復、容易なメンテナンス、将来を見据えたスケーラビリティを実現しています。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>• 交換可能なハードウェアコンポーネント</li>
+                        <li>• ソフトウェアアップデート機能</li>
+                        <li>• ツールアタッチメントの柔軟性</li>
+                        <li>• クロスプラットフォーム互換性</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">サステナビリティフォーカス</h3>
+                    <p class="text-gray-300 mb-4">
+                        環境への責任が、私たちの材料選択、製造プロセス、長期的な技術ロードマップを導いています。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>• エネルギー効率の高い設計</li>
+                        <li>• 持続可能な材料の選択</li>
+                        <li>• 環境浄化アプリケーション</li>
+                        <li>• 長い製品ライフサイクル</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">協業の準備はできていますか？</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                ロボティクスとAIの未来を形作る研究パートナー、技術協力者、アーリーアダプターを募集しています。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition red-glow">
+                    チームに連絡
+                </a>
+                <a href="projects.html" class="px-8 py-4 glass-effect hover:bg-white/10 text-white font-semibold rounded-lg transition">
+                    プロジェクトを見る
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZŌ</span>
+                        <span class="red-accent text-2xl">•</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        より良い未来のためにロボティクス、AI、ヘルスケア技術を前進させる。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">会社</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">会社概要</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">技術</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">プロジェクト</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">ナノロボティクス</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">スーパーアプリ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">お問い合わせ</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">一般お問い合わせ</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">パートナーシップ</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">サポート</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. All rights reserved.</p>
+                <p class="mt-2">日本と世界でロボティクスイノベーションを先導。</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langSelector = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langSelector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langSelector.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
