@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - Hanzo Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .red-accent {
+            color: #DC143C;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">首页</a>
+                    <a href="about.html" class="nav-link">关于</a>
+                    <a href="projects.html" class="nav-link">项目</a>
+                    <a href="technology.html" class="nav-link">技术</a>
+                    <a href="contact.html" class="nav-link">联系</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 中文</button>
+                        <div class="language-dropdown">
+                            <a href="../about.html">🇺🇸 English</a>
+                            <a href="../ja/about.html">🇯🇵 日本語</a>
+                            <a href="../es/about.html">🇪🇸 Español</a>
+                            <a href="about.html">🇨🇳 中文</a>
+                            <a href="../ko/about.html">🇰🇷 한국어</a>
+                            <a href="../fr/about.html">🇫🇷 Français</a>
+                            <a href="../de/about.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/about.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/about.html">🇸🇦 العربية</a>
+                            <a href="../hi/about.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/about.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/about.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section-padding text-center" style="margin-top: 100px; background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem);">
+                关于<span class="red-accent">我们</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
+                美日创业公司开发先进的机器人解决方案，以应对日本的人口挑战并推动全球创新
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-effect p-8">
+                    <h2 class="text-3xl font-bold mb-6">我们的使命</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        利用先进的机器人技术、人工智能和纳米技术创造增强人类生活、应对日本人口挑战并为全球可持续发展做出贡献的解决方案。
+                    </p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h2 class="text-3xl font-bold mb-6">我们的愿景</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        成为机器人和人工智能技术的领先创新者，创造增强人类生活、应对日本人口挑战并为全球可持续发展做出贡献的产品。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">我们做什么</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                Hanzo Technologies专注于三个核心产品线，每个都针对关键的社会和技术挑战
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold mb-4">人形机器人</h3>
+                    <p class="text-gray-400">
+                        专为老年护理、医院运营、建筑和零售自动化设计的四种专用机器人
+                    </p>
+                </div>
+
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">⚛️</div>
+                    <h3 class="text-2xl font-bold mb-4">纳米机器人平台</h3>
+                    <p class="text-gray-400">
+                        用于癌症治疗、DNA修复和环境修复的硅基医疗纳米机器人
+                    </p>
+                </div>
+
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-2xl font-bold mb-4">超级应用平台</h3>
+                    <p class="text-gray-400">
+                        为美日市场结合支付、消息传递和服务的综合移动应用
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Japan -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">为什么选择日本</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                日本为机器人创新提供了独特的机会和挑战
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center">
+                        <span class="red-accent mr-3">📊</span>
+                        市场机会
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="red-accent mr-2">•</span>
+                            <span><strong>老龄化人口：</strong> 29.1%的公民超过65岁，创造了对老年护理解决方案的巨大需求</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="red-accent mr-2">•</span>
+                            <span><strong>劳动力短缺：</strong> 建筑和医疗保健行业严重缺乏工人</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="red-accent mr-2">•</span>
+                            <span><strong>技术采用：</strong> 高科技素养和接受机器人辅助的文化</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="red-accent mr-2">•</span>
+                            <span><strong>市场规模：</strong> 超过1000亿美元的机器人和人工智能市场机会</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center">
+                        <span class="red-accent mr-3">🏛️</span>
+                        政府支持
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="red-accent mr-2">•</span>
+                            <span><strong>启动签证计划：</strong> 东京为外国企业家提供专门的签证途径</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="red-accent mr-2">•</span>
+                            <span><strong>NEDO资助：</strong> 为机器人和人工智能研发提供大量拨款</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="red-accent mr-2">•</span>
+                            <span><strong>METI计划：</strong> 社会转型机器人促进计划</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="red-accent mr-2">•</span>
+                            <span><strong>研发税收抵免：</strong> 创新活动的大幅税收减免</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Partnerships -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">战略合作伙伴关系</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                我们正在与日本顶级研究机构建立合作伙伴关系
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4">RIKEN</h3>
+                    <p class="text-sm text-red-400 mb-4">日本最大的综合研究组织</p>
+                    <p class="text-gray-300 mb-6">
+                        与RIKEN合作进行纳米机器人研究，访问Fugaku超级计算机和先进的人工智能基础设施。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>• 超级计算访问用于分子动力学模拟</li>
+                        <li>• 生命科学专业知识</li>
+                        <li>• 联合研究出版物</li>
+                        <li>• NEDO资助机会</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4">AIST</h3>
+                    <p class="text-sm text-red-400 mb-4">国立先进工业科学技术研究所</p>
+                    <p class="text-gray-300 mb-6">
+                        与AIST合作进行人形机器人验证、安全认证和商业化支持。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>• 工业机器人测试设施</li>
+                        <li>• 安全标准开发</li>
+                        <li>• 制造合作伙伴网络</li>
+                        <li>• 技术商业化指导</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center glass-effect p-8 max-w-4xl mx-auto">
+                <h4 class="text-xl font-bold mb-4">估计合作伙伴价值</h4>
+                <p class="text-3xl font-bold red-accent mb-2">¥26-45百万</p>
+                <p class="text-gray-400">24个月的实物资源和资助机会</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">我们的方法</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">以人为本</h3>
+                    <p class="text-gray-300">
+                        我们开发的每一项技术都优先考虑人类福祉、安全和尊严。我们的机器人旨在增强人类能力，而不是取代人类联系。
+                    </p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">道德创新</h3>
+                    <p class="text-gray-300">
+                        我们遵守日本的人工智能指南，并致力于负责任的创新、数据隐私保护和透明的开发实践。
+                    </p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">协作发展</h3>
+                    <p class="text-gray-300">
+                        我们与世界级研究机构合作，加速技术验证并确保我们的创新符合最高的科学和安全标准。
+                    </p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">可持续影响</h3>
+                    <p class="text-gray-300">
+                        环境责任指导我们的材料选择、制造流程和长期技术路线图，重点关注可持续性和全球影响。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">我们的旅程</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                从概念到现实的分阶段方法
+            </p>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-8">
+                    <div class="glass-effect p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl font-bold red-accent mr-4">2025</span>
+                            <span class="text-gray-400">当前</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">基础建设</h4>
+                        <p class="text-gray-300">
+                            西雅图开发，申请东京启动签证，建立研究合作伙伴关系
+                        </p>
+                    </div>
+
+                    <div class="glass-effect p-6">
+                        <span class="text-2xl font-bold red-accent">2026-2027</span>
+                        <h4 class="text-xl font-bold mb-2 mt-3">东京运营</h4>
+                        <p class="text-gray-300">
+                            在东京建立总部，推出超级应用，开始Hanzō机器人开发
+                        </p>
+                    </div>
+
+                    <div class="glass-effect p-6">
+                        <span class="text-2xl font-bold red-accent">2027-2028</span>
+                        <h4 class="text-xl font-bold mb-2 mt-3">产品发布</h4>
+                        <p class="text-gray-300">
+                            M.E.C和C.E.M机器人原型，医疗保健设施试验，制造合作伙伴关系
+                        </p>
+                    </div>
+
+                    <div class="glass-effect p-6">
+                        <span class="text-2xl font-bold red-accent">2029+</span>
+                        <h4 class="text-xl font-bold mb-2 mt-3">规模扩张</h4>
+                        <p class="text-gray-300">
+                            在日本全面部署，纳米机器人临床试验，国际市场扩张
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us CTA -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">加入我们的旅程</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                我们正在寻找合作伙伴、投资者和团队成员，他们分享我们通过机器人和人工智能创造积极影响的愿景。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition">
+                    联系我们
+                </a>
+                <a href="projects.html" class="px-8 py-4 glass-effect hover:bg-white/10 text-white font-semibold rounded-lg transition">
+                    查看项目
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZŌ</span>
+                        <span class="red-accent text-2xl">•</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        推进机器人、人工智能和医疗技术，创造更美好的未来。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">公司</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">关于我们</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">技术</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">联系</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">项目</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">纳米机器人</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">超级应用</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">联系</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">一般咨询</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">合作伙伴关系</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">支持</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. 保留所有权利。</p>
+                <p class="mt-2">在日本及全球范围内引领机器人创新。</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const langSelector = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langSelector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langSelector.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

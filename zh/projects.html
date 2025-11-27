@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目 - Hanzo Technologies</title>
+    <meta name="description" content="探索Hanzo Technologies的六个创新项目：用于老年护理、医院、建筑和零售的人形机器人，以及纳米机器人和超级应用平台。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .accent-red {
+            color: #DC143C;
+        }
+        
+        .bg-accent-red {
+            background-color: #DC143C;
+        }
+        
+        .border-accent-red {
+            border-color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .product-nav {
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 40;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .product-nav-link {
+            color: #9ca3af;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: inline-block;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .product-nav-link:hover,
+        .product-nav-link.active {
+            color: #DC143C;
+            border-bottom-color: #DC143C;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .product-icon {
+            font-size: 4rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">首页</a>
+                    <a href="about.html" class="nav-link">关于</a>
+                    <a href="projects.html" class="nav-link accent-red">项目</a>
+                    <a href="technology.html" class="nav-link">技术</a>
+                    <a href="contact.html" class="nav-link">联系</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 中文</button>
+                        <div class="language-dropdown">
+                            <a href="../projects.html">🇺🇸 English</a>
+                            <a href="../ja/projects.html">🇯🇵 日本語</a>
+                            <a href="../es/projects.html">🇪🇸 Español</a>
+                            <a href="projects.html">🇨🇳 中文</a>
+                            <a href="../ko/projects.html">🇰🇷 한국어</a>
+                            <a href="../fr/projects.html">🇫🇷 Français</a>
+                            <a href="../de/projects.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/projects.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/projects.html">🇸🇦 العربية</a>
+                            <a href="../hi/projects.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/projects.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/projects.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Navigation -->
+    <div class="product-nav">
+        <div class="max-w-6xl mx-auto px-6 overflow-x-auto">
+            <div class="flex space-x-1 justify-center">
+                <a href="#mec" class="product-nav-link">M.E.C</a>
+                <a href="#hhc" class="product-nav-link">H.H.C</a>
+                <a href="#cem" class="product-nav-link">C.E.M</a>
+                <a href="#rai" class="product-nav-link">R.A.I</a>
+                <a href="#nano" class="product-nav-link">纳米机器人</a>
+                <a href="#app" class="product-nav-link">超级应用</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="hero-gradient section-padding text-center" style="margin-top: 100px;">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem);">我们的项目</h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light">
+                六项创新应对医疗保健、建筑和日常生活中的关键挑战。
+            </p>
+        </div>
+    </section>
+
+    <!-- Hanzō M.E.C -->
+    <section id="mec" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">♿</div>
+                <h2 class="mb-4">Hanzō M.E.C</h2>
+                <p class="text-xl accent-red font-medium mb-4">医疗与老年护理机器人</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    为日本老龄化人口设计的先进伴侣机器人，提供健康监测、紧急响应和社交互动。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主要特点
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>跌倒检测与紧急响应AI</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>连续生命体征监测（心率、血压、体温）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>带AI健康警报的用药提醒系统</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>与可穿戴设备集成（Apple Watch、Fitbit、Garmin、Samsung、Huawei）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>用于社交互动和心理刺激的伴侣AI</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>移动支持和自主导航</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>日语和英语语音控制交互</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        目标市场
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>日本的老年护理设施</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>老龄化人口的家庭护理</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>医疗保健提供者和养老院</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>有老年亲属的家庭</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技术规格
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• 具有自主导航的人形设计</li>
+                        <li>• 先进的人工智能和机器学习能力</li>
+                        <li>• 多传感器健康监测系统</li>
+                        <li>• 无线连接和云集成</li>
+                        <li>• 24/7运行的超长电池续航</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō H.H.C -->
+    <section id="hhc" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">🏥</div>
+                <h2 class="mb-4">Hanzō H.H.C</h2>
+                <p class="text-xl accent-red font-medium mb-4">医院医疗护理机器人</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    具有专用车道导航的快速移动医院助手，旨在解放医生的时间密集型任务并提高患者护理效率。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主要特点
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>患者图表记录和医疗文档</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>供应补充和库存管理</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>连续患者监测和生命体征跟踪</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>电子病历（EMR）系统集成</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>具有完美空间记忆的3D医院地图</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>用于快速移动的专用医院车道导航</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>药房访问和检索辅助</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        目标市场
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>大型医院和医疗中心</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>重症监护病房（ICU）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>急诊科</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>专科诊所和医疗设施</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技术规格
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• 速度优化的人形设计</li>
+                        <li>• 带3D环境映射的高级导航</li>
+                        <li>• 医院级材料和无菌设计</li>
+                        <li>• 实时EMR集成和数据同步</li>
+                        <li>• AI驱动的库存跟踪和管理</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō C.E.M -->
+    <section id="cem" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">🏗️</div>
+                <h2 class="mb-4">Hanzō C.E.M</h2>
+                <p class="text-xl accent-red font-medium mb-4">建筑与制造机器人</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    专为复杂建筑工地设计的重型四足机器人，具有模块化工具附件和高级地形导航能力。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主要特点
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>用于不平坦地形的四足运动</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>带模块化工具附件的重载荷承载</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>基于SLAM的复杂工地高级导航</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>带减震功能的工业级耐用性</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>安全传感器和碰撞避让系统</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>远程监控和工业物联网集成</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>自诊断和预测性维护功能</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        目标市场
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>建筑公司和承包商</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>制造设施</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>基础设施开发项目</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>工业自动化部门</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技术规格
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• 工业级材料（铝、碳纤维、钢）</li>
+                        <li>• 适应恶劣环境的加固设计</li>
+                        <li>• 带稳定系统的高负载能力</li>
+                        <li>• 防风雨和防尘结构</li>
+                        <li>• 用于工具交换的模块化架构</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō R.A.I -->
+    <section id="rai" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">🛍️</div>
+                <h2 class="mb-4">Hanzō R.A.I</h2>
+                <p class="text-xl accent-red font-medium mb-4">零售自动化与智能机器人</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    具有自然语言处理的AI零售助手，与Hanzo超级应用程序无缝集成，提供下一代客户体验。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主要特点
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>具有自然语言处理的客户服务AI</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>库存管理和补货自动化</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>与Hanzo超级应用程序集成实现无缝支付</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>个性化产品推荐</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>零售环境中的自主导航</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>国际客户的多语言支持</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>实时分析和客户洞察</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        目标市场
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>零售商店和购物中心</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>超市和便利店</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>仓库和配送中心</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>电子商务配送设施</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技术规格
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• 用于客户互动的人形设计</li>
+                        <li>• 高级计算机视觉和物体识别</li>
+                        <li>• 用于持续学习的云连接AI</li>
+                        <li>• 支付处理集成</li>
+                        <li>• 适用于不同零售格式的模块化设计</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nanorobotics Platform -->
+    <section id="nano" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">⚛️</div>
+                <h2 class="mb-4">纳米机器人平台</h2>
+                <p class="text-xl accent-red font-medium mb-4">医疗纳米机器人</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    用于靶向癌症治疗、DNA修复和环境修复应用的专有硅基纳米机器人。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主要特点
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>靶向癌细胞识别和治疗</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>分子级DNA修复机制</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>精准药物递送系统</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>用于石油泄漏的环境清理</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>珊瑚礁修复技术</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>生物相容性硅基设计</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>受控激活和停用</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        目标市场
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>癌症治疗中心和医院</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>精准医疗诊所</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>环境清理组织</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>海洋保护项目</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技术规格
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• 专有硅基纳米结构</li>
+                        <li>• 分子级靶向系统</li>
+                        <li>• 生物相容性材料和涂层</li>
+                        <li>• 高级计算建模</li>
+                        <li>• 多阶段临床开发路径</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Super App Platform -->
+    <section id="app" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">💳</div>
+                <h2 class="mb-4">超级应用平台</h2>
+                <p class="text-xl accent-red font-medium mb-4">集成数字服务</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    综合移动平台，结合支付、消息传递、共乘、外卖和银行服务，与机器人无缝集成。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">⚡</span>
+                        主要特点
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>集成支付处理（PayPal、Stripe、加密货币）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>安全消息传递和通信平台</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>共乘和交通服务</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>外卖和餐厅订餐</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>数字银行和金融服务</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>与Hanzō R.A.I零售机器人无缝集成</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>跨境美日功能</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">🎯</span>
+                        目标市场
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>美日市场消费者</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>国际旅行者和外籍人士</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>小企业和商家</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">•</span>
+                            <span>精通技术的城市专业人士</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">🔧</span>
+                        技术规格
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>• 原生iOS和Android应用程序</li>
+                        <li>• 基于云的可扩展基础设施</li>
+                        <li>• 企业级安全和加密</li>
+                        <li>• 多货币和多语言支持</li>
+                        <li>• 用于机器人生态系统的API集成</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="mb-6">对我们的项目感兴趣吗？</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                了解更多关于我们的技术、合作伙伴关系，或联系我们讨论合作机会。
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="technology.html"><button class="bg-accent-red text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition">探索技术</button></a>
+                <a href="contact.html"><button class="border-2 border-accent-red text-accent-red px-8 py-3 rounded-full font-medium hover:bg-red-900 hover:bg-opacity-10 transition">联系我们</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZŌ</span>
+                        <span class="accent-red text-2xl">•</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        推进机器人、人工智能和医疗创新。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">公司</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">关于</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">项目</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">技术</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">联系</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">产品</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="#hhc" class="hover:text-white transition">Hanzō H.H.C</a></li>
+                        <li><a href="#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="#nano" class="hover:text-white transition">纳米机器人</a></li>
+                        <li><a href="#app" class="hover:text-white transition">超级应用</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">联系</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">一般咨询</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">合作伙伴关系</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">支持</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. 保留所有权利。</p>
+                <p class="mt-2">在日本及全球范围内引领机器人创新。</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

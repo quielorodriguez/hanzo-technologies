@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术与创新 - Hanzo Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .red-accent {
+            color: #DC143C;
+        }
+        
+        .red-glow {
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .tech-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(220, 20, 60, 0.2);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid rgba(220, 20, 60, 0.3);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: #DC143C;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">首页</a>
+                    <a href="about.html" class="nav-link">关于</a>
+                    <a href="projects.html" class="nav-link">项目</a>
+                    <a href="technology.html" class="nav-link">技术</a>
+                    <a href="contact.html" class="nav-link">联系</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 中文</button>
+                        <div class="language-dropdown">
+                            <a href="../technology.html">🇺🇸 English</a>
+                            <a href="../ja/technology.html">🇯🇵 日本語</a>
+                            <a href="../es/technology.html">🇪🇸 Español</a>
+                            <a href="technology.html">🇨🇳 中文</a>
+                            <a href="../ko/technology.html">🇰🇷 한국어</a>
+                            <a href="../fr/technology.html">🇫🇷 Français</a>
+                            <a href="../de/technology.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/technology.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/technology.html">🇸🇦 العربية</a>
+                            <a href="../hi/technology.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/technology.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/technology.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient section-padding text-center fade-in" style="margin-top: 100px;">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;">
+                技术与<span class="red-accent">创新</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
+                通过先进的机器人、人工智能和纳米技术研究引领未来
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Technologies Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">核心技术</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                我们的创新跨越三个革命性的技术领域，每个领域都应对关键的全球挑战
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Humanoid Robotics -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold mb-4">人形机器人</h3>
+                    <p class="text-gray-400 mb-6">
+                        专为老年护理、建筑自动化和零售环境设计的先进双足和四足机器人
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• AI驱动的视觉和导航</li>
+                        <li>• 动态平衡系统</li>
+                        <li>• 模块化工具集成</li>
+                        <li>• 人机协作</li>
+                        <li>• 基于SLAM的导航</li>
+                    </ul>
+                </div>
+
+                <!-- Nanorobotics -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🔬</div>
+                    <h3 class="text-2xl font-bold mb-4">硅基纳米机器人</h3>
+                    <p class="text-gray-400 mb-6">
+                        用于精准医疗的专有纳米级机器人，靶向癌症治疗、DNA修复和环境修复
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• 分子级精度</li>
+                        <li>• 生物相容性材料</li>
+                        <li>• 靶向药物递送</li>
+                        <li>• 环境清理</li>
+                        <li>• DNA修复机制</li>
+                    </ul>
+                </div>
+
+                <!-- AI & Software -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-2xl font-bold mb-4">AI与软件平台</h3>
+                    <p class="text-gray-400 mb-6">
+                        集成超级应用生态系统，结合支付、消息传递和服务与机器人无缝集成
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• 自然语言处理</li>
+                        <li>• 机器学习算法</li>
+                        <li>• 实时决策</li>
+                        <li>• 多服务集成</li>
+                        <li>• 跨平台兼容性</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- R&D Approach -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">研发方法</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                我们的研发理念强调协作、迭代开发和与全球研究机构的对接
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Left Column -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent mr-3">◆</span>
+                        协作研究模式
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        我们相信突破性创新源于协作。我们的发展路线图包括与世界级研究机构建立战略合作伙伴关系，以加速技术验证和商业化。
+                    </p>
+                    
+                    <div class="glass-effect p-6 mb-6">
+                        <h4 class="font-bold mb-3">目标研究合作伙伴</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>
+                                <strong class="text-white">RIKEN</strong> - 日本首屈一指的研究组织
+                                <p class="text-sm text-gray-400 mt-1">访问超级计算基础设施进行纳米机器人模拟和AI开发</p>
+                            </li>
+                            <li>
+                                <strong class="text-white">AIST</strong> - 国立先进工业科学技术研究所
+                                <p class="text-sm text-gray-400 mt-1">工业机器人验证、安全认证和商业化支持</p>
+                            </li>
+                            <li>
+                                <strong class="text-white">东京大学</strong> - 领先的学术机构
+                                <p class="text-sm text-gray-400 mt-1">机器人和AI研究合作、人才管道</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-effect p-6">
+                        <h4 class="font-bold mb-3">合作伙伴关系的好处</h4>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li>• 访问世界级计算资源</li>
+                            <li>• 科学验证和可信度</li>
+                            <li>• 监管合规指导</li>
+                            <li>• 制造网络连接</li>
+                            <li>• 联合研究资助机会</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent mr-3">◆</span>
+                        创新基础设施
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        我们的技术能力涵盖硬件工程、软件开发和先进材料科学，使我们能够应对多个领域的复杂挑战。
+                    </p>
+
+                    <div class="space-y-6">
+                        <!-- Robotics Engineering -->
+                        <div class="glass-effect p-6">
+                            <h4 class="font-bold mb-3">🔧 机器人工程</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• 双足和四足运动系统</li>
+                                <li>• 先进传感器集成（激光雷达、视觉、触觉）</li>
+                                <li>• 动态平衡和稳定</li>
+                                <li>• 模块化硬件架构</li>
+                                <li>• 工业级耐用性设计</li>
+                            </ul>
+                        </div>
+
+                        <!-- AI & Machine Learning -->
+                        <div class="glass-effect p-6">
+                            <h4 class="font-bold mb-3">🧠 AI与机器学习</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• 计算机视觉和物体识别</li>
+                                <li>• 自然语言处理（日语、英语）</li>
+                                <li>• 用于任务适应的强化学习</li>
+                                <li>• 预测性维护算法</li>
+                                <li>• 实时决策系统</li>
+                            </ul>
+                        </div>
+
+                        <!-- Materials Science -->
+                        <div class="glass-effect p-6">
+                            <h4 class="font-bold mb-3">⚗️ 材料与纳米技术</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• 硅基纳米结构设计</li>
+                                <li>• 生物相容性材料研究</li>
+                                <li>• 碳纤维和铝复合材料</li>
+                                <li>• 先进传感器材料</li>
+                                <li>• 环境级组件</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Timeline -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">分阶段发展战略</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                系统的三阶段方法，旨在产生早期收入，同时建立变革性创新
+            </p>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Phase 1 -->
+                <div class="timeline-item glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold red-accent mr-4">第一阶段</span>
+                        <span class="text-gray-400">第1-18个月</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">超级应用基础</h3>
+                    <p class="text-gray-300 mb-4">
+                        为美日市场推出集成消息传递和支付平台，建立用户群和收入流，同时为未来的机器人集成构建基础设施。
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <strong class="text-white">关键里程碑：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• Beta版发布（第6个月）</li>
+                                <li>• 支付处理集成</li>
+                                <li>• 10,000+用户目标</li>
+                                <li>• 初始收入产生</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">技术栈：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• 跨平台移动应用</li>
+                                <li>• 安全支付基础设施</li>
+                                <li>• 实时消息传递</li>
+                                <li>• 基于云的架构</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="timeline-item glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold red-accent mr-4">第二阶段</span>
+                        <span class="text-gray-400">第12-36个月</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Hanzō机器人系列</h3>
+                    <p class="text-gray-300 mb-4">
+                        开发和测试三种专用人形机器人，与东京医院、建筑公司和零售连锁店建立合作伙伴关系，实现实际部署。
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                        <div>
+                            <strong class="text-white">M.E.C机器人：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• 设计规范（第12个月）</li>
+                                <li>• 原型（第18个月）</li>
+                                <li>• 医疗试验（第24个月）</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">C.E.M机器人：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• 开发启动（第18个月）</li>
+                                <li>• 建筑工地测试</li>
+                                <li>• 安全认证</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">R.A.I机器人：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• 零售集成设计</li>
+                                <li>• 应用生态系统连接</li>
+                                <li>• 试点部署</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="timeline-item glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold red-accent mr-4">第三阶段</span>
+                        <span class="text-gray-400">第24-60个月</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">纳米机器人研究</h3>
+                    <p class="text-gray-300 mb-4">
+                        通过研究合作伙伴关系启动硅基纳米机器人研发，开发癌症治疗和DNA修复应用，并走向临床试验。
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <strong class="text-white">研究重点：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• 计算建模</li>
+                                <li>• 材料生物相容性</li>
+                                <li>• 靶向药物递送</li>
+                                <li>• DNA修复机制</li>
+                                <li>• 环境应用</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">合作伙伴目标：</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>• RIKEN超级计算访问</li>
+                                <li>• 联合研究出版物</li>
+                                <li>• 临床试验准备</li>
+                                <li>• 监管路径开发</li>
+                                <li>• 国际合作</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Principles -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">创新原则</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">以人为本的设计</h3>
+                    <p class="text-gray-300 mb-4">
+                        我们开发的每一项技术都优先考虑人类福祉、安全和尊严。我们的机器人旨在增强人类能力，而不是取代人类联系。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>• 需要最少培训的直观界面</li>
+                        <li>• 在每个层面安全第一的工程</li>
+                        <li>• 与老年用户的尊重互动</li>
+                        <li>• 协作而非替代的思维方式</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">道德技术</h3>
+                    <p class="text-gray-300 mb-4">
+                        我们遵守日本的企业人工智能指南，并致力于负责任的创新、数据隐私和透明的开发实践。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>• 隐私设计架构</li>
+                        <li>• 透明的AI决策</li>
+                        <li>• 监管合规作为基准</li>
+                        <li>• 社会影响考虑</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">模块化架构</h3>
+                    <p class="text-gray-300 mb-4">
+                        我们的技术平台专为适应性设计，实现快速迭代、轻松维护和面向未来的可扩展性。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>• 可互换的硬件组件</li>
+                        <li>• 软件更新功能</li>
+                        <li>• 工具附件灵活性</li>
+                        <li>• 跨平台兼容性</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">可持续发展重点</h3>
+                    <p class="text-gray-300 mb-4">
+                        环境责任指导我们的材料选择、制造流程和长期技术路线图。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>• 节能设计</li>
+                        <li>• 可持续材料选择</li>
+                        <li>• 环境清理应用</li>
+                        <li>• 长产品生命周期</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">准备好合作了吗？</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                我们正在寻找研究合作伙伴、技术协作者和早期采用者，与我们一起塑造机器人和人工智能的未来。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition red-glow">
+                    联系我们的团队
+                </a>
+                <a href="projects.html" class="px-8 py-4 glass-effect hover:bg-white/10 text-white font-semibold rounded-lg transition">
+                    探索项目
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZŌ</span>
+                        <span class="red-accent text-2xl">•</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        推进机器人、人工智能和医疗技术，创造更美好的未来。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">公司</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">关于我们</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">技术</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">联系</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">项目</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">纳米机器人</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">超级应用</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">联系</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">一般咨询</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">合作伙伴关系</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">支持</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. 保留所有权利。</p>
+                <p class="mt-2">在日本及全球范围内引领机器人创新。</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const langSelector = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langSelector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langSelector.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

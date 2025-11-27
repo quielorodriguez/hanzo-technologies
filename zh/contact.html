@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - Hanzo Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .red-accent {
+            color: #DC143C;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        input, textarea, select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #DC143C;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .submit-button {
+            background: #DC143C;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            background: #bc0230;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">首页</a>
+                    <a href="about.html" class="nav-link">关于</a>
+                    <a href="projects.html" class="nav-link">项目</a>
+                    <a href="technology.html" class="nav-link">技术</a>
+                    <a href="contact.html" class="nav-link">联系</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 中文</button>
+                        <div class="language-dropdown">
+                            <a href="../contact.html">🇺🇸 English</a>
+                            <a href="../ja/contact.html">🇯🇵 日本語</a>
+                            <a href="../es/contact.html">🇪🇸 Español</a>
+                            <a href="contact.html">🇨🇳 中文</a>
+                            <a href="../ko/contact.html">🇰🇷 한국어</a>
+                            <a href="../fr/contact.html">🇫🇷 Français</a>
+                            <a href="../de/contact.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/contact.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/contact.html">🇸🇦 العربية</a>
+                            <a href="../hi/contact.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/contact.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/contact.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section-padding text-center" style="margin-top: 100px; background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem);">
+                <span class="red-accent">联系我们</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
+                无论您对合作伙伴关系、投资感兴趣，还是想了解更多关于我们的技术，我们都期待您的来信。
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">联系信息</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                根据您的咨询选择最佳的联系方式
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">📧</div>
+                    <h3 class="text-xl font-bold mb-3">一般咨询</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        关于我们公司和产品的一般问题
+                    </p>
+                    <a href="mailto:quielo@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        quielo@hanzotechnologies.com
+                    </a>
+                </div>
+
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold mb-3">合作伙伴关系</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        业务发展、研究合作和战略合作伙伴关系
+                    </p>
+                    <a href="mailto:outreach@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        outreach@hanzotechnologies.com
+                    </a>
+                </div>
+
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">🛟</div>
+                    <h3 class="text-xl font-bold mb-3">客户支持</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        技术支持和客户服务咨询
+                    </p>
+                    <a href="mailto:support@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        support@hanzotechnologies.com
+                    </a>
+                </div>
+
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">📰</div>
+                    <h3 class="text-xl font-bold mb-3">新闻媒体</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        媒体咨询、新闻发布和采访请求
+                    </p>
+                    <a href="mailto:press@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        press@hanzotechnologies.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-effect p-10">
+                <h2 class="text-3xl font-bold mb-4 text-center">给我们留言</h2>
+                <p class="text-center text-gray-400 mb-10">
+                    填写下面的表格，我们会尽快回复您
+                </p>
+                
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">名字 *</label>
+                            <input type="text" required placeholder="张" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">姓氏 *</label>
+                            <input type="text" required placeholder="三" />
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">电子邮件地址 *</label>
+                            <input type="email" required placeholder="zhang@example.com" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">电话号码</label>
+                            <input type="tel" placeholder="+86 138 0000 0000" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">公司/组织</label>
+                        <input type="text" placeholder="您的公司名称" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">咨询类型 *</label>
+                        <select required>
+                            <option value="">选择一个选项</option>
+                            <option value="general">一般咨询</option>
+                            <option value="partnership">合作机会</option>
+                            <option value="investment">投资兴趣</option>
+                            <option value="research">研究合作</option>
+                            <option value="press">新闻/媒体</option>
+                            <option value="support">技术支持</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">消息 *</label>
+                        <textarea required rows="6" placeholder="告诉我们更多关于您的咨询..."></textarea>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" id="privacy" required class="mt-1 w-4 h-4" />
+                        <label for="privacy" class="ml-2 text-sm text-gray-400">
+                            我同意根据隐私政策处理我的个人数据 *
+                        </label>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="submit-button">
+                            发送消息
+                        </button>
+                        <p class="text-xs text-gray-500 mt-4">
+                            * 必填字段
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">我们的位置</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                在太平洋两岸运营，战略布局于关键创新中心
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div class="glass-effect p-8">
+                    <div class="flex items-start mb-6">
+                        <span class="text-4xl mr-4">🇺🇸</span>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">美国</h3>
+                            <p class="text-red-400 text-sm font-semibold">当前运营</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <div>
+                            <p class="font-semibold mb-1">华盛顿州西雅图</p>
+                            <p class="text-sm text-gray-400">
+                                软件和人工智能研究的主要开发中心
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">时区：</p>
+                            <p class="font-semibold">太平洋时间（UTC-8/UTC-7）</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <div class="flex items-start mb-6">
+                        <span class="text-4xl mr-4">🇯🇵</span>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">日本</h3>
+                            <p class="text-red-400 text-sm font-semibold">未来总部</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <div>
+                            <p class="font-semibold mb-1">日本东京</p>
+                            <p class="text-sm text-gray-400">
+                                机器人开发和制造的计划主要总部
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">目标区域：</p>
+                            <ul class="text-sm space-y-1">
+                                <li>• 涩谷区 - 创新区</li>
+                                <li>• 港区 - 商业中心</li>
+                                <li>• 千代田区 - 科技中心</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">时区：</p>
+                            <p class="font-semibold">日本标准时间（UTC+9）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZŌ</span>
+                        <span class="red-accent text-2xl">•</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        推进机器人、人工智能和医疗技术，创造更美好的未来。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">公司</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">关于我们</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">技术</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">联系</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">项目</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">纳米机器人</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">超级应用</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">联系</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">一般咨询</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">合作伙伴关系</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">支持</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. 保留所有权利。</p>
+                <p class="mt-2">在日本及全球范围内引领机器人创新。</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const langSelector = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langSelector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langSelector.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
