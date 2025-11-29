@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanzo Technologies - 로봇공학, AI 및 헬스케어 혁신 선도</title>
+    <meta name="description" content="Hanzo Technologies는 헬스케어, 노인 돌봄, 건설 자동화 및 디지털 서비스를 위한 첨단 로봇 솔루션을 개발합니다. 일본과 전 세계에서 혁신을 선도합니다.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            background: rgba(40, 40, 40, 0.7);
+            border-color: rgba(220, 20, 60, 0.3);
+            transform: translateY(-4px);
+        }
+        
+        .accent-red {
+            color: #DC143C;
+        }
+        
+        .bg-accent-red {
+            background-color: #DC143C;
+        }
+        
+        .border-accent-red {
+            border-color: #DC143C;
+        }
+        
+        .apple-button {
+            background: #DC143C;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 980px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .apple-button:hover {
+            background: #b01030;
+            transform: scale(1.02);
+        }
+        
+        .apple-button-outline {
+            background: transparent;
+            color: #DC143C;
+            padding: 12px 32px;
+            border-radius: 980px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 2px solid #DC143C;
+            cursor: pointer;
+        }
+        
+        .apple-button-outline:hover {
+            background: rgba(220, 20, 60, 0.1);
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                <a href="index.html" class="nav-link">홈</a>
+                <a href="about.html" class="nav-link">회사 소개</a>
+                <a href="projects.html" class="nav-link">프로젝트</a>
+                <a href="technology.html" class="nav-link">기술</a>
+                <a href="contact.html" class="nav-link">문의</a>
+                <div class="language-selector">
+                    <button class="nav-link">🌐 KO</button>
+                    <div class="language-dropdown">
+                        <a href="../index.html">🇺🇸 English</a>
+                        <a href="../ja/index.html">🇯🇵 日本語</a>
+                        <a href="../es/index.html">🇪🇸 Español</a>
+                        <a href="../zh/index.html">🇨🇳 中文</a>
+                        <a href="index.html">🇰🇷 한국어</a>
+                        <a href="../fr/index.html">🇫🇷 Français</a>
+                        <a href="../de/index.html">🇩🇪 Deutsch</a>
+                        <a href="../vi/index.html">🇻🇳 Tiếng Việt</a>
+                        <a href="../ar/index.html">🇸🇦 العربية</a>
+                        <a href="../hi/index.html">🇮🇳 हिन्दी</a>
+                        <a href="../bo/index.html">🏔️ བོད་ཡིག</a>
+                        <a href="../haw/index.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient section-padding pt-40">
+        <div class="max-w-6xl mx-auto px-6 text-center fade-in">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.05;">
+                인간 중심<br/>
+                <span class="accent-red">로봇공학의 미래</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Hanzo Technologies는 일본과 그 너머에서 헬스케어, 노인 돌봄 및 
+                산업 자동화를 위한 첨단 로봇 솔루션을 개척합니다.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="projects.html"><button class="apple-button">프로젝트 탐색</button></a>
+                <a href="technology.html"><button class="apple-button-outline">기술 보기</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Portfolio -->
+    <section class="section-padding bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="mb-4">6가지 혁신적 프로젝트</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    휴머노이드 로봇부터 의료 나노로봇까지, 우리의 통합 포트폴리오는 
+                    사회의 가장 시급한 과제를 해결합니다.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Hanzō M.E.C -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-semibold mb-3">Hanzō M.E.C</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">노인 의료 케어</p>
+                    <p class="text-gray-400">
+                        낙상 감지, 활력 징후 모니터링 및 이동 지원 기능을 갖춘 노인 돌봄용 휴머노이드 로봇입니다.
+                    </p>
+                </div>
+                
+                <!-- Hanzō H.H.C -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🏥</div>
+                    <h3 class="text-2xl font-semibold mb-3">Hanzō H.H.C</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">병원 헬스케어</p>
+                    <p class="text-gray-400">
+                        약물 전달, 소독 및 환자 지원을 위한 지능형 병원 보조 로봇입니다.
+                    </p>
+                </div>
+                
+                <!-- Hanzō C.E.M -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🏗️</div>
+                    <h3 class="text-2xl font-semibold mb-3">Hanzō C.E.M</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">건설 및 제조</p>
+                    <p class="text-gray-400">
+                        복잡한 건설 현장과 자동화를 위해 제작된 중장비 건설 로봇입니다.
+                    </p>
+                </div>
+                
+                <!-- Hanzō R.A.I -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🛒</div>
+                    <h3 class="text-2xl font-semibold mb-3">Hanzō R.A.I</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">소매 자동화</p>
+                    <p class="text-gray-400">
+                        슈퍼앱과 완벽하게 통합된 AI 기반 소매 어시스턴트입니다.
+                    </p>
+                </div>
+                
+                <!-- Nanorobotics Platform -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">⚛️</div>
+                    <h3 class="text-2xl font-semibold mb-3">나노로봇공학</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">의료 플랫폼</p>
+                    <p class="text-gray-400">
+                        암 치료 및 정밀 의학을 위한 실리콘 기반 나노봇입니다.
+                    </p>
+                </div>
+                
+                <!-- Super App -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">💳</div>
+                    <h3 class="text-2xl font-semibold mb-3">슈퍼 앱</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">디지털 플랫폼</p>
+                    <p class="text-gray-400">
+                        결제, 메시징 및 로봇 통합을 결합한 종합 플랫폼입니다.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="projects.html"><button class="apple-button">모든 프로젝트 보기</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Value Prop -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="mb-6" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">일본에서 미래를 건설합니다.</h2>
+            <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+                우리의 혁신은 고령화 인구부터 노동력 부족까지 일본의 가장 시급한 과제를 해결하며 
+                전 세계적으로 로봇공학 및 AI 기술을 발전시킵니다.
+            </p>
+            <a href="about.html"><button class="apple-button-outline">회사 소개 더 보기</button></a>
+        </div>
+    </section>
+
+    <!-- Markets -->
+    <section class="section-padding hero-gradient">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">🏥</div>
+                    <h4 class="font-semibold text-lg">헬스케어</h4>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">🏗️</div>
+                    <h4 class="font-semibold text-lg">건설</h4>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">🛒</div>
+                    <h4 class="font-semibold text-lg">소매</h4>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">🌍</div>
+                    <h4 class="font-semibold text-lg">환경</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="mb-6">함께 혁신할 준비가 되셨나요?</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                파트너십, 투자 기회 또는 기술에 대해 더 알고 싶으시다면 
+                연락 주시기 바랍니다.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <a href="contact.html"><button class="apple-button">문의하기</button></a>
+                <a href="projects.html"><button class="apple-button-outline">모든 프로젝트 보기</button></a>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 mt-16">
+                <div>
+                    <h4 class="font-semibold mb-2 accent-red">일반 문의</h4>
+                    <a href="mailto:quielo@hanzotechnologies.com" class="text-gray-400 hover:text-white transition">
+                        quielo@hanzotechnologies.com
+                    </a>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-2 accent-red">파트너십</h4>
+                    <a href="mailto:outreach@hanzotechnologies.com" class="text-gray-400 hover:text-white transition">
+                        outreach@hanzotechnologies.com
+                    </a>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-2 accent-red">지원</h4>
+                    <a href="mailto:support@hanzotechnologies.com" class="text-gray-400 hover:text-white transition">
+                        support@hanzotechnologies.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZŌ</span>
+                        <span class="accent-red text-2xl">•</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        로봇공학, AI 및 헬스케어 혁신을 선도합니다.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">회사</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">회사 소개</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">프로젝트</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">기술</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">문의</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">제품</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="projects.html#hhc" class="hover:text-white transition">Hanzō H.H.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">나노로봇공학</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">슈퍼 앱</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">연결</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">이메일</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">지원</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. 모든 권리 보유.</p>
+                <p class="mt-2">일본과 전 세계에서 로봇 혁신을 선도합니다.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

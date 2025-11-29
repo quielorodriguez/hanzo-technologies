@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 - Hanzo Technologies</title>
+    <meta name="description" content="Hanzo Technologies의 6가지 혁신 프로젝트 탐색: 노인 돌봄, 병원, 건설 및 소매를 위한 휴머노이드 로봇, 나노로봇공학 및 슈퍼 앱 플랫폼.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .accent-red {
+            color: #DC143C;
+        }
+        
+        .bg-accent-red {
+            background-color: #DC143C;
+        }
+        
+        .border-accent-red {
+            border-color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .product-nav {
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 40;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .product-nav-link {
+            color: #9ca3af;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: inline-block;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .product-nav-link:hover,
+        .product-nav-link.active {
+            color: #DC143C;
+            border-bottom-color: #DC143C;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .product-icon {
+            font-size: 4rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="about.html" class="nav-link">회사 소개</a>
+                    <a href="projects.html" class="nav-link accent-red">프로젝트</a>
+                    <a href="technology.html" class="nav-link">기술</a>
+                    <a href="contact.html" class="nav-link">문의</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 KO</button>
+                        <div class="language-dropdown">
+                            <a href="../projects.html">🇺🇸 English</a>
+                            <a href="../ja/projects.html">🇯🇵 日本語</a>
+                            <a href="../es/projects.html">🇪🇸 Español</a>
+                            <a href="../zh/projects.html">🇨🇳 中文</a>
+                            <a href="projects.html">🇰🇷 한국어</a>
+                            <a href="../fr/projects.html">🇫🇷 Français</a>
+                            <a href="../de/projects.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/projects.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/projects.html">🇸🇦 العربية</a>
+                            <a href="../hi/projects.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/projects.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/projects.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Navigation -->
+    <div class="product-nav" style="margin-top: 100px; position: sticky; top: 100px;">
+        <div class="max-w-6xl mx-auto px-6 overflow-x-auto">
+            <div class="flex space-x-2 whitespace-nowrap py-2">
+                <a href="#mec" class="product-nav-link">M.E.C</a>
+                <a href="#hhc" class="product-nav-link">H.H.C</a>
+                <a href="#cem" class="product-nav-link">C.E.M</a>
+                <a href="#rai" class="product-nav-link">R.A.I</a>
+                <a href="#nano" class="product-nav-link">나노</a>
+                <a href="#app" class="product-nav-link">앱</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-gradient section-padding pt-32">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;">우리의 프로젝트</h1>
+            <p class="text-xl text-gray-400">
+                고령화 인구부터 노동력 부족까지 사회의 가장 시급한 과제를 해결하는 
+                6가지 혁신적 프로젝트.
+            </p>
+        </div>
+    </section>
+
+    <!-- Hanzō M.E.C -->
+    <section id="mec" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <div class="product-icon mb-4">🤖</div>
+                    <h2 class="mb-4">Hanzō M.E.C</h2>
+                    <p class="text-xl accent-red mb-6">노인 의료 케어</p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        노인에게 포괄적인 의료 지원과 동반자를 제공하도록 설계된 자비로운 휴머노이드 로봇입니다. 
+                        M.E.C는 첨단 AI 및 전문 센서로 일본의 증가하는 간병인 부족 문제를 해결합니다.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        일본 인구의 급속한 고령화(65세 이상 29%)로 2025년까지 340,000명의 간병인 부족이 예상됩니다. 
+                        M.E.C는 24/7 낙상 감지, 활력 징후 모니터링, 약물 알림 및 이동 지원을 제공합니다.
+                    </p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                ⚡
+                                주요 기능
+                            </h3>
+                            <ul class="space-y-3 text-gray-400">
+                                <li>• 실시간 낙상 감지 및 응급 대응</li>
+                                <li>• 지속적인 활력 징후 모니터링 및 건강 경고</li>
+                                <li>• 자동 약물 알림 및 지원</li>
+                                <li>• 이동 지원 및 낙상 예방</li>
+                                <li>• 대화형 동반자 기능</li>
+                                <li>• 가족 및 간병인과의 커뮤니케이션</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🎯
+                                목표 시장
+                            </h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li>• 노인 돌봄 시설</li>
+                                <li>• 재택 간호 서비스</li>
+                                <li>• 은퇴 커뮤니티</li>
+                                <li>• 노인이 있는 개인 가정</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🔧
+                                기술 사양
+                            </h3>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>• 높이: 140-160cm (앉기/서기 사용을 위해 조정 가능)</li>
+                                <li>• 배터리: 12-16시간 연속 작동</li>
+                                <li>• 센서: 라이다, 깊이 카메라, 활력 징후 모니터</li>
+                                <li>• 이동성: 실내 전방향 탐색</li>
+                                <li>• AI: 프라이버시를 위한 엣지 처리</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="mb-6">프로젝트에 관심이 있으신가요?</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                파트너십, 투자 기회 또는 구현에 관심이 있으시다면 
+                우리 혁신이 귀하의 과제를 어떻게 해결할 수 있는지 논의하고 싶습니다.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html"><button class="bg-accent-red text-white px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition">문의하기</button></a>
+                <a href="technology.html"><button class="border-2 border-accent-red text-accent-red px-8 py-3 rounded-full font-medium hover:bg-accent-red hover:bg-opacity-10 transition">기술 보기</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZŌ</span>
+                        <span class="accent-red text-2xl">•</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        로봇공학, AI 및 헬스케어 혁신을 선도합니다.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">회사</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">회사 소개</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">프로젝트</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">기술</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">문의</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">제품</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="#hhc" class="hover:text-white transition">Hanzō H.H.C</a></li>
+                        <li><a href="#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="#nano" class="hover:text-white transition">나노로봇공학</a></li>
+                        <li><a href="#app" class="hover:text-white transition">슈퍼 앱</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">연결</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">이메일</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">지원</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. 모든 권리 보유.</p>
+                <p class="mt-2">일본과 전 세계에서 로봇 혁신을 선도합니다.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+
+        // Product navigation active state
+        const productLinks = document.querySelectorAll('.product-nav-link');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '-100px 0px -50% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    productLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
