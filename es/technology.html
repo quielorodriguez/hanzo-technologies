@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnología - Hanzo Technologies</title>
+    <meta name="description" content="Descubra el enfoque de I+D de Hanzo Technologies, asociaciones estratégicas con RIKEN y AIST, y línea de tiempo de desarrollo en robótica, IA y nanotecnología.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            padding: 140px 20px 80px;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+        }
+        
+        .tech-card {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            background: rgba(40, 40, 40, 0.7);
+            border-color: rgba(220, 20, 60, 0.3);
+            transform: translateY(-4px);
+        }
+        
+        .accent-red {
+            color: #DC143C;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: #DC143C;
+            border-radius: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            width: 2px;
+            height: calc(100% + 20px);
+            background: rgba(220, 20, 60, 0.3);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="about.html" class="nav-link">Nosotros</a>
+                    <a href="projects.html" class="nav-link">Proyectos</a>
+                    <a href="technology.html" class="nav-link accent-red">Tecnología</a>
+                    <a href="contact.html" class="nav-link">Contacto</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 ES</button>
+                        <div class="language-dropdown">
+                            <a href="../technology.html">🇺🇸 English</a>
+                            <a href="../ja/technology.html">🇯🇵 日本語</a>
+                            <a href="technology.html">🇪🇸 Español</a>
+                            <a href="../zh/technology.html">🇨🇳 中文</a>
+                            <a href="../ko/technology.html">🇰🇷 한국어</a>
+                            <a href="../fr/technology.html">🇫🇷 Français</a>
+                            <a href="../de/technology.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/technology.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/technology.html">🇸🇦 العربية</a>
+                            <a href="../hi/technology.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/technology.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/technology.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;">Tecnología & Innovación</h1>
+            <p class="text-xl text-gray-400">
+                Impulsando el futuro de la robótica, la IA y la nanotecnología a través de investigación de vanguardia 
+                y asociaciones estratégicas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Technologies Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Tecnologías Fundamentales</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                Nuestra innovación abarca tres dominios tecnológicos revolucionarios, cada uno abordando desafíos globales críticos
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Humanoid Robotics -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold mb-4">Robótica Humanoide</h3>
+                    <p class="text-gray-400 mb-6">
+                        Robots bípedos y cuadrúpedos avanzados diseñados para cuidado de ancianos, automatización de construcción y entornos minoristas
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• Visión y navegación con IA</li>
+                        <li>• Sistemas de equilibrio dinámico</li>
+                        <li>• Integración modular de herramientas</li>
+                        <li>• Colaboración humano-robot</li>
+                        <li>• Navegación basada en SLAM</li>
+                    </ul>
+                </div>
+
+                <!-- Nanorobotics -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🔬</div>
+                    <h3 class="text-2xl font-bold mb-4">Nanorobótica a Base de Silicio</h3>
+                    <p class="text-gray-400 mb-6">
+                        Robots propietarios a nanoescala para medicina de precisión, tratamiento de cáncer, reparación de ADN y restauración ambiental
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• Precisión a nivel molecular</li>
+                        <li>• Materiales biocompatibles</li>
+                        <li>• Entrega dirigida de medicamentos</li>
+                        <li>• Limpieza ambiental</li>
+                        <li>• Mecanismos de reparación de ADN</li>
+                    </ul>
+                </div>
+
+                <!-- AI & Software -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-2xl font-bold mb-4">Plataforma de IA y Software</h3>
+                    <p class="text-gray-400 mb-6">
+                        Ecosistema integrado de super app que combina pagos, mensajería y servicios con integración perfecta de robótica
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• Algoritmos de aprendizaje profundo</li>
+                        <li>• Procesamiento en la nube y en el borde</li>
+                        <li>• Infraestructura de pagos seguros</li>
+                        <li>• Plataforma de mensajería en tiempo real</li>
+                        <li>• Integración de API robótica</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- R&D Approach -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Nuestro Enfoque de I+D</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 accent-red">🎯 Centrado en el Problema</h3>
+                    <p class="text-gray-400 mb-4">
+                        Comenzamos con los desafíos más apremiantes de la sociedad: la población envejecida de Japón, la escasez de mano de obra 
+                        en la construcción y las necesidades de atención médica.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Investigación de mercado profunda</li>
+                        <li>• Compromiso con las partes interesadas</li>
+                        <li>• Validación iterativa</li>
+                        <li>• Prototipos centrados en el usuario</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 accent-red">🔬 Innovación Científica</h3>
+                    <p class="text-gray-400 mb-4">
+                        Aprovechamos investigación de vanguardia en IA, robótica y nanotecnología para construir soluciones 
+                        que trascienden las capacidades actuales.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Algoritmos propietarios</li>
+                        <li>• Diseño de materiales avanzados</li>
+                        <li>• Integración de sistemas complejos</li>
+                        <li>• Pruebas rigurosas de seguridad</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 accent-red">🤝 Colaboración en Investigación</h3>
+                    <p class="text-gray-400 mb-4">
+                        Colaboramos con instituciones de investigación líderes para acelerar el desarrollo e integrar 
+                        los últimos avances científicos.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Asociaciones académicas</li>
+                        <li>• Proyectos de investigación conjuntos</li>
+                        <li>• Acceso a infraestructura de investigación</li>
+                        <li>• Intercambio de conocimientos</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 accent-red">🚀 Desarrollo Ágil</h3>
+                    <p class="text-gray-400 mb-4">
+                        Nuestra estrategia de desarrollo prioriza el lanzamiento rápido al mercado mientras mantiene 
+                        los más altos estándares de calidad y seguridad.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Metodología iterativa</li>
+                        <li>• Pruebas piloto</li>
+                        <li>• Ciclos de retroalimentación continua</li>
+                        <li>• Mejora incremental</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Partnerships -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Asociaciones Estratégicas</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                Estamos buscando colaboraciones con instituciones de investigación líderes de Japón para 
+                acelerar el desarrollo e integrar los últimos avances científicos
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- RIKEN -->
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4">RIKEN</h3>
+                    <p class="text-sm accent-red mb-4">Instituto de Investigación Física y Química de Japón</p>
+                    <p class="text-gray-400 mb-6">
+                        Prospectiva de asociación con la institución de investigación multidisciplinaria líder de Japón, 
+                        hogar de la supercomputadora Fugaku y extenso expertise en investigación de IA.
+                    </p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <div>
+                            <p class="font-semibold mb-1">Áreas de Colaboración:</p>
+                            <ul class="space-y-1 ml-4">
+                                <li>• Recursos computacionales de IA (Fugaku, FugakuNEXT)</li>
+                                <li>• Investigación en robótica humanitaria</li>
+                                <li>• Desarrollo de nanomateriales</li>
+                                <li>• Algoritmos de aprendizaje automático</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-semibold mb-1">Valor Potencial:</p>
+                            <p class="text-gray-400">Acceso a infraestructura de investigación líder mundial y expertise científico</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AIST -->
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4">AIST</h3>
+                    <p class="text-sm accent-red mb-4">Instituto Nacional de Ciencia y Tecnología Industrial Avanzada</p>
+                    <p class="text-gray-400 mb-6">
+                        Prospectiva de asociación con el instituto de investigación industrial líder de Japón, 
+                        especializado en robótica aplicada y comercialización tecnológica.
+                    </p>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <div>
+                            <p class="font-semibold mb-1">Áreas de Colaboración:</p>
+                            <ul class="space-y-1 ml-4">
+                                <li>• Desarrollo de robótica industrial</li>
+                                <li>• Estándares de seguridad y certificación</li>
+                                <li>• Apoyo a comercialización</li>
+                                <li>• Proyectos de investigación conjunta</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-semibold mb-1">Valor Potencial:</p>
+                            <p class="text-gray-400">Navegación regulatoria y vías de mercado para robótica industrial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Timeline -->
+    <section class="py-20 bg-black">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Línea de Tiempo de Desarrollo</h2>
+            
+            <div class="space-y-8">
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold mb-2">Fase 1: Super App y Fundación de IA (0-18 meses)</h3>
+                    <p class="text-gray-400 mb-4">
+                        Lanzar plataforma de super app en mercados de EE.UU. y Japón, establecer infraestructura de IA 
+                        y comenzar desarrollo de robótica
+                    </p>
+                    <ul class="text-sm text-gray-300 space-y-1">
+                        <li>• Lanzamiento beta de super app</li>
+                        <li>• Pipeline de IA y procesamiento de datos</li>
+                        <li>• Prototipos iniciales de robótica</li>
+                        <li>• Establecer asociaciones de investigación</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold mb-2">Fase 2: Robótica Humanoide (18-36 meses)</h3>
+                    <p class="text-gray-400 mb-4">
+                        Lanzar serie de robots Hanzō comenzando con M.E.C (cuidado de ancianos) y R.A.I (minorista), 
+                        integración con plataforma de super app
+                    </p>
+                    <ul class="text-sm text-gray-300 space-y-1">
+                        <li>• Pruebas piloto M.E.C en instalaciones de cuidado</li>
+                        <li>• Implementación R.A.I en tiendas de conveniencia</li>
+                        <li>• Desarrollo H.H.C y C.E.M</li>
+                        <li>• Integración de ecosistema de super app</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold mb-2">Fase 3: Investigación en Nanorobótica (36-60 meses)</h3>
+                    <p class="text-gray-400 mb-4">
+                        Lanzar programa de investigación en nanorobótica, ensayos clínicos para aplicaciones médicas, 
+                        proyectos de restauración ambiental
+                    </p>
+                    <ul class="text-sm text-gray-300 space-y-1">
+                        <li>• Prototipos de nanobot a base de silicio</li>
+                        <li>• Ensayos clínicos para terapia contra el cáncer</li>
+                        <li>• Proyectos piloto de limpieza ambiental</li>
+                        <li>• Expansión de asociaciones de investigación</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Capabilities -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Capacidades Técnicas</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 accent-red">Inteligencia Artificial</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• Visión por computadora</li>
+                        <li>• Procesamiento de lenguaje natural</li>
+                        <li>• Aprendizaje por refuerzo</li>
+                        <li>• Análisis predictivo</li>
+                        <li>• Computación en el borde</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 accent-red">Robótica</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• Sistemas de control autónomo</li>
+                        <li>• Planificación de movimiento</li>
+                        <li>• Integración de sensores</li>
+                        <li>• Mecatrónica</li>
+                        <li>• Manipulación robótica</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 accent-red">Ingeniería de Software</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• Arquitectura de microservicios</li>
+                        <li>• Infraestructura en la nube</li>
+                        <li>• Seguridad y cifrado</li>
+                        <li>• Desarrollo móvil</li>
+                        <li>• Sistemas distribuidos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Principles -->
+    <section class="py-20 bg-black">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Principios de Innovación</h2>
+            
+            <div class="space-y-8">
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3 accent-red">🎯 Enfocado en el Impacto Humano</h3>
+                    <p class="text-gray-400">
+                        Cada innovación debe abordar necesidades humanas reales y mejorar la calidad de vida. 
+                        Priorizamos soluciones para desafíos demográficos y de salud que afectan a millones.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3 accent-red">🌱 Sostenibilidad Ambiental</h3>
+                    <p class="text-gray-400">
+                        Desarrollamos tecnología que no solo resuelve problemas humanos sino que también protege 
+                        y restaura el medio ambiente, desde nanorobots para limpieza de petróleo hasta eficiencia 
+                        energética en robótica.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3 accent-red">🤝 Asociaciones Público-Privadas</h3>
+                    <p class="text-gray-400">
+                        Creemos en colaborar con gobiernos, instituciones de investigación y líderes de la industria 
+                        para crear soluciones que beneficien a la sociedad en su conjunto.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3 accent-red">📚 Cultura de Aprendizaje Continuo</h3>
+                    <p class="text-gray-400">
+                        Nos mantenemos a la vanguardia a través de investigación continua, experimentación y adopción 
+                        de tecnologías y metodologías emergentes.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3 accent-red">⚖️ Desarrollo Tecnológico Ético</h3>
+                    <p class="text-gray-400">
+                        Priorizamos la privacidad del usuario, la transparencia de IA, la seguridad de datos y prácticas 
+                        de desarrollo responsable en todos nuestros productos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">¿Interesado en colaborar?</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                Buscamos socios, investigadores e inversores que compartan nuestra visión de 
+                tecnología centrada en el ser humano que aborde los desafíos más grandes de la sociedad.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html"><button class="bg-red-600 text-white px-8 py-3 rounded-full font-medium hover:bg-red-700 transition">Contáctanos</button></a>
+                <a href="projects.html"><button class="border-2 border-red-600 text-red-600 px-8 py-3 rounded-full font-medium hover:bg-red-600 hover:bg-opacity-10 transition">Ver Proyectos</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZŌ</span>
+                        <span class="accent-red text-2xl">•</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Avanzando en robótica, IA e innovación en salud.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Compañía</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">Nosotros</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">Proyectos</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">Tecnología</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Productos</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="projects.html#hhc" class="hover:text-white transition">Hanzō H.H.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">Nanorobótica</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">Super App</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Conectar</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">Email</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">Soporte</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. Todos los derechos reservados.</p>
+                <p class="mt-2">Innovación robótica pionera en Japón y a nivel global.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

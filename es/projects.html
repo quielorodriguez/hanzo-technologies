@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - Hanzo Technologies</title>
+    <meta name="description" content="Explora los seis proyectos de innovación de Hanzo Technologies: robots humanoides para cuidado de ancianos, hospitales, construcción y minorista, además de nanorobótica y plataforma de super app.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .accent-red {
+            color: #DC143C;
+        }
+        
+        .bg-accent-red {
+            background-color: #DC143C;
+        }
+        
+        .border-accent-red {
+            border-color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .product-nav {
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 40;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .product-nav-link {
+            color: #9ca3af;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: inline-block;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .product-nav-link:hover,
+        .product-nav-link.active {
+            color: #DC143C;
+            border-bottom-color: #DC143C;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .product-icon {
+            font-size: 4rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="about.html" class="nav-link">Nosotros</a>
+                    <a href="projects.html" class="nav-link accent-red">Proyectos</a>
+                    <a href="technology.html" class="nav-link">Tecnología</a>
+                    <a href="contact.html" class="nav-link">Contacto</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 ES</button>
+                        <div class="language-dropdown">
+                            <a href="../projects.html">🇺🇸 English</a>
+                            <a href="../ja/projects.html">🇯🇵 日本語</a>
+                            <a href="projects.html">🇪🇸 Español</a>
+                            <a href="../zh/projects.html">🇨🇳 中文</a>
+                            <a href="../ko/projects.html">🇰🇷 한국어</a>
+                            <a href="../fr/projects.html">🇫🇷 Français</a>
+                            <a href="../de/projects.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/projects.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/projects.html">🇸🇦 العربية</a>
+                            <a href="../hi/projects.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/projects.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/projects.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Navigation -->
+    <div class="product-nav" style="margin-top: 100px; position: sticky; top: 100px;">
+        <div class="max-w-6xl mx-auto px-6 overflow-x-auto">
+            <div class="flex space-x-2 whitespace-nowrap py-2">
+                <a href="#mec" class="product-nav-link">M.E.C</a>
+                <a href="#hhc" class="product-nav-link">H.H.C</a>
+                <a href="#cem" class="product-nav-link">C.E.M</a>
+                <a href="#rai" class="product-nav-link">R.A.I</a>
+                <a href="#nano" class="product-nav-link">Nano</a>
+                <a href="#app" class="product-nav-link">App</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-gradient section-padding pt-32">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;">Nuestros Proyectos</h1>
+            <p class="text-xl text-gray-400">
+                Seis innovaciones transformadoras que abordan los desafíos más apremiantes de la sociedad, 
+                desde el envejecimiento de la población hasta la escasez de mano de obra.
+            </p>
+        </div>
+    </section>
+
+    <!-- Hanzō M.E.C -->
+    <section id="mec" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <div class="product-icon mb-4">🤖</div>
+                    <h2 class="mb-4">Hanzō M.E.C</h2>
+                    <p class="text-xl accent-red mb-6">Cuidado Médico de Ancianos</p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Un robot humanoide compasivo diseñado para proporcionar apoyo médico integral y compañía 
+                        a los adultos mayores. El M.E.C aborda la creciente escasez de cuidadores de Japón con 
+                        tecnología avanzada de IA y sensores especializados.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        Con la población de Japón envejeciendo rápidamente (29% mayores de 65 años), se proyecta 
+                        una escasez de 340,000 cuidadores para 2025. El M.E.C proporciona detección de caídas, 
+                        monitoreo de signos vitales, recordatorios de medicamentos y asistencia de movilidad las 24 horas.
+                    </p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                ⚡
+                                Características Clave
+                            </h3>
+                            <ul class="space-y-3 text-gray-400">
+                                <li>• Detección de caídas y respuesta de emergencia en tiempo real</li>
+                                <li>• Monitoreo continuo de signos vitales y alertas de salud</li>
+                                <li>• Recordatorios de medicamentos automatizados y asistencia</li>
+                                <li>• Soporte de movilidad y prevención de caídas</li>
+                                <li>• Capacidades de compañía interactiva</li>
+                                <li>• Comunicación con familia y cuidadores</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🎯
+                                Mercados Objetivo
+                            </h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li>• Instalaciones de cuidado de ancianos</li>
+                                <li>• Servicios de atención domiciliaria</li>
+                                <li>• Comunidades de jubilación</li>
+                                <li>• Hogares privados con adultos mayores</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🔧
+                                Especificaciones Técnicas
+                            </h3>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>• Altura: 140-160cm (ajustable para uso sentado/de pie)</li>
+                                <li>• Batería: 12-16 horas de operación continua</li>
+                                <li>• Sensores: Lidar, cámaras de profundidad, monitores vitales</li>
+                                <li>• Movilidad: Navegación omnidireccional en interiores</li>
+                                <li>• IA: Procesamiento en el borde para privacidad</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō H.H.C -->
+    <section id="hhc" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="glass-card p-8 rounded-3xl order-2 md:order-1">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                ⚡
+                                Características Clave
+                            </h3>
+                            <ul class="space-y-3 text-gray-400">
+                                <li>• Sistema automatizado de entrega de medicamentos</li>
+                                <li>• Desinfección UV-C para habitaciones de pacientes</li>
+                                <li>• Rastreo y gestión de inventario hospitalario</li>
+                                <li>• Rondas automatizadas de pacientes y verificaciones de bienestar</li>
+                                <li>• Apoyo de telesalud para consultas remotas</li>
+                                <li>• Integración con sistemas EMR/EHR</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🎯
+                                Mercados Objetivo
+                            </h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li>• Hospitales y centros médicos</li>
+                                <li>• Unidades de cuidados intensivos</li>
+                                <li>• Instalaciones de recuperación post-operatoria</li>
+                                <li>• Centros de atención urgente</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🔧
+                                Especificaciones Técnicas
+                            </h3>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>• Altura: 130cm (optimizada para acceso a equipamiento)</li>
+                                <li>• Capacidad de carga: 25kg para suministros/medicamentos</li>
+                                <li>• Navegación: SLAM autónomo con integración de ascensor</li>
+                                <li>• Desinfección: Sistema UV-C de 254nm de grado médico</li>
+                                <li>• Batería: 8-10 horas con estación de carga automática</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="product-icon mb-4">🏥</div>
+                    <h2 class="mb-4">Hanzō H.H.C</h2>
+                    <p class="text-xl accent-red mb-6">Cuidado Hospitalario</p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Asistente hospitalario autónomo que mejora la eficiencia del personal médico a través 
+                        de entrega automatizada de medicamentos, desinfección de habitaciones y gestión de 
+                        suministros médicos.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        Con la escasez global de personal de enfermería, especialmente en Japón donde el 68% de 
+                        los hospitales reportan niveles de personal insuficientes, el H.H.C permite al personal médico 
+                        enfocarse en el cuidado del paciente mientras automatiza tareas rutinarias de logística y saneamiento.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō C.E.M -->
+    <section id="cem" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <div class="product-icon mb-4">🏗️</div>
+                    <h2 class="mb-4">Hanzō C.E.M</h2>
+                    <p class="text-xl accent-red mb-6">Construcción y Manufactura</p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Robot de construcción cuadrúpedo de alta resistencia diseñado para automatizar tareas 
+                        de construcción peligrosas y físicamente demandantes, abordando la escasez crítica de 
+                        mano de obra en la industria de la construcción.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        La industria de la construcción de Japón enfrenta un declive del 30% en los trabajadores, 
+                        con el 36% de los trabajadores mayores de 55 años. El C.E.M proporciona estabilidad en terreno 
+                        irregular, capacidades de alta carga útil y herramientas modulares para diversas tareas de construcción.
+                    </p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                ⚡
+                                Características Clave
+                            </h3>
+                            <ul class="space-y-3 text-gray-400">
+                                <li>• Plataforma cuadrúpeda para terreno irregular</li>
+                                <li>• Sistema modular de intercambio de herramientas</li>
+                                <li>• Navegación SLAM autónoma para sitios de construcción</li>
+                                <li>• Capacidad de alta carga útil (hasta 200kg)</li>
+                                <li>• Levantamiento preciso de materiales y posicionamiento</li>
+                                <li>• Operación resistente a la intemperie</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🎯
+                                Mercados Objetivo
+                            </h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li>• Sitios de construcción a gran escala</li>
+                                <li>• Instalaciones de manufactura</li>
+                                <li>• Proyectos de infraestructura</li>
+                                <li>• Operaciones de almacén y logística</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🔧
+                                Especificaciones Técnicas
+                            </h3>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>• Dimensiones: 1.2m x 0.8m x 0.9m (L x W x H)</li>
+                                <li>• Carga útil: 200kg máximo</li>
+                                <li>• Velocidad: Hasta 1.5 m/s</li>
+                                <li>• Autonomía: 6-8 horas de operación continua</li>
+                                <li>• Resistencia: IP67 (polvo/agua)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō R.A.I -->
+    <section id="rai" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="glass-card p-8 rounded-3xl order-2 md:order-1">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                ⚡
+                                Características Clave
+                            </h3>
+                            <ul class="space-y-3 text-gray-400">
+                                <li>• Asistencia a clientes y navegación en tienda con IA</li>
+                                <li>• Gestión de inventario y reabastecimiento automatizado</li>
+                                <li>• Procesamiento de pagos con integración de super app</li>
+                                <li>• Análisis de comportamiento de clientes en tiempo real</li>
+                                <li>• Soporte multilingüe (12+ idiomas)</li>
+                                <li>• Promociones dinámicas de productos</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🎯
+                                Mercados Objetivo
+                            </h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li>• Tiendas de conveniencia (konbini)</li>
+                                <li>• Tiendas departamentales</li>
+                                <li>• Supermercados y centros comerciales</li>
+                                <li>• Tiendas minoristas especializadas</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🔧
+                                Especificaciones Técnicas
+                            </h3>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>• Altura: 160cm (altura humana promedio)</li>
+                                <li>• Pantalla táctil: Pantalla HD de 15"</li>
+                                <li>• Procesamiento de pagos: NFC, QR, integración de super app</li>
+                                <li>• Navegación: Lidar + visión por computadora para evitación de obstáculos</li>
+                                <li>• Batería: 10-12 horas de operación continua</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="product-icon mb-4">🛒</div>
+                    <h2 class="mb-4">Hanzō R.A.I</h2>
+                    <p class="text-xl accent-red mb-6">Inteligencia de Automatización Minorista</p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Asistente minorista con IA que transforma la experiencia de compra a través de 
+                        asistencia personalizada al cliente, gestión automatizada de inventario e integración 
+                        perfecta de pagos con nuestra plataforma de super app.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        Con la escasez de mano de obra minorista en Japón y la creciente demanda de experiencias 
+                        de compra sin contacto después de COVID, el R.A.I ofrece servicio las 24/7, reduce costos 
+                        laborales y proporciona análisis de datos valiosos para optimizar las operaciones de las tiendas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nanorobotics Platform -->
+    <section id="nano" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <div class="product-icon mb-4">⚛️</div>
+                    <h2 class="mb-4">Plataforma de Nanorobótica</h2>
+                    <p class="text-xl accent-red mb-6">Nanorobótica Médica</p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Nanobots a base de silicio de vanguardia para aplicaciones médicas dirigidas, incluyendo 
+                        terapia contra el cáncer, reparación de ADN y entrega precisa de medicamentos a nivel celular.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        Nuestra tecnología nanorobótica propietaria aprovecha materiales a base de silicio para 
+                        biocompatibilidad y control preciso. Estos sistemas a escala nanométrica pueden navegar 
+                        el torrente sanguíneo, apuntar a células cancerosas específicas y entregar cargas terapéuticas 
+                        con precisión sin precedentes, minimizando efectos secundarios.
+                    </p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                ⚡
+                                Características Clave
+                            </h3>
+                            <ul class="space-y-3 text-gray-400">
+                                <li>• Nanopartículas a base de silicio biocompatibles</li>
+                                <li>• Terapia dirigida contra el cáncer</li>
+                                <li>• Capacidades de reparación de ADN</li>
+                                <li>• Entrega precisa de medicamentos</li>
+                                <li>• Monitoreo y diagnóstico en tiempo real</li>
+                                <li>• Efectos secundarios mínimos comparado con terapias tradicionales</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🎯
+                                Mercados Objetivo
+                            </h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li>• Oncología y tratamiento del cáncer</li>
+                                <li>• Terapia génica y medicina regenerativa</li>
+                                <li>• Entrega dirigida de medicamentos</li>
+                                <li>• Aplicaciones de diagnóstico</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🔧
+                                Especificaciones Técnicas
+                            </h3>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>• Tamaño: 50-200 nanómetros</li>
+                                <li>• Material: Nanopartículas a base de silicio</li>
+                                <li>• Método de control: Campos magnéticos externos</li>
+                                <li>• Biocompatibilidad: Completamente degradable</li>
+                                <li>• Precisión de apuntamiento: >95% exactitud de entrega</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Super App Platform -->
+    <section id="app" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="glass-card p-8 rounded-3xl order-2 md:order-1">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                ⚡
+                                Características Clave
+                            </h3>
+                            <ul class="space-y-3 text-gray-400">
+                                <li>• Procesamiento de pagos integrado (tarjetas, QR, NFC)</li>
+                                <li>• Mensajería segura cifrada de extremo a extremo</li>
+                                <li>• Servicios integrados de transporte compartido</li>
+                                <li>• Pedidos y entrega de comida</li>
+                                <li>• Servicios bancarios (ahorro, préstamos, inversiones)</li>
+                                <li>• Integración perfecta de robots Hanzō</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🎯
+                                Mercados Objetivo
+                            </h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li>• Consumidores en Japón y EE.UU.</li>
+                                <li>• Pequeñas y medianas empresas</li>
+                                <li>• Comerciantes minoristas</li>
+                                <li>• Proveedores de servicios</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2 mb-4">
+                                🔧
+                                Especificaciones Técnicas
+                            </h3>
+                            <ul class="space-y-2 text-gray-400 text-sm">
+                                <li>• Plataformas: iOS, Android, Web</li>
+                                <li>• Seguridad: Cifrado de extremo a extremo, biométricos</li>
+                                <li>• Pagos: Cumplimiento PCI-DSS</li>
+                                <li>• Escalabilidad: Arquitectura de microservicios</li>
+                                <li>• IA: Recomendaciones y detección de fraude personalizadas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="product-icon mb-4">💳</div>
+                    <h2 class="mb-4">Plataforma de Super App</h2>
+                    <p class="text-xl accent-red mb-6">Plataforma de Servicios Digitales</p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Plataforma integral que combina pagos, mensajería, transporte compartido, entrega de 
+                        comida y servicios bancarios en una sola aplicación perfecta. Modelada según el éxito 
+                        de WeChat y Alipay, pero optimizada para los mercados de Japón y EE.UU.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        Nuestra super app sirve como la columna digital que conecta todas las soluciones robóticas 
+                        de Hanzo con los usuarios finales. Cuando los usuarios interactúan con nuestros robots R.A.I 
+                        en tiendas, M.E.C en hogares o cualquiera de nuestros sistemas automatizados, la experiencia 
+                        es perfecta a través de nuestra plataforma de super app.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="mb-6">¿Interesado en nuestros proyectos?</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                Ya sea que esté interesado en asociaciones, oportunidades de inversión o implementación, 
+                nos encantaría discutir cómo nuestras innovaciones pueden abordar sus desafíos.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html"><button class="bg-accent-red text-white px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition">Contáctanos</button></a>
+                <a href="technology.html"><button class="border-2 border-accent-red text-accent-red px-8 py-3 rounded-full font-medium hover:bg-accent-red hover:bg-opacity-10 transition">Nuestra Tecnología</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZŌ</span>
+                        <span class="accent-red text-2xl">•</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Avanzando en robótica, IA e innovación en salud.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Compañía</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">Nosotros</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">Proyectos</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">Tecnología</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Productos</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="#hhc" class="hover:text-white transition">Hanzō H.H.C</a></li>
+                        <li><a href="#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="#nano" class="hover:text-white transition">Nanorobótica</a></li>
+                        <li><a href="#app" class="hover:text-white transition">Super App</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Conectar</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">Email</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">Soporte</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. Todos los derechos reservados.</p>
+                <p class="mt-2">Innovación robótica pionera en Japón y a nivel global.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+
+        // Product navigation active state
+        const productLinks = document.querySelectorAll('.product-nav-link');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '-100px 0px -50% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    productLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
