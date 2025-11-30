@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekte - Hanzo Technologies</title>
+    <meta name="description" content="Erkunden Sie Hanzo Technologies' sechs Innovationsprojekte: humanoide Roboter für Altenpflege, Krankenhäuser, Bau und Einzelhandel, plus Nanorobotik und Super-App-Plattform.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .accent-red {
+            color: #DC143C;
+        }
+        
+        .bg-accent-red {
+            background-color: #DC143C;
+        }
+        
+        .border-accent-red {
+            border-color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .product-nav {
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 40;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .product-nav-link {
+            color: #9ca3af;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: inline-block;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .product-nav-link:hover,
+        .product-nav-link.active {
+            color: #DC143C;
+            border-bottom-color: #DC143C;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .product-icon {
+            font-size: 4rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZÅŒ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">Startseite</a>
+                    <a href="about.html" class="nav-link">Über uns</a>
+                    <a href="projects.html" class="nav-link accent-red">Projekte</a>
+                    <a href="technology.html" class="nav-link">Technologie</a>
+                    <a href="contact.html" class="nav-link">Kontakt</a>
+                    <div class="language-selector">
+                        <button class="nav-link">ðŸŒ EN</button>
+                        <div class="language-dropdown">
+                            <a href="projects.html">ðŸ‡ºðŸ‡¸ English</a>
+                            <a href="../ja/projects.html">ðŸ‡¯ðŸ‡µ æ—¥æœ¬èªž</a>
+                            <a href="../es/projects.html">ðŸ‡ªðŸ‡¸ EspaÃ±ol</a>
+                            <a href="../zh/projects.html">ðŸ‡¨ðŸ‡³ ä¸­æ–‡</a>
+                            <a href="../ko/projects.html">ðŸ‡°ðŸ‡· í•œêµ­ì–´</a>
+                            <a href="../fr/projects.html">ðŸ‡«ðŸ‡· FranÃ§ais</a>
+                            <a href="projects.html">ðŸ‡©ðŸ‡ª Deutsch</a>
+                            <a href="../vi/projects.html">ðŸ‡»ðŸ‡³ Tiáº¿ng Viá»‡t</a>
+                            <a href="../ar/projects.html">ðŸ‡¸ðŸ‡¦ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©</a>
+                            <a href="../hi/projects.html">ðŸ‡®ðŸ‡³ à¤¹à¤¿à¤¨à¥à¤¦à¥€</a>
+                            <a href="../bo/projects.html">ðŸ”ï¸ à½–à½¼à½‘à¼‹à½¡à½²à½‚</a>
+                            <a href="../haw/projects.html">ðŸï¸ Ê»ÅŒlelo HawaiÊ»i</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Navigation -->
+    <div class="product-nav">
+        <div class="max-w-6xl mx-auto px-6 overflow-x-auto">
+            <div class="flex space-x-1 justify-center">
+                <a href="#mec" class="product-nav-link">M.E.C</a>
+                <a href="#hhc" class="product-nav-link">H.H.C</a>
+                <a href="#cem" class="product-nav-link">C.E.M</a>
+                <a href="#rai" class="product-nav-link">R.A.I</a>
+                <a href="#nano" class="product-nav-link">Nanorobotics</a>
+                <a href="#app" class="product-nav-link">Super App</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="hero-gradient section-padding text-center" style="margin-top: 100px;">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem);">Unsere Projekte</h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light">
+                Sechs Innovationen zur Bewältigung kritischer Herausforderungen im Gesundheitswesen, Bau und täglichem Leben.
+            </p>
+        </div>
+    </section>
+
+    <!-- HanzÅ M.E.C -->
+    <section id="mec" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">â™¿</div>
+                <h2 class="mb-4">HanzÅ M.E.C</h2>
+                <p class="text-xl accent-red font-medium mb-4">Medizinische & Altenpflege-Roboter</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    Advanced companion robot designed for Japan's aging population, providing health monitoring, 
+                    emergency response, and social engagement.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">âš¡</span>
+                        Hauptmerkmale
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Sturzerkennung mit Notfall-KI</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Continuous vital sign monitoring (heart rate, blood pressure, temperature)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Medikamentenerinnerungssystem mit KI-gestützten Gesundheitswarnungen</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Integration mit Wearables (Apple Watch, Fitbit, Garmin, Samsung, Huawei)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Begleit-KI für soziales Engagement und geistige Stimulation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Mobility support and autonomous navigation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Sprachgesteuerte Interaktion auf Japanisch und Englisch</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">ðŸŽ¯</span>
+                        Zielmärkte
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Altenpflegeeinrichtungen in Japan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Häusliche Pflege für alternde Bevölkerung</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Gesundheitsdienstleister und Pflegeheime</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Families with elderly relatives</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">ðŸ”§</span>
+                        Technical Specifications
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>â€¢ Humanoid design with autonomous navigation</li>
+                        <li>â€¢ Advanced AI and machine learning capabilities</li>
+                        <li>â€¢ Multi-sensor health monitoring system</li>
+                        <li>â€¢ Wireless connectivity and cloud integration</li>
+                        <li>â€¢ Extended battery life for 24/7 operation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HanzÅ H.H.C -->
+    <section id="hhc" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">ðŸ¥</div>
+                <h2 class="mb-4">HanzÅ H.H.C</h2>
+                <p class="text-xl accent-red font-medium mb-4">Krankenhaus-Gesundheitsroboter</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    Fast-moving hospital assistant with dedicated lane navigation, designed to free doctors 
+                    from time-consuming tasks and improve patient care efficiency.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">âš¡</span>
+                        Hauptmerkmale
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Patient charting and medical documentation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Supply restocking and inventory management</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Continuous patient monitoring and vital sign tracking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>EMR (Electronic Medical Records) system integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>3D hospital mapping with perfect spatial memory</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Dedicated hospital lane navigation for fast movement</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Medication room access and retrieval assistance</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">ðŸŽ¯</span>
+                        Zielmärkte
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Large hospitals and medical centers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Intensive Care Units (ICUs)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Emergency departments</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Specialty clinics and medical facilities</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">ðŸ”§</span>
+                        Technical Specifications
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>â€¢ Humanoid design optimized for speed</li>
+                        <li>â€¢ Advanced navigation with 3D environment mapping</li>
+                        <li>â€¢ Hospital-grade materials and sterile design</li>
+                        <li>â€¢ Real-time EMR integration and data sync</li>
+                        <li>â€¢ AI-powered inventory tracking and management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HanzÅ C.E.M -->
+    <section id="cem" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">ðŸ—ï¸</div>
+                <h2 class="mb-4">HanzÅ C.E.M</h2>
+                <p class="text-xl accent-red font-medium mb-4">Bau- & Fertigungsroboter</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    Heavy-duty quadrupedal robot für komplexe Baustellen konzipiert, mit modularen 
+                    tool attachments and advanced terrain navigation capabilities.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">âš¡</span>
+                        Hauptmerkmale
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Quadrupedal locomotion for uneven terrain</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Heavy-duty load carrying with modular tool attachments</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Advanced SLAM-based navigation for complex sites</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Industrial-grade durability with shock absorption</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Safety sensors and collision avoidance systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Remote monitoring and IIoT integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Self-diagnostic and predictive maintenance</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">ðŸŽ¯</span>
+                        Zielmärkte
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Bauunternehmen und Auftragnehmer</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Fertigungsanlagen</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Infrastructure development projects</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Industrial automation sectors</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">ðŸ”§</span>
+                        Technical Specifications
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>â€¢ Industrial-grade materials (aluminum, carbon fiber, steel)</li>
+                        <li>â€¢ Ruggedized design for harsh environments</li>
+                        <li>â€¢ High payload capacity with stability systems</li>
+                        <li>â€¢ Wetter- und staubgeschützte Konstruktion</li>
+                        <li>â€¢ Modular architecture for tool swapping</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HanzÅ R.A.I -->
+    <section id="rai" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">ðŸ›ï¸</div>
+                <h2 class="mb-4">HanzÅ R.A.I</h2>
+                <p class="text-xl accent-red font-medium mb-4">Einzelhandels-Automatisierung & Intelligenz-Roboter</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    AI-powered retail assistant with natural language processing, seamlessly integrated 
+                    with the Hanzo super app for next-generation customer experiences.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">âš¡</span>
+                        Hauptmerkmale
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Kundenservice-KI mit natürlicher Sprachverarbeitung</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Inventory management and restocking automation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Integration with Hanzo super app for seamless payments</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Personalized product recommendations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Autonomous navigation in retail environments</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Multi-language support for international customers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Real-time analytics and customer insights</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">ðŸŽ¯</span>
+                        Zielmärkte
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Einzelhandelsgeschäfte und Einkaufszentren</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Supermärkte und Convenience-Stores</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Warehouses and distribution centers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>E-commerce fulfillment facilities</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">ðŸ”§</span>
+                        Technical Specifications
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>â€¢ Humanoid design for customer interaction</li>
+                        <li>â€¢ Advanced computer vision and object recognition</li>
+                        <li>â€¢ Cloud-connected AI for continuous learning</li>
+                        <li>â€¢ Payment processing integration</li>
+                        <li>â€¢ Modular design for different retail formats</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nanorobotik-Plattform -->
+    <section id="nano" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">âš›ï¸</div>
+                <h2 class="mb-4">Nanorobotik-Plattform</h2>
+                <p class="text-xl accent-red font-medium mb-4">Medical Nanorobotics</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    Proprietary silicon-based nanorobots for targeted cancer treatment, DNA repair, 
+                    and environmental restoration applications.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">âš¡</span>
+                        Hauptmerkmale
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Targeted cancer cell identification and treatment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>DNA-Reparaturmechanismen auf molekularer Ebene</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Präzisions-Medikamentenabgabesysteme</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Environmental cleanup for oil spills</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Coral reef restoration technology</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Biocompatible silicon-based design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Controlled activation and deactivation</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">ðŸŽ¯</span>
+                        Zielmärkte
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Cancer treatment centers and hospitals</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Precision medicine clinics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Environmental cleanup organizations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Marine conservation projects</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">ðŸ”§</span>
+                        Technical Specifications
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>â€¢ Proprietary silicon-based nanostructures</li>
+                        <li>â€¢ Molecular-scale targeting systems</li>
+                        <li>â€¢ Biocompatible materials and coatings</li>
+                        <li>â€¢ Advanced computational modeling</li>
+                        <li>â€¢ Multi-stage clinical development pathway</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Super-App-Plattform -->
+    <section id="app" class="section-padding hero-gradient">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="product-icon mb-6">ðŸ’³</div>
+                <h2 class="mb-4">Super-App-Plattform</h2>
+                <p class="text-xl accent-red font-medium mb-4">Integrated Digital Services</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    Comprehensive mobile platform combining payments, messaging, ride-sharing, food delivery, 
+                    and banking services with seamless robotics integration.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">âš¡</span>
+                        Hauptmerkmale
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Integrated payment processing (PayPal, Stripe, cryptocurrency)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Secure messaging and communication platform</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Ride-sharing and transportation services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Food delivery and restaurant ordering</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Digital banking and financial services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Seamless integration with HanzÅ R.A.I retail robot</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Cross-border US-Japan functionality</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="mb-6 flex items-center">
+                        <span class="accent-red mr-3">ðŸŽ¯</span>
+                        Zielmärkte
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>US-Japan market consumers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>International travelers and expats</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Small businesses and merchants</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="accent-red mr-2">â€¢</span>
+                            <span>Tech-savvy urban professionals</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="mb-4 flex items-center mt-8">
+                        <span class="accent-red mr-3">ðŸ”§</span>
+                        Technical Specifications
+                    </h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>â€¢ Native iOS- und Android-Anwendungen</li>
+                        <li>â€¢ Cloud-based scalable infrastructure</li>
+                        <li>â€¢ Enterprise-grade security and encryption</li>
+                        <li>â€¢ Multi-currency and multi-language support</li>
+                        <li>â€¢ API integration for robotics ecosystem</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="mb-6">Interessiert an unseren Projekten?</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                Erfahren Sie mehr über unsere Technologie, Partnerschaften oder kontaktieren Sie uns, um Kooperationsmöglichkeiten zu besprechen.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="technology.html"><button class="bg-accent-red text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition">Explore Technology</button></a>
+                <a href="contact.html"><button class="border-2 border-accent-red text-accent-red px-8 py-3 rounded-full font-medium hover:bg-red-900 hover:bg-opacity-10 transition">Kontaktieren Sie uns</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZÅŒ</span>
+                        <span class="accent-red text-2xl">â€¢</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Fortschritt in Robotik, KI und Gesundheitsinnovation.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Unternehmen</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">Über uns</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">Projekte</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">Technologie</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Produkte</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#mec" class="hover:text-white transition">HanzÅ M.E.C</a></li>
+                        <li><a href="#hhc" class="hover:text-white transition">HanzÅ H.H.C</a></li>
+                        <li><a href="#cem" class="hover:text-white transition">HanzÅ C.E.M</a></li>
+                        <li><a href="#rai" class="hover:text-white transition">HanzÅ R.A.I</a></li>
+                        <li><a href="#nano" class="hover:text-white transition">Nanorobotics</a></li>
+                        <li><a href="#app" class="hover:text-white transition">Super App</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Verbinden</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">General Inquiries</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">Partnerships</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. Alle Rechte vorbehalten.</p>
+                <p class="mt-2">Wegweisende Robotikinnovation in Japan und weltweit.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

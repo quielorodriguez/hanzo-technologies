@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanzo Technologies - Fortschritt in Robotik, KI und Gesundheitsinnovation</title>
+    <meta name="description" content="Hanzo Technologies develops fortschrittliche Robotiklösungen für Gesundheitswesen, Altenpflege, Bauautomatisierung und digitale Dienste. Wegweisende Innovation in Japan und weltweit.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            background: rgba(40, 40, 40, 0.7);
+            border-color: rgba(220, 20, 60, 0.3);
+            transform: translateY(-4px);
+        }
+        
+        .accent-red {
+            color: #DC143C;
+        }
+        
+        .bg-accent-red {
+            background-color: #DC143C;
+        }
+        
+        .border-accent-red {
+            border-color: #DC143C;
+        }
+        
+        .apple-button {
+            background: #DC143C;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 980px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .apple-button:hover {
+            background: #b01030;
+            transform: scale(1.02);
+        }
+        
+        .apple-button-outline {
+            background: transparent;
+            color: #DC143C;
+            padding: 12px 32px;
+            border-radius: 980px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 2px solid #DC143C;
+            cursor: pointer;
+        }
+        
+        .apple-button-outline:hover {
+            background: rgba(220, 20, 60, 0.1);
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZÅŒ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                <a href="index.html" class="nav-link">Startseite</a>
+                <a href="about.html" class="nav-link">Über uns</a>
+                <a href="projects.html" class="nav-link">Projekte</a>
+                <a href="technology.html" class="nav-link">Technologie</a>
+                <a href="contact.html" class="nav-link">Kontakt</a>
+                <div class="language-selector">
+                    <button class="nav-link">ðŸŒ EN</button>
+                    <div class="language-dropdown">
+                        <a href="index.html">ðŸ‡ºðŸ‡¸ English</a>
+                        <a href="../ja/index.html">ðŸ‡¯ðŸ‡µ æ—¥æœ¬èªž</a>
+                        <a href="../es/index.html">ðŸ‡ªðŸ‡¸ EspaÃ±ol</a>
+                        <a href="../zh/index.html">ðŸ‡¨ðŸ‡³ ä¸­æ–‡</a>
+                        <a href="../ko/index.html">ðŸ‡°ðŸ‡· í•œêµ­ì–´</a>
+                        <a href="../fr/index.html">ðŸ‡«ðŸ‡· FranÃ§ais</a>
+                        <a href="index.html">ðŸ‡©ðŸ‡ª Deutsch</a>
+                        <a href="../vi/index.html">ðŸ‡»ðŸ‡³ Tiáº¿ng Viá»‡t</a>
+                        <a href="../ar/index.html">ðŸ‡¸ðŸ‡¦ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©</a>
+                        <a href="../hi/index.html">ðŸ‡®ðŸ‡³ à¤¹à¤¿à¤¨à¥à¤¦à¥€</a>
+                        <a href="../bo/index.html">ðŸ”ï¸ à½–à½¼à½‘à¼‹à½¡à½²à½‚</a>
+                        <a href="../haw/index.html">ðŸï¸ Ê»ÅŒlelo HawaiÊ»i</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient section-padding text-center fade-in" style="margin-top: 100px;">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;">
+                Die Zukunft der Robotik.<br>
+                <span class="accent-red">Entsteht in Japan.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
+                Hanzo Technologies develops advanced robotics solutions that enhance human life, 
+                address Japan's demographic challenges, and contribute to global sustainability.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="projects.html"><button class="apple-button">Explore Projects</button></a>
+                <a href="contact.html"><button class="apple-button-outline">Get in Touch</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="section-padding bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="mb-6" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">Innovation across three frontiers.</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    From humanoid robotics to molecular-scale nanotech, we're building 
+                    solutions for the challenges that matter most.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="product-icon">ðŸ¤–</div>
+                    <h3 class="text-2xl font-semibold mb-4">Humanoid Robotics</h3>
+                    <p class="text-gray-400">
+                        Advanced robots designed for elderly care, hospital operations, 
+                        construction, and retail automation.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="product-icon">ðŸ”¬</div>
+                    <h3 class="text-2xl font-semibold mb-4">Nanorobotics</h3>
+                    <p class="text-gray-400">
+                        Silicon-based medical nanobots for cancer treatment, DNA repair, 
+                        and environmental restoration.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="product-icon">ðŸ“±</div>
+                    <h3 class="text-2xl font-semibold mb-4">Super App Platform</h3>
+                    <p class="text-gray-400">
+                        Integrated digital services combining payments, messaging, and 
+                        seamless robotics integration.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Highlights -->
+    <section class="section-padding hero-gradient">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="mb-6" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">Six innovations.<br>One mission.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- HanzÅ M.E.C -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">ðŸ‘´</div>
+                    <h3 class="text-2xl font-semibold mb-3">HanzÅ M.E.C</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">Medizinische & Altenpflege</p>
+                    <p class="text-gray-400">
+                        Companion robot for Japan's aging population with health monitoring and emergency response.
+                    </p>
+                </div>
+                
+                <!-- HanzÅ H.H.C -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">ðŸ¥</div>
+                    <h3 class="text-2xl font-semibold mb-3">HanzÅ H.H.C</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">Hospital Gesundheitswesen</p>
+                    <p class="text-gray-400">
+                        Fast-moving hospital assistant with EMR integration and intelligent inventory management.
+                    </p>
+                </div>
+                
+                <!-- HanzÅ C.E.M -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">ðŸ—ï¸</div>
+                    <h3 class="text-2xl font-semibold mb-3">HanzÅ C.E.M</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">Bau & Fertigung</p>
+                    <p class="text-gray-400">
+                        Schwerlast-Bauroboter für komplexe Baustellen und Automatisierung konzipiert.
+                    </p>
+                </div>
+                
+                <!-- HanzÅ R.A.I -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">ðŸ›ï¸</div>
+                    <h3 class="text-2xl font-semibold mb-3">HanzÅ R.A.I</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">Einzelhandels-Automatisierung</p>
+                    <p class="text-gray-400">
+                        KI-gestützter Einzelhandelsassistent mit nahtloser Super-App-Integration.
+                    </p>
+                </div>
+                
+                <!-- Nanorobotics Platform -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">âš›ï¸</div>
+                    <h3 class="text-2xl font-semibold mb-3">Nanorobotics</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">Medizinische Plattform</p>
+                    <p class="text-gray-400">
+                        Siliziumbasierte Nanoroboter für Krebsbehandlung und Präzisionsmedizin.
+                    </p>
+                </div>
+                
+                <!-- Super App -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">ðŸ’³</div>
+                    <h3 class="text-2xl font-semibold mb-3">Super App</h3>
+                    <p class="text-sm accent-red mb-4 font-medium">Digitale Plattform</p>
+                    <p class="text-gray-400">
+                        Umfassende Plattform, die Zahlungen, Nachrichten und Robotik-Integration vereint.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="projects.html"><button class="apple-button">Alle Projekte erkunden</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Value Prop -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="mb-6" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">Die Zukunft in Japan gestalten.</h2>
+            <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+                Our innovations address Japan's most pressing challengesâ€”from an aging population 
+                to labor shortagesâ€”while advancing robotics and AI technology globally.
+            </p>
+            <a href="about.html"><button class="apple-button-outline">Mehr über uns</button></a>
+        </div>
+    </section>
+
+    <!-- Markets -->
+    <section class="section-padding hero-gradient">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">ðŸ¥</div>
+                    <h4 class="font-semibold text-lg">Gesundheitswesen</h4>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">ðŸ—ï¸</div>
+                    <h4 class="font-semibold text-lg">Bauwesen</h4>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">ðŸ›ï¸</div>
+                    <h4 class="font-semibold text-lg">Einzelhandel</h4>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="text-4xl mb-3">ðŸŒ</div>
+                    <h4 class="font-semibold text-lg">Umwelt</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="mb-6">Bereit, gemeinsam zu innovieren?</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                Whether you're interested in partnerships, investment opportunities, 
+                oder mehr über unsere Technologie interessiert sind – wir freuen uns auf Ihre Nachricht.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <a href="contact.html"><button class="apple-button">Kontaktieren Sie uns</button></a>
+                <a href="projects.html"><button class="apple-button-outline">Alle Projekte ansehen</button></a>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 mt-16">
+                <div>
+                    <h4 class="font-semibold mb-2 accent-red">Allgemeine Anfragen</h4>
+                    <a href="mailto:quielo@hanzotechnologies.com" class="text-gray-400 hover:text-white transition">
+                        quielo@hanzotechnologies.com
+                    </a>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-2 accent-red">Partnerschaften</h4>
+                    <a href="mailto:outreach@hanzotechnologies.com" class="text-gray-400 hover:text-white transition">
+                        outreach@hanzotechnologies.com
+                    </a>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-2 accent-red">Support</h4>
+                    <a href="mailto:support@hanzotechnologies.com" class="text-gray-400 hover:text-white transition">
+                        support@hanzotechnologies.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">HANZÅŒ</span>
+                        <span class="accent-red text-2xl">â€¢</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Fortschritt in Robotik, KI und Gesundheitsinnovation.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Unternehmen</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">Über uns</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">Projekte</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">Technologie</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Produkte</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">HanzÅ M.E.C</a></li>
+                        <li><a href="projects.html#hhc" class="hover:text-white transition">HanzÅ H.H.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">HanzÅ C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">HanzÅ R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">Nanorobotics</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">Super App</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Verbinden</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">Email</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. Alle Rechte vorbehalten.</p>
+                <p class="mt-2">Wegweisende Robotikinnovation in Japan und weltweit.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
