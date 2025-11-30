@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - Hanzo Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .red-accent {
+            color: #DC143C;
+        }
+        
+        .red-glow {
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .contact-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(220, 20, 60, 0.2);
+        }
+        
+        input, textarea, select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #DC143C;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .submit-button {
+            background: #DC143C;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            background: #bc0230;
+            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZÅŒ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">Trang chủ</a>
+                    <a href="about.html" class="nav-link">Giới thiệu</a>
+                    <a href="projects.html" class="nav-link">Dự án</a>
+                    <a href="technology.html" class="nav-link">Công nghệ</a>
+                    <a href="contact.html" class="nav-link">Liên hệ</a>
+                    <div class="language-selector">
+                        <button class="nav-link">ðŸŒ EN</button>
+                        <div class="language-dropdown">
+                            <a href="contact.html">ðŸ‡ºðŸ‡¸ English</a>
+                            <a href="../ja/contact.html">ðŸ‡¯ðŸ‡µ æ—¥æœ¬èªž</a>
+                            <a href="../es/contact.html">ðŸ‡ªðŸ‡¸ EspaÃ±ol</a>
+                            <a href="../zh/contact.html">ðŸ‡¨ðŸ‡³ ä¸­æ–‡</a>
+                            <a href="../ko/contact.html">ðŸ‡°ðŸ‡· í•œêµ­ì–´</a>
+                            <a href="../fr/contact.html">ðŸ‡«ðŸ‡· FranÃ§ais</a>
+                            <a href="../de/contact.html">ðŸ‡©ðŸ‡ª Deutsch</a>
+                            <a href="contact.html">ðŸ‡»ðŸ‡³ Tiáº¿ng Viá»‡t</a>
+                            <a href="../ar/contact.html">ðŸ‡¸ðŸ‡¦ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©</a>
+                            <a href="../hi/contact.html">ðŸ‡®ðŸ‡³ à¤¹à¤¿à¤¨à¥à¤¦à¥€</a>
+                            <a href="../bo/contact.html">ðŸ”ï¸ à½–à½¼à½‘à¼‹à½¡à½²à½‚</a>
+                            <a href="../haw/contact.html">ðŸï¸ Ê»ÅŒlelo HawaiÊ»i</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient section-padding text-center fade-in" style="margin-top: 100px;">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;">
+                Liên <span class="red-accent">hệ</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
+                Cho dù bạn quan tâm đến đối tác, đầu tư hoặc tìm hiểu thêm về công nghệ của chúng tôi, chúng tôi rất mong được nghe từ bạn.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Contact Information</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                Chọn cách tốt nhất để liên hệ với chúng tôi based on your inquiry
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Thắc mắc Chung -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">ðŸ“§</div>
+                    <h3 class="text-xl font-bold mb-3">Thắc mắc Chung</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Cho các câu hỏi chung về công ty và sản phẩm của chúng tôi
+                    </p>
+                    <a href="mailto:quielo@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        quielo@hanzotechnologies.com
+                    </a>
+                </div>
+
+                <!-- Partnerships -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">ðŸ¤</div>
+                    <h3 class="text-xl font-bold mb-3">Partnerships</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Phát triển kinh doanh, hợp tác nghiên cứu và đối tác chiến lược
+                    </p>
+                    <a href="mailto:outreach@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        outreach@hanzotechnologies.com
+                    </a>
+                </div>
+
+                <!-- Support -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">ðŸ›Ÿ</div>
+                    <h3 class="text-xl font-bold mb-3">Customer Support</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Hỗ trợ kỹ thuật và dịch vụ khách hàng inquiries
+                    </p>
+                    <a href="mailto:support@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        support@hanzotechnologies.com
+                    </a>
+                </div>
+
+                <!-- Press -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">ðŸ“°</div>
+                    <h3 class="text-xl font-bold mb-3">Press & Media</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Thắc mắc truyền thông, thông cáo báo chí và yêu cầu phỏng vấn
+                    </p>
+                    <a href="mailto:press@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        press@hanzotechnologies.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mẫu Liên hệ -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-effect p-10">
+                <h2 class="text-3xl font-bold mb-4 text-center">Send Us a Message</h2>
+                <p class="text-center text-gray-400 mb-10">
+                    Điền vào mẫu bên dưới và chúng tôi sẽ liên lạc lại với bạn sớm nhất có thể
+                </p>
+                
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">First Name *</label>
+                            <input type="text" required placeholder="John" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Last Name *</label>
+                            <input type="text" required placeholder="Doe" />
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Email Address *</label>
+                            <input type="email" required placeholder="john@example.com" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Phone Number</label>
+                            <input type="tel" placeholder="+1 (555) 123-4567" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Company/Organization</label>
+                        <input type="text" placeholder="Your Company Name" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Inquiry Type *</label>
+                        <select required>
+                            <option value="">Select an option</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="investment">Investment Interest</option>
+                            <option value="research">Hợp tác Nghiên cứu</option>
+                            <option value="press">Press/Media</option>
+                            <option value="support">Hỗ trợ Kỹ thuật</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Message *</label>
+                        <textarea required rows="6" placeholder="Cho chúng tôi biết thêm về thắc mắc của bạn..."></textarea>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" id="privacy" required class="mt-1 w-4 h-4" />
+                        <label for="privacy" class="ml-2 text-sm text-gray-400">
+                            Tôi đồng ý với việc xử lý dữ liệu cá nhân của tôi theo chính sách quyền riêng tư *
+                        </label>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="submit-button">
+                            Gửi Tin nhắn
+                        </button>
+                        <p class="text-xs text-gray-500 mt-4">
+                            * Required fields
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Địa điểm của Chúng tôi</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                Hoạt động trên khắp Thái Bình Dương với định vị chiến lược tại các trung tâm đổi mới chính
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- USA Operations -->
+                <div class="glass-effect p-8">
+                    <div class="flex items-start mb-6">
+                        <span class="text-4xl mr-4">ðŸ‡ºðŸ‡¸</span>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">United States</h3>
+                            <p class="text-red-400 text-sm font-semibold">Current Operations</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <div>
+                            <p class="font-semibold mb-1">Seattle, Washington</p>
+                            <p class="text-sm text-gray-400">
+                                Trung tâm phát triển chính cho nghiên cứu phần mềm và AI
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">Time Zone:</p>
+                            <p class="font-semibold">Pacific Time (UTC-8/UTC-7)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hoạt động tại Nhật Bản -->
+                <div class="glass-effect p-8 red-glow">
+                    <div class="flex items-start mb-6">
+                        <span class="text-4xl mr-4">ðŸ‡¯ðŸ‡µ</span>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Japan</h3>
+                            <p class="text-red-400 text-sm font-semibold">Future Headquarters</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <div>
+                            <p class="font-semibold mb-1">Tokyo, Nhật Bản</p>
+                            <p class="text-sm text-gray-400">
+                                Trụ sở chính dự kiến cho phát triển và sản xuất robot
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">Target Areas:</p>
+                            <ul class="text-sm space-y-1">
+                                <li>â€¢ Shibuya Ward - Innovation district</li>
+                                <li>â€¢ Minato Ward - Business hub</li>
+                                <li>â€¢ Chiyoda Ward - Tech center</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">Time Zone:</p>
+                            <p class="font-semibold">Japan Standard Time (UTC+9)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thời gian Phản hồis -->
+            <div class="mt-16 max-w-3xl mx-auto">
+                <div class="glass-effect p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-6">Expected Thời gian Phản hồis</h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div>
+                            <div class="text-3xl mb-2">âš¡</div>
+                            <p class="font-semibold mb-1">Thắc mắc Chung</p>
+                            <p class="text-gray-400">Within 24-48 giờ</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl mb-2">ðŸ¤</div>
+                            <p class="font-semibold mb-1">Partnerships</p>
+                            <p class="text-gray-400">Within 48-72 hours</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl mb-2">ðŸ›Ÿ</div>
+                            <p class="font-semibold mb-1">Support</p>
+                            <p class="text-gray-400">Within 72 hours</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-6">
+                        Thời gian phản hồi là ước tính và có thể thay đổi trong thời gian cao điểm hoặc ngày lễ
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Câu hỏi Thường gặp</h2>
+            <p class="text-center text-gray-400 mb-16">
+                Quick answers to common inquiries
+            </p>
+
+            <div class="space-y-6">
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">Bạn hiện có đang tuyển dụng?</h3>
+                    <p class="text-gray-300">
+                        Chúng tôi đang tích cực xây dựng đội ngũ khi chúng tôi thiết lập hoạt động tại Tokyo. Mặc dù chúng tôi chưa công khai quảng cáo vị trí, chúng tôi hoan nghênh thắc mắc từ robotics engineers, AI specialists, and business development professionals. Gửi sơ yếu lý lịch của bạn đến <a href="mailto:quielo@hanzotechnologies.com" class="text-red-400 hover:text-red-300">quielo@hanzotechnologies.com</a>.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">Do you accept investment inquiries?</h3>
+                    <p class="text-gray-300">
+                        Có! Chúng tôi đang tích cực tìm kiếm các nhà đầu tư chiến lược và đối tác vốn mạo hiểm chia sẻ tầm nhìn của chúng tôi về đổi mới robot. Vui lòng liên hệ với chúng tôi tại <a href="mailto:quielo@hanzotechnologies.com" class="text-red-400 hover:text-red-300">quielo@hanzotechnologies.com</a> để biết cơ hội đầu tư và tài liệu pitch deck.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">Can I schedule a product demonstration?</h3>
+                    <p class="text-gray-300">
+                        Sản phẩm của chúng tôi hiện đang trong quá trình phát triển. Chúng tôi sẽ lên lịch trình diễn sau khi có nguyên mẫu. Nếu bạn quan tâm đến quyền truy cập sớm hoặc chương trình thí điểm, vui lòng liên hệ với <a href="mailto:outreach@hanzotechnologies.com" class="text-red-400 hover:text-red-300">outreach@hanzotechnologies.com</a>.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">Các tổ chức nghiên cứu có thể hợp tác với bạn như thế nào?</h3>
+                    <p class="text-gray-300">
+                        Chúng tôi đang tích cực tìm kiếm đối tác nghiên cứu với các tổ chức như RIKEN, AIST, và các trường đại học hàng đầu. Để biết cơ hội hợp tác, vui lòng liên hệ <a href="mailto:outreach@hanzotechnologies.com" class="text-red-400 hover:text-red-300">outreach@hanzotechnologies.com</a> với chi tiết về trọng tâm nghiên cứu của bạn và tiềm năng phối hợp.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">Bạn có sản phẩm nào để mua không?</h3>
+                    <p class="text-gray-300">
+                        Sản phẩm của chúng tôi hiện đang trong quá trình phát triển và chưa có sẵn thương mại. Chúng tôi đang theo chiến lược phát triển theo giai đoạn với ứng dụng siêu của chúng tôi ra mắt trước, tiếp theo là các nền tảng robot. Tham gia danh sách liên hệ để được thông báo khi sản phẩm có sẵn.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">Bạn hỗ trợ những ngôn ngữ nào?</h3>
+                    <p class="text-gray-300">
+                        Ngôn ngữ kinh doanh chính của chúng tôi là tiếng Anh và tiếng Nhật. Trang web của chúng tôi cung cấp 12 tùy chọn ngôn ngữ để phục vụ khán giả toàn cầu của chúng tôi. Robot của chúng tôi sẽ hỗ trợ tương tác giọng nói in Japanese and English, với các ngôn ngữ bổ sung được lên kế hoạch cho các phiên bản tương lai.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social & Newsletter -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-effect p-10 text-center">
+                <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+                <p class="text-gray-400 mb-8">
+                    Theo dõi hành trình của chúng tôi khi chúng tôi xây dựng tương lai của robot và AI
+                </p>
+                
+                <!-- Newsletter Signup -->
+                <div class="max-w-md mx-auto mb-8">
+                    <form class="flex gap-3">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email" 
+                            class="flex-1"
+                        />
+                        <button type="submit" class="submit-button whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
+                    <p class="text-xs text-gray-500 mt-3">
+                        Nhận cập nhật về ra mắt sản phẩm, đối tác và tin tức công ty
+                    </p>
+                </div>
+
+                <!-- Social Links Placeholder -->
+                <div class="pt-8 border-t border-gray-800">
+                    <p class="text-sm text-gray-400 mb-4">Follow us on social media (coming soon)</p>
+                    <div class="flex justify-center gap-6 text-2xl text-gray-600">
+                        <span>ðŸ“±</span>
+                        <span>ðŸ’¼</span>
+                        <span>ðŸ¦</span>
+                        <span>ðŸ“º</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">
+                            H A N Z <span class="text-lg">ÅŒ</span>
+                            <span class="red-accent text-2xl">â€¢</span>
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Thúc đẩy robot, AI và công nghệ chăm sóc sức khỏe cho một tương lai tốt đẹp hơn.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Công ty</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">Công nghệ</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Dự án</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">HanzÅ M.E.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">HanzÅ C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">HanzÅ R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">Nanorobotics</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">Super App</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Kết nối</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">Thắc mắc Chung</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">Partnerships</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">Support</a></li>
+                        <li><a href="/cdn-cgi

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology & Innovation - Hanzo Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .red-accent {
+            color: #DC143C;
+        }
+        
+        .red-glow {
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .tech-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(220, 20, 60, 0.2);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid rgba(220, 20, 60, 0.3);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: #DC143C;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZÅŒ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">Trang chủ</a>
+                    <a href="about.html" class="nav-link">Giới thiệu</a>
+                    <a href="projects.html" class="nav-link">Dự án</a>
+                    <a href="technology.html" class="nav-link">Công nghệ</a>
+                    <a href="contact.html" class="nav-link">Liên hệ</a>
+                    <div class="language-selector">
+                        <button class="nav-link">ðŸŒ EN</button>
+                        <div class="language-dropdown">
+                            <a href="technology.html">ðŸ‡ºðŸ‡¸ English</a>
+                            <a href="../ja/technology.html">ðŸ‡¯ðŸ‡µ æ—¥æœ¬èªž</a>
+                            <a href="../es/technology.html">ðŸ‡ªðŸ‡¸ EspaÃ±ol</a>
+                            <a href="../zh/technology.html">ðŸ‡¨ðŸ‡³ ä¸­æ–‡</a>
+                            <a href="../ko/technology.html">ðŸ‡°ðŸ‡· í•œêµ­ì–´</a>
+                            <a href="../fr/technology.html">ðŸ‡«ðŸ‡· FranÃ§ais</a>
+                            <a href="../de/technology.html">ðŸ‡©ðŸ‡ª Deutsch</a>
+                            <a href="technology.html">ðŸ‡»ðŸ‡³ Tiáº¿ng Viá»‡t</a>
+                            <a href="../ar/technology.html">ðŸ‡¸ðŸ‡¦ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©</a>
+                            <a href="../hi/technology.html">ðŸ‡®ðŸ‡³ à¤¹à¤¿à¤¨à¥à¤¦à¥€</a>
+                            <a href="../bo/technology.html">ðŸ”ï¸ à½–à½¼à½‘à¼‹à½¡à½²à½‚</a>
+                            <a href="../haw/technology.html">ðŸï¸ Ê»ÅŒlelo HawaiÊ»i</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient section-padding text-center fade-in" style="margin-top: 100px;">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;">
+                Công nghệ & <span class="red-accent">Đổi mới</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
+                Tiên phong tương lai thông qua nghiên cứu robot, AI và công nghệ nano tiên tiến
+            </p>
+        </div>
+    </section>
+
+    <!-- Công nghệ Cốt lõi Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Công nghệ Cốt lõi</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                Đổi mới của chúng tôi bao trùm three revolutionary technology domains, each addressing critical global challenges
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Humanoid Robotics -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">ðŸ¤–</div>
+                    <h3 class="text-2xl font-bold mb-4">Humanoid Robotics</h3>
+                    <p class="text-gray-400 mb-6">
+                        Robot hai chân và bốn chân tiên tiến được thiết kế cho chăm sóc người cao tuổi, tự động hóa xây dựng và môi trường bán lẻ
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>â€¢ Tầm nhìn và điều hướng được hỗ trợ bởi AI</li>
+                        <li>â€¢ Hệ thống cân bằng động</li>
+                        <li>â€¢ Tích hợp công cụ mô-đun</li>
+                        <li>â€¢ Human-robot collaboration</li>
+                        <li>â€¢ SLAM-based navigation</li>
+                    </ul>
+                </div>
+
+                <!-- Nanorobotics -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">ðŸ”¬</div>
+                    <h3 class="text-2xl font-bold mb-4">Silicon-Based Nanorobotics</h3>
+                    <p class="text-gray-400 mb-6">
+                        Robot quy mô nano độc quyền cho y học chính xác, targeting cancer treatment, DNA repair, và phục hồi môi trường
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>â€¢ Molecular-level precision</li>
+                        <li>â€¢ Biocompatible materials</li>
+                        <li>â€¢ Targeted drug delivery</li>
+                        <li>â€¢ Environmental cleanup</li>
+                        <li>â€¢ DNA repair mechanisms</li>
+                    </ul>
+                </div>
+
+                <!-- AI & Software -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">ðŸ§ </div>
+                    <h3 class="text-2xl font-bold mb-4">AI & Software Platform</h3>
+                    <p class="text-gray-400 mb-6">
+                        Hệ sinh thái ứng dụng siêu tích hợp kết hợp thanh toán, nhắn tin và dịch vụ với tích hợp robot liền mạch
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>â€¢ Natural language processing</li>
+                        <li>â€¢ Machine learning algorithms</li>
+                        <li>â€¢ Ra quyết định thời gian thực</li>
+                        <li>â€¢ Multi-service integration</li>
+                        <li>â€¢ Cross-platform compatibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- R&D Approach -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Research & Development</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                Triết lý R&D của chúng tôi nhấn mạnh hợp tác, phát triển lặp đi lặp lại và liên kết với các tổ chức nghiên cứu toàn cầu
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Left Column -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent mr-3">â—</span>
+                        Collaborative Research Model
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        Chúng tôi tin rằng đổi mới đột phá xuất hiện từ hợp tác. Lộ trình phát triển của chúng tôi bao gồm thiết lập đối tác chiến lược với các tổ chức nghiên cứu đẳng cấp thế giới để thúc đẩy xác thực và thương mại hóa công nghệ.
+                    </p>
+                    
+                    <div class="glass-effect p-6 mb-6">
+                        <h4 class="font-bold mb-3">Target Đối tác Nghiên cứu</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>
+                                <strong class="text-white">RIKEN</strong> - Japan's premier research organization
+                                <p class="text-sm text-gray-400 mt-1">Truy cập cơ sở hạ tầng siêu máy tính cho mô phỏng nanorobot and AI development</p>
+                            </li>
+                            <li>
+                                <strong class="text-white">AIST</strong> - National Institute of Công nghiệp Tiên tiến Khoa học và Technology
+                                <p class="text-sm text-gray-400 mt-1">Industrial robotics validation, safety certification, and commercialization support</p>
+                            </li>
+                            <li>
+                                <strong class="text-white">University of Tokyo</strong> - Leading academic institution
+                                <p class="text-sm text-gray-400 mt-1">Robot và AI research collaboration, talent pipeline</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-effect p-6">
+                        <h4 class="font-bold mb-3">Partnership Benefits</h4>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li>â€¢ Access to world-class computational resources</li>
+                            <li>â€¢ Xác thực khoa học và uy tín</li>
+                            <li>â€¢ Regulatory compliance guidance</li>
+                            <li>â€¢ Manufacturing network connections</li>
+                            <li>â€¢ Joint research funding opportunities</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent mr-3">â—</span>
+                        Innovation Infrastructure
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        Khả năng kỹ thuật của chúng tôi trải dài kỹ thuật phần cứng, phát triển phần mềm và khoa học vật liệu tiên tiến, định vị chúng tôi để giải quyết các thách thức phức tạp trên nhiều lĩnh vực.
+                    </p>
+
+                    <div class="space-y-6">
+                        <!-- Kỹ thuật Robot -->
+                        <div class="glass-effect p-6">
+                            <h4 class="font-bold mb-3">ðŸ”§ Kỹ thuật Robot</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>â€¢ Vận động hai chân và bốn chân systems</li>
+                                <li>â€¢ Advanced sensor integration (LIDAR, vision, tactile)</li>
+                                <li>â€¢ Cân bằng động và ổn định</li>
+                                <li>â€¢ Modular hardware architecture</li>
+                                <li>â€¢ Industrial-grade durability design</li>
+                            </ul>
+                        </div>
+
+                        <!-- AI & Machine Learning -->
+                        <div class="glass-effect p-6">
+                            <h4 class="font-bold mb-3">ðŸ§  AI & Machine Learning</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>â€¢ Thị giác máy tính và nhận dạng đối tượng</li>
+                                <li>â€¢ Natural language processing (Japanese, English)</li>
+                                <li>â€¢ Học tăng cường cho thích ứng nhiệm vụ</li>
+                                <li>â€¢ Predictive maintenance algorithms</li>
+                                <li>â€¢ Real-time decision-making systems</li>
+                            </ul>
+                        </div>
+
+                        <!-- Materials Science -->
+                        <div class="glass-effect p-6">
+                            <h4 class="font-bold mb-3">âš—ï¸ Materials & Công nghệ Nano</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>â€¢ Silicon-based nanostructure design</li>
+                                <li>â€¢ Biocompatible materials research</li>
+                                <li>â€¢ Sợi carbon và hợp chất nhôm</li>
+                                <li>â€¢ Advanced sensor materials</li>
+                                <li>â€¢ Environmental-grade components</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Timeline -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Phased Development Strategy</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                A systematic three-phase approach designed to generate early revenue while building toward transformative innovations
+            </p>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Phase 1 -->
+                <div class="timeline-item glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold red-accent mr-4">Phase 1</span>
+                        <span class="text-gray-400">Months 1-18</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Super App Foundation</h3>
+                    <p class="text-gray-300 mb-4">
+                        Ra mắt nền tảng nhắn tin và thanh toán tích hợp cho thị trường Mỹ-Nhật, thiết lập cơ sở người dùng và dòng doanh thu đồng thời xây dựng cơ sở hạ tầng cho tích hợp robot trong tương lai.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <strong class="text-white">Key Milestones:</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>â€¢ Beta launch (Month 6)</li>
+                                <li>â€¢ Xử lý thanh toán integration</li>
+                                <li>â€¢ 10,000+ user target</li>
+                                <li>â€¢ Initial revenue generation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">Technology Stack:</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>â€¢ Cross-platform mobile app</li>
+                                <li>â€¢ Secure payment infrastructure</li>
+                                <li>â€¢ Real-time messaging</li>
+                                <li>â€¢ Cloud-based architecture</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="timeline-item glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold red-accent mr-4">Phase 2</span>
+                        <span class="text-gray-400">Months 12-36</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">HanzÅ Robotics Series</h3>
+                    <p class="text-gray-300 mb-4">
+                        Phát triển và kiểm tra ba robot hình người chuyên dụng, thiết lập đối tác với bệnh viện Tokyo, công ty xây dựng và chuỗi bán lẻ để triển khai trong thế giới thực.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                        <div>
+                            <strong class="text-white">M.E.C Robot:</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>â€¢ Design specs (Month 12)</li>
+                                <li>â€¢ Prototype (Month 18)</li>
+                                <li>â€¢ Healthcare trials (Month 24)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">C.E.M Robot:</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>â€¢ Development start (Month 18)</li>
+                                <li>â€¢ Construction site testing</li>
+                                <li>â€¢ Safety certification</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">R.A.I Robot:</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>â€¢ Retail integration design</li>
+                                <li>â€¢ App ecosystem connection</li>
+                                <li>â€¢ Pilot deployments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="timeline-item glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold red-accent mr-4">Phase 3</span>
+                        <span class="text-gray-400">Months 24-60</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Nanorobotics Research</h3>
+                    <p class="text-gray-300 mb-4">
+                        Khởi xướng R&D nanorobot dựa trên silicon thông qua đối tác nghiên cứu, phát triển ứng dụng điều trị ung thư và sửa chữa DNA với lộ trình đến thử nghiệm lâm sàng.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <strong class="text-white">Research Focus:</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>â€¢ Computational modeling</li>
+                                <li>â€¢ Materials biocompatibility</li>
+                                <li>â€¢ Targeted drug delivery</li>
+                                <li>â€¢ DNA repair mechanisms</li>
+                                <li>â€¢ Environmental applications</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-white">Partnership Goals:</strong>
+                            <ul class="text-gray-400 mt-2 space-y-1">
+                                <li>â€¢ RIKEN supercomputing access</li>
+                                <li>â€¢ Joint research publications</li>
+                                <li>â€¢ Clinical trial preparation</li>
+                                <li>â€¢ Regulatory pathway development</li>
+                                <li>â€¢ International collaboration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Technical Capabilities</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                Chuyên môn kỹ thuật sâu trên robot, AI và sản xuất tiên tiến
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Vision Systems -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">ðŸ‘ï¸</span>
+                        Vision & Perception
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>Tầm nhìn 3D:</strong> Nhận thức độ sâu và nhận thức không gian</li>
+                        <li><strong>Object Recognition:</strong> AI-powered identification</li>
+                        <li><strong>Điều hướng SLAM:</strong> Lập bản đồ và định vị thời gian thực</li>
+                        <li><strong>Defect Detection:</strong> Quality control automation</li>
+                        <li><strong>Multi-modal Sensing:</strong> Vision, LIDAR, ultrasonic</li>
+                    </ul>
+                </div>
+
+                <!-- Mobility -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">ðŸ¦¿</span>
+                        Locomotion & Mobility
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>Bipedal Walking:</strong> Human-like movement patterns</li>
+                        <li><strong>Quadrupedal Stability:</strong> Enhanced load carrying</li>
+                        <li><strong>Dynamic Balancing:</strong> Real-time adjustment</li>
+                        <li><strong>Terrain Adaptation:</strong> Uneven surface navigation</li>
+                        <li><strong>Obstacle Avoidance:</strong> Safe path planning</li>
+                    </ul>
+                </div>
+
+                <!-- Manipulation -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">ðŸ¤²</span>
+                        Manipulation & Tools
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>Modular End-Effectors:</strong> Tool switching capability</li>
+                        <li><strong>Precision Gripping:</strong> Delicate object handling</li>
+                        <li><strong>Heavy-Duty Lifting:</strong> Industrial load capacity</li>
+                        <li><strong>Multi-Axis Arms:</strong> Complex task execution</li>
+                        <li><strong>Force Feedback:</strong> Tactile sensing</li>
+                    </ul>
+                </div>
+
+                <!-- AI & Learning -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">ðŸ¤–</span>
+                        AI & Learning
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>Thích ứng Nhiệm vụ:</strong> Học từ kinh nghiệm</li>
+                        <li><strong>Natural Language:</strong> Voice interaction (JP/EN)</li>
+                        <li><strong>Decision Making:</strong> Autonomous planning</li>
+                        <li><strong>Predictive Analytics:</strong> Maintenance forecasting</li>
+                        <li><strong>Collaborative AI:</strong> Human-robot teamwork</li>
+                    </ul>
+                </div>
+
+                <!-- Safety Systems -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">ðŸ›¡ï¸</span>
+                        Safety & Compliance
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>Collision Avoidance:</strong> Multi-sensor protection</li>
+                        <li><strong>Emergency Stop:</strong> Instant response systems</li>
+                        <li><strong>Human Detection:</strong> Proximity awareness</li>
+                        <li><strong>Safety Standards:</strong> Industrial certification</li>
+                        <li><strong>Fail-Safe Design:</strong> Redundant systems</li>
+                    </ul>
+                </div>
+
+                <!-- Connectivity -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl mr-3">ðŸ“¡</span>
+                        IoT & Connectivity
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong>IIoT Integration:</strong> Industrial IoT compatibility</li>
+                        <li><strong>Remote Monitoring:</strong> Real-time telemetry</li>
+                        <li><strong>Cloud Connectivity:</strong> Data synchronization</li>
+                        <li><strong>Multi-Robot Coordination:</strong> Swarm capabilities</li>
+                        <li><strong>App Integration:</strong> Super app ecosystem</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Principles -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Innovation Principles</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">Human-Centric Design</h3>
+                    <p class="text-gray-300 mb-4">
+                        Mọi công nghệ chúng tôi phát triển ưu tiên hạnh phúc, an toàn và phẩm giá con người. Robot của chúng tôi được thiết kế để tăng cường khả năng con người, không thay thế kết nối con người.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>â€¢ Intuitive interfaces requiring minimal training</li>
+                        <li>â€¢ Safety-first engineering at every level</li>
+                        <li>â€¢ Tương tác tôn trọng với người dùng cao tuổi</li>
+                        <li>â€¢ Collaborative rather than replacement mindset</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">Ethical Technology</h3>
+                    <p class="text-gray-300 mb-4">
+                        Chúng tôi liên kết với Hướng dẫn AI cho Doanh nghiệp của Nhật Bản và cam kết đổi mới có trách nhiệm, quyền riêng tư dữ liệu và thực hành phát triển minh bạch.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>â€¢ Privacy-by-design architecture</li>
+                        <li>â€¢ Transparent AI decision-making</li>
+                        <li>â€¢ Regulatory compliance as baseline</li>
+                        <li>â€¢ Social impact consideration</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">Modular Architecture</h3>
+                    <p class="text-gray-300 mb-4">
+                        Our technology platforms are designed for adaptability, enabling rapid iteration, easy maintenance, and future-proof scalability.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>â€¢ Interchangeable hardware components</li>
+                        <li>â€¢ Software update capabilities</li>
+                        <li>â€¢ Tool attachment flexibility</li>
+                        <li>â€¢ Cross-platform compatibility</li>
+                    </ul>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4 red-accent">Sustainability Focus</h3>
+                    <p class="text-gray-300 mb-4">
+                        Environmental responsibility guides our material choices, manufacturing processes, and long-term technology roadmap.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>â€¢ Energy-efficient designs</li>
+                        <li>â€¢ Vật liệu bền vững selection</li>
+                        <li>â€¢ Environmental cleanup applications</li>
+                        <li>â€¢ Long product lifecycles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Collaborate?</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                Chúng tôi đang tìm kiếm đối tác nghiên cứu, cộng tác viên công nghệ và những người chấp nhận sớm để cùng chúng tôi định hình tương lai của robot và AI.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition red-glow">
+                    Liên hệ Đội ngũ
+                </a>
+                <a href="projects.html" class="px-8 py-4 glass-effect hover:bg-white/10 text-white font-semibold rounded-lg transition">
+                    Explore Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">
+                            H A N Z <span class="text-lg">ÅŒ</span>
+                            <span class="red-accent text-2xl">â€¢</span>
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Advancing robotics, AI, and healthcare technology for a better future.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Công ty</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">Giới thiệu</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">Công nghệ</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Dự án</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">HanzÅ M.E.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">HanzÅ C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">HanzÅ R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">Nanorobotics</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">Super App</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Kết nối</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="/cdn-cgi/l/email-protection#d7a6a2beb2bbb897bfb6b9adb8a3b2b4bfb9b8bbb8b0beb2a4f9b4b8ba" class="hover:text-white transition">General Inquiries</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#b8d7cdcccaddd9dbd0f8d0d9d6c2d7ccdddbd0d6d7d4d7dfd1ddcb96dbd7d5" class="hover:text-white transition">Partnerships</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#60131510100f12142008010e1a0f140503080e0f0c0f070905134e030f0d" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. Bảo lưu mọi quyền.</p>
+                <p class="mt-2">Pioneering robotics innovation in Japan and globally.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langSelector = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langSelector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langSelector.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
