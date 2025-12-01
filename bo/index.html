@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="bo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanzo Technologies - འཕྲུལ་འཁོར་དང་ AI གསར་གཏོད</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tibetan:wght@300;400;500;600;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Tibetan', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+            line-height: 1.8;
+        }
+        
+        .accent-red {
+            color: #DC143C;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .apple-button {
+            background: #DC143C;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 24px;
+            border: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .apple-button:hover {
+            background: #b8102e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.4);
+        }
+        
+        .apple-button-outline {
+            background: transparent;
+            color: #DC143C;
+            padding: 12px 32px;
+            border-radius: 24px;
+            border: 2px solid #DC143C;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .apple-button-outline:hover {
+            background: rgba(220, 20, 60, 0.1);
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">ཁྱིམ་ངོས།</a>
+                    <a href="about.html" class="nav-link">ང་ཚོའི་སྐོར།</a>
+                    <a href="projects.html" class="nav-link">ལས་འཆར།</a>
+                    <a href="technology.html" class="nav-link">ལག་རྩལ།</a>
+                    <a href="contact.html" class="nav-link">འབྲེལ་གཏུག</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 BO</button>
+                        <div class="language-dropdown">
+                            <a href="../index.html">🇺🇸 English</a>
+                            <a href="../ja/index.html">🇯🇵 日本語</a>
+                            <a href="../es/index.html">🇪🇸 Español</a>
+                            <a href="../zh/index.html">🇨🇳 中文</a>
+                            <a href="../ko/index.html">🇰🇷 한국어</a>
+                            <a href="../fr/index.html">🇫🇷 Français</a>
+                            <a href="../de/index.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/index.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/index.html">🇸🇦 العربية</a>
+                            <a href="../hi/index.html">🇮🇳 हिन्दी</a>
+                            <a href="index.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/index.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center pt-20">
+        <div class="max-w-6xl mx-auto px-6 text-center" style="animation: fadeIn 1s ease-in;">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <span class="accent-red">མ་འོངས་པའི་</span> འཛུགས་སྐྲུན།<br>
+                འཕྲུལ་འཁོར་དང་ AI དང་བཅས།
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Hanzo Technologies ཀྱིས་འཕྲུལ་འཁོར་ལག་རྩལ་དང་། རང་བཞིན་རིག་ནུས། ཕྲ་ཕུང་ལག་རྩལ་བཅས་ནང་གསར་གཏོད་ཐབས་ལམ་གོང་འཕེལ་གཏོང་བཞིན་ཡོད། འདི་དག་ནི་ཉི་ཧོང་གི་མི་འབོར་དཀའ་ངལ་སེལ་བ་དང་། འཇིག་རྟེན་བརྟན་པ་ཞིག་གསར་སྐྲུན་བྱེད་པར་བཟོས་པ་རེད།
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="projects.html"><button class="apple-button">ང་ཚོའི་ལས་འཆར་ལྟོས།</button></a>
+                <a href="contact.html"><button class="apple-button-outline">འབྲེལ་གཏུག་གནང་།</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">ང་ཚོའི་དམིགས་ཡུལ།</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    འཕྲུལ་འཁོར་དང་ AI ནང་མཐོ་རིམ་ལག་རྩལ་གོང་འཕེལ་གཏོང་བ། དེ་ཡིས་མི་ཚེ་གོང་འཕེལ་གཏོང་ཞིང་། རྒན་པའི་སྤྱི་ཚོགས་ལ་རྒྱབ་སྐྱོར་བྱེད་པ། རིམ་པ་རྗེས་མའི་དོན་དུ་ང་ཚོའི་སའི་གོ་ལ་སྲུང་སྐྱོབ་བྱེད་པ་བཅས།
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">ང་ཚོའི་ཐོན་སྐྱེད།</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    འཇིག་རྟེན་གྱི་དཀའ་ངལ་སེལ་བའི་གསར་གཏོད་ཐབས་ལམ།
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- M.E.C -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="text-5xl mb-4">👴</div>
+                    <h3 class="text-2xl font-bold mb-3">Hanzō M.E.C</h3>
+                    <p class="text-gray-400 mb-4">སྨན་བཅོས་དང་རྒན་པའི་གཟིགས་སྐྱོང་འཕྲུལ་འཁོར།</p>
+                    <p class="text-sm text-gray-500">མཐོ་རིམ་ AI དང་བཅས་རྒན་པར་གཟིགས་སྐྱོང་དང་རོགས་རམ་སྤྲོད།</p>
+                </div>
+
+                <!-- H.H.C -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="text-5xl mb-4">🏥</div>
+                    <h3 class="text-2xl font-bold mb-3">Hanzō H.H.C</h3>
+                    <p class="text-gray-400 mb-4">སྨན་ཁང་འཕྲོད་བསྟེན་འཕྲུལ་འཁོར།</p>
+                    <p class="text-sm text-gray-500">རྒྱུན་ལྡན་ལས་ཀ་རང་འགུལ་དུ་སོང་བས་སྨན་པ་ལ་རྒྱབ་སྐྱོར།</p>
+                </div>
+
+                <!-- C.E.M -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="text-5xl mb-4">🏗️</div>
+                    <h3 class="text-2xl font-bold mb-3">Hanzō C.E.M</h3>
+                    <p class="text-gray-400 mb-4">རྩིག་བཟོའི་འཕྲུལ་འཁོར།</p>
+                    <p class="text-sm text-gray-500">དཀའ་ཁག་ཅན་གྱི་རྩིག་བཟོའི་ཁོར་ཡུག་ནང་སྟོབས་ཤུགས་ཅན་གྱི་འཕྲུལ་འཁོར།</p>
+                </div>
+
+                <!-- R.A.I -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="text-5xl mb-4">🛒</div>
+                    <h3 class="text-2xl font-bold mb-3">Hanzō R.A.I</h3>
+                    <p class="text-gray-400 mb-4">ཉོ་ཚོང་རང་འགུལ་འཕྲུལ་འཁོར།</p>
+                    <p class="text-sm text-gray-500">AI ཞབས་ཞུས་དང་བཅས་ཉོ་ཚོང་ཉམས་མྱོང་གོང་འཕེལ།</p>
+                </div>
+
+                <!-- Nanorobotics -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="text-5xl mb-4">⚛️</div>
+                    <h3 class="text-2xl font-bold mb-3">ཕྲ་རྡུལ་འཕྲུལ་འཁོར།</h3>
+                    <p class="text-gray-400 mb-4">ཕྲ་རྡུལ་འཕྲུལ་འཁོར་གཞི་མཁྲེགས།</p>
+                    <p class="text-sm text-gray-500">དངོས་གནས་སྨན་བཅོས་དོན་དུ་སིལི་ཀོན་གཞི་རྟེན་ཕྲ་རྡུལ་འཕྲུལ་འཁོར།</p>
+                </div>
+
+                <!-- Super App -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-2xl font-bold mb-3">གློག་ཀླད་ཆེན་མོ།</h3>
+                    <p class="text-gray-400 mb-4">གློག་ཀླད་གཞི་མཁྲེགས་ཆེན་མོ།</p>
+                    <p class="text-sm text-gray-500">ཞབས་ཞུས་ཆ་ཚང་མཉམ་སྦྲེལ་བྱེད་པའི་གློག་ཀླད་གཞི་མཁྲེགས།</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">ང་ཚོའི་མཐོང་སྣང་།</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    གསར་གཏོད་ལག་རྩལ་གོང་འཕེལ་གཏོང་བ། དེ་ཡིས་འཕྲུལ་འཁོར་དང་ AI ནང་ནུས་པ་སླར་ངེས་བྱེད་ཅིང་། མིའི་རིགས་ལ་རོགས་རམ་སྤྲོད་པ། ང་ཚོའི་སའི་གོ་ལ་སྲུང་སྐྱོབ་བྱེད་པ་བཅས།
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold mb-3">མཐོ་རིམ་འཕྲུལ་འཁོར།</h3>
+                    <p class="text-gray-400">AI གཡོལ་བའི་འཕྲུལ་འཁོར་མི་སྒེར་ལས་ཀ་ནང་མིར་རོགས་རམ་སྤྲོད།</p>
+                </div>
+
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">🔬</div>
+                    <h3 class="text-2xl font-bold mb-3">ཕྲ་རྡུལ་ལག་རྩལ།</h3>
+                    <p class="text-gray-400">དངོས་གནས་སྨན་བཅོས་དང་ཁོར་ཡུག་གཙང་སེལ་དོན་དུ་ཕྲ་རྡུལ་འཕྲུལ་འཁོར།</p>
+                </div>
+
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">🌱</div>
+                    <h3 class="text-2xl font-bold mb-3">བརྟན་འཇགས།</h3>
+                    <p class="text-gray-400">ཁོར་ཡུག་སྲུང་སྐྱོབ་དང་སའི་གོ་ལ་གཙང་སེལ་བྱེད་པའི་ཐབས་ལམ།</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">ང་ཚོའི་ལམ་ཁྲ།</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    ང་ཚོའི་གོང་འཕེལ་གྱི་རིམ་པ་གསུམ།
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <div class="glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">📱</span>
+                        <div>
+                            <h3 class="text-2xl font-bold">རིམ་པ་དང་པོ། གློག་ཀླད་གཞི་མཁྲེགས་ཆེན་མོ།</h3>
+                            <p class="text-accent-red font-semibold">2025-2026</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">དངུལ་སྤྲོད་དང་འཕྲིན་ཐུང་། ཞབས་ཞུས་མཉམ་སྦྲེལ་བྱེད་པའི་གློག་ཀླད་གཞི་མཁྲེགས་གོང་འཕེལ་གཏོང་བ།</p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">🤖</span>
+                        <div>
+                            <h3 class="text-2xl font-bold">རིམ་པ་གཉིས་པ། Hanzō འཕྲུལ་འཁོར་རིགས།</h3>
+                            <p class="text-accent-red font-semibold">2026-2027</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">རྒན་པའི་གཟིགས་སྐྱོང་། སྨན་ཁང་། རྩིག་བཟོ། ཉོ་ཚོང་བཅས་དོན་དུ་འཕྲུལ་འཁོར་འཐོན་སྐྱེད།</p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">⚛️</span>
+                        <div>
+                            <h3 class="text-2xl font-bold">རིམ་པ་གསུམ་པ། ཕྲ་རྡུལ་འཕྲུལ་འཁོར།</h3>
+                            <p class="text-accent-red font-semibold">2027+</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">དངོས་གནས་སྨན་བཅོས་དང་ཁོར་ཡུག་སླར་གསོ་དོན་དུ་སིལི་ཀོན་གཞི་རྟེན་ཕྲ་རྡུལ་འཕྲུལ་འཁོར་གོང་འཕེལ།</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">མཐུན་འབྲེལ་ལ་དོ་སྣང་ཡོད་དམ།</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                ང་ཚོས་མཉམ་འབྲེལ་བ་དང་། རྒྱབ་སྐྱོར་བ། ཞིབ་འཇུག་པ་བཙལ་བཞིན་ཡོད། ལག་རྩལ་གསར་གཏོད་ཀྱི་ང་ཚོའི་མཐོང་སྣང་མཉམ་འདུས་ཡིན་པ།
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="contact.html"><button class="apple-button">འབྲེལ་གཏུག་གནང་།</button></a>
+                <a href="about.html"><button class="apple-button-outline">ཤེས་རྟོགས་ཐེབས།</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">
+                            H A N Z <span class="text-lg">Ō</span>
+                            <span class="accent-red text-2xl">•</span>
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        མ་འོངས་ལེགས་པོ་ཞིག་གི་དོན་དུ་འཕྲུལ་འཁོར་དང་ AI དང་འཕྲོད་བསྟེན་ལག་རྩལ་གོང་འཕེལ་གཏོང་བ།
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">ཚོགས་པ།</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">ང་ཚོའི་སྐོར།</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">ལས་འཆར།</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">ལག་རྩལ།</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">འབྲེལ་གཏུག</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">ཐོན་སྐྱེད།</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="projects.html#hhc" class="hover:text-white transition">Hanzō H.H.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">ཕྲ་རྡུལ་འཕྲུལ་འཁོར།</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">གློག་ཀླད་ཆེན་མོ།</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">འབྲེལ་གཏུག</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">གློག་འཕྲིན།</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">མཐུན་འབྲེལ།</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">རྒྱབ་སྐྱོར།</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>© 2025 Hanzo Technologies. ཐོབ་ཐང་ཡོངས་རྫོགས་སྲུང་སྐྱོབ།</p>
+                <p class="mt-2">ཉི་ཧོང་དང་འཇིག་རྟེན་ཁྱོན་ལ་འཕྲུལ་འཁོར་གསར་གཏོད་འགོ་ཁྲིད།</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
