@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="haw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nā Papa Hana - Hanzo Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: #000000; color: #f5f5f7; line-height: 1.6; }
+        .glass-effect { background: rgba(30, 30, 30, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; }
+        .accent-red { color: #DC143C; }
+        .red-glow { box-shadow: 0 0 20px rgba(220, 20, 60, 0.3); }
+        .hero-gradient { background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); }
+        nav { background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .nav-link { color: #f5f5f7; text-decoration: none; padding: 8px 16px; transition: color 0.2s ease; }
+        .nav-link:hover { color: #DC143C; }
+        .product-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(220, 20, 60, 0.3); }
+        .language-selector { position: relative; }
+        .language-dropdown { display: none; position: absolute; top: 100%; right: 0; background: rgba(30, 30, 30, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 8px; margin-top: 8px; min-width: 120px; max-height: 400px; overflow-y: auto; z-index: 1000; }
+        .language-dropdown.show { display: block; }
+        .language-dropdown a { display: block; padding: 8px 12px; color: #f5f5f7; text-decoration: none; border-radius: 6px; transition: background 0.2s ease; }
+        .language-dropdown a:hover { background: rgba(220, 20, 60, 0.2); color: #DC143C; }
+    </style>
+</head>
+<body>
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div><a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a></div>
+                <div class="flex space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">Pili</a>
+                    <a href="projects.html" class="nav-link">Nā Papa Hana</a>
+                    <a href="technology.html" class="nav-link">Nā ʻEnekini</a>
+                    <a href="contact.html" class="nav-link">Kelepona</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 HAW</button>
+                        <div class="language-dropdown">
+                            <a href="../projects.html">🇺🇸 English</a>
+                            <a href="../ja/projects.html">🇯🇵 日本語</a>
+                            <a href="../es/projects.html">🇪🇸 Español</a>
+                            <a href="../zh/projects.html">🇨🇳 中文</a>
+                            <a href="../ko/projects.html">🇰🇷 한국어</a>
+                            <a href="../fr/projects.html">🇫🇷 Français</a>
+                            <a href="../de/projects.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/projects.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/projects.html">🇸🇦 العربية</a>
+                            <a href="../hi/projects.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/projects.html">🏔️ བོད་ཡིག</a>
+                            <a href="projects.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-gradient py-32 text-center" style="margin-top: 100px;">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;"><span class="accent-red">Nā Papa Hana</span></h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto">Nā hoʻonā loiloi lopaka kiʻekiʻe, nā ʻenekini liʻiliʻi, a me nā papahana kikohoʻe</p>
+        </div>
+    </section>
+
+    <section class="py-12 sticky top-24 z-40 bg-black/80 backdrop-blur-xl border-y border-gray-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <a href="#mec" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">Hanzō M.E.C</a>
+                <a href="#hhc" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">Hanzō H.H.C</a>
+                <a href="#cem" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">Hanzō C.E.M</a>
+                <a href="#rai" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">Hanzō R.A.I</a>
+                <a href="#nano" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">Nā Loiloi Liʻiliʻi</a>
+                <a href="#app" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">Polokalamu Nui</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- M.E.C -->
+    <section id="mec" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl mr-6">👴</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">Hanzō M.E.C</h2>
+                        <p class="text-xl text-gray-400">Loiloi Lopaka Mālama Elemakule a me ka Lapaʻau</p>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    Loiloi lopaka kanaka kiʻekiʻe i hana ʻia no ka mālama pili i ka poʻe kahiko a me nā maʻi. Ke hui pū nei ka AI kiʻekiʻe me ka hana ʻoluʻolu no ka lawelawe lapaʻau, ka kākoʻo manaʻo, a me nā lawelawe ola maʻamau.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">✨ Nā Hiʻohiʻona Nui</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• ʻIke haule a nānā ola kino</li>
+                            <li>• Hoʻomanaʻo lāʻau a hoʻonohonoho</li>
+                            <li>• Kamaʻilio leo maoli</li>
+                            <li>• Kōkua neʻe a kōkua kino</li>
+                            <li>• Hoalauna a kākoʻo manaʻo</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">🎯 Nā Mākeke Kikoʻī</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Nā hale mālama elemakule</li>
+                            <li>• Mālama home</li>
+                            <li>• Nā kikowaena hoʻihoʻi</li>
+                            <li>• Mākeke Iāpana (29% maluna o 65)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- H.H.C -->
+    <section id="hhc" class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl mr-6">🏥</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">Hanzō H.H.C</h2>
+                        <p class="text-xl text-gray-400">Loiloi Lopaka Ola Pono Hale Māʻi</p>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-300 mb-8">
+                    Loiloi kūikawā hale māʻi i hana ʻia e kākoʻo i ka poʻe limahana kauka ma ka hoʻohana ʻole hana maʻamau, ka lawe lako, a me ka hāʻawi ola maikaʻi i nā maʻi.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">✨ Nā Hiʻohiʻona</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Lawe lāʻau a me nā lako</li>
+                            <li>• Hoʻohui moʻolelo lapaʻau kikohoʻe</li>
+                            <li>• Neʻe kūʻokoʻa</li>
+                            <li>• Kākau hōʻike maʻi</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">🎯 Mākeke</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Nā hale māʻi nui</li>
+                            <li>• Nā kikowaena waho</li>
+                            <li>• Nā hale mālama lōʻihi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- C.E.M -->
+    <section id="cem" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl mr-6">🏗️</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">Hanzō C.E.M</h2>
+                        <p class="text-xl text-gray-400">Loiloi Lopaka Kūkulu</p>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-300 mb-8">
+                    Loiloi ʻehā wāwae ikaika i hana ʻia no nā kikowaena kūkulu ʻoluʻolu, e hana ana i nā hana hāpai kaumaha, nā hana pololei, a me ka hana kūʻokoʻa.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">✨ Nā Hiʻohiʻona</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Hāpai kaumaha (500 kg)</li>
+                            <li>• Nā lako hui hoʻololi hiki</li>
+                            <li>• Neʻe ʻāina</li>
+                            <li>• Nānā palekana</li>
+                            <li>• Hana kūʻokoʻa</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">🎯 Mākeke</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Nā hui kūkulu kālepa</li>
+                            <li>• Hoʻomohala ʻōnaehana</li>
+                            <li>• Kōkua pilikia</li>
+                            <li>• Mākeke Iāpana (nele 6.4M limahana)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- R.A.I -->
+    <section id="rai" class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl mr-6">🛒</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">Hanzō R.A.I</h2>
+                        <p class="text-xl text-gray-400">Loiloi Lopaka Hoʻohana ʻOle Kūʻai Kāleka</p>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-300 mb-8">
+                    Loiloi kūʻai akamai e hoʻonui ana i ka ʻike kūʻai ma ka pili mea kūʻai, ka hoʻoponopono waihona, a me nā hana hoʻohana ʻole.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">✨ Nā Hiʻohiʻona</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Kōkua mea kūʻai nui ʻōlelo</li>
+                            <li>• Hoʻokolokolo waihona hoʻohana ʻole</li>
+                            <li>• ʻImi kuʻai a me nā manaʻo</li>
+                            <li>• Alakaʻi hale kūʻai</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">🎯 Mākeke</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Nā hale kūʻai nui</li>
+                            <li>• Nā hale kūʻai uila</li>
+                            <li>• Nā mokulele a me nā kikowaena halihali</li>
+                            <li>• Nā kikowaena kūʻai</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nanorobotics -->
+    <section id="nano" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card red-glow">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl mr-6">⚛️</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">Papahana Loiloi Liʻiliʻi</h2>
+                        <p class="text-xl text-gray-400">Nā Loiloi Liʻiliʻi Kilikona</p>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-300 mb-8">
+                    ʻEnekini loiloi liʻiliʻi kilikona alakaʻi no ka lapaʻau kūpono, e hāʻawi ana i nā lapaʻau kikoʻī ma ka pae moleki no ka maʻi ʻailolo, hoʻoponopono DNA, a me ka hoʻomaʻemaʻe ʻāina.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">✨ Nā Hiʻohiʻona</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Alakaʻi ma ka pae moleki</li>
+                            <li>• Kūkulu kilikona</li>
+                            <li>• Kikoʻī pūnaewele maʻi ʻailolo</li>
+                            <li>• Hoʻoponopono DNA</li>
+                            <li>• Hoʻomaʻemaʻe ʻāina</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">🎯 Hoʻohana</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Lapaʻau maʻi ʻailolo</li>
+                            <li>• Lapaʻau kenekika</li>
+                            <li>• Mālama wai</li>
+                            <li>• Hoʻoponopono lepo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Super App -->
+    <section id="app" class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl mr-6">📱</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">Papahana Polokalamu Nui</h2>
+                        <p class="text-xl text-gray-400">ʻŌnaehana Kikohoʻe Hui Pū</p>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-300 mb-8">
+                    Papahana polokalamu pili pono e hui pū ana i nā uku kālā, nā leka, a me nā lawelawe ma kekahi ʻike maʻalahi, me nā hoʻolālā no ka hoʻohui me kā mākou mau loiloi.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">✨ Nā Hiʻohiʻona</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Mālama uku kālā palekana</li>
+                            <li>• Leka manawa koke</li>
+                            <li>• ʻIke a kāʻoi lawelawe</li>
+                            <li>• Hoʻohui loiloi</li>
+                            <li>• Kākoʻo nui ʻōlelo (12)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">🎯 Mākeke</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Hoʻokuʻu mua: Iāpana a me ʻAmelika</li>
+                            <li>• Nā mea hoʻohana hou akamai</li>
+                            <li>• Nā ʻoihana liʻiliʻi a waena</li>
+                            <li>• Hoʻonui honua ma hope</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">Makemake e ʻIke Hou?</h2>
+            <p class="text-xl text-gray-400 mb-8">E kelepona mai e aʻo hou pili i kā mākou mau papahana hoʻāʻo, nā manawa hoalauna, a me nā hoʻolālā hoʻokuʻu</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html"><button class="glass-effect px-8 py-3 rounded-full font-medium hover:bg-red-900 hover:bg-opacity-20 transition border-2 border-red-600 text-white">Kelepona Mai</button></a>
+                <a href="technology.html"><button class="glass-effect px-8 py-3 rounded-full font-medium hover:bg-white hover:bg-opacity-5 transition text-gray-300">E ʻIke i Kā Mākou ʻEnekini</button></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div><span class="text-xl font-bold">H A N Z <span class="text-lg">Ō</span> <span class="accent-red text-2xl">•</span></span><p class="text-sm text-gray-400 mt-4">E hoʻomohala i ka loiloi lopaka, ka AI, a me ka ʻenekini ola pono.</p></div>
+                <div><h4 class="font-semibold mb-4">Ka Hui</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="about.html">Pili</a></li><li><a href="technology.html">Nā ʻEnekini</a></li><li><a href="contact.html">Kelepona</a></li></ul></div>
+                <div><h4 class="font-semibold mb-4">Nā Papa Hana</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="#mec">Hanzō M.E.C</a></li><li><a href="#cem">Hanzō C.E.M</a></li><li><a href="#rai">Hanzō R.A.I</a></li><li><a href="#nano">Nā Loiloi Liʻiliʻi</a></li><li><a href="#app">Polokalamu Nui</a></li></ul></div>
+                <div><h4 class="font-semibold mb-4">Kelepona</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="mailto:quielo@hanzotechnologies.com">Nā Nīnau</a></li><li><a href="mailto:outreach@hanzotechnologies.com">Nā Hoalauna</a></li><li><a href="mailto:support@hanzotechnologies.com">Kōkua</a></li></ul></div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500"><p>© 2025 Hanzo Technologies. Ua mālama ʻia nā pono a pau.</p><p class="mt-2">E alakaʻi ana i ka hoʻomohala loiloi lopaka ma Iāpana a me ke ao.</p></div>
+        </div>
+    </footer>
+    <script>
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        langButton.addEventListener('click', (e) => { e.stopPropagation(); langDropdown.classList.toggle('show'); });
+        document.addEventListener('click', (e) => { if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) { langDropdown.classList.remove('show'); } });
+    </script>
+</body>
+</html>
