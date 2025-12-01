@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>परियोजनाएं - Hanzo Technologies</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;900&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans Devanagari', sans-serif; }
+body { background: #000000; color: #f5f5f7; line-height: 1.6; }
+.glass-effect { background: rgba(30, 30, 30, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; }
+.accent-red { color: #DC143C; }
+.red-glow { box-shadow: 0 0 20px rgba(220, 20, 60, 0.3); }
+.hero-gradient { background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); }
+nav { background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.nav-link { color: #f5f5f7; text-decoration: none; padding: 8px 16px; transition: color 0.2s ease; }
+.nav-link:hover { color: #DC143C; }
+.product-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(220, 20, 60, 0.3); }
+.language-selector { position: relative; }
+.language-dropdown { display: none; position: absolute; top: 100%; right: 0; background: rgba(30, 30, 30, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 8px; margin-top: 8px; min-width: 120px; max-height: 400px; overflow-y: auto; z-index: 1000; }
+.language-dropdown.show { display: block; }
+.language-dropdown a { display: block; padding: 8px 12px; color: #f5f5f7; text-decoration: none; border-radius: 6px; transition: background 0.2s ease; }
+.language-dropdown a:hover { background: rgba(220, 20, 60, 0.2); color: #DC143C; }
+</style>
+</head>
+<body>
+<nav class="fixed w-full top-0 z-50">
+<div class="max-w-6xl mx-auto px-6 py-4">
+<div class="flex justify-between items-center">
+<div><a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a></div>
+<div class="flex space-x-8 items-center text-sm md:text-base">
+<a href="index.html" class="nav-link">होम</a>
+<a href="about.html" class="nav-link">हमारे बारे में</a>
+<a href="projects.html" class="nav-link">परियोजनाएं</a>
+<a href="technology.html" class="nav-link">तकनीक</a>
+<a href="contact.html" class="nav-link">संपर्क करें</a>
+<div class="language-selector"><button class="nav-link">🌐 HI</button><div class="language-dropdown"><a href="../projects.html">🇺🇸 English</a><a href="../ja/projects.html">🇯🇵 日本語</a><a href="../es/projects.html">🇪🇸 Español</a><a href="../zh/projects.html">🇨🇳 中文</a><a href="../ko/projects.html">🇰🇷 한국어</a><a href="../fr/projects.html">🇫🇷 Français</a><a href="../de/projects.html">🇩🇪 Deutsch</a><a href="../vi/projects.html">🇻🇳 Tiếng Việt</a><a href="../ar/projects.html">🇸🇦 العربية</a><a href="projects.html">🇮🇳 हिन्दी</a><a href="../bo/projects.html">🏔️ བོད་ཡིག</a><a href="../haw/projects.html">🏝️ ʻŌlelo Hawaiʻi</a></div></div>
+</div>
+</div>
+</div>
+</nav>
+<section class="hero-gradient py-32 text-center" style="margin-top: 100px;">
+<div class="max-w-5xl mx-auto px-6"><h1 style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;"><span class="accent-red">हमारी</span> परियोजनाएं</h1><p class="text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto">उन्नत रोबोटिक समाधान, नैनोटेक्नोलॉजी और डिजिटल प्लेटफॉर्म</p></div>
+</section>
+<section class="py-12 sticky top-24 z-40 bg-black/80 backdrop-blur-xl border-y border-gray-800">
+<div class="max-w-6xl mx-auto px-6">
+<div class="flex flex-wrap justify-center gap-4 text-sm">
+<a href="#mec" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">Hanzō M.E.C</a>
+<a href="#hhc" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">Hanzō H.H.C</a>
+<a href="#cem" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">Hanzō C.E.M</a>
+<a href="#rai" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">Hanzō R.A.I</a>
+<a href="#nano" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">नैनोरोबोटिक्स</a>
+<a href="#app" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">सुपर ऐप</a>
+</div>
+</div>
+</section>
+<section id="mec" class="py-20">
+<div class="max-w-6xl mx-auto px-6">
+<div class="glass-effect p-10 product-card">
+<div class="flex items-center mb-8">
+<span class="text-6xl mr-6">👴</span>
+<div><h2 class="text-4xl font-bold mb-2">Hanzō M.E.C</h2><p class="text-xl text-gray-400">चिकित्सा और बुजुर्ग देखभाल रोबोट</p></div>
+</div>
+<p class="text-lg text-gray-300 mb-8">उन्नत ह्यूमनॉइड रोबोट जो बुजुर्गों और रोगियों के लिए व्यापक देखभाल प्रदान करने के लिए डिज़ाइन किया गया है। उन्नत AI और सहानुभूतिपूर्ण डिजाइन को मिलाकर चिकित्सा सहायता, भावनात्मक समर्थन और दैनिक जीवन सेवाएं प्रदान करता है।</p>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-2xl font-bold mb-4">✨ मुख्य विशेषताएं</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• गिरावट का पता लगाना और महत्वपूर्ण संकेतों की निगरानी</li>
+<li>• दवा अनुस्मारक और शेड्यूलिंग</li>
+<li>• प्राकृतिक ध्वनि इंटरैक्शन</li>
+<li>• गतिशीलता समर्थन और शारीरिक सहायता</li>
+<li>• साहचर्य और भावनात्मक समर्थन</li>
+</ul>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-4">🎯 लक्षित बाजार</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• बुजुर्ग देखभाल सुविधाएं</li>
+<li>• घरेलू देखभाल</li>
+<li>• पुनर्वास केंद्र</li>
+<li>• जापानी बाजार (29% 65+ आबादी)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="hhc" class="py-20 bg-gradient-to-b from-transparent to-black/30">
+<div class="max-w-6xl mx-auto px-6">
+<div class="glass-effect p-10 product-card">
+<div class="flex items-center mb-8">
+<span class="text-6xl mr-6">🏥</span>
+<div><h2 class="text-4xl font-bold mb-2">Hanzō H.H.C</h2><p class="text-xl text-gray-400">अस्पताल स्वास्थ्य सेवा रोबोट</p></div>
+</div>
+<p class="text-lg text-gray-300 mb-8">विशेष अस्पताल रोबोट जो नियमित कार्यों को स्वचालित करके, आपूर्ति वितरित करके और स्वास्थ्य सेवा वातावरण में रोगी देखभाल में सुधार करके चिकित्सा कर्मचारियों का समर्थन करने के लिए डिज़ाइन किया गया है।</p>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-2xl font-bold mb-4">✨ विशेषताएं</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• दवा और आपूर्ति वितरण</li>
+<li>• इलेक्ट्रॉनिक मेडिकल रिकॉर्ड एकीकरण</li>
+<li>• स्वायत्त नेविगेशन</li>
+<li>• रोगी चार्टिंग</li>
+</ul>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-4">🎯 बाजार</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• बड़े अस्पताल</li>
+<li>• आउटपेशेंट क्लीनिक</li>
+<li>• दीर्घकालिक देखभाल सुविधाएं</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cem" class="py-20">
+<div class="max-w-6xl mx-auto px-6">
+<div class="glass-effect p-10 product-card">
+<div class="flex items-center mb-8">
+<span class="text-6xl mr-6">🏗️</span>
+<div><h2 class="text-4xl font-bold mb-2">Hanzō C.E.M</h2><p class="text-xl text-gray-400">निर्माण रोबोट</p></div>
+</div>
+<p class="text-lg text-gray-300 mb-8">शक्तिशाली क्वाड्रुपेड रोबोट जो कठिन निर्माण वातावरण में काम करने के लिए डिज़ाइन किया गया है, भारी उठाना, सटीक कार्य और निर्माण स्थलों पर सुरक्षा और उत्पादकता बढ़ाने के लिए स्वायत्त संचालन करता है।</p>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-2xl font-bold mb-4">✨ विशेषताएं</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• भारी उठाने की क्षमता (500 किग्रा)</li>
+<li>• मल्टी-टूल स्वैप करने योग्य</li>
+<li>• इलाके नेविगेशन</li>
+<li>• सुरक्षा निगरानी</li>
+<li>• स्वायत्त संचालन</li>
+</ul>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-4">🎯 बाजार</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• वाणिज्यिक निर्माण कंपनियां</li>
+<li>• बुनियादी ढांचा विकास</li>
+<li>• आपदा राहत</li>
+<li>• जापानी बाजार (6.4M श्रमिक कमी)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rai" class="py-20 bg-gradient-to-b from-transparent to-black/30">
+<div class="max-w-6xl mx-auto px-6">
+<div class="glass-effect p-10 product-card">
+<div class="flex items-center mb-8">
+<span class="text-6xl mr-6">🛒</span>
+<div><h2 class="text-4xl font-bold mb-2">Hanzō R.A.I</h2><p class="text-xl text-gray-400">रिटेल ऑटोमेशन रोबोट</p></div>
+</div>
+<p class="text-lg text-gray-300 mb-8">बुद्धिमान रिटेल रोबोट जो ग्राहक इंटरैक्शन, इन्वेंटरी प्रबंधन और स्वचालित संचालन के माध्यम से खरीदारी के अनुभव को बढ़ाता है।</p>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-2xl font-bold mb-4">✨ विशेषताएं</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• बहुभाषी ग्राहक सहायता</li>
+<li>• स्वचालित इन्वेंटरी स्कैनिंग</li>
+<li>• उत्पाद खोज और अनुशंसाएं</li>
+<li>• स्टोर नेविगेशन</li>
+</ul>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-4">🎯 बाजार</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• सुपरमार्केट</li>
+<li>• इलेक्ट्रॉनिक्स स्टोर</li>
+<li>• हवाई अड्डे और परिवहन केंद्र</li>
+<li>• शॉपिंग मॉल</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="nano" class="py-20">
+<div class="max-w-6xl mx-auto px-6">
+<div class="glass-effect p-10 product-card red-glow">
+<div class="flex items-center mb-8">
+<span class="text-6xl mr-6">⚛️</span>
+<div><h2 class="text-4xl font-bold mb-2">नैनोरोबोटिक्स प्लेटफॉर्म</h2><p class="text-xl text-gray-400">सिलिकॉन-आधारित नैनोरोबोटिक्स</p></div>
+</div>
+<p class="text-lg text-gray-300 mb-8">सटीक चिकित्सा के लिए अत्याधुनिक सिलिकॉन-आधारित नैनोरोबोटिक्स तकनीक, कैंसर, DNA मरम्मत और पर्यावरण बहाली के लिए आणविक स्तर पर लक्षित उपचार प्रदान करती है।</p>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-2xl font-bold mb-4">✨ विशेषताएं</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• आणविक स्तर की सटीकता</li>
+<li>• सिलिकॉन-आधारित निर्माण</li>
+<li>• कैंसर कोशिका लक्ष्यीकरण</li>
+<li>• DNA मरम्मत तंत्र</li>
+<li>• पर्यावरणीय सफाई</li>
+</ul>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-4">🎯 अनुप्रयोग</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• कैंसर उपचार</li>
+<li>• जीन थेरेपी</li>
+<li>• जल उपचार</li>
+<li>• मिट्टी उपचार</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="app" class="py-20 bg-gradient-to-b from-transparent to-black/30">
+<div class="max-w-6xl mx-auto px-6">
+<div class="glass-effect p-10 product-card">
+<div class="flex items-center mb-8">
+<span class="text-6xl mr-6">📱</span>
+<div><h2 class="text-4xl font-bold mb-2">सुपर ऐप प्लेटफॉर्म</h2><p class="text-xl text-gray-400">एकीकृत डिजिटल पारिस्थितिकी तंत्र</p></div>
+</div>
+<p class="text-lg text-gray-300 mb-8">व्यापक सुपर ऐप प्लेटफॉर्म जो भुगतान, संदेश और सेवाओं को एक सहज अनुभव में एकीकृत करता है, हमारे रोबोट के साथ एकीकरण के लिए योजनाओं के साथ।</p>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-2xl font-bold mb-4">✨ विशेषताएं</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• सुरक्षित भुगतान प्रसंस्करण</li>
+<li>• रीयल-टाइम मैसेजिंग</li>
+<li>• सेवा खोज और बुकिंग</li>
+<li>• रोबोटिक्स एकीकरण</li>
+<li>• बहुभाषी समर्थन (12 भाषाएं)</li>
+</ul>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-4">🎯 बाजार</h3>
+<ul class="space-y-2 text-gray-300">
+<li>• प्रथम लॉन्च: जापान और अमेरिका</li>
+<li>• तकनीक-प्रेमी प्रारंभिक अपनाने वाले</li>
+<li>• छोटे और मध्यम व्यवसाय</li>
+<li>• वैश्विक विस्तार</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<h2 class="text-4xl font-bold mb-6">हमारे उत्पादों में रुचि?</h2>
+<p class="text-xl text-gray-400 mb-8">हमारे पायलट कार्यक्रमों, साझेदारी के अवसरों और लॉन्च योजनाओं के बारे में अधिक जानने के लिए संपर्क करें</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="contact.html"><button class="glass-effect px-8 py-3 rounded-full font-medium hover:bg-red-900 hover:bg-opacity-20 transition border-2 border-red-600 text-white">संपर्क करें</button></a>
+<a href="technology.html"><button class="glass-effect px-8 py-3 rounded-full font-medium hover:bg-white hover:bg-opacity-5 transition text-gray-300">हमारी तकनीक देखें</button></a>
+</div>
+</div>
+</section>
+<footer class="bg-black/50 border-t border-gray-800 py-16">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-4 gap-12 mb-12">
+<div><span class="text-xl font-bold">H A N Z <span class="text-lg">Ō</span> <span class="accent-red text-2xl">•</span></span><p class="text-sm text-gray-400 mt-4">बेहतर भविष्य के लिए रोबोटिक्स, AI और स्वास्थ्य तकनीक का विकास।</p></div>
+<div><h4 class="font-semibold mb-4">कंपनी</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="about.html">हमारे बारे में</a></li><li><a href="technology.html">तकनीक</a></li><li><a href="contact.html">संपर्क</a></li></ul></div>
+<div><h4 class="font-semibold mb-4">परियोजनाएं</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="#mec">Hanzō M.E.C</a></li><li><a href="#cem">Hanzō C.E.M</a></li><li><a href="#rai">Hanzō R.A.I</a></li><li><a href="#nano">नैनोरोबोटिक्स</a></li><li><a href="#app">सुपर ऐप</a></li></ul></div>
+<div><h4 class="font-semibold mb-4">संपर्क</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="mailto:quielo@hanzotechnologies.com">पूछताछ</a></li><li><a href="mailto:outreach@hanzotechnologies.com">साझेदारी</a></li><li><a href="mailto:support@hanzotechnologies.com">सहायता</a></li></ul></div>
+</div>
+<div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500"><p>© 2025 Hanzo Technologies. सर्वाधिकार सुरक्षित।</p><p class="mt-2">जापान और विश्व भर में रोबोटिक्स नवाचार का नेतृत्व।</p></div>
+</div>
+</footer>
+<script>
+const langButton = document.querySelector('.language-selector button');
+const langDropdown = document.querySelector('.language-dropdown');
+langButton.addEventListener('click', (e) => { e.stopPropagation(); langDropdown.classList.toggle('show'); });
+document.addEventListener('click', (e) => { if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) { langDropdown.classList.remove('show'); } });
+</script>
+</body>
+</html>

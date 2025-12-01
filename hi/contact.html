@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>संपर्क करें - Hanzo Technologies</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;900&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans Devanagari', sans-serif; }
+body { background: #000000; color: #f5f5f7; line-height: 1.6; }
+.glass-effect { background: rgba(30, 30, 30, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; }
+.accent-red { color: #DC143C; }
+.hero-gradient { background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); }
+nav { background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.nav-link { color: #f5f5f7; text-decoration: none; padding: 8px 16px; transition: color 0.2s ease; }
+.nav-link:hover { color: #DC143C; }
+input, textarea, select { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #f5f5f7; padding: 12px; border-radius: 8px; width: 100%; }
+input:focus, textarea:focus, select:focus { outline: none; border-color: #DC143C; }
+.language-selector { position: relative; }
+.language-dropdown { display: none; position: absolute; top: 100%; right: 0; background: rgba(30, 30, 30, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 8px; margin-top: 8px; min-width: 120px; max-height: 400px; overflow-y: auto; z-index: 1000; }
+.language-dropdown.show { display: block; }
+.language-dropdown a { display: block; padding: 8px 12px; color: #f5f5f7; text-decoration: none; border-radius: 6px; transition: background 0.2s ease; }
+.language-dropdown a:hover { background: rgba(220, 20, 60, 0.2); color: #DC143C; }
+</style>
+</head>
+<body>
+<nav class="fixed w-full top-0 z-50">
+<div class="max-w-6xl mx-auto px-6 py-4">
+<div class="flex justify-between items-center">
+<div><a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a></div>
+<div class="flex space-x-8 items-center text-sm md:text-base">
+<a href="index.html" class="nav-link">होम</a>
+<a href="about.html" class="nav-link">हमारे बारे में</a>
+<a href="projects.html" class="nav-link">परियोजनाएं</a>
+<a href="technology.html" class="nav-link">तकनीक</a>
+<a href="contact.html" class="nav-link">संपर्क करें</a>
+<div class="language-selector"><button class="nav-link">🌐 HI</button><div class="language-dropdown"><a href="../contact.html">🇺🇸 English</a><a href="../ja/contact.html">🇯🇵 日本語</a><a href="../es/contact.html">🇪🇸 Español</a><a href="../zh/contact.html">🇨🇳 中文</a><a href="../ko/contact.html">🇰🇷 한국어</a><a href="../fr/contact.html">🇫🇷 Français</a><a href="../de/contact.html">🇩🇪 Deutsch</a><a href="../vi/contact.html">🇻🇳 Tiếng Việt</a><a href="../ar/contact.html">🇸🇦 العربية</a><a href="contact.html">🇮🇳 हिन्दी</a><a href="../bo/contact.html">🏔️ བོད་ཡིག</a><a href="../haw/contact.html">🏝️ ʻŌlelo Hawaiʻi</a></div></div>
+</div>
+</div>
+</div>
+</nav>
+<section class="hero-gradient py-32 text-center" style="margin-top: 100px;">
+<div class="max-w-5xl mx-auto px-6"><h1 style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;"><span class="accent-red">संपर्क</span> करें</h1><p class="text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto">प्रश्न, साझेदारी और सहायता के लिए हमसे संपर्क करें</p></div>
+</section>
+<section class="py-20">
+<div class="max-w-6xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-8 mb-16">
+<div class="glass-effect p-8"><h3 class="text-2xl font-bold mb-4">📧 सामान्य पूछताछ</h3><p class="text-gray-400 mb-2">quielo@hanzotechnologies.com</p><p class="text-gray-500 text-sm">सामान्य प्रश्नों के लिए</p></div>
+<div class="glass-effect p-8"><h3 class="text-2xl font-bold mb-4">🤝 साझेदारी</h3><p class="text-gray-400 mb-2">outreach@hanzotechnologies.com</p><p class="text-gray-500 text-sm">व्यावसायिक साझेदारी के लिए</p></div>
+<div class="glass-effect p-8"><h3 class="text-2xl font-bold mb-4">💬 सहायता</h3><p class="text-gray-400 mb-2">support@hanzotechnologies.com</p><p class="text-gray-500 text-sm">ग्राहक सहायता</p></div>
+<div class="glass-effect p-8"><h3 class="text-2xl font-bold mb-4">📰 प्रेस</h3><p class="text-gray-400 mb-2">press@hanzotechnologies.com</p><p class="text-gray-500 text-sm">मीडिया पूछताछ</p></div>
+</div>
+<div class="glass-effect p-10">
+<h2 class="text-3xl font-bold mb-8">हमें संदेश भेजें</h2>
+<form class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div><label class="block text-sm font-medium mb-2">पहला नाम</label><input type="text" required placeholder="राज" /></div>
+<div><label class="block text-sm font-medium mb-2">अंतिम नाम</label><input type="text" required placeholder="शर्मा" /></div>
+</div>
+<div><label class="block text-sm font-medium mb-2">ईमेल</label><input type="email" required placeholder="raj@example.com" /></div>
+<div><label class="block text-sm font-medium mb-2">फोन</label><input type="tel" placeholder="+91 98765 43210" /></div>
+<div><label class="block text-sm font-medium mb-2">कंपनी / संगठन</label><input type="text" placeholder="आपकी कंपनी का नाम" /></div>
+<div><label class="block text-sm font-medium mb-2">पूछताछ प्रकार</label><select><option>चुनें</option><option>सामान्य पूछताछ</option><option>साझेदारी</option><option>सहायता</option><option>प्रेस</option><option>करियर</option></select></div>
+<div><label class="block text-sm font-medium mb-2">संदेश</label><textarea rows="6" required placeholder="अपनी पूछताछ के बारे में हमें बताएं..."></textarea></div>
+<button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg transition">भेजें</button>
+</form>
+</div>
+</div>
+</section>
+<section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+<div class="max-w-6xl mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-12">हम कहाँ हैं</h2>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="glass-effect p-8"><h3 class="text-2xl font-bold mb-4">🇺🇸 संयुक्त राज्य अमेरिका</h3><p class="text-xl accent-red mb-2">Seattle, Washington</p><p class="text-gray-400">वर्तमान संचालन</p></div>
+<div class="glass-effect p-8"><h3 class="text-2xl font-bold mb-4">🇯🇵 जापान</h3><p class="text-xl accent-red mb-2">टोक्यो</p><p class="text-gray-400">भविष्य का मुख्यालय</p></div>
+</div>
+</div>
+</section>
+<footer class="bg-black/50 border-t border-gray-800 py-16">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-4 gap-12 mb-12">
+<div><span class="text-xl font-bold">H A N Z <span class="text-lg">Ō</span> <span class="accent-red text-2xl">•</span></span><p class="text-sm text-gray-400 mt-4">बेहतर भविष्य के लिए रोबोटिक्स, AI और स्वास्थ्य तकनीक का विकास।</p></div>
+<div><h4 class="font-semibold mb-4">कंपनी</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="about.html">हमारे बारे में</a></li><li><a href="technology.html">तकनीक</a></li><li><a href="contact.html">संपर्क</a></li></ul></div>
+<div><h4 class="font-semibold mb-4">परियोजनाएं</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="projects.html#mec">Hanzō M.E.C</a></li><li><a href="projects.html#cem">Hanzō C.E.M</a></li><li><a href="projects.html#rai">Hanzō R.A.I</a></li></ul></div>
+<div><h4 class="font-semibold mb-4">संपर्क</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="mailto:quielo@hanzotechnologies.com">पूछताछ</a></li><li><a href="mailto:support@hanzotechnologies.com">सहायता</a></li></ul></div>
+</div>
+<div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500"><p>© 2025 Hanzo Technologies. सर्वाधिकार सुरक्षित।</p></div>
+</div>
+</footer>
+<script>
+const langButton = document.querySelector('.language-selector button');
+const langDropdown = document.querySelector('.language-dropdown');
+langButton.addEventListener('click', (e) => { e.stopPropagation(); langDropdown.classList.toggle('show'); });
+document.addEventListener('click', (e) => { if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) { langDropdown.classList.remove('show'); } });
+</script>
+</body>
+</html>

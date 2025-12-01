@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>हमारे बारे में - Hanzo Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;900&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans Devanagari', sans-serif; }
+        body { background: #000000; color: #f5f5f7; line-height: 1.6; }
+        .glass-effect { background: rgba(30, 30, 30, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; }
+        .accent-red { color: #DC143C; }
+        .hero-gradient { background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); }
+        nav { background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .nav-link { color: #f5f5f7; text-decoration: none; padding: 8px 16px; transition: color 0.2s ease; }
+        .nav-link:hover { color: #DC143C; }
+        .language-selector { position: relative; }
+        .language-dropdown { display: none; position: absolute; top: 100%; right: 0; background: rgba(30, 30, 30, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 8px; margin-top: 8px; min-width: 120px; max-height: 400px; overflow-y: auto; z-index: 1000; }
+        .language-dropdown.show { display: block; }
+        .language-dropdown a { display: block; padding: 8px 12px; color: #f5f5f7; text-decoration: none; border-radius: 6px; transition: background 0.2s ease; }
+        .language-dropdown a:hover { background: rgba(220, 20, 60, 0.2); color: #DC143C; }
+    </style>
+</head>
+<body>
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div><a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a></div>
+                <div class="flex space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">होम</a>
+                    <a href="about.html" class="nav-link">हमारे बारे में</a>
+                    <a href="projects.html" class="nav-link">परियोजनाएं</a>
+                    <a href="technology.html" class="nav-link">तकनीक</a>
+                    <a href="contact.html" class="nav-link">संपर्क करें</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 HI</button>
+                        <div class="language-dropdown">
+                            <a href="../about.html">🇺🇸 English</a>
+                            <a href="../ja/about.html">🇯🇵 日本語</a>
+                            <a href="../es/about.html">🇪🇸 Español</a>
+                            <a href="../zh/about.html">🇨🇳 中文</a>
+                            <a href="../ko/about.html">🇰🇷 한국어</a>
+                            <a href="../fr/about.html">🇫🇷 Français</a>
+                            <a href="../de/about.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/about.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/about.html">🇸🇦 العربية</a>
+                            <a href="about.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/about.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/about.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-gradient py-32 text-center" style="margin-top: 100px;">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;"><span class="accent-red">हमारे</span> बारे में</h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto">रोबोटिक्स, AI और नैनोटेक्नोलॉजी में अभिनव समाधान विकसित करना</p>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-effect p-12">
+                <h2 class="text-4xl font-bold mb-6 text-center">हमारी कहानी</h2>
+                <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
+                    <p>Hanzo Technologies की स्थापना जापान और दुनिया भर में बुजुर्ग आबादी से संबंधित महत्वपूर्ण जनसांख्यिकीय चुनौतियों का समाधान करने के दृष्टिकोण के साथ की गई थी। हमने पहचाना कि दुनिया को ऐसे अभिनव समाधानों की आवश्यकता है जो लोगों की मदद करें और ग्रह की रक्षा करें।</p>
+                    <p>जापान में, 29% आबादी 65 वर्ष से अधिक उम्र की है, और श्रमिक कम होते जा रहे हैं। हमने इन चुनौतियों का सामना करने के लिए उन्नत रोबोट और AI तकनीकें विकसित की हैं, जो बुजुर्गों की देखभाल करती हैं और उद्योगों का समर्थन करती हैं।</p>
+                    <p>हमारा दृष्टिकोण ऐसी तकनीकों का विकास करना है जो मानव जीवन को बढ़ाती हैं, न कि प्रतिस्थापित करती हैं। हम जापान के अग्रणी अनुसंधान संस्थानों, जैसे RIKEN और AIST के साथ काम कर रहे हैं, ताकि दुनिया को बदल सकने वाले समाधान विकसित कर सकें।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">हमारे मूल्य</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8">
+                    <div class="text-5xl mb-4 text-center">🎯</div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">हमारा मिशन</h3>
+                    <p class="text-gray-300 text-center">मानव जीवन को बढ़ाने और ग्रह की रक्षा करने वाली उन्नत तकनीकों का विकास</p>
+                </div>
+                <div class="glass-effect p-8">
+                    <div class="text-5xl mb-4 text-center">👁️</div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">हमारी दृष्टि</h3>
+                    <p class="text-gray-300 text-center">रोबोटिक्स और AI के साथ दुनिया को बदलने वाली नवीन तकनीकों का विकास</p>
+                </div>
+                <div class="glass-effect p-8">
+                    <div class="text-5xl mb-4 text-center">⭐</div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">मूल्य</h3>
+                    <p class="text-gray-300 text-center">नवाचार, नैतिकता, स्थिरता और मानव सशक्तिकरण</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">हम कहाँ काम करते हैं</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4">🇺🇸 संयुक्त राज्य अमेरिका</h3>
+                    <p class="text-xl mb-2 accent-red font-semibold">Seattle, Washington</p>
+                    <p class="text-gray-400 mb-4">वर्तमान संचालन</p>
+                    <p class="text-gray-300">सुपर ऐप विकास और निवेशकों के साथ साझेदारी का नेतृत्व</p>
+                </div>
+                <div class="glass-effect p-8">
+                    <h3 class="text-2xl font-bold mb-4">🇯🇵 जापान</h3>
+                    <p class="text-xl mb-2 accent-red font-semibold">टोक्यो</p>
+                    <p class="text-gray-400 mb-4">भविष्य का मुख्यालय</p>
+                    <p class="text-gray-300">रोबोटिक्स अनुसंधान के लिए RIKEN और AIST के साथ साझेदारी शुरू कर रहे हैं</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">हमारी टीम में शामिल हों</h2>
+            <p class="text-xl text-gray-400 mb-8">हम प्रतिभाशाली व्यक्तियों की तलाश कर रहे हैं जो हमारी दृष्टि साझा करते हैं</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html"><button class="glass-effect px-8 py-3 rounded-full font-medium hover:bg-red-900 hover:bg-opacity-20 transition border-2 border-red-600 text-white">संपर्क करें</button></a>
+                <a href="projects.html"><button class="glass-effect px-8 py-3 rounded-full font-medium hover:bg-white hover:bg-opacity-5 transition text-gray-300">हमारे काम देखें</button></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div><span class="text-xl font-bold">H A N Z <span class="text-lg">Ō</span> <span class="accent-red text-2xl">•</span></span><p class="text-sm text-gray-400 mt-4">बेहतर भविष्य के लिए रोबोटिक्स, AI और स्वास्थ्य तकनीक का विकास।</p></div>
+                <div><h4 class="font-semibold mb-4">कंपनी</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="about.html">हमारे बारे में</a></li><li><a href="technology.html">तकनीक</a></li><li><a href="contact.html">संपर्क</a></li></ul></div>
+                <div><h4 class="font-semibold mb-4">परियोजनाएं</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="projects.html#mec">Hanzō M.E.C</a></li><li><a href="projects.html#cem">Hanzō C.E.M</a></li><li><a href="projects.html#rai">Hanzō R.A.I</a></li></ul></div>
+                <div><h4 class="font-semibold mb-4">संपर्क</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="mailto:quielo@hanzotechnologies.com">पूछताछ</a></li><li><a href="mailto:outreach@hanzotechnologies.com">साझेदारी</a></li><li><a href="mailto:support@hanzotechnologies.com">सहायता</a></li></ul></div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500"><p>© 2025 Hanzo Technologies. सर्वाधिकार सुरक्षित।</p></div>
+        </div>
+    </footer>
+    <script>
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        langButton.addEventListener('click', (e) => { e.stopPropagation(); langDropdown.classList.toggle('show'); });
+        document.addEventListener('click', (e) => { if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) { langDropdown.classList.remove('show'); } });
+    </script>
+</body>
+</html>

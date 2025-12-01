@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanzo Technologies - रोबोटिक्स, AI और हेल्थकेयर इनोवेशन</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .accent-red {
+            color: #DC143C;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .apple-button {
+            background: #DC143C;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 24px;
+            border: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .apple-button:hover {
+            background: #b8102e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.4);
+        }
+        
+        .apple-button-outline {
+            background: transparent;
+            color: #DC143C;
+            padding: 12px 32px;
+            border-radius: 24px;
+            border: 2px solid #DC143C;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .apple-button-outline:hover {
+            background: rgba(220, 20, 60, 0.1);
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-8 items-center text-sm md:text-base">
+                    <a href="index.html" class="nav-link">होम</a>
+                    <a href="about.html" class="nav-link">हमारे बारे में</a>
+                    <a href="projects.html" class="nav-link">परियोजनाएं</a>
+                    <a href="technology.html" class="nav-link">तकनीक</a>
+                    <a href="contact.html" class="nav-link">संपर्क करें</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 HI</button>
+                        <div class="language-dropdown">
+                            <a href="../index.html">🇺🇸 English</a>
+                            <a href="../ja/index.html">🇯🇵 日本語</a>
+                            <a href="../es/index.html">🇪🇸 Español</a>
+                            <a href="../zh/index.html">🇨🇳 中文</a>
+                            <a href="../ko/index.html">🇰🇷 한국어</a>
+                            <a href="../fr/index.html">🇫🇷 Français</a>
+                            <a href="../de/index.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/index.html">🇻🇳 Tiếng Việt</a>
+                            <a href="../ar/index.html">🇸🇦 العربية</a>
+                            <a href="index.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/index.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/index.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center pt-20">
+        <div class="max-w-6xl mx-auto px-6 text-center animate-fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <span class="accent-red">भविष्य</span> का निर्माण<br>
+                रोबोटिक्स और AI के साथ
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Hanzo Technologies रोबोटिक्स, कृत्रिम बुद्धिमत्ता और नैनोटेक्नोलॉजी में अभिनव समाधान विकसित कर रही है, जो जापान की जनसांख्यिकीय चुनौतियों का सामना करने और एक सतत भविष्य बनाने के लिए डिज़ाइन किए गए हैं।
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="projects.html"><button class="apple-button">हमारी परियोजनाएं देखें</button></a>
+                <a href="contact.html"><button class="apple-button-outline">संपर्क करें</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">हमारा मिशन</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    रोबोटिक्स और AI में उन्नत तकनीकों का विकास करना जो मानव जीवन को बढ़ाती हैं, बुजुर्ग समुदायों का समर्थन करती हैं, और आने वाली पीढ़ियों के लिए हमारे ग्रह की रक्षा करती हैं।
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section-padding bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">हमारे उत्पाद</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    वैश्विक चुनौतियों का समाधान करने वाले अभिनव समाधान
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- M.E.C -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="product-icon">👴</div>
+                    <h3 class="text-2xl font-bold mb-3">Hanzō M.E.C</h3>
+                    <p class="text-gray-400 mb-4">चिकित्सा और बुजुर्ग देखभाल रोबोट</p>
+                    <p class="text-sm text-gray-500">उन्नत AI के साथ बुजुर्गों की देखभाल और सहायता</p>
+                </div>
+
+                <!-- H.H.C -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="product-icon">🏥</div>
+                    <h3 class="text-2xl font-bold mb-3">Hanzō H.H.C</h3>
+                    <p class="text-gray-400 mb-4">अस्पताल स्वास्थ्य सेवा रोबोट</p>
+                    <p class="text-sm text-gray-500">रूटीन कार्यों को स्वचालित करके चिकित्सा कर्मचारियों का समर्थन</p>
+                </div>
+
+                <!-- C.E.M -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="product-icon">🏗️</div>
+                    <h3 class="text-2xl font-bold mb-3">Hanzō C.E.M</h3>
+                    <p class="text-gray-400 mb-4">निर्माण रोबोट</p>
+                    <p class="text-sm text-gray-500">कठिन निर्माण वातावरण के लिए शक्तिशाली रोबोट</p>
+                </div>
+
+                <!-- R.A.I -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="product-icon">🛒</div>
+                    <h3 class="text-2xl font-bold mb-3">Hanzō R.A.I</h3>
+                    <p class="text-gray-400 mb-4">रिटेल ऑटोमेशन रोबोट</p>
+                    <p class="text-sm text-gray-500">AI सेवाओं के साथ खरीदारी के अनुभव को बढ़ाना</p>
+                </div>
+
+                <!-- Nanorobotics -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="product-icon">⚛️</div>
+                    <h3 class="text-2xl font-bold mb-3">नैनोरोबोटिक्स</h3>
+                    <p class="text-gray-400 mb-4">नैनोरोबोटिक्स प्लेटफॉर्म</p>
+                    <p class="text-sm text-gray-500">सटीक चिकित्सा के लिए सिलिकॉन-आधारित नैनोरोबोट</p>
+                </div>
+
+                <!-- Super App -->
+                <div class="glass-effect p-8 text-center hover:transform hover:scale-105 transition">
+                    <div class="product-icon">📱</div>
+                    <h3 class="text-2xl font-bold mb-3">सुपर ऐप</h3>
+                    <p class="text-gray-400 mb-4">सुपर ऐप प्लेटफॉर्म</p>
+                    <p class="text-sm text-gray-500">सभी सेवाओं को एकीकृत करने वाला डिजिटल प्लेटफॉर्म</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">हमारी दृष्टि</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    नवीन तकनीकों का विकास करना जो रोबोटिक्स और AI के क्षेत्र में संभावनाओं को फिर से परिभाषित करती हैं, मानवता की मदद करती हैं और हमारे ग्रह की रक्षा करती हैं।
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold mb-3">उन्नत रोबोटिक्स</h3>
+                    <p class="text-gray-400">AI-संचालित रोबोट जो दैनिक कार्यों में मनुष्यों की सहायता करते हैं</p>
+                </div>
+
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">🔬</div>
+                    <h3 class="text-2xl font-bold mb-3">नैनोटेक्नोलॉजी</h3>
+                    <p class="text-gray-400">सटीक चिकित्सा और पर्यावरण सफाई के लिए नैनोरोबोट</p>
+                </div>
+
+                <div class="glass-effect p-8 text-center">
+                    <div class="text-5xl mb-4">🌱</div>
+                    <h3 class="text-2xl font-bold mb-3">स्थिरता</h3>
+                    <p class="text-gray-400">पर्यावरण की रक्षा और पृथ्वी को साफ करने वाले समाधान</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section-padding bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">हमारा रोडमैप</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    हमारे विकास की तीन चरण योजना
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <div class="glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">📱</span>
+                        <div>
+                            <h3 class="text-2xl font-bold">चरण 1: सुपर ऐप प्लेटफॉर्म</h3>
+                            <p class="text-accent-red font-semibold">2025-2026</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">भुगतान, संदेश और सेवाओं को एकीकृत करने वाला डिजिटल प्लेटफॉर्म विकसित करना</p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">🤖</span>
+                        <div>
+                            <h3 class="text-2xl font-bold">चरण 2: Hanzō रोबोट श्रृंखला</h3>
+                            <p class="text-accent-red font-semibold">2026-2027</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">बुजुर्ग देखभाल, अस्पताल, निर्माण और रिटेल के लिए रोबोट लॉन्च करना</p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">⚛️</span>
+                        <div>
+                            <h3 class="text-2xl font-bold">चरण 3: नैनोरोबोटिक्स प्लेटफॉर्म</h3>
+                            <p class="text-accent-red font-semibold">2027+</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">सटीक चिकित्सा और पर्यावरणीय बहाली के लिए सिलिकॉन-आधारित नैनोरोबोट विकसित करना</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">साझेदारी में रुचि?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                हम भागीदारों, निवेशकों और शोधकर्ताओं की तलाश कर रहे हैं जो तकनीकी नवाचार के हमारे दृष्टिकोण को साझा करते हैं
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="contact.html"><button class="apple-button">संपर्क करें</button></a>
+                <a href="about.html"><button class="apple-button-outline">और जानें</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">
+                            H A N Z <span class="text-lg">Ō</span>
+                            <span class="accent-red text-2xl">•</span>
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        बेहतर भविष्य के लिए रोबोटिक्स, AI और स्वास्थ्य तकनीक का विकास।
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">कंपनी</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">हमारे बारे में</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition">परियोजनाएं</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">तकनीक</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">संपर्क</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">उत्पाद</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="projects.html#hhc" class="hover:text-white transition">Hanzō H.H.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">नैनोरोबोटिक्स</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">सुपर ऐप</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">संपर्क</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">ईमेल</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">साझेदारी</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">सहायता</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>© 2025 Hanzo Technologies. सर्वाधिकार सुरक्षित।</p>
+                <p class="mt-2">जापान और विश्व भर में रोबोटिक्स नवाचार का नेतृत्व।</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
