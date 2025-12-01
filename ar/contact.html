@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - تكنولوجيا هانزو</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .red-accent {
+            color: #DC143C;
+        }
+        
+        .red-glow {
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .section-padding {
+            padding: 100px 20px;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .contact-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.2);
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #f5f5f7;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #DC143C;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .submit-button {
+            background: #DC143C;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            background: #bc0230;
+            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base" dir="rtl">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="about.html" class="nav-link">عن الشركة</a>
+                    <a href="projects.html" class="nav-link">المشاريع</a>
+                    <a href="technology.html" class="nav-link">التقنية</a>
+                    <a href="contact.html" class="nav-link">اتصل بنا</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 AR</button>
+                        <div class="language-dropdown">
+                            <a href="../contact.html">🇺🇸 English</a>
+                            <a href="../ja/contact.html">🇯🇵 日本語</a>
+                            <a href="../es/contact.html">🇪🇸 Español</a>
+                            <a href="../zh/contact.html">🇨🇳 中文</a>
+                            <a href="../ko/contact.html">🇰🇷 한국어</a>
+                            <a href="../fr/contact.html">🇫🇷 Français</a>
+                            <a href="../de/contact.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/contact.html">🇻🇳 Tiếng Việt</a>
+                            <a href="contact.html">🇸🇦 العربية</a>
+                            <a href="../hi/contact.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/contact.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/contact.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient section-padding text-center fade-in" style="margin-top: 100px;">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;">
+                تواصل <span class="red-accent">معنا</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
+                سواء كنت مهتمًا بالشراكات أو الاستثمارات أو معرفة المزيد عن تقنيتنا، يسعدنا أن نسمع منك.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">معلومات الاتصال</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                اختر أفضل طريقة للتواصل معنا بناءً على استفسارك
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- General Inquiries -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">📧</div>
+                    <h3 class="text-xl font-bold mb-3">استفسارات عامة</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        للأسئلة العامة حول شركتنا ومنتجاتنا
+                    </p>
+                    <a href="mailto:quielo@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        quielo@hanzotechnologies.com
+                    </a>
+                </div>
+
+                <!-- Partnerships -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold mb-3">شراكات</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        تطوير الأعمال، التعاون البحثي، والشراكات الاستراتيجية
+                    </p>
+                    <a href="mailto:outreach@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        outreach@hanzotechnologies.com
+                    </a>
+                </div>
+
+                <!-- Support -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">🛟</div>
+                    <h3 class="text-xl font-bold mb-3">دعم العملاء</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        الدعم الفني واستفسارات خدمة العملاء
+                    </p>
+                    <a href="mailto:support@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        support@hanzotechnologies.com
+                    </a>
+                </div>
+
+                <!-- Press -->
+                <div class="glass-effect p-8 contact-card text-center">
+                    <div class="text-5xl mb-4">📰</div>
+                    <h3 class="text-xl font-bold mb-3">الصحافة والإعلام</h3>
+                    <p class="text-sm text-gray-400 mb-4">
+                        الاستفسارات الإعلامية، البيانات الصحفية، وطلبات المقابلات
+                    </p>
+                    <a href="mailto:press@hanzotechnologies.com" class="text-red-400 hover:text-red-300 text-sm break-all">
+                        press@hanzotechnologies.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-effect p-10">
+                <h2 class="text-3xl font-bold mb-4 text-center">أرسل لنا رسالة</h2>
+                <p class="text-center text-gray-400 mb-10">
+                    املأ النموذج أدناه وسنرد عليك في أقرب وقت ممكن
+                </p>
+                
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">الاسم الأول *</label>
+                            <input type="text" required placeholder="أحمد" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">الاسم الأخير *</label>
+                            <input type="text" required placeholder="محمد" />
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">البريد الإلكتروني *</label>
+                            <input type="email" required placeholder="ahmed@example.com" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">رقم الهاتف</label>
+                            <input type="tel" placeholder="+966 55 123 4567" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">الشركة/المنظمة</label>
+                        <input type="text" placeholder="اسم شركتك" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">نوع الاستفسار *</label>
+                        <select required>
+                            <option value="">اختر خيارًا</option>
+                            <option value="general">استفسار عام</option>
+                            <option value="partnership">فرصة شراكة</option>
+                            <option value="investment">اهتمام بالاستثمار</option>
+                            <option value="research">تعاون بحثي</option>
+                            <option value="press">صحافة/إعلام</option>
+                            <option value="support">دعم فني</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">الرسالة *</label>
+                        <textarea required rows="6" placeholder="أخبرنا المزيد عن استفسارك..."></textarea>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" id="privacy" required class="mt-1 w-4 h-4" />
+                        <label for="privacy" class="mr-2 text-sm text-gray-400">
+                            أوافق على معالجة بياناتي الشخصية وفقًا لسياسات الخصوصية *
+                        </label>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="submit-button">
+                            إرسال الرسالة
+                        </button>
+                        <p class="text-xs text-gray-500 mt-4">
+                            * الحقول المطلوبة
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">مواقعنا</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                العمل عبر المحيط الهادئ مع تمركز استراتيجي في مراكز الابتكار الرئيسية
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- USA Operations -->
+                <div class="glass-effect p-8">
+                    <div class="flex items-start mb-6">
+                        <span class="text-4xl ml-4">🇺🇸</span>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">الولايات المتحدة</h3>
+                            <p class="text-red-400 text-sm font-semibold">العمليات الحالية</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <div>
+                            <p class="font-semibold mb-1">سياتل، واشنطن</p>
+                            <p class="text-sm text-gray-400">
+                                مركز التطوير الأساسي للبرمجيات وأبحاث الذكاء الاصطناعي
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">المنطقة الزمنية:</p>
+                            <p class="font-semibold">توقيت المحيط الهادئ (UTC-8/UTC-7)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Japan Operations -->
+                <div class="glass-effect p-8 red-glow">
+                    <div class="flex items-start mb-6">
+                        <span class="text-4xl ml-4">🇯🇵</span>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">اليابان</h3>
+                            <p class="text-red-400 text-sm font-semibold">المقر الرئيسي المستقبلي</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <div>
+                            <p class="font-semibold mb-1">طوكيو، اليابان</p>
+                            <p class="text-sm text-gray-400">
+                                المقر الرئيسي المخطط لتطوير وتصنيع الروبوتات
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">المناطق المستهدفة:</p>
+                            <ul class="text-sm space-y-1">
+                                <li>• منطقة شيبويا - حي الابتكار</li>
+                                <li>• منطقة ميناتو - مركز الأعمال</li>
+                                <li>• منطقة تشيودا - مركز التكنولوجيا</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-400 mb-2">المنطقة الزمنية:</p>
+                            <p class="font-semibold">التوقيت القياسي الياباني (UTC+9)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Response Times -->
+            <div class="mt-16 max-w-3xl mx-auto">
+                <div class="glass-effect p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-6">أوقات الاستجابة المتوقعة</h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div>
+                            <div class="text-3xl mb-2">⚡</div>
+                            <p class="font-semibold mb-1">الاستفسارات العامة</p>
+                            <p class="text-gray-400">خلال 24-48 ساعة</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl mb-2">🤝</div>
+                            <p class="font-semibold mb-1">الشراكات</p>
+                            <p class="text-gray-400">خلال 48-72 ساعة</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl mb-2">🛟</div>
+                            <p class="font-semibold mb-1">الدعم</p>
+                            <p class="text-gray-400">خلال 72 ساعة</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-6">
+                        أوقات الاستجابة تقديرية وقد تختلف خلال فترات الحجم الكبير أو العطلات
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">الأسئلة الشائعة</h2>
+            <p class="text-center text-gray-400 mb-16">
+                إجابات سريعة للاستفسارات الشائعة
+            </p>
+
+            <div class="space-y-6">
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">هل تقومون بالتوظيف حاليًا؟</h3>
+                    <p class="text-gray-300">
+                        نحن نبني فريقنا بنشاط بينما نؤسس العمليات في طوكيو. بينما لا نعلن عن وظائف علنًا بعد، نرحب بالاستفسارات من مهندسي الروبوتات الموهوبين، وأخصائيي الذكاء الاصطناعي، ومحترفي تطوير الأعمال. أرسل سيرتك الذاتية إلى <a href="mailto:quielo@hanzotechnologies.com" class="text-red-400 hover:text-red-300">quielo@hanzotechnologies.com</a>.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">هل تقبلون استفسارات الاستثمار؟</h3>
+                    <p class="text-gray-300">
+                        نعم! نحن نبحث بنشاط عن مستثمرين استراتيجيين وشركاء رأس مال مخاطر يشاركوننا رؤيتنا للابتكار في الروبوتات. يرجى الاتصال بنا على <a href="mailto:quielo@hanzotechnologies.com" class="text-red-400 hover:text-red-300">quielo@hanzotechnologies.com</a> لفرص الاستثمار ومواد عرض الأعمال.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">هل يمكنني جدولة عرض توضيحي للمنتج؟</h3>
+                    <p class="text-gray-300">
+                        منتجاتنا حاليًا قيد التطوير. سنقوم بجدولة العروض التوضيحية بمجرد توفر النماذج الأولية. إذا كنت مهتمًا بالوصول المبكر أو البرامج التجريبية، يرجى التواصل مع <a href="mailto:outreach@hanzotechnologies.com" class="text-red-400 hover:text-red-300">outreach@hanzotechnologies.com</a>.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">كيف يمكن للمؤسسات البحثية الشراكة معكم؟</h3>
+                    <p class="text-gray-300">
+                        نحن نسعى بنشاط وراء شراكات بحثية مع مؤسسات مثل RIKEN وAIST والجامعات الرائدة. لفرص التعاون، يرجى الاتصال بـ <a href="mailto:outreach@hanzotechnologies.com" class="text-red-400 hover:text-red-300">outreach@hanzotechnologies.com</a> مع تفاصيل حول تركيز بحثك والتآزرات المحتملة.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">هل لديكم أي منتجات متاحة للشراء؟</h3>
+                    <p class="text-gray-300">
+                        منتجاتنا حاليًا قيد التطوير وليست متاحة تجاريًا بعد. نتبع استراتيجية تطوير مرحلية مع إطلاق تطبيقنا الفائق أولاً، تليه منصات الروبوتات لدينا. انضم إلى قائمة جهات الاتصال لدينا لتلقي إشعار عند توفر المنتجات.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-3">ما اللغات التي تدعمونها؟</h3>
+                    <p class="text-gray-300">
+                        لغات أعمالنا الأساسية هي الإنجليزية واليابانية. يوفر موقعنا الإلكتروني 12 خيارًا للغات لخدمة جمهورنا العالمي. ستدعم روبوتاتنا التفاعل الصوتي باللغتين اليابانية والإنجليزية، مع التخطيط للغات إضافية للإصدارات المستقبلية.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social & Newsletter -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-effect p-10 text-center">
+                <h2 class="text-3xl font-bold mb-4">ابق على اطلاع</h2>
+                <p class="text-gray-400 mb-8">
+                    تابع رحلتنا بينما نبني مستقبل الروبوتات والذكاء الاصطناعي
+                </p>
+                
+                <!-- Newsletter Signup -->
+                <div class="max-w-md mx-auto mb-8">
+                    <form class="flex gap-3">
+                        <input 
+                            type="email" 
+                            placeholder="أدخل بريدك الإلكتروني" 
+                            class="flex-1"
+                        />
+                        <button type="submit" class="submit-button whitespace-nowrap">
+                            اشترك
+                        </button>
+                    </form>
+                    <p class="text-xs text-gray-500 mt-3">
+                        احصل على تحديثات حول إطلاق المنتجات والشراكات وأخبار الشركة
+                    </p>
+                </div>
+
+                <!-- Social Links Placeholder -->
+                <div class="pt-8 border-t border-gray-800">
+                    <p class="text-sm text-gray-400 mb-4">تابعنا على وسائل التواصل الاجتماعي (قريبًا)</p>
+                    <div class="flex justify-center gap-6 text-2xl text-gray-600">
+                        <span>📱</span>
+                        <span>💼</span>
+                        <span>🦆</span>
+                        <span>📺</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">
+                            H A N Z <span class="text-lg">Ō</span>
+                            <span class="red-accent text-2xl">•</span>
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        تطوير الروبوتات والذكاء الاصطناعي والتكنولوجيا الصحية لمستقبل أفضل.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">الشركة</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">عن الشركة</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">التقنية</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">المشاريع</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">هانزو M.E.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">هانزو C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">هانزو R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">روبوتات النانو</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">سوبر آب</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">تواصل</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">استفسارات عامة</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">شراكات</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">الدعم</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>© 2025 تكنولوجيا هانزو. جميع الحقوق محفوظة.</p>
+                <p class="mt-2">ريادة الابتكار في الروبوتات في اليابان وعالميًا.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التقنية والابتكار - تكنولوجيا هانزو</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .red-accent {
+            color: #DC143C;
+        }
+        
+        .red-glow {
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .tech-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.25);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-right: 40px;
+            border-right: 2px solid rgba(220, 20, 60, 0.3);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: #DC143C;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(220, 20, 60, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base" dir="rtl">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="about.html" class="nav-link">عن الشركة</a>
+                    <a href="projects.html" class="nav-link">المشاريع</a>
+                    <a href="technology.html" class="nav-link">التقنية</a>
+                    <a href="contact.html" class="nav-link">اتصل بنا</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 AR</button>
+                        <div class="language-dropdown">
+                            <a href="../technology.html">🇺🇸 English</a>
+                            <a href="../ja/technology.html">🇯🇵 日本語</a>
+                            <a href="../es/technology.html">🇪🇸 Español</a>
+                            <a href="../zh/technology.html">🇨🇳 中文</a>
+                            <a href="../ko/technology.html">🇰🇷 한국어</a>
+                            <a href="../fr/technology.html">🇫🇷 Français</a>
+                            <a href="../de/technology.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/technology.html">🇻🇳 Tiếng Việt</a>
+                            <a href="technology.html">🇸🇦 العربية</a>
+                            <a href="../hi/technology.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/technology.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/technology.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-32 text-center" style="margin-top: 100px;">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;">
+                <span class="red-accent">التقنية</span> والابتكار
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto">
+                نطور تقنيات رائدة في الروبوتات والذكاء الاصطناعي وروبوتات النانو لمعالجة التحديات العالمية الحرجة
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Technologies Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">التقنيات الأساسية</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                يمتد ابتكارنا عبر ثلاثة مجالات تقنية ثورية، كل منها يعالج تحديات عالمية حرجة
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Humanoid Robotics -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold mb-4">الروبوتات البشرية</h3>
+                    <p class="text-gray-400 mb-6">
+                        روبوتات متقدمة ثنائية ورباعية الأرجل مصممة لرعاية المسنين، وأتمتة البناء، وبيئات التجزئة
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• رؤية وملاحة مدعومة بالذكاء الاصطناعي</li>
+                        <li>• أنظمة توازن ديناميكية</li>
+                        <li>• تكامل أدوات معياري</li>
+                        <li>• تعاون إنسان-روبوت</li>
+                        <li>• ملاحة معتمدة على SLAM</li>
+                    </ul>
+                </div>
+
+                <!-- Nanorobotics -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🔬</div>
+                    <h3 class="text-2xl font-bold mb-4">روبوتات النانو المعتمدة على السيليكون</h3>
+                    <p class="text-gray-400 mb-6">
+                        روبوتات نانوية مسجلة الملكية للطب الدقيق، تستهدف علاج السرطان وإصلاح الحمض النووي واستعادة البيئة
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• دقة على المستوى الجزيئي</li>
+                        <li>• مواد متوافقة حيويًا</li>
+                        <li>• توصيل الدواء المستهدف</li>
+                        <li>• التنظيف البيئي</li>
+                        <li>• آليات إصلاح الحمض النووي</li>
+                    </ul>
+                </div>
+
+                <!-- AI & Software -->
+                <div class="glass-effect p-8 tech-card">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-2xl font-bold mb-4">منصة الذكاء الاصطناعي والبرمجيات</h3>
+                    <p class="text-gray-400 mb-6">
+                        نظام تطبيق فائق متكامل يجمع بين المدفوعات والرسائل والخدمات مع تكامل روبوتي سلس
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• معالجة اللغة الطبيعية</li>
+                        <li>• خوارزميات التعلم الآلي</li>
+                        <li>• اتخاذ القرارات في الوقت الفعلي</li>
+                        <li>• تكامل متعدد الخدمات</li>
+                        <li>• توافق عبر المنصات</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- R&D Approach -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">البحث والتطوير</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                نهجنا في البحث والتطوير يركز على التعاون مع المؤسسات الرائدة والابتكار السريع
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Research Partnerships -->
+                <div class="glass-effect p-8">
+                    <div class="flex items-center mb-6">
+                        <span class="text-4xl ml-4">🤝</span>
+                        <h3 class="text-2xl font-bold">شراكات البحث</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        نسعى وراء تعاونات مع مؤسسات البحث الممتازة في اليابان لتسريع تطويرنا التكنولوجي والوصول إلى المرافق ذات المستوى العالمي.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="red-accent ml-3 mt-1">•</span>
+                            <div>
+                                <p class="font-semibold mb-1">معهد RIKEN</p>
+                                <p class="text-sm text-gray-400">أبحاث الروبوتات المتقدمة وعلوم المواد</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="red-accent ml-3 mt-1">•</span>
+                            <div>
+                                <p class="font-semibold mb-1">المعهد الوطني للعلوم والتكنولوجيا الصناعية المتقدمة (AIST)</p>
+                                <p class="text-sm text-gray-400">تكنولوجيا النانو والذكاء الاصطناعي التطبيقي</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="red-accent ml-3 mt-1">•</span>
+                            <div>
+                                <p class="font-semibold mb-1">الجامعات الرائدة</p>
+                                <p class="text-sm text-gray-400">التعاون الأكاديمي وخطوط أنابيب المواهب</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Methodology -->
+                <div class="glass-effect p-8">
+                    <div class="flex items-center mb-6">
+                        <span class="text-4xl ml-4">⚡</span>
+                        <h3 class="text-2xl font-bold">منهجية التطوير</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        نستخدم نهج تطوير سريع ومتكرر مع اختبار مكثف لضمان جودة وموثوقية منتجاتنا.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="red-accent ml-3 mt-1">•</span>
+                            <div>
+                                <p class="font-semibold mb-1">التصميم المعياري</p>
+                                <p class="text-sm text-gray-400">الأنظمة المرنة للتطوير والنشر السريع</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="red-accent ml-3 mt-1">•</span>
+                            <div>
+                                <p class="font-semibold mb-1">التكرار السريع</p>
+                                <p class="text-sm text-gray-400">دورات اختبار متكررة مع ملاحظات من العالم الحقيقي</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="red-accent ml-3 mt-1">•</span>
+                            <div>
+                                <p class="font-semibold mb-1">ضمان الجودة</p>
+                                <p class="text-sm text-gray-400">بروتوكولات اختبار صارمة لجميع الأنظمة</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="red-accent ml-3 mt-1">•</span>
+                            <div>
+                                <p class="font-semibold mb-1">نهج يركز على المستخدم</p>
+                                <p class="text-sm text-gray-400">التصميم بناءً على احتياجات المستخدم الفعلية</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Timeline -->
+    <section class="py-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">استراتيجية التطوير المرحلية</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                خارطة طريقنا منظمة في ثلاث مراحل للتطوير المنهجي ونشر المنتجات
+            </p>
+
+            <div class="space-y-12">
+                <!-- Phase 1 -->
+                <div class="timeline-item">
+                    <div class="glass-effect p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl ml-4">📱</span>
+                            <div>
+                                <h3 class="text-2xl font-bold">المرحلة 1: منصة التطبيق الفائق</h3>
+                                <p class="text-red-accent text-sm font-semibold">الإطلاق الأول | 2025-2026</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            بناء منصة رقمية متكاملة تجمع بين المدفوعات والرسائل والخدمات، إنشاء أساس لتكامل النظام البيئي للروبوتات.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <p class="font-semibold mb-2">الميزات الرئيسية:</p>
+                                <ul class="space-y-1 text-gray-400">
+                                    <li>• تطبيقات iOS وAndroid الأصلية</li>
+                                    <li>• معالجة المدفوعات الآمنة</li>
+                                    <li>• نظام المراسلة في الوقت الفعلي</li>
+                                    <li>• تكامل الخدمات</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-semibold mb-2">الأسواق المستهدفة:</p>
+                                <ul class="space-y-1 text-gray-400">
+                                    <li>• الولايات المتحدة واليابان</li>
+                                    <li>• اعتماد المستهلكين الأوائل</li>
+                                    <li>• الشركات الصغيرة والمتوسطة</li>
+                                    <li>• بناء قاعدة المستخدمين</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="timeline-item">
+                    <div class="glass-effect p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl ml-4">🤖</span>
+                            <div>
+                                <h3 class="text-2xl font-bold">المرحلة 2: سلسلة روبوتات هانزو</h3>
+                                <p class="text-red-accent text-sm font-semibold">التطوير والنشر | 2026-2027</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            إطلاق منصات الروبوتات البشرية لرعاية المسنين والرعاية الصحية والبناء والتجزئة.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <p class="font-semibold mb-2">خطوط الإنتاج:</p>
+                                <ul class="space-y-1 text-gray-400">
+                                    <li>• هانزو M.E.C - رعاية المسنين</li>
+                                    <li>• هانزو H.H.C - المستشفيات</li>
+                                    <li>• هانزو C.E.M - البناء</li>
+                                    <li>• هانزو R.A.I - التجزئة</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-semibold mb-2">التركيز على التطوير:</p>
+                                <ul class="space-y-1 text-gray-400">
+                                    <li>• تكامل الذكاء الاصطناعي</li>
+                                    <li>• ضمان السلامة</li>
+                                    <li>• برامج تجريبية</li>
+                                    <li>• الشهادات التنظيمية</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="timeline-item" style="border-right: none;">
+                    <div class="glass-effect p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl ml-4">⚛️</span>
+                            <div>
+                                <h3 class="text-2xl font-bold">المرحلة 3: منصة روبوتات النانو</h3>
+                                <p class="text-red-accent text-sm font-semibold">البحث والتطبيقات الطبية | 2027+</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            تطوير ونشر روبوتات النانو المعتمدة على السيليكون للطب الدقيق والاستعادة البيئية.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <p class="font-semibold mb-2">التطبيقات:</p>
+                                <ul class="space-y-1 text-gray-400">
+                                    <li>• علاج السرطان الموجه</li>
+                                    <li>• إصلاح الحمض النووي</li>
+                                    <li>• توصيل الدواء الدقيق</li>
+                                    <li>• التنظيف البيئي</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-semibold mb-2">المعالم الرئيسية:</p>
+                                <ul class="space-y-1 text-gray-400">
+                                    <li>• الموافقات التنظيمية</li>
+                                    <li>• التجارب السريرية</li>
+                                    <li>• شراكات التصنيع</li>
+                                    <li>• التسويق</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Capabilities -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">القدرات التقنية</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                المواصفات الشاملة وأطر التقنية التي تدعم منتجاتنا
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AI/ML Systems -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl ml-3">🧠</span>
+                        أنظمة الذكاء الاصطناعي/التعلم الآلي
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• رؤية كمبيوتر عميقة التعلم</li>
+                        <li>• معالجة اللغة الطبيعية</li>
+                        <li>• التعلم المعزز</li>
+                        <li>• الشبكات العصبية التنبؤية</li>
+                        <li>• اتخاذ القرارات المستقلة</li>
+                    </ul>
+                </div>
+
+                <!-- Sensor Integration -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl ml-3">📡</span>
+                        تكامل الحساسات
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• كاميرات LIDAR و3D</li>
+                        <li>• مصفوفات استشعار القوة</li>
+                        <li>• أجهزة مراقبة الحيوية</li>
+                        <li>• رادارات تجنب الاصطدام</li>
+                        <li>• أنظمة حساسات متعددة</li>
+                    </ul>
+                </div>
+
+                <!-- Power Systems -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl ml-3">🔋</span>
+                        أنظمة الطاقة
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• بطاريات ليثيوم أيون عالية الكثافة</li>
+                        <li>• أنظمة الشحن الذكية</li>
+                        <li>• إدارة الطاقة التكيفية</li>
+                        <li>• شحن لاسلكي اختياري</li>
+                        <li>• تشغيل 12-24 ساعة ممتد</li>
+                    </ul>
+                </div>
+
+                <!-- Communication -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl ml-3">📶</span>
+                        الاتصالات
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• اتصال 5G/WiFi 6</li>
+                        <li>• Bluetooth منخفض الطاقة</li>
+                        <li>• بروتوكولات الاتصال الآمنة</li>
+                        <li>• مزامنة البيانات السحابية</li>
+                        <li>• أنظمة تحديث عبر الهواء</li>
+                    </ul>
+                </div>
+
+                <!-- Materials -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl ml-3">🔧</span>
+                        المواد والبناء
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• إطارات ألومنيوم خفيفة الوزن</li>
+                        <li>• مكونات ألياف كربون</li>
+                        <li>• أسطح بوليمر من الدرجة الطبية</li>
+                        <li>• تصميم معياري قابل للخدمة</li>
+                        <li>• بناء متين طويل الأمد</li>
+                    </ul>
+                </div>
+
+                <!-- Safety -->
+                <div class="glass-effect p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="text-2xl ml-3">🛡️</span>
+                        السلامة والأمان
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• أنظمة توقف طوارئ متعددة</li>
+                        <li>• تشفير بيانات من الدرجة العسكرية</li>
+                        <li>• كشف الاصطدام التنبؤي</li>
+                        <li>• مراقبة النظام الزائدة عن الحاجة</li>
+                        <li>• الامتثال لمعايير ISO/IEC</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Principles -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">مبادئ الابتكار</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-effect p-8">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <span class="red-accent text-2xl ml-3">🎯</span>
+                        التركيز على المشاكل
+                    </h3>
+                    <p class="text-gray-300">
+                        نطور تقنيات تعالج تحديات حقيقية، مع التركيز على التطبيقات العملية التي تقدم قيمة ملموسة للمستخدمين والمجتمع.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <span class="red-accent text-2xl ml-3">🔬</span>
+                        البحث الأول
+                    </h3>
+                    <p class="text-gray-300">
+                        استثماراتنا في البحث والتطوير تدفع حدود ما هو ممكن، مع التعاون مع المؤسسات الرائدة لتسريع الاكتشاف.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <span class="red-accent text-2xl ml-3">🌱</span>
+                        التصميم المستدام
+                    </h3>
+                    <p class="text-gray-300">
+                        ننشئ تقنيات مع وضع التأثير البيئي في الاعتبار، من اختيار المواد إلى كفاءة الطاقة إلى إمكانية إعادة التدوير في نهاية العمر.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <span class="red-accent text-2xl ml-3">🤝</span>
+                        نهج متمحور حول الإنسان
+                    </h3>
+                    <p class="text-gray-300">
+                        التكنولوجيا لدينا مصممة لتكمل القدرات البشرية، وليس لاستبدالها، مع التركيز على تعزيز حياة الإنسان ورفاهيته.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <span class="red-accent text-2xl ml-3">🔐</span>
+                        الأمن حسب التصميم
+                    </h3>
+                    <p class="text-gray-300">
+                        السلامة والأمن مدمجان في كل منتج من البداية، مع اختبار صارم وبروتوكولات حماية للتأكد من تشغيل موثوق.
+                    </p>
+                </div>
+
+                <div class="glass-effect p-8">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <span class="red-accent text-2xl ml-3">🌍</span>
+                        قابلية التوسع العالمية
+                    </h3>
+                    <p class="text-gray-300">
+                        بينما نركز على اليابان، نصمم أنظمة يمكن توسيع نطاقها عالميًا، معالجة التحديات الديموغرافية في جميع أنحاء العالم.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">هل أنت مستعد للتعاون؟</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                نبحث عن شركاء ومستثمرين وباحثين يشاركوننا رؤيتنا للابتكار التكنولوجي
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html"><button class="glass-effect px-8 py-3 rounded-full font-medium hover:bg-red-900 hover:bg-opacity-20 transition border-2 border-red-600 text-white">تواصل معنا</button></a>
+                <a href="projects.html"><button class="glass-effect px-8 py-3 rounded-full font-medium hover:bg-white hover:bg-opacity-5 transition text-gray-300">استكشف مشاريعنا</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">
+                            H A N Z <span class="text-lg">Ō</span>
+                            <span class="red-accent text-2xl">•</span>
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        تطوير الروبوتات والذكاء الاصطناعي والتكنولوجيا الصحية لمستقبل أفضل.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">الشركة</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">عن الشركة</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">التقنية</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">المشاريع</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">هانزو M.E.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">هانزو C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">هانزو R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">روبوتات النانو</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">سوبر آب</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">تواصل</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">استفسارات عامة</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">شراكات</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">الدعم</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>© 2025 تكنولوجيا هانزو. جميع الحقوق محفوظة.</p>
+                <p class="mt-2">ريادة الابتكار في الروبوتات في اليابان وعالميًا.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

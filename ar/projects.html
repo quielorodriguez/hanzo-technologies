@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاريعنا - تكنولوجيا هانزو</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #f5f5f7;
+            line-height: 1.6;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .red-accent {
+            color: #DC143C;
+        }
+        
+        .red-glow {
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+        }
+        
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #DC143C;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px;
+            margin-top: 8px;
+            min-width: 120px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: #f5f5f7;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .language-dropdown a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #DC143C;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="../logo.png" alt="HANZŌ" class="h-32" /></a>
+                </div>
+                <div class="flex space-x-4 md:space-x-8 items-center text-sm md:text-base" dir="rtl">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="about.html" class="nav-link">عن الشركة</a>
+                    <a href="projects.html" class="nav-link">المشاريع</a>
+                    <a href="technology.html" class="nav-link">التقنية</a>
+                    <a href="contact.html" class="nav-link">اتصل بنا</a>
+                    <div class="language-selector">
+                        <button class="nav-link">🌐 AR</button>
+                        <div class="language-dropdown">
+                            <a href="../projects.html">🇺🇸 English</a>
+                            <a href="../ja/projects.html">🇯🇵 日本語</a>
+                            <a href="../es/projects.html">🇪🇸 Español</a>
+                            <a href="../zh/projects.html">🇨🇳 中文</a>
+                            <a href="../ko/projects.html">🇰🇷 한국어</a>
+                            <a href="../fr/projects.html">🇫🇷 Français</a>
+                            <a href="../de/projects.html">🇩🇪 Deutsch</a>
+                            <a href="../vi/projects.html">🇻🇳 Tiếng Việt</a>
+                            <a href="projects.html">🇸🇦 العربية</a>
+                            <a href="../hi/projects.html">🇮🇳 हिन्दी</a>
+                            <a href="../bo/projects.html">🏔️ བོད་ཡིག</a>
+                            <a href="../haw/projects.html">🏝️ ʻŌlelo Hawaiʻi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-32 text-center" style="margin-top: 100px;">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="mb-6" style="font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.1;">
+                <span class="red-accent">مشاريعنا</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto">
+                حلول روبوتية متقدمة وتقنيات نانوية ومنصات رقمية لمعالجة التحديات العالمية الحرجة
+            </p>
+        </div>
+    </section>
+
+    <!-- Product Navigation -->
+    <section class="py-12 sticky top-24 z-40 bg-black/80 backdrop-blur-xl border-y border-gray-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <a href="#mec" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">هانزو M.E.C</a>
+                <a href="#hhc" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">هانزو H.H.C</a>
+                <a href="#cem" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">هانزو C.E.M</a>
+                <a href="#rai" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">هانزو R.A.I</a>
+                <a href="#nano" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">روبوتات النانو</a>
+                <a href="#app" class="glass-effect px-4 py-2 rounded-full hover:bg-red-900 hover:bg-opacity-20 transition">سوبر آب</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō M.E.C - Medical & Elderly Care Robot -->
+    <section id="mec" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl ml-6">👴</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">هانزو M.E.C</h2>
+                        <p class="text-xl text-gray-400">روبوت الرعاية الطبية والمسنين</p>
+                    </div>
+                </div>
+
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    روبوت بشري متقدم مصمم خصيصًا لتقديم الرعاية الشاملة للمسنين والمرضى. يجمع بين الذكاء الاصطناعي المتقدم والتصميم المتعاطف لتقديم المساعدة الطبية والدعم العاطفي وخدمات الحياة اليومية.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <!-- Key Features -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">✨</span>
+                            الميزات الرئيسية
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">كشف السقوط ومراقبة الحيوية</span>
+                                    <p class="text-sm text-gray-400">مراقبة 24/7 مع تنبيهات طوارئ فورية</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">تذكيرات الدواء والجدولة</span>
+                                    <p class="text-sm text-gray-400">إدارة أدوية ذكية مع تتبع الالتزام</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">التفاعل الصوتي الطبيعي</span>
+                                    <p class="text-sm text-gray-400">معالجة لغة متقدمة بلغات متعددة</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">دعم الحركة والمساعدة الجسدية</span>
+                                    <p class="text-sm text-gray-400">مساعدة آمنة في المشي والنقل</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">الرفقة والدعم العاطفي</span>
+                                    <p class="text-sm text-gray-400">ذكاء اصطناعي عاطفي يكتشف المزاج ويستجيب</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">تكامل الأجهزة القابلة للارتداء</span>
+                                    <p class="text-sm text-gray-400">المزامنة مع الساعات الذكية وأجهزة مراقبة الصحة</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Target Markets -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">🎯</span>
+                            الأسواق المستهدفة
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">مرافق رعاية المسنين</span>
+                                    <p class="text-sm text-gray-400">تعزيز القدرات دون استبدال مقدمي الرعاية البشرية</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">الرعاية المنزلية</span>
+                                    <p class="text-sm text-gray-400">دعم الأفراد الذين يعيشون بشكل مستقل</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">مراكز إعادة التأهيل</span>
+                                    <p class="text-sm text-gray-400">مساعدة في العلاج الطبيعي والتعافي</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">السوق الياباني</span>
+                                    <p class="text-sm text-gray-400">معالجة 29% من السكان فوق 65 عامًا</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mt-8 p-4 bg-red-900/20 border border-red-600/30 rounded-lg">
+                            <h4 class="font-bold mb-2 text-red-400">حجم السوق المستهدف</h4>
+                            <p class="text-sm text-gray-300">سوق الروبوتات للرعاية الصحية ورعاية المسنين في اليابان يُقدر بـ ¥30+ مليار بحلول 2030</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Specifications -->
+                <div class="border-t border-gray-700 pt-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent text-3xl ml-3">⚙️</span>
+                        المواصفات الفنية
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">الأبعاد المادية</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• الارتفاع: 150 سم</li>
+                                <li>• الوزن: 45 كجم</li>
+                                <li>• الحمولة: حتى 20 كجم</li>
+                                <li>• السرعة: حتى 3 كم/ساعة</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">نظام الطاقة</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• بطارية ليثيوم أيون</li>
+                                <li>• التشغيل: 12-16 ساعة</li>
+                                <li>• الشحن: 4 ساعات</li>
+                                <li>• قفص آمن</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">الحساسات والذكاء الاصطناعي</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• كاميرات LIDAR و3D</li>
+                                <li>• حساسات القوة</li>
+                                <li>• حساسات حرارة الأشعة تحت الحمراء</li>
+                                <li>• معالجة لغة طبيعية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō H.H.C - Hospital Healthcare Robot -->
+    <section id="hhc" class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl ml-6">🏥</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">هانزو H.H.C</h2>
+                        <p class="text-xl text-gray-400">روبوت الرعاية الصحية في المستشفيات</p>
+                    </div>
+                </div>
+
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    روبوت متخصص في المستشفيات مصمم لدعم الطاقم الطبي من خلال أتمتة المهام الروتينية، وتوصيل الإمدادات، وتوفير رعاية محسنة للمرضى في بيئات الرعاية الصحية.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">✨</span>
+                            الميزات الرئيسية
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">توصيل الأدوية والإمدادات</span>
+                                    <p class="text-sm text-gray-400">توصيل آمن للأدوية والمعدات الطبية</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">تكامل السجلات الطبية الإلكترونية</span>
+                                    <p class="text-sm text-gray-400">المزامنة مع أنظمة المستشفيات الموجودة</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">التنقل المستقل</span>
+                                    <p class="text-sm text-gray-400">مسارات محسنة في بيئات المستشفى المزدحمة</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">تسجيل حالة المريض</span>
+                                    <p class="text-sm text-gray-400">مراقبة حيوية روتينية وتوثيق</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">إعادة ملء الإمدادات</span>
+                                    <p class="text-sm text-gray-400">إدارة مخزون تلقائية</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">🎯</span>
+                            الأسواق المستهدفة
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">المستشفيات الكبيرة</span>
+                                    <p class="text-sm text-gray-400">مرافق رعاية ثالثية معقدة</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">العيادات الخارجية</span>
+                                    <p class="text-sm text-gray-400">مراكز جراحة اليوم الواحد</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">مرافق الرعاية طويلة الأمد</span>
+                                    <p class="text-sm text-gray-400">رعاية ممتدة ووحدات إعادة التأهيل</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mt-8 p-4 bg-red-900/20 border border-red-600/30 rounded-lg">
+                            <h4 class="font-bold mb-2 text-red-400">تأثير على الكفاءة</h4>
+                            <p class="text-sm text-gray-300">يوفر حتى 30% من وقت طاقم التمريض للتركيز على رعاية المرضى المباشرة</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-700 pt-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent text-3xl ml-3">⚙️</span>
+                        المواصفات الفنية
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">الأبعاد</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• الارتفاع: 140 سم</li>
+                                <li>• الوزن: 50 كجم</li>
+                                <li>• السعة: 30 كجم</li>
+                                <li>• السرعة: حتى 4 كم/ساعة</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">التنقل</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• ملاحة SLAM</li>
+                                <li>• كشف عقبات 360°</li>
+                                <li>• مسارات مخصصة للمستشفى</li>
+                                <li>• وصول المصعد</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">السلامة والأمان</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• تشفير شهادة HIPAA</li>
+                                <li>• حاويات أدوية آمنة</li>
+                                <li>• توقف طوارئ</li>
+                                <li>• سجلات تدقيق شاملة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō C.E.M - Construction Robot -->
+    <section id="cem" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl ml-6">🏗️</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">هانزو C.E.M</h2>
+                        <p class="text-xl text-gray-400">روبوت البناء</p>
+                    </div>
+                </div>
+
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    روبوت بناء رباعي الأرجل قوي مصمم للعمل في بيئات البناء القاسية، يقوم بمهام رفع ثقيلة وعمل دقيق وتشغيل مستقل لتعزيز السلامة والإنتاجية في مواقع البناء.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">✨</span>
+                            الميزات الرئيسية
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">قدرات رفع ثقيلة</span>
+                                    <p class="text-sm text-gray-400">يحمل حتى 500 كجم من مواد البناء</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">أدوات متعددة قابلة للتبديل</span>
+                                    <p class="text-sm text-gray-400">تبديل سريع للمهام المتنوعة</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">ملاحة التضاريس</span>
+                                    <p class="text-sm text-gray-400">تصميم رباعي الأرجل مستقر لأرضيات غير مستوية</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">مراقبة السلامة</span>
+                                    <p class="text-sm text-gray-400">كشف المخاطر وتنبيهات في الوقت الفعلي</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">التشغيل المستقل</span>
+                                    <p class="text-sm text-gray-400">تنفيذ مهام مجدولة بدون إشراف</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">بناء متين للطقس</span>
+                                    <p class="text-sm text-gray-400">تصنيف IP65 لجميع الظروف الجوية</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">🎯</span>
+                            الأسواق المستهدفة
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">شركات البناء التجاري</span>
+                                    <p class="text-sm text-gray-400">مشاريع واسعة النطاق تحتاج إلى أتمتة</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">تطوير البنية التحتية</span>
+                                    <p class="text-sm text-gray-400">مشاريع الطرق والجسور والأنفاق</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">الإغاثة الكارثية</span>
+                                    <p class="text-sm text-gray-400">إزالة الأنقاض والبناء الطارئ</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">السوق الياباني</span>
+                                    <p class="text-sm text-gray-400">معالجة نقص العمالة بمقدار 6.4 مليون عامل</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mt-8 p-4 bg-red-900/20 border border-red-600/30 rounded-lg">
+                            <h4 class="font-bold mb-2 text-red-400">تأثير على الإنتاجية</h4>
+                            <p class="text-sm text-gray-300">يزيد من كفاءة الموقع بنسبة 40% مع تحسينات السلامة بنسبة 60%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-700 pt-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent text-3xl ml-3">⚙️</span>
+                        المواصفات الفنية
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">الأبعاد المادية</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• الارتفاع: 180 سم</li>
+                                <li>• الوزن: 850 كجم</li>
+                                <li>• الحمولة: 500 كجم</li>
+                                <li>• السرعة: حتى 5 كم/ساعة</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">البناء</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• إطار فولاذ معزز</li>
+                                <li>• مكونات ألومنيوم</li>
+                                <li>• أسطح HDPE مقاومة</li>
+                                <li>• عزل تصنيف IP65</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">الطاقة والتحكم</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• بطارية صناعية 8 ساعات</li>
+                                <li>• شحن سريع 2 ساعة</li>
+                                <li>• تحكم عن بُعد 5G</li>
+                                <li>• أنظمة احتياطية زائدة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hanzō R.A.I - Retail Automation Robot -->
+    <section id="rai" class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl ml-6">🛒</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">هانزو R.A.I</h2>
+                        <p class="text-xl text-gray-400">روبوت أتمتة التجزئة</p>
+                    </div>
+                </div>
+
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    روبوت تجزئة ذكي يعزز تجربة التسوق من خلال تفاعل العملاء وإدارة المخزون والعمليات الآلية، مما يجعل التسوق أكثر كفاءة وإمتاعًا.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">✨</span>
+                            الميزات الرئيسية
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">مساعدة العملاء متعددة اللغات</span>
+                                    <p class="text-sm text-gray-400">واجهة تفاعلية بـ 12 لغة</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">مسح المخزون التلقائي</span>
+                                    <p class="text-sm text-gray-400">مراقبة الأرفف في الوقت الفعلي وتنبيهات إعادة الملء</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">البحث عن المنتجات والتوصيات</span>
+                                    <p class="text-sm text-gray-400">توصيات مخصصة مدعومة بالذكاء الاصطناعي</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">التنقل في المتجر</span>
+                                    <p class="text-sm text-gray-400">دليل العملاء إلى مواقع المنتجات</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">تكامل تطبيق هانزو الفائق</span>
+                                    <p class="text-sm text-gray-400">توصيات ومكافآت شخصية</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">🎯</span>
+                            الأسواق المستهدفة
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">متاجر السوبر ماركت</span>
+                                    <p class="text-sm text-gray-400">تجار تجزئة واسعة النطاق مع أحجام عملاء عالية</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">متاجر الإلكترونيات</span>
+                                    <p class="text-sm text-gray-400">تفاعل تقني مع العملاء</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">المطارات ومراكز النقل</span>
+                                    <p class="text-sm text-gray-400">مساعدة متعددة اللغات للمسافرين</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">مراكز التسوق</span>
+                                    <p class="text-sm text-gray-400">أدلة وتوصيات تفاعلية</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mt-8 p-4 bg-red-900/20 border border-red-600/30 rounded-lg">
+                            <h4 class="font-bold mb-2 text-red-400">تحسين التجربة</h4>
+                            <p class="text-sm text-gray-300">يحسن رضا العملاء بنسبة 35% مع تقليل تكاليف العمالة بنسبة 25%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-700 pt-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent text-3xl ml-3">⚙️</span>
+                        المواصفات الفنية
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">التصميم</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• الارتفاع: 160 سم</li>
+                                <li>• الوزن: 55 كجم</li>
+                                <li>• شاشة تفاعلية 24 بوصة</li>
+                                <li>• تصميم أنيق وودود</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">الذكاء الاصطناعي والبرمجيات</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• دعم 12 لغة</li>
+                                <li>• محرك توصيات بالذكاء الاصطناعي</li>
+                                <li>• تكامل إدارة المخزون</li>
+                                <li>• تحليلات في الوقت الفعلي</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">التشغيل</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• التشغيل: 14-18 ساعة</li>
+                                <li>• الشحن: 3 ساعات</li>
+                                <li>• ملاحة مستقلة</li>
+                                <li>• توقف آمن عند العقبات</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nanorobotics Platform -->
+    <section id="nano" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card red-glow">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl ml-6">⚛️</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">منصة روبوتات النانو</h2>
+                        <p class="text-xl text-gray-400">روبوتات النانو المعتمدة على السيليكون</p>
+                    </div>
+                </div>
+
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    تقنية روبوتات النانو الرائدة المعتمدة على السيليكون للطب الدقيق، توفر علاجات موجهة على المستوى الجزيئي لمرض السرطان، وإصلاح الحمض النووي، واستعادة البيئة.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">✨</span>
+                            الميزات الرئيسية
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">توجيه على المستوى الجزيئي</span>
+                                    <p class="text-sm text-gray-400">دقة دون نانومتر لتوصيل الأدوية</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">بناء قائم على السيليكون</span>
+                                    <p class="text-sm text-gray-400">متوافق حيويًا وقابل للتحلل</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">استهداف خلايا سرطانية</span>
+                                    <p class="text-sm text-gray-400">الحد الأدنى من الضرر الجانبي</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">آليات إصلاح الحمض النووي</span>
+                                    <p class="text-sm text-gray-400">تصحيح طفرات جينية على مستوى جزيئي</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">تنظيف بيئي</span>
+                                    <p class="text-sm text-gray-400">إزالة ملوثات على مستوى نانو</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">🎯</span>
+                            التطبيقات المستهدفة
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">علاج السرطان</span>
+                                    <p class="text-sm text-gray-400">توصيل دواء موجه لخلايا الورم</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">العلاج الجيني</span>
+                                    <p class="text-sm text-gray-400">تصحيح طفرات وراثية</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">معالجة المياه</span>
+                                    <p class="text-sm text-gray-400">إزالة ملوثات من مصادر المياه</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">إصلاح التربة</span>
+                                    <p class="text-sm text-gray-400">تنظيف مواقع ملوثة</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mt-8 p-4 bg-red-900/20 border border-red-600/30 rounded-lg">
+                            <h4 class="font-bold mb-2 text-red-400">حالة البحث</h4>
+                            <p class="text-sm text-gray-300">حاليًا في مرحلة البحث والتطوير مع تطبيقات سريرية متوقعة بحلول 2027-2028</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-700 pt-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent text-3xl ml-3">⚙️</span>
+                        المواصفات الفنية
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">الحجم والبناء</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• الحجم: 50-100 نانومتر</li>
+                                <li>• المادة: قائم على السيليكون</li>
+                                <li>• متوافق حيويًا</li>
+                                <li>• قابل للتحلل</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">الوظائف</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• استهداف دقيق</li>
+                                <li>• إطلاق دواء محكوم</li>
+                                <li>• تعديل جيني</li>
+                                <li>• إزالة ملوثات</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">السلامة والتنظيم</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• تجارب ما قبل السريرية</li>
+                                <li>• موافقات FDA/PMDA</li>
+                                <li>• مراقبة شاملة</li>
+                                <li>• ممارسات أخلاقية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Super App Platform -->
+    <section id="app" class="py-20 bg-gradient-to-b from-transparent to-black/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-effect p-10 product-card">
+                <div class="flex items-center mb-8">
+                    <span class="text-6xl ml-6">📱</span>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">منصة التطبيق الفائق</h2>
+                        <p class="text-xl text-gray-400">نظام بيئي رقمي متكامل</p>
+                    </div>
+                </div>
+
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    منصة تطبيق شاملة تجمع بين المدفوعات والرسائل والخدمات في تجربة سلسة، مع خطط للتكامل مع روبوتاتنا لنظام بيئي موحد.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">✨</span>
+                            الميزات الرئيسية
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">معالجة مدفوعات آمنة</span>
+                                    <p class="text-sm text-gray-400">مدفوعات من شخص إلى شخص ورموز QR وبدون تلامس</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">مراسلة في الوقت الفعلي</span>
+                                    <p class="text-sm text-gray-400">دردشة مشفرة وصوت وفيديو</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">اكتشاف وحجز الخدمات</span>
+                                    <p class="text-sm text-gray-400">الوصول إلى مجموعة واسعة من الخدمات المحلية</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">تكامل الروبوتات</span>
+                                    <p class="text-sm text-gray-400">التحكم والتفاعل مع روبوتات هانزو</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">دعم متعدد اللغات</span>
+                                    <p class="text-sm text-gray-400">12 لغة للمستخدمين العالميين</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <span class="red-accent text-3xl ml-3">🎯</span>
+                            الأسواق المستهدفة
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">الإطلاق الأول في اليابان والولايات المتحدة</span>
+                                    <p class="text-sm text-gray-400">التركيز على المدن الكبرى</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">المستخدمون الأوائل المتمرسون في التكنولوجيا</span>
+                                    <p class="text-sm text-gray-400">الأفراد المهتمون بمنصة موحدة</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">الشركات الصغيرة والمتوسطة</span>
+                                    <p class="text-sm text-gray-400">أدوات لإدارة المدفوعات وعلاقات العملاء</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="red-accent ml-3 mt-1">•</span>
+                                <div>
+                                    <span class="font-semibold">التوسع العالمي</span>
+                                    <p class="text-sm text-gray-400">بعد الأسواق الأولية</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mt-8 p-4 bg-red-900/20 border border-red-600/30 rounded-lg">
+                            <h4 class="font-bold mb-2 text-red-400">خريطة الطريق</h4>
+                            <p class="text-sm text-gray-300">الإطلاق المخطط: 2025-2026 | الميزة: منصة iOS/Android مع تكامل سلس للروبوتات</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-700 pt-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="red-accent text-3xl ml-3">⚙️</span>
+                        المواصفات الفنية
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">المنصة</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• تطبيقات iOS/Android أصلية</li>
+                                <li>• تطبيق ويب تدريجي</li>
+                                <li>• واجهة برمجة تطبيقات سحابية</li>
+                                <li>• العمل في وضع عدم الاتصال</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">الأمان</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• تشفير من النهاية إلى النهاية</li>
+                                <li>• مصادقة القياسات الحيوية</li>
+                                <li>• مدفوعات متوافقة مع PCI</li>
+                                <li>• حماية بيانات GDPR</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-red-400">التكامل</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• واجهة برمجة تطبيقات روبوتات هانزو</li>
+                                <li>• موفرو خدمات خارجيون</li>
+                                <li>• بوابات دفع</li>
+                                <li>• تحليلات وتقارير</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">مهتم بمنتجاتنا؟</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                تواصل معنا لمعرفة المزيد عن برامجنا التجريبية، وفرص الشراكة، وخططنا للإطلاق
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html"><button class="glass-effect px-8 py-3 rounded-full font-medium hover:bg-red-900 hover:bg-opacity-20 transition border-2 border-red-600 text-white">تواصل معنا</button></a>
+                <a href="technology.html"><button class="glass-effect px-8 py-3 rounded-full font-medium hover:bg-white hover:bg-opacity-5 transition text-gray-300">اكتشف تقنيتنا</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-xl font-bold">
+                            H A N Z <span class="text-lg">Ō</span>
+                            <span class="red-accent text-2xl">•</span>
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        تطوير الروبوتات والذكاء الاصطناعي والتكنولوجيا الصحية لمستقبل أفضل.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">الشركة</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">عن الشركة</a></li>
+                        <li><a href="technology.html" class="hover:text-white transition">التقنية</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">المشاريع</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#mec" class="hover:text-white transition">هانزو M.E.C</a></li>
+                        <li><a href="#cem" class="hover:text-white transition">هانزو C.E.M</a></li>
+                        <li><a href="#rai" class="hover:text-white transition">هانزو R.A.I</a></li>
+                        <li><a href="#nano" class="hover:text-white transition">روبوتات النانو</a></li>
+                        <li><a href="#app" class="hover:text-white transition">سوبر آب</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">تواصل</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">استفسارات عامة</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">شراكات</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">الدعم</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>© 2025 تكنولوجيا هانزو. جميع الحقوق محفوظة.</p>
+                <p class="mt-2">ريادة الابتكار في الروبوتات في اليابان وعالميًا.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language dropdown toggle
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
