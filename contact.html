@@ -562,4 +562,44 @@
                 
                 <div>
                     <h4 class="font-semibold mb-4">Projects</h4>
-                    <ul class="space-y-2 text-sm text-gray
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="projects.html#mec" class="hover:text-white transition">Hanzō M.E.C</a></li>
+                        <li><a href="projects.html#cem" class="hover:text-white transition">Hanzō C.E.M</a></li>
+                        <li><a href="projects.html#rai" class="hover:text-white transition">Hanzō R.A.I</a></li>
+                        <li><a href="projects.html#nano" class="hover:text-white transition">Nanorobotics</a></li>
+                        <li><a href="projects.html#app" class="hover:text-white transition">Super App</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="mailto:quielo@hanzotechnologies.com" class="hover:text-white transition">General Inquiries</a></li>
+                        <li><a href="mailto:outreach@hanzotechnologies.com" class="hover:text-white transition">Partnerships</a></li>
+                        <li><a href="mailto:support@hanzotechnologies.com" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. All rights reserved.</p>
+                <p class="mt-2">Pioneering robotics innovation in Japan and globally.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const langSelector = document.querySelector(".language-selector button");
+        const langDropdown = document.querySelector(".language-dropdown");
+        langSelector.addEventListener("click", (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle("show");
+        });
+        document.addEventListener("click", (e) => {
+            if (!langDropdown.contains(e.target) && !langSelector.contains(e.target)) {
+                langDropdown.classList.remove("show");
+            }
+        });
+    </script>
+</body>
+</html>
