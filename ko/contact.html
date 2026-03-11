@@ -191,4 +191,20 @@
                 <p>&copy; 2025 Hanzo Technologies. 모든 권리 보유.</p>
                 <p class="mt-2">일본과 전 세계에서 로봇 혁신을 선도합니다.</p>
             </div>
- 
+        </div>
+    </footer>
+    <script>
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
