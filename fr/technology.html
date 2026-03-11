@@ -581,4 +581,10 @@
         });
         
         document.addEventListener('click', (e) => {
-            if (!langDropdown.contain
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
