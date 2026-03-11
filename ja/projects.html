@@ -835,4 +835,11 @@
             langDropdown.classList.toggle('show');
         });
         
-        // Close dropdown when cl
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

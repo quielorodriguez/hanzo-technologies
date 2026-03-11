@@ -573,4 +573,28 @@
                     <h4 class="font-semibold mb-4">お問い合わせ</h4>
                     <ul class="space-y-2 text-sm text-gray-400">
                         <li><a href="/cdn-cgi/l/email-protection#48393d212d24270820292632273c2d2b20262724272f212d3b662b2725" class="hover:text-white transition">一般お問い合わせ</a></li>
-                        <li><a href="/cdn-cgi/l/email-protection#f5
+                        <li><a href="support.html" class="hover:text-white transition">サポート</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Hanzo Technologies. All rights reserved.</p>
+                <p class="mt-2">日本とグローバルにおけるロボット革新のパイオニア。</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const langButton = document.querySelector('.language-selector button');
+        const langDropdown = document.querySelector('.language-dropdown');
+        langButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
