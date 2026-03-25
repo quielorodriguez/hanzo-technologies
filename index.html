@@ -75,8 +75,23 @@
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,.05);
     }
-    .nav-logo img { height: 26px; filter: invert(1); display: block; transition: opacity .3s; }
-    .nav-logo:hover img { opacity: .7; }
+    .nav-logo img {
+      height: 26px;
+      filter: none;
+      mix-blend-mode: screen;
+      display: block;
+      transition: opacity .3s;
+    }
+    .nav-logo:hover img { opacity: .75; }
+    .footer-logo img {
+      height: 20px;
+      filter: none;
+      mix-blend-mode: screen;
+      opacity: .7;
+      transition: opacity .3s;
+      display: block;
+    }
+    .footer-logo:hover img { opacity: 1; }
     .nav-links { display: flex; gap: 44px; list-style: none; }
     .nav-links a {
       font-family: var(--condensed);
@@ -473,8 +488,6 @@
       display: flex; align-items: center;
       justify-content: space-between; flex-wrap: wrap; gap: 16px;
     }
-    .footer-logo img { height: 20px; filter: invert(1); opacity: .55; transition: opacity .3s; display: block; }
-    .footer-logo:hover img { opacity: 1; }
     .footer-copy { font-family: var(--condensed); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--white-dimmer); }
     .footer-locs { font-family: var(--condensed); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--white-dimmer); }
 
