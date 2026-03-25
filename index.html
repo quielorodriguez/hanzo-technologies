@@ -75,23 +75,31 @@
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,.05);
     }
-    .nav-logo img {
-      height: 26px;
-      filter: none;
-      mix-blend-mode: screen;
-      display: block;
+    .nav-logo {
+      font-family: var(--condensed);
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
       transition: opacity .3s;
+      line-height: 1;
     }
-    .nav-logo:hover img { opacity: .75; }
-    .footer-logo img {
-      height: 20px;
-      filter: none;
-      mix-blend-mode: screen;
-      opacity: .7;
+    .nav-logo:hover { opacity: .7; }
+    .footer-logo {
+      font-family: var(--condensed);
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      opacity: .55;
       transition: opacity .3s;
-      display: block;
+      line-height: 1;
     }
-    .footer-logo:hover img { opacity: 1; }
+    .footer-logo:hover { opacity: 1; }
     .nav-links { display: flex; gap: 44px; list-style: none; }
     .nav-links a {
       font-family: var(--condensed);
@@ -538,8 +546,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#hero" class="nav-logo">
-    <img src="https://raw.githubusercontent.com/quielorodriguez/hanzo-technologies/main/logo.png" alt="Hanzō Technologies" />
+  <a href="#hero" class="nav-logo">HANZŌ.</a>
   </a>
   <ul class="nav-links">
     <li><a href="#pillars">Technology</a></li>
@@ -832,9 +839,7 @@
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  <a href="#hero" class="footer-logo">
-    <img src="https://raw.githubusercontent.com/quielorodriguez/hanzo-technologies/main/logo.png" alt="Hanzō Technologies" />
-  </a>
+  <a href="#hero" class="footer-logo">HANZŌ.</a>
   <p class="footer-copy">© 2026 Hanzō Technologies Inc. All rights reserved.</p>
   <p class="footer-locs">Vancouver · Palo Alto · Tokyo</p>
 </footer>
