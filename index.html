@@ -1,886 +1,907 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hanzō Technologies — The Future of Robotics</title>
-  <meta name="description" content="Hanzō Technologies pioneers humanoid robotics, AI, and nanotechnology solutions that enhance human life and address the world's greatest challenges." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Barlow:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hanzō — Liquid Glass Redesign</title>
+<template id="__bundler_thumbnail" data-bg-color="#05070b">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="g1" cx="30%" cy="30%" r="60%">
+        <stop offset="0%" stop-color="#5eb8ff" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#5eb8ff" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="g2" cx="75%" cy="70%" r="55%">
+        <stop offset="0%" stop-color="#b58bff" stop-opacity="0.7"/>
+        <stop offset="100%" stop-color="#b58bff" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1200" height="800" fill="#05070b"/>
+    <rect width="1200" height="800" fill="url(#g1)"/>
+    <rect width="1200" height="800" fill="url(#g2)"/>
+    <g opacity="0.85">
+      <rect x="360" y="260" width="480" height="280" rx="40" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+      <text x="600" y="430" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="96" fill="#eef2f7">HANZŌ</text>
+    </g>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-0: #05070b;
+    --bg-1: #0a0e16;
+    --ink: #eef2f7;
+    --ink-dim: rgba(238,242,247,0.62);
+    --ink-faint: rgba(238,242,247,0.38);
+    --accent: oklch(0.82 0.12 210);
+    --accent-warm: oklch(0.82 0.10 60);
+    --accent-violet: oklch(0.78 0.14 290);
+    --glass-bg: rgba(255,255,255,0.045);
+    --glass-bd: rgba(255,255,255,0.10);
+    --glass-hi: rgba(255,255,255,0.22);
+    --radius: 22px;
+  }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  html, body { background: var(--bg-0); color: var(--ink); font-family: "Inter Tight", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  body { overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
-    :root {
-      --black: #050505;
-      --red: #c0392b;
-      --white: #ffffff;
-      --white-dim: rgba(255,255,255,0.65);
-      --white-dimmer: rgba(255,255,255,0.32);
-      --border: rgba(255,255,255,0.15);
-      --condensed: 'Barlow Condensed', sans-serif;
-      --body: 'Barlow', sans-serif;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --ease: cubic-bezier(0.16, 1, 0.3, 1);
-    }
+  /* ====== Ambient aurora background ====== */
+  .ambient {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(1200px 700px at 15% 10%, oklch(0.55 0.18 230 / .38), transparent 60%),
+      radial-gradient(900px 600px at 85% 20%, oklch(0.55 0.18 290 / .28), transparent 65%),
+      radial-gradient(1000px 700px at 50% 110%, oklch(0.60 0.14 180 / .25), transparent 60%),
+      linear-gradient(180deg, #05070b 0%, #070913 60%, #05070b 100%);
+  }
+  .ambient::after {
+    content:""; position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+    background-size: 3px 3px;
+    mask: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 80%);
+    opacity: .35;
+  }
+  .orb {
+    position: fixed; border-radius: 50%; filter: blur(80px); opacity: .55;
+    pointer-events: none; z-index: 0; mix-blend-mode: screen; transition: transform .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .orb.a { width: 520px; height: 520px; background: oklch(0.62 0.20 230); top: -160px; left: -120px;}
+  .orb.b { width: 460px; height: 460px; background: oklch(0.62 0.20 290); top: 18%; right: -140px;}
+  .orb.c { width: 600px; height: 600px; background: oklch(0.62 0.18 180); bottom: -220px; left: 30%;}
 
-    html { scroll-behavior: smooth; }
+  /* grain */
+  .grain { position: fixed; inset:0; z-index: 1; pointer-events:none; opacity:.06; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
 
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--body);
-      font-weight: 300;
-      overflow-x: hidden;
-      cursor: none;
-    }
+  /* ====== Glass primitives ====== */
+  .glass {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+    border: 1px solid var(--glass-bd);
+    border-radius: var(--radius);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.18),
+      inset 0 -1px 0 rgba(255,255,255,0.04),
+      0 30px 80px -30px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .glass::before {
+    content:""; position:absolute; inset:0; border-radius: inherit; pointer-events:none;
+    background: radial-gradient(600px 300px at var(--mx,30%) var(--my,0%), rgba(255,255,255,0.12), transparent 60%);
+    transition: background .3s;
+  }
+  .glass-thin {
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 999px;
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.14);
+  }
 
-    /* CURSOR */
-    #cur {
-      position: fixed;
-      width: 5px; height: 5px;
-      background: var(--red);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%,-50%);
-      transition: width .25s var(--ease), height .25s var(--ease);
-    }
-    #cur-ring {
-      position: fixed;
-      width: 24px; height: 24px;
-      border: 1px solid rgba(192,57,43,.4);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%,-50%);
-      transition: width .35s var(--ease), height .35s var(--ease);
-    }
+  /* ====== Typography ====== */
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); }
+  .serif-it { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
+  h1,h2,h3 { font-family: "Inter Tight", sans-serif; font-weight: 500; letter-spacing: -0.02em; line-height: 1.02; }
+  h1 { font-size: clamp(52px, 7.4vw, 120px); letter-spacing: -0.035em; font-weight: 400;}
+  h2 { font-size: clamp(36px, 4.6vw, 72px); letter-spacing: -0.028em; font-weight: 400; }
+  h3 { font-size: clamp(22px, 2vw, 30px); font-weight: 500; }
 
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      padding: 32px 52px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: padding .4s var(--ease), background .5s;
-    }
-    nav.dim {
-      padding: 18px 52px;
-      background: rgba(5,5,5,.9);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,.05);
-    }
-    .nav-logo {
-      font-family: var(--condensed);
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--white);
-      text-decoration: none;
-      transition: opacity .3s;
-      line-height: 1;
-    }
-    .nav-logo:hover { opacity: .7; }
-    .footer-logo {
-      font-family: var(--condensed);
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--white);
-      text-decoration: none;
-      opacity: .55;
-      transition: opacity .3s;
-      line-height: 1;
-    }
-    .footer-logo:hover { opacity: 1; }
-    .nav-links { display: flex; gap: 44px; list-style: none; }
-    .nav-links a {
-      font-family: var(--condensed);
-      font-size: 13px; font-weight: 500;
-      letter-spacing: .15em; text-transform: uppercase;
-      color: var(--white-dim); text-decoration: none;
-      transition: color .25s;
-    }
-    .nav-links a:hover { color: var(--white); }
-    .nav-cta {
-      font-family: var(--condensed);
-      font-size: 12px; font-weight: 500;
-      letter-spacing: .18em; text-transform: uppercase;
-      color: var(--white); text-decoration: none;
-      border: 1px solid var(--border);
-      padding: 9px 22px;
-      transition: border-color .3s, background .3s;
-    }
-    .nav-cta:hover { border-color: var(--red); background: rgba(192,57,43,.1); }
+  /* ====== Layout ====== */
+  .wrap { position: relative; z-index: 2; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
-    /* BUTTONS — SpaceX style */
-    .btn-arrow {
-      font-family: var(--condensed);
-      font-size: 12px; font-weight: 600;
-      letter-spacing: .2em; text-transform: uppercase;
-      color: var(--white); text-decoration: none;
-      border: 1px solid var(--border);
-      padding: 14px 32px;
-      display: inline-flex; align-items: center; gap: 12px;
-      transition: border-color .3s, gap .3s var(--ease);
-    }
-    .btn-arrow::after { content: '→'; transition: transform .3s var(--ease); }
-    .btn-arrow:hover { border-color: rgba(255,255,255,.5); gap: 18px; }
-    .btn-arrow:hover::after { transform: translateX(4px); }
+  /* ====== Nav ====== */
+  nav.top {
+    position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+    z-index: 40; display: flex; align-items: center; gap: 8px;
+    padding: 8px 8px 8px 20px; border-radius: 999px;
+  }
+  nav.top .logo { font-weight: 600; letter-spacing: -0.02em; font-size: 15px; padding-right: 14px; border-right: 1px solid rgba(255,255,255,0.12); }
+  nav.top .links { display: flex; gap: 4px; padding: 0 8px;}
+  nav.top .links a { font-size: 13px; padding: 8px 14px; border-radius: 999px; color: var(--ink-dim); transition: .25s; }
+  nav.top .links a:hover { color: var(--ink); background: rgba(255,255,255,0.06);}
+  nav.top .cta { padding: 9px 16px; border-radius: 999px; font-size: 13px; font-weight: 500;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(220,230,240,0.85));
+    color: #06090f; box-shadow: 0 8px 24px -8px rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.15);
+  }
 
-    .btn-red {
-      font-family: var(--condensed);
-      font-size: 12px; font-weight: 600;
-      letter-spacing: .2em; text-transform: uppercase;
-      color: var(--white); text-decoration: none;
-      background: var(--red); border: 1px solid var(--red);
-      padding: 14px 32px;
-      display: inline-flex; align-items: center; gap: 12px;
-      transition: background .3s, gap .3s var(--ease);
-    }
-    .btn-red::after { content: '→'; transition: transform .3s var(--ease); }
-    .btn-red:hover { background: #a93226; gap: 18px; }
-    .btn-red:hover::after { transform: translateX(4px); }
+  /* ====== HERO ====== */
+  .hero { min-height: 100vh; padding: 160px 0 80px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+  .hero .kicker { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; font-size: 12px; color: var(--ink-dim);}
+  .hero .kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: oklch(0.78 0.15 150); box-shadow: 0 0 12px oklch(0.78 0.15 150); animation: pulse 2s infinite;}
+  @keyframes pulse { 50% { opacity: .4;} }
+  .hero h1 { margin: 36px 0 32px; max-width: 17ch; }
+  .hero h1 em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: oklch(0.90 0.07 210); }
+  .hero p.lede { max-width: 58ch; color: var(--ink-dim); font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; font-weight: 300;}
+  .hero .cta-row { margin-top: 48px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { padding: 14px 22px; border-radius: 999px; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 10px; transition: .25s;}
+  .btn.primary { background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(210,225,240,0.82)); color: #06090f;
+    box-shadow: 0 10px 30px -8px rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.2);}
+  .btn.primary:hover { transform: translateY(-1px); box-shadow: 0 14px 40px -8px rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.2);}
+  .btn.ghost { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: var(--ink);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);}
+  .btn.ghost:hover { background: rgba(255,255,255,0.09);}
+  .btn .arrow { transition: transform .3s; }
+  .btn:hover .arrow { transform: translateX(3px); }
 
-    /* REVEAL */
-    .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .9s var(--ease), transform .9s var(--ease);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
-    .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
-    .d5 { transition-delay: .5s; } .d6 { transition-delay: .6s; }
+  /* hero viz: stacked glass shards */
+  .hero-stage { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: -1;}
+  .shard {
+    position: absolute; border-radius: 28px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.08));
+    border: 1px solid rgba(255,255,255,0.22);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 40px 80px -20px rgba(0,0,0,0.5);
+  }
+  .shard.s1 { width: 420px; height: 260px; right: -80px; top: 16%; transform: rotate(-8deg); }
+  .shard.s2 { width: 300px; height: 380px; right: 22%; top: 30%; transform: rotate(6deg); opacity: .8;}
+  .shard.s3 { width: 220px; height: 220px; right: 8%; top: 60%; border-radius: 50%; }
 
-    /* SECTION LABELS */
-    .eyebrow {
-      font-family: var(--condensed);
-      font-size: 10px; font-weight: 500;
-      letter-spacing: .4em; text-transform: uppercase;
-      color: var(--red); display: block; margin-bottom: 20px;
-    }
+  .hero-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 80px; max-width: 760px; }
+  .hero-meta .m { padding: 18px 20px; border-radius: 16px; }
+  .hero-meta .m .mono { margin-bottom: 8px; }
+  .hero-meta .m .v { font-size: 20px; font-weight: 500; letter-spacing: -0.01em;}
+  .hero-meta .m .v em { font-family: "Instrument Serif", serif; font-style: italic; color: oklch(0.88 0.08 210);}
 
-    /* ═══ HERO ═══ */
-    #hero {
-      position: relative;
-      height: 100vh; min-height: 700px;
-      display: flex; flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 52px 88px;
-      overflow: hidden;
-    }
-    .hero-atm {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(192,57,43,.055) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 80% at 0% 100%, rgba(192,57,43,.03) 0%, transparent 50%);
-    }
-    /* SpaceX-style vertical structural lines */
-    .hero-vlines {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.03) 0, rgba(255,255,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 0, rgba(255,255,255,.025) 1px, transparent 1px);
-      background-size: 100% 100px, 25% 100%;
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 1000px; }
-    .hero-tag {
-      font-family: var(--condensed);
-      font-size: 11px; font-weight: 500;
-      letter-spacing: .35em; text-transform: uppercase;
-      color: var(--red); margin-bottom: 28px; display: block;
-      opacity: 0; animation: fadeUp .8s var(--ease) .2s forwards;
-    }
-    .hero-h1 {
-      font-family: var(--condensed);
-      font-size: clamp(80px, 13.5vw, 184px);
-      font-weight: 900; line-height: .88;
-      letter-spacing: -.02em; text-transform: uppercase;
-      margin-bottom: 32px;
-    }
-    .hero-h1 .l1 { display: block; opacity: 0; transform: translateY(70px); animation: slideUp 1s var(--ease) .35s forwards; }
-    .hero-h1 .l2 { display: block; opacity: 0; transform: translateY(70px); animation: slideUp 1s var(--ease) .5s forwards; }
-    .hero-h1 .l3 {
-      display: block;
-      font-family: var(--serif); font-style: italic;
-      font-weight: 300; font-size: clamp(28px, 4.5vw, 60px);
-      text-transform: none; letter-spacing: .01em;
-      line-height: 1.35; margin-top: 10px; color: var(--red);
-      opacity: 0; transform: translateY(40px);
-      animation: slideUp 1s var(--ease) .65s forwards;
-    }
-    .hero-sub {
-      font-size: 15px; font-weight: 300;
-      color: var(--white-dim); max-width: 520px; line-height: 1.85;
-      margin-bottom: 44px;
-      opacity: 0; animation: fadeUp .9s var(--ease) .95s forwards;
-    }
-    .hero-sub em { font-style: italic; color: rgba(255,255,255,.85); }
-    .hero-btns {
-      display: flex; gap: 16px; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp .9s var(--ease) 1.15s forwards;
-    }
-    .hero-scroll {
-      position: absolute; bottom: 40px; right: 52px;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      opacity: 0; animation: fadeUp .8s var(--ease) 1.7s forwards;
-    }
-    .hero-scroll span {
-      font-family: var(--condensed); font-size: 9px;
-      letter-spacing: .3em; color: var(--white-dimmer);
-      text-transform: uppercase; writing-mode: vertical-rl;
-    }
-    .scroll-tick {
-      width: 1px; height: 52px;
-      background: linear-gradient(var(--red), transparent);
-      animation: tickPulse 2s ease-in-out infinite;
-    }
+  /* scroll cue */
+  .scroll-cue { position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 10px; letter-spacing: .22em; color: var(--ink-faint);}
+  .scroll-cue .bar { width: 1px; height: 42px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5), transparent); animation: slide 2.4s infinite; }
+  @keyframes slide { 0% {transform: translateY(-20px); opacity:0;} 40%{opacity:1;} 100%{transform: translateY(20px); opacity:0;}}
 
-    /* ═══ PILLARS ═══ */
-    #pillars { background: var(--black); padding: 80px 52px; }
-    .pillars-top { margin-bottom: 48px; }
-    .big-h {
-      font-family: var(--condensed);
-      font-size: clamp(48px, 8vw, 100px);
-      font-weight: 900; text-transform: uppercase;
-      line-height: .9; letter-spacing: -.02em;
-    }
-    .big-h em {
-      font-family: var(--serif); font-style: italic;
-      font-weight: 300; text-transform: none;
-      color: var(--red); font-size: .6em;
-      display: block; line-height: 1.5; margin-top: 6px;
-    }
-    .pillars-list { border-top: 1px solid rgba(255,255,255,.07); }
-    .pillar-row {
-      display: grid;
-      grid-template-columns: 48px minmax(200px, 240px) minmax(300px, 1fr) minmax(140px, 180px);
-      gap: 40px; align-items: start;
-      padding: 36px 0;
-      border-bottom: 1px solid rgba(255,255,255,.07);
-      transition: background .3s;
-    }
-    .pillar-row:hover { background: rgba(255,255,255,.015); }
-    .p-num { font-family: var(--condensed); font-size: 11px; font-weight: 500; letter-spacing: .25em; color: var(--red); padding-top: 4px; }
-    .p-name { font-family: var(--condensed); font-size: 26px; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; margin-bottom: 4px; }
-    .p-sub { font-family: var(--condensed); font-size: 10px; letter-spacing: .2em; color: var(--white-dimmer); text-transform: uppercase; }
-    .p-desc { font-size: 14px; font-weight: 300; color: var(--white-dim); line-height: 1.85; min-width: 0; word-break: normal; overflow-wrap: break-word; }
-    .p-desc em { font-style: italic; color: rgba(255,255,255,.85); }
-    .p-tags { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; min-width: 0; }
-    .p-tag { font-family: var(--condensed); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--white-dimmer); border: 1px solid rgba(255,255,255,.09); padding: 4px 10px; white-space: nowrap; }
+  /* ====== Section header ====== */
+  .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+  .sec-head h2 em { font-family: "Instrument Serif", serif; font-style: italic; color: oklch(0.88 0.08 210);}
+  .sec-head .eyebrow { display: flex; align-items: center; gap: 10px; }
+  .sec-head .eyebrow .hash { width: 8px; height: 8px; border-radius: 50%; background: oklch(0.82 0.14 210); box-shadow: 0 0 10px oklch(0.82 0.14 210);}
 
-    /* ═══ MISSION ═══ */
-    #mission {
-      background: #030303;
-      padding: 100px 52px;
-      position: relative; overflow: hidden;
-    }
-    .mission-redline {
-      position: absolute; top: 0; bottom: 0; left: 52px;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent 0%, rgba(192,57,43,.35) 20%, rgba(192,57,43,.35) 80%, transparent 100%);
-    }
-    .mission-inner { padding-left: 48px; max-width: 1000px; }
-    .mission-q {
-      font-family: var(--condensed);
-      font-size: clamp(36px, 6vw, 80px);
-      font-weight: 900; text-transform: uppercase;
-      line-height: 1.0; letter-spacing: -.01em;
-      margin-bottom: 44px;
-    }
-    .mission-q em {
-      font-family: var(--serif); font-style: italic;
-      font-weight: 300; text-transform: none;
-      color: var(--red); font-size: .7em;
-    }
-    .mission-body {
-      font-size: 16px; font-weight: 300;
-      color: var(--white-dim); max-width: 560px;
-      line-height: 1.9; margin-bottom: 44px;
-    }
-    .mission-body em { font-style: italic; color: rgba(255,255,255,.85); }
-    .mission-stats { display: flex; gap: 64px; flex-wrap: wrap; }
-    .stat-n {
-      font-family: var(--condensed); font-size: 64px;
-      font-weight: 900; line-height: 1;
-    }
-    .stat-n sup { font-size: .45em; color: var(--red); vertical-align: super; }
-    .stat-l {
-      font-family: var(--condensed); font-size: 10px;
-      letter-spacing: .25em; text-transform: uppercase;
-      color: var(--white-dimmer); margin-top: 6px;
-    }
+  section.bay { padding: 140px 0; position: relative; }
 
-    /* ═══ PRODUCTS — Tesla full-viewport ═══ */
-    .product-panel {
-      position: relative; height: 100vh; min-height: 600px;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 0 52px 64px;
-      overflow: hidden;
-      border-top: 1px solid rgba(255,255,255,.04);
-    }
-    .product-panel:nth-child(odd) { background: #050505; }
-    .product-panel:nth-child(even) { background: #030303; }
+  /* ====== Pillars (tabs) ====== */
+  .pillars-tabs { display: flex; gap: 8px; padding: 6px; border-radius: 999px; width: fit-content; margin-bottom: 32px;}
+  .pillars-tabs button { padding: 10px 20px; border-radius: 999px; font-size: 13px; color: var(--ink-dim); font-weight: 500; transition: .3s; display: flex; align-items: center; gap: 8px;}
+  .pillars-tabs button .n { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-faint);}
+  .pillars-tabs button.active { background: rgba(255,255,255,0.10); color: var(--ink); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);}
+  .pillars-tabs button.active .n { color: oklch(0.82 0.14 210);}
 
-    /* Giant background number */
-    .pp-num {
-      position: absolute; top: 50%; right: 4%;
-      transform: translateY(-50%);
-      font-family: var(--condensed);
-      font-size: clamp(200px, 32vw, 420px);
-      font-weight: 900; color: rgba(255,255,255,.07);
-      line-height: 1; pointer-events: none; user-select: none;
-      letter-spacing: -.05em;
-    }
-    /* Bottom gradient for text readability */
-    .pp-grad {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,.55) 35%, rgba(5,5,5,.1) 70%, transparent 100%);
-      pointer-events: none;
-    }
-    /* Animated red top rule on scroll-in */
-    .product-panel::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; width: 0; height: 2px;
-      background: var(--red);
-      transition: width 1.2s var(--ease);
-    }
-    .product-panel.in-view::before { width: 100%; }
+  .pillar-panel { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; padding: 40px; min-height: 440px; }
+  .pillar-panel .left .mono { margin-bottom: 24px;}
+  .pillar-panel .left h3 { font-size: 44px; font-weight: 400; letter-spacing: -0.025em; margin-bottom: 20px;}
+  .pillar-panel .left h3 em { font-family: "Instrument Serif", serif; font-style: italic; color: oklch(0.88 0.08 210);}
+  .pillar-panel .left p { color: var(--ink-dim); font-size: 16px; line-height: 1.6; font-weight: 300; max-width: 48ch;}
+  .pillar-panel .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px;}
+  .pillar-panel .tags span { padding: 6px 12px; border-radius: 999px; font-size: 11px; font-family: "JetBrains Mono", monospace; color: var(--ink-dim);
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);}
+  .pillar-panel .right { position: relative; border-radius: 18px; overflow: hidden;
+    background:
+      radial-gradient(600px 300px at 50% 0%, oklch(0.55 0.18 210 / .35), transparent 60%),
+      linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+  /* viz variants per pillar */
+  .viz { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;}
+  .viz .core { width: 180px; height: 180px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), rgba(120,180,230,0.2) 50%, transparent 75%);
+    filter: blur(0.5px); position: relative;}
+  .viz .core::after { content:""; position:absolute; inset:-40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.10); animation: spin 20s linear infinite;}
+  .viz .ring { position: absolute; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.12); animation: spin 40s linear infinite; }
+  .viz .r1 { width: 300px; height: 300px;}
+  .viz .r2 { width: 420px; height: 420px; animation-direction: reverse; animation-duration: 60s;}
+  .viz .r3 { width: 560px; height: 560px;}
+  @keyframes spin { to { transform: rotate(360deg);}}
+  .viz .chip { position: absolute; padding: 6px 10px; border-radius: 8px; font-family: "JetBrains Mono", monospace; font-size: 10px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); backdrop-filter: blur(10px); color: var(--ink-dim);}
+  .viz .chip.c1 { top: 18%; left: 14%;}
+  .viz .chip.c2 { top: 22%; right: 10%;}
+  .viz .chip.c3 { bottom: 18%; left: 18%;}
+  .viz .chip.c4 { bottom: 22%; right: 14%;}
+  .viz .label { position: absolute; bottom: 24px; left: 24px; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); }
 
-    .pp-content { position: relative; z-index: 2; }
-    .pp-cat {
-      font-family: var(--condensed); font-size: 10px; font-weight: 500;
-      letter-spacing: .4em; text-transform: uppercase;
-      color: var(--red); margin-bottom: 10px; display: block;
-    }
-    .pp-name {
-      font-family: var(--condensed);
-      font-size: clamp(60px, 11vw, 144px);
-      font-weight: 900; text-transform: uppercase;
-      line-height: .88; letter-spacing: -.025em; margin-bottom: 4px;
-    }
-    .pp-full {
-      font-family: var(--condensed);
-      font-size: clamp(14px, 2vw, 22px); font-weight: 400;
-      text-transform: uppercase; letter-spacing: .1em;
-      color: var(--white-dim); margin-bottom: 18px; display: block;
-    }
-    .pp-desc {
-      font-size: 14px; font-weight: 300;
-      color: var(--white-dim); max-width: 440px;
-      line-height: 1.8; margin-bottom: 14px;
-    }
-    .pp-desc em { font-style: italic; color: rgba(255,255,255,.82); }
-    .pp-feats {
-      font-family: var(--condensed); font-size: 11px;
-      letter-spacing: .15em; color: var(--white-dimmer);
-      text-transform: uppercase; margin-bottom: 28px; line-height: 1.8;
-    }
-    .pp-feats span { color: var(--red); margin: 0 6px; }
+  /* pillar 2 - particles */
+  .viz.nano .core { background: radial-gradient(circle at 40% 40%, oklch(0.85 0.10 140), oklch(0.55 0.12 180 /.3) 50%, transparent 75%); width:140px; height:140px;}
+  .viz.nano .dot { position:absolute; width: 6px; height: 6px; border-radius: 50%; background: oklch(0.85 0.12 180); box-shadow: 0 0 12px oklch(0.85 0.12 180);}
+  /* pillar 3 - mesh */
+  .viz.ai .core { background: radial-gradient(circle at 40% 40%, oklch(0.85 0.12 290), oklch(0.55 0.14 290 /.3) 50%, transparent 75%); width: 160px; height: 160px;}
 
-    /* ═══ ROADMAP ═══ */
-    #roadmap { background: var(--black); padding: 80px 52px; }
-    .roadmap-top { margin-bottom: 52px; }
-    .phases {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 1px; background: rgba(255,255,255,.06);
-    }
-    .phase-card {
-      background: #050505; padding: 40px 36px;
-      position: relative; overflow: hidden; transition: background .4s;
-    }
-    .phase-card:hover { background: #0a0a0a; }
-    .phase-card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-      background: var(--red);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform .6s var(--ease);
-    }
-    .phase-card:hover::before { transform: scaleX(1); }
-    .phase-bg-n {
-      font-family: var(--condensed); font-size: 72px; font-weight: 900;
-      color: rgba(255,255,255,.06); line-height: 1; margin-bottom: 12px;
-    }
-    .phase-eyebrow { font-family: var(--condensed); font-size: 9px; letter-spacing: .4em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; display: block; }
-    .phase-time { font-family: var(--condensed); font-size: 11px; letter-spacing: .2em; color: var(--white-dimmer); margin-bottom: 22px; display: block; }
-    .phase-title { font-family: var(--condensed); font-size: 26px; font-weight: 800; text-transform: uppercase; letter-spacing: .02em; margin-bottom: 18px; line-height: 1.1; }
-    .phase-body { font-size: 13px; font-weight: 300; color: var(--white-dim); line-height: 1.85; margin-bottom: 28px; }
-    .phase-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .phase-list li { font-family: var(--condensed); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--white-dimmer); padding-left: 18px; position: relative; }
-    .phase-list li::before { content: ''; position: absolute; left: 0; top: 6px; width: 6px; height: 1px; background: var(--red); }
+  /* ====== Mission row ====== */
+  .mission { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center;}
+  .mission h2 { max-width: 12ch; }
+  .mission h2 em { font-family: "Instrument Serif", serif; font-style: italic; color: oklch(0.88 0.08 210);}
+  .mission p { color: var(--ink-dim); font-size: 17px; line-height: 1.6; font-weight: 300;}
+  .mission p em { font-family: "Instrument Serif", serif; font-style: italic; color: var(--ink); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px;}
+  .stat { padding: 24px; border-radius: 18px; }
+  .stat .num { font-size: 44px; letter-spacing: -0.03em; font-weight: 300; }
+  .stat .num em { font-family: "Instrument Serif", serif; font-style: italic; color: oklch(0.88 0.08 210);}
+  .stat .lab { margin-top: 6px; font-size: 12px; color: var(--ink-faint); letter-spacing: .14em; text-transform: uppercase;}
 
-    /* ═══ FOUNDER ═══ */
-    #founder { background: #030303; padding: 100px 52px; position: relative; overflow: hidden; }
-    .founder-q {
-      font-family: var(--condensed);
-      font-size: clamp(28px, 4.5vw, 54px);
-      font-weight: 700; text-transform: uppercase;
-      line-height: 1.1; letter-spacing: -.01em;
-      max-width: 900px; margin-bottom: 44px;
-    }
-    .founder-q em {
-      font-family: var(--serif); font-style: italic;
-      font-weight: 300; text-transform: none;
-      color: var(--red); font-size: .9em;
-    }
-    .founder-attr { display: flex; align-items: center; gap: 24px; }
-    .founder-rule { width: 40px; height: 1px; background: var(--red); }
-    .founder-name { font-family: var(--condensed); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--white-dim); }
+  /* ====== Projects ====== */
+  .projects-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+  .proj { padding: 28px; border-radius: 22px; position: relative; min-height: 340px; display: flex; flex-direction: column; justify-content: space-between; transition: transform .4s cubic-bezier(.2,.8,.2,1);}
+  .proj:hover { transform: translateY(-4px);}
+  .proj.p1 { grid-column: span 7; min-height: 420px;}
+  .proj.p2 { grid-column: span 5; min-height: 420px;}
+  .proj.p3 { grid-column: span 4;}
+  .proj.p4 { grid-column: span 4;}
+  .proj.p5 { grid-column: span 4;}
+  .proj.p6 { grid-column: span 12; min-height: 300px;}
+  .proj .head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;}
+  .proj .head .num { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-faint); letter-spacing: .16em;}
+  .proj .head .cat { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+    padding: 5px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: var(--ink-dim);}
+  .proj h3 { margin-top: 32px; font-size: 28px; font-weight: 400; letter-spacing: -0.02em;}
+  .proj .sub { font-family: "Instrument Serif", serif; font-style: italic; color: var(--ink-dim); font-size: 18px; margin-top: 6px;}
+  .proj p { color: var(--ink-dim); font-size: 14px; line-height: 1.55; font-weight: 300; margin-top: 14px; max-width: 42ch;}
+  .proj p em { font-family: "Instrument Serif", serif; font-style: italic; color: var(--ink);}
+  .proj .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px;}
+  .proj .chips span { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-faint); padding: 4px 9px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);}
+  .proj .bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 22px;}
+  .proj .learn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink); opacity: .85;}
+  .proj .learn .arc { width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.16); display: grid; place-items: center; transition: .3s;}
+  .proj:hover .learn .arc { background: rgba(255,255,255,0.95); color: #06090f; border-color: transparent;}
+  .proj .big-sigil { position: absolute; right: -30px; bottom: -30px; width: 220px; height: 220px; opacity: .22; pointer-events: none;}
 
-    /* ═══ LOCATIONS ═══ */
-    #locations { background: var(--black); }
-    .loc-grid { display: grid; grid-template-columns: repeat(3,1fr); }
-    .loc-card {
-      padding: 60px 52px;
-      border-top: 1px solid rgba(255,255,255,.06);
-      border-right: 1px solid rgba(255,255,255,.06);
-      position: relative; overflow: hidden; transition: background .4s;
-    }
-    .loc-card:last-child { border-right: none; }
-    .loc-card:hover { background: rgba(255,255,255,.018); }
-    .loc-card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-      background: var(--red);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform .5s var(--ease);
-    }
-    .loc-card:hover::before { transform: scaleX(1); }
-    .loc-status { font-family: var(--condensed); font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: var(--red); margin-bottom: 24px; display: block; }
-    .loc-city { font-family: var(--condensed); font-size: clamp(40px, 5.5vw, 68px); font-weight: 900; text-transform: uppercase; line-height: .9; letter-spacing: -.025em; margin-bottom: 10px; }
-    .loc-country { font-family: var(--condensed); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--white-dimmer); }
+  /* ====== Roadmap ====== */
+  .road { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative;}
+  .road::before { content:""; position: absolute; top: 38px; left: 6%; right: 6%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18) 15%, rgba(255,255,255,0.18) 85%, transparent);}
+  .phase { padding: 32px; border-radius: 22px; position: relative;}
+  .phase .bullet { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+    border: 1px solid rgba(255,255,255,0.18); font-family: "Instrument Serif", serif; font-style: italic; font-size: 22px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 0 24px rgba(120,180,230,0.25); position: absolute; top: 16px; left: 32px;}
+  .phase .ph-tag { margin-top: 56px; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: oklch(0.82 0.14 210);}
+  .phase .ph-range { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-faint); margin-top: 4px;}
+  .phase h3 { margin-top: 18px; font-size: 24px;}
+  .phase p { color: var(--ink-dim); font-size: 14px; line-height: 1.55; margin-top: 12px; font-weight: 300;}
+  .phase ul { margin-top: 22px; list-style: none; display: flex; flex-direction: column; gap: 10px;}
+  .phase ul li { font-size: 13px; color: var(--ink-dim); display: flex; align-items: center; gap: 10px;}
+  .phase ul li::before { content:""; width: 6px; height: 6px; border-radius: 50%; background: oklch(0.82 0.14 210); box-shadow: 0 0 10px oklch(0.82 0.14 210);}
 
-    /* ═══ CONTACT ═══ */
-    #contact {
-      background: #030303; padding: 100px 52px;
-      border-top: 1px solid rgba(255,255,255,.05);
-      position: relative; overflow: hidden;
-    }
-    .contact-h {
-      font-family: var(--condensed);
-      font-size: clamp(72px, 14vw, 176px);
-      font-weight: 900; text-transform: uppercase;
-      line-height: .85; letter-spacing: -.025em;
-      margin-bottom: 36px;
-    }
-    .contact-h em {
-      font-family: var(--serif); font-style: italic;
-      font-weight: 300; text-transform: none;
-      color: var(--red); font-size: .38em;
-      display: block; line-height: 1.5; margin-top: 10px;
-    }
-    .contact-body { font-size: 15px; font-weight: 300; color: var(--white-dim); max-width: 500px; line-height: 1.9; margin-bottom: 36px; }
-    .contact-body em { font-style: italic; color: rgba(255,255,255,.85); }
-    .contact-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 64px; }
-    .contact-emails {
-      display: flex; gap: 72px; flex-wrap: wrap;
-      padding-top: 44px; border-top: 1px solid rgba(255,255,255,.07);
-    }
-    .email-label { font-family: var(--condensed); font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; display: block; }
-    .email-addr { font-family: var(--condensed); font-size: 15px; font-weight: 400; letter-spacing: .04em; color: var(--white-dim); text-decoration: none; transition: color .25s; }
-    .email-addr:hover { color: var(--white); }
+  /* ====== Quote ====== */
+  .quote-bay { padding: 100px 0; }
+  .quote-card { padding: 64px 72px; border-radius: 32px; position: relative; }
+  .quote-card blockquote { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; font-size: clamp(28px, 3.2vw, 48px); line-height: 1.2; letter-spacing: -0.015em; max-width: 22ch; color: var(--ink);}
+  .quote-card blockquote em { color: oklch(0.88 0.08 210); font-style: italic;}
+  .quote-card .attrib { margin-top: 32px; display: flex; align-items: center; gap: 14px;}
+  .quote-card .av { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, oklch(0.70 0.14 210), oklch(0.60 0.14 290));
+    border: 1px solid rgba(255,255,255,0.2);}
+  .quote-card .who .n { font-size: 14px;}
+  .quote-card .who .r { font-size: 12px; color: var(--ink-faint); margin-top: 2px;}
+  .quote-card .mark { position: absolute; top: 24px; right: 32px; font-family: "Instrument Serif", serif; font-size: 140px; line-height: 1; color: rgba(255,255,255,0.07);}
 
-    /* ═══ FOOTER ═══ */
-    footer {
-      background: var(--black);
-      padding: 36px 52px;
-      border-top: 1px solid rgba(255,255,255,.05);
-      display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 16px;
-    }
-    .footer-copy { font-family: var(--condensed); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--white-dimmer); }
-    .footer-locs { font-family: var(--condensed); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--white-dimmer); }
+  /* ====== Locations ====== */
+  .locs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .loc { padding: 28px; border-radius: 22px; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;}
+  .loc .tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint);}
+  .loc .tag .d { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 8px; vertical-align: 2px;}
+  .loc.active .d { background: oklch(0.78 0.16 150); box-shadow: 0 0 10px oklch(0.78 0.16 150);}
+  .loc.planned .d { background: oklch(0.80 0.15 80);}
+  .loc.priority .d { background: oklch(0.78 0.16 330);}
+  .loc h3 { font-size: 40px; font-weight: 400; letter-spacing: -0.025em; margin-top: 12px;}
+  .loc .where { color: var(--ink-dim); font-size: 13px; margin-top: 8px;}
+  .loc .coords { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-faint); margin-top: 20px;}
 
-    /* ANIMATIONS */
-    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-    @keyframes slideUp { to { opacity:1; transform:translateY(0); } }
-    @keyframes tickPulse {
-      0%,100% { opacity:1; } 50% { opacity:.25; }
-    }
+  /* ====== Contact ====== */
+  .contact { padding: 160px 0; }
+  .contact-card { padding: 72px; border-radius: 36px; text-align: center; position: relative; overflow: hidden;}
+  .contact-card h2 { max-width: 18ch; margin: 0 auto 24px; font-size: clamp(40px, 5vw, 80px);}
+  .contact-card h2 em { font-family: "Instrument Serif", serif; font-style: italic; color: oklch(0.88 0.08 210);}
+  .contact-card p { color: var(--ink-dim); max-width: 52ch; margin: 0 auto; font-size: 17px; line-height: 1.55; font-weight: 300;}
+  .contact-card p em { font-family: "Instrument Serif", serif; font-style: italic; color: var(--ink);}
+  .contact-card .row { margin-top: 48px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;}
+  .contact-meta { margin-top: 64px; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;}
+  .cmeta { padding: 22px; border-radius: 18px; text-align: left;}
+  .cmeta .lab { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-faint);}
+  .cmeta .em { margin-top: 10px; font-size: 15px;}
 
-    /* Film grain */
-    body::after {
-      content:''; position:fixed; inset:0;
-      pointer-events:none; z-index:1000; opacity:.02;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
+  /* ====== Footer ====== */
+  footer { padding: 48px 0 40px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 40px;}
+  footer .row { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--ink-faint);}
+  footer .row .l { font-weight: 600; font-size: 14px; color: var(--ink); letter-spacing: -0.02em;}
 
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      nav, nav.dim { padding: 22px 32px; }
-      #hero, #pillars, #mission, #roadmap, #founder, #contact { padding-left: 32px; padding-right: 32px; }
-      .product-panel { padding-left: 32px; padding-right: 32px; }
-      .hero-scroll { right: 32px; }
-      .pillar-row { grid-template-columns: 44px 1fr; gap: 24px; }
-      .pillar-row > :nth-child(3) { grid-column: 2; }
-      .p-tags { display: none; }
-      .phases { grid-template-columns: 1fr; }
-      .loc-grid { grid-template-columns: 1fr; }
-      .loc-card { border-right: none; }
-      footer { padding: 28px 32px; }
-    }
-    @media (max-width: 768px) {
-      nav, nav.dim { padding: 18px 24px; }
-      .nav-links { display: none; }
-      #hero, #pillars, #mission, #roadmap, #founder, #contact { padding-left: 24px; padding-right: 24px; }
-      .product-panel { padding-left: 24px; padding-right: 24px; }
-      .hero-scroll { display: none; }
-      .mission-stats { gap: 36px; }
-      .contact-emails { gap: 36px; }
-      footer { flex-direction: column; padding: 24px; }
-    }
-  </style>
+  /* ====== Reveal ====== */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1);}
+  .reveal.in { opacity: 1; transform: translateY(0);}
+
+  /* ====== Tweaks panel ====== */
+  #tweaks { position: fixed; bottom: 20px; right: 20px; z-index: 99; width: 280px; padding: 18px; border-radius: 20px; display: none;}
+  #tweaks.on { display: block; }
+  #tweaks .th { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;}
+  #tweaks .th h4 { font-size: 14px; font-weight: 500;}
+  #tweaks .th .close { font-size: 18px; color: var(--ink-faint); cursor: pointer;}
+  #tweaks .row { margin-bottom: 14px; }
+  #tweaks label { display:block; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px;}
+  #tweaks .pills { display: flex; gap: 6px; flex-wrap: wrap;}
+  #tweaks .pills button { padding: 6px 10px; border-radius: 999px; font-size: 11px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--ink-dim);}
+  #tweaks .pills button.on { background: rgba(255,255,255,0.14); color: var(--ink);}
+  #tweaks input[type=range] { width: 100%;}
+
+  /* Theme variants via body class */
+  body.accent-cyan { --accent: oklch(0.82 0.12 210); }
+  body.accent-violet { --accent: oklch(0.78 0.14 290); }
+  body.accent-mint { --accent: oklch(0.85 0.12 170); }
+  body.accent-amber { --accent: oklch(0.85 0.12 70); }
+  body.accent-cyan .hero h1 em, body.accent-cyan .sec-head h2 em, body.accent-cyan .pillar-panel h3 em, body.accent-cyan .mission h2 em, body.accent-cyan .contact-card h2 em, body.accent-cyan .hero-meta .m .v em, body.accent-cyan .stat .num em, body.accent-cyan .quote-card blockquote em { color: oklch(0.88 0.08 210);}
+  body.accent-violet .hero h1 em, body.accent-violet .sec-head h2 em, body.accent-violet .pillar-panel h3 em, body.accent-violet .mission h2 em, body.accent-violet .contact-card h2 em, body.accent-violet .hero-meta .m .v em, body.accent-violet .stat .num em, body.accent-violet .quote-card blockquote em { color: oklch(0.85 0.09 290);}
+  body.accent-mint .hero h1 em, body.accent-mint .sec-head h2 em, body.accent-mint .pillar-panel h3 em, body.accent-mint .mission h2 em, body.accent-mint .contact-card h2 em, body.accent-mint .hero-meta .m .v em, body.accent-mint .stat .num em, body.accent-mint .quote-card blockquote em { color: oklch(0.90 0.09 170);}
+  body.accent-amber .hero h1 em, body.accent-amber .sec-head h2 em, body.accent-amber .pillar-panel h3 em, body.accent-amber .mission h2 em, body.accent-amber .contact-card h2 em, body.accent-amber .hero-meta .m .v em, body.accent-amber .stat .num em, body.accent-amber .quote-card blockquote em { color: oklch(0.90 0.09 70);}
+
+  body.glass-heavy .glass, body.glass-heavy .shard { backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%);}
+  body.glass-light .glass, body.glass-light .shard { backdrop-filter: blur(12px) saturate(140%); -webkit-backdrop-filter: blur(12px) saturate(140%);}
+
+  @media (max-width: 880px) {
+    nav.top .links { display: none; }
+    .pillar-panel { grid-template-columns: 1fr; min-height: auto;}
+    .pillar-panel .right { min-height: 280px;}
+    .mission { grid-template-columns: 1fr; gap: 32px;}
+    .projects-grid .proj { grid-column: span 12 !important; min-height: 280px;}
+    .road { grid-template-columns: 1fr;}
+    .road::before { display: none;}
+    .locs { grid-template-columns: 1fr;}
+    .contact-meta { grid-template-columns: 1fr;}
+    .hero-meta { grid-template-columns: 1fr;}
+    .shard { display: none;}
+  }
+</style>
 </head>
-<body>
+<body class="accent-cyan glass-default">
 
-<div id="cur"></div>
-<div id="cur-ring"></div>
+<div class="ambient"></div>
+<div class="orb a"></div>
+<div class="orb b"></div>
+<div class="orb c"></div>
+<div class="grain"></div>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#hero" class="nav-logo">HANZŌ.</a>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#pillars">Technology</a></li>
-    <li><a href="#products-wrap">Projects</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Get in Touch</a>
+<nav class="top glass-thin" data-screen-label="nav">
+  <div class="logo">HANZŌ</div>
+  <div class="links">
+    <a href="#tech">Technology</a>
+    <a href="#projects">Projects</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="cta" href="#contact">Get in Touch →</a>
 </nav>
 
-<!-- ═══ HERO ═══ -->
-<section id="hero">
-  <div class="hero-atm"></div>
-  <div class="hero-vlines"></div>
-  <div class="hero-content">
-    <span class="hero-tag">Vancouver · Palo Alto · Tokyo — Est. 2026</span>
-    <h1 class="hero-h1">
-      <span class="l1">The Future</span>
-      <span class="l2">of Robotics.</span>
-      <span class="l3">Built for the world.</span>
-    </h1>
-    <p class="hero-sub">Hanzō Technologies pioneers humanoid robotics, artificial intelligence, and nanotechnology — engineered to <em>enhance human life</em> and address the challenges that define our generation.</p>
-    <div class="hero-btns">
-      <a href="#products-wrap" class="btn-red">Explore Projects</a>
-      <a href="#contact" class="btn-arrow">Partner With Us</a>
+<div class="wrap">
+
+<!-- HERO -->
+<section class="hero" data-screen-label="01 Hero">
+  <div class="hero-stage">
+    <div class="shard s1"></div>
+    <div class="shard s2"></div>
+    <div class="shard s3"></div>
+  </div>
+  <div class="container reveal">
+    <div class="kicker glass-thin"><span class="dot"></span> Vancouver · Palo Alto · Tokyo — Est. 2026</div>
+    <h1>The future of<br/>robotics, <em>built for</em><br/>the world.</h1>
+    <p class="lede">Hanzō Technologies pioneers humanoid robotics, artificial intelligence, and molecular-scale nanotechnology — engineered to enhance human life and address the challenges that define our generation.</p>
+    <div class="cta-row">
+      <a href="#projects" class="btn primary">Explore Projects <span class="arrow">→</span></a>
+      <a href="#contact" class="btn ghost">Partner With Us</a>
+    </div>
+
+    <div class="hero-meta">
+      <div class="m glass"><div class="mono">Discipline / 01</div><div class="v">Humanoid <em>Robotics</em></div></div>
+      <div class="m glass"><div class="mono">Discipline / 02</div><div class="v">Silicon <em>Nanotech</em></div></div>
+      <div class="m glass"><div class="mono">Discipline / 03</div><div class="v">AI <em>Super App</em></div></div>
     </div>
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-tick"></div>
-    <span>Scroll</span>
-  </div>
+
+  <div class="scroll-cue"><span>SCROLL</span><div class="bar"></div></div>
 </section>
 
-<!-- ═══ PILLARS ═══ -->
-<section id="pillars">
-  <div class="pillars-top reveal">
-    <span class="eyebrow">Core Technology</span>
-    <h2 class="big-h">Innovation Across<br><em>Three Frontiers.</em></h2>
-  </div>
-  <div class="pillars-list">
-    <div class="pillar-row reveal d1">
-      <div class="p-num">01</div>
+<!-- TECHNOLOGY PILLARS -->
+<section class="bay" id="tech" data-screen-label="02 Technology">
+  <div class="container">
+    <div class="sec-head reveal">
       <div>
-        <div class="p-name">Humanoid Robotics</div>
-        <div class="p-sub">Bipedal & Quadrupedal</div>
+        <div class="eyebrow mono"><span class="hash"></span> CORE TECHNOLOGY — 01 / 04</div>
+        <h2 style="margin-top:20px;">Innovation across<br/><em>three frontiers.</em></h2>
       </div>
-      <p class="p-desc">Advanced robots designed for elderly care, hospital operations, construction automation, and retail environments. Built to work <em>alongside humans</em> — not replace them. AI-powered vision, dynamic balancing, and modular tool integration for any environment.</p>
-      <div class="p-tags">
-        <span class="p-tag">AI Vision</span>
-        <span class="p-tag">SLAM Nav</span>
-        <span class="p-tag">Modular</span>
-        <span class="p-tag">Human-Robot</span>
-      </div>
+      <p style="max-width:36ch;color:var(--ink-dim);font-size:15px;line-height:1.6;font-weight:300;">Three converging disciplines, one coherent ecosystem — engineered to operate with and for the people using them.</p>
     </div>
-    <div class="pillar-row reveal d2">
-      <div class="p-num">02</div>
-      <div>
-        <div class="p-name">Nanorobotics</div>
-        <div class="p-sub">Silicon-Based Medical</div>
-      </div>
-      <p class="p-desc">Proprietary nanoscale robots for precision medicine — targeting cancer treatment, DNA repair, and environmental restoration at the molecular level. <em>The smallest robots. The biggest impact.</em></p>
-      <div class="p-tags">
-        <span class="p-tag">Molecular</span>
-        <span class="p-tag">Biocompat.</span>
-        <span class="p-tag">Drug Delivery</span>
-        <span class="p-tag">DNA Repair</span>
-      </div>
+
+    <div class="pillars-tabs glass-thin reveal">
+      <button class="tab active" data-pill="0"><span class="n">01</span> Humanoid Robotics</button>
+      <button class="tab" data-pill="1"><span class="n">02</span> Nanorobotics</button>
+      <button class="tab" data-pill="2"><span class="n">03</span> AI Platform</button>
     </div>
-    <div class="pillar-row reveal d3">
-      <div class="p-num">03</div>
-      <div>
-        <div class="p-name">AI Platform</div>
-        <div class="p-sub">Super App Ecosystem</div>
+
+    <div class="pillar-panel glass reveal" id="pillar-panel">
+      <div class="left">
+        <div class="mono" id="pill-meta">BIPEDAL & QUADRUPEDAL — FIELD-DEPLOYABLE</div>
+        <h3 id="pill-title">Robots that work <em>alongside</em> humans — not replace them.</h3>
+        <p id="pill-body">Advanced humanoid and quadrupedal platforms designed for elderly care, hospital operations, construction automation, and retail environments. AI-powered vision, dynamic balancing, and modular tool integration for any environment.</p>
+        <div class="tags" id="pill-tags">
+          <span>AI Vision</span><span>SLAM Nav</span><span>Modular</span><span>Human-Robot</span>
+        </div>
       </div>
-      <p class="p-desc">An integrated super app ecosystem combining payments, messaging, and services with seamless robotics integration. <em>The digital backbone that connects every Hanzō system.</em></p>
-      <div class="p-tags">
-        <span class="p-tag">NLP</span>
-        <span class="p-tag">ML</span>
-        <span class="p-tag">Real-time</span>
-        <span class="p-tag">Cross-platform</span>
+      <div class="right" id="pill-right">
+        <div class="viz humanoid">
+          <div class="ring r3"></div><div class="ring r2"></div><div class="ring r1"></div>
+          <div class="core"></div>
+          <div class="chip c1">balance.init()</div>
+          <div class="chip c2">vision.slam</div>
+          <div class="chip c3">arm.modular</div>
+          <div class="chip c4">voice.jp/en</div>
+          <div class="label">Systems Online · 04 / 04</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ MISSION ═══ -->
-<section id="mission">
-  <div class="mission-redline"></div>
-  <div class="mission-inner">
-    <h2 class="mission-q reveal">Technology<br>With <em>Purpose.</em></h2>
-    <p class="mission-body reveal d2">To develop advanced robotics, AI, and nanotechnology solutions that enhance human life and address critical societal challenges. We focus on practical, impactful technologies that serve real-world needs — in healthcare, in construction, in daily life.<br><br><em>Not technology for technology's sake. Technology for humanity.</em></p>
-    <div class="mission-stats">
-      <div class="reveal d1"><div class="stat-n">6<sup>+</sup></div><div class="stat-l">Core Innovations</div></div>
-      <div class="reveal d2"><div class="stat-n">3<sup>+</sup></div><div class="stat-l">Global Markets</div></div>
-      <div class="reveal d3"><div class="stat-n">∞</div><div class="stat-l">Human Impact</div></div>
+<!-- MISSION -->
+<section class="bay" style="padding-top:0;" data-screen-label="03 Mission">
+  <div class="container">
+    <div class="mission reveal">
+      <h2>Technology <em>with</em><br/>purpose.</h2>
+      <div>
+        <p>To develop advanced robotics, AI, and nanotechnology solutions that enhance human life and address critical societal challenges. We focus on practical, impactful technologies that serve real-world needs — in healthcare, in construction, in daily life.</p>
+        <p style="margin-top:16px;">Not technology <em>for</em> technology's sake. Technology <em>for humanity.</em></p>
+      </div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat glass"><div class="num">6<em>+</em></div><div class="lab">Core Innovations</div></div>
+      <div class="stat glass"><div class="num">3<em>+</em></div><div class="lab">Global Markets</div></div>
+      <div class="stat glass"><div class="num"><em>∞</em></div><div class="lab">Human Impact</div></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ PRODUCTS ═══ -->
-<div id="products-wrap">
+<!-- PROJECTS -->
+<section class="bay" id="projects" data-screen-label="04 Projects">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow mono"><span class="hash"></span> PROJECTS — 02 / 04</div>
+        <h2 style="margin-top:20px;">Six systems. <em>One</em><br/>coherent future.</h2>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span class="mono">Filter</span>
+        <div class="glass-thin" style="padding:6px;display:flex;gap:4px;">
+          <button class="fbtn on" data-f="all" style="padding:7px 14px;border-radius:999px;font-size:12px;background:rgba(255,255,255,0.12);color:var(--ink);">All</button>
+          <button class="fbtn" data-f="health" style="padding:7px 14px;border-radius:999px;font-size:12px;color:var(--ink-dim);">Healthcare</button>
+          <button class="fbtn" data-f="industrial" style="padding:7px 14px;border-radius:999px;font-size:12px;color:var(--ink-dim);">Industrial</button>
+          <button class="fbtn" data-f="digital" style="padding:7px 14px;border-radius:999px;font-size:12px;color:var(--ink-dim);">Digital</button>
+        </div>
+      </div>
+    </div>
 
-  <div class="product-panel">
-    <div class="pp-grad"></div>
-    <div class="pp-num">01</div>
-    <div class="pp-content reveal">
-      <span class="pp-cat">Healthcare · Elderly Care</span>
-      <h2 class="pp-name">Hanzō M.E.C</h2>
-      <span class="pp-full">Medical & Elderly Care Robot</span>
-      <p class="pp-desc">Advanced humanoid companion for aging populations — providing round-the-clock health monitoring, emergency response, and <em>genuine social engagement.</em></p>
-      <div class="pp-feats">Fall Detection <span>·</span> Vital Signs <span>·</span> Wearables <span>·</span> Companion AI <span>·</span> JP/EN Voice</div>
-      <a href="#contact" class="btn-arrow">Learn More</a>
+    <div class="projects-grid">
+      <article class="proj p1 glass reveal" data-cat="health">
+        <div>
+          <div class="head">
+            <span class="num">01 / 06</span>
+            <span class="cat">Healthcare · Elderly Care</span>
+          </div>
+          <h3>Hanzō M.E.C</h3>
+          <div class="sub">Medical & Elderly Care Robot</div>
+          <p>Advanced humanoid companion for aging populations — providing round-the-clock health monitoring, emergency response, and <em>genuine social engagement.</em></p>
+          <div class="chips"><span>Fall Detection</span><span>Vital Signs</span><span>Wearables</span><span>Companion AI</span><span>JP / EN Voice</span></div>
+        </div>
+        <div class="bottom">
+          <a class="learn" href="#contact">Learn more <span class="arc">→</span></a>
+          <span class="mono">STATUS / DESIGN</span>
+        </div>
+        <svg class="big-sigil" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="0.6"><circle cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="55"/><circle cx="100" cy="100" r="30"/></svg>
+      </article>
+
+      <article class="proj p2 glass reveal" data-cat="health">
+        <div>
+          <div class="head">
+            <span class="num">02 / 06</span>
+            <span class="cat">Healthcare · Hospital</span>
+          </div>
+          <h3>Hanzō H.H.C</h3>
+          <div class="sub">Hospital Healthcare Robot</div>
+          <p>Fast-moving humanoid assistant that frees clinicians from time-consuming tasks — so they can focus <em>entirely on patients.</em></p>
+          <div class="chips"><span>EMR Integration</span><span>3D Mapping</span><span>Supply Mgmt</span><span>Lane Nav</span></div>
+        </div>
+        <div class="bottom">
+          <a class="learn" href="#contact">Learn more <span class="arc">→</span></a>
+          <span class="mono">STATUS / R&D</span>
+        </div>
+        <svg class="big-sigil" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="0.6"><rect x="30" y="30" width="140" height="140" rx="20"/><rect x="55" y="55" width="90" height="90" rx="14"/></svg>
+      </article>
+
+      <article class="proj p3 glass reveal" data-cat="industrial">
+        <div>
+          <div class="head"><span class="num">03</span><span class="cat">Industrial</span></div>
+          <h3>Hanzō C.E.M</h3>
+          <div class="sub">Construction & Manufacturing</div>
+          <p>Heavy-duty quadrupedal robot for the harshest job sites. Built for <em>environments where humans shouldn't have to go.</em></p>
+          <div class="chips"><span>Quadrupedal</span><span>SLAM</span><span>IIoT</span></div>
+        </div>
+        <div class="bottom">
+          <a class="learn" href="#contact">Learn more <span class="arc">→</span></a>
+        </div>
+      </article>
+
+      <article class="proj p4 glass reveal" data-cat="digital">
+        <div>
+          <div class="head"><span class="num">04</span><span class="cat">Retail · Commerce</span></div>
+          <h3>Hanzō R.A.I</h3>
+          <div class="sub">Retail Automation & Intelligence</div>
+          <p>AI humanoid retail assistant with natural language and <em>super app integration</em> for next-gen customer experience.</p>
+          <div class="chips"><span>NLP</span><span>Inventory AI</span><span>Payments</span></div>
+        </div>
+        <div class="bottom"><a class="learn" href="#contact">Learn more <span class="arc">→</span></a></div>
+      </article>
+
+      <article class="proj p5 glass reveal" data-cat="health">
+        <div>
+          <div class="head"><span class="num">05</span><span class="cat">Nanomedicine</span></div>
+          <h3>Nanorobotics</h3>
+          <div class="sub">Silicon-Based Medical Platform</div>
+          <p>Silicon nanorobots at molecular scale — cancer targeting, DNA repair, drug delivery with <em>surgical precision.</em></p>
+          <div class="chips"><span>Cancer Tx</span><span>DNA Repair</span><span>Reef Rx</span></div>
+        </div>
+        <div class="bottom"><a class="learn" href="#contact">Learn more <span class="arc">→</span></a></div>
+      </article>
+
+      <article class="proj p6 glass reveal" data-cat="digital">
+        <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;height:100%;">
+          <div>
+            <div class="head"><span class="num">06 / 06</span><span class="cat">Digital · Payments · Messaging</span></div>
+            <h3 style="margin-top:20px;">Super App</h3>
+            <div class="sub">Integrated Digital Services Platform</div>
+            <p>The digital backbone of the Hanzō ecosystem — payments, messaging, and services with seamless robotics integration across <em>US–Japan markets.</em></p>
+            <div class="chips"><span>Payments</span><span>Messaging</span><span>Banking</span><span>R.A.I Connect</span><span>US–JP</span></div>
+          </div>
+          <div style="position:relative;height:180px;display:flex;align-items:center;justify-content:center;">
+            <div style="position:absolute;inset:0;border-radius:16px;background:radial-gradient(circle at 50% 50%, oklch(0.65 0.18 290 /.3), transparent 65%);"></div>
+            <div class="glass-thin" style="padding:12px 16px;transform:translate(-60px,-30px) rotate(-6deg);font-size:13px;">💴 ¥ 12,480</div>
+            <div class="glass-thin" style="padding:10px 14px;transform:translate(40px,10px) rotate(4deg);font-size:12px;">● New message</div>
+            <div class="glass-thin" style="padding:10px 14px;transform:translate(-10px,60px) rotate(-2deg);font-size:12px;">→ R.A.I Connect</div>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
+</section>
 
-  <div class="product-panel">
-    <div class="pp-grad"></div>
-    <div class="pp-num">02</div>
-    <div class="pp-content reveal">
-      <span class="pp-cat">Healthcare · Hospital</span>
-      <h2 class="pp-name">Hanzō H.H.C</h2>
-      <span class="pp-full">Hospital Healthcare Robot</span>
-      <p class="pp-desc">Fast-moving humanoid hospital assistant that frees medical professionals from time-consuming tasks — so they can focus <em>entirely on patients.</em></p>
-      <div class="pp-feats">EMR Integration <span>·</span> 3D Mapping <span>·</span> Supply Mgmt <span>·</span> Lane Navigation</div>
-      <a href="#contact" class="btn-arrow">Learn More</a>
+<!-- ROADMAP -->
+<section class="bay" id="roadmap" data-screen-label="05 Roadmap">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow mono"><span class="hash"></span> ROADMAP — 03 / 04</div>
+        <h2 style="margin-top:20px;">A systematic path<br/><em>toward the inevitable.</em></h2>
+      </div>
+    </div>
+
+    <div class="road">
+      <div class="phase glass reveal">
+        <div class="bullet">i</div>
+        <div class="ph-tag">Phase One</div>
+        <div class="ph-range">Months 01 — 18</div>
+        <h3>Super App Foundation</h3>
+        <p>Launch the integrated messaging and payment platform for US–Japan markets — establishing a user base and revenue stream while building the digital infrastructure for future robotics integration.</p>
+        <ul>
+          <li>Beta launch · Month 06</li>
+          <li>Payment processing integration</li>
+          <li>10,000+ user target</li>
+          <li>Initial revenue generation</li>
+        </ul>
+      </div>
+      <div class="phase glass reveal">
+        <div class="bullet">ii</div>
+        <div class="ph-tag">Phase Two</div>
+        <div class="ph-range">Months 12 — 36</div>
+        <h3>Hanzō Robotics Series</h3>
+        <p>Develop and test three specialized humanoid robots; partnerships with hospitals, construction firms, and retail chains for pilot deployments across Japan and North America.</p>
+        <ul>
+          <li>M.E.C design specs · Month 12</li>
+          <li>M.E.C prototype · Month 18</li>
+          <li>Healthcare trials · Month 24</li>
+          <li>C.E.M & R.A.I development</li>
+        </ul>
+      </div>
+      <div class="phase glass reveal">
+        <div class="bullet">iii</div>
+        <div class="ph-tag">Phase Three</div>
+        <div class="ph-range">Months 24 — 60</div>
+        <h3>Nanorobotics Research</h3>
+        <p>Initiate silicon-based nanorobotics R&D through world-class research partnerships — developing cancer treatment and DNA repair applications with a clear path toward clinical trials.</p>
+        <ul>
+          <li>Research partnerships secured</li>
+          <li>Computational modeling</li>
+          <li>Biocompatibility research</li>
+          <li>Clinical trial preparation</li>
+        </ul>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="product-panel">
-    <div class="pp-grad"></div>
-    <div class="pp-num">03</div>
-    <div class="pp-content reveal">
-      <span class="pp-cat">Construction · Industrial</span>
-      <h2 class="pp-name">Hanzō C.E.M</h2>
-      <span class="pp-full">Construction & Manufacturing Robot</span>
-      <p class="pp-desc">Heavy-duty quadrupedal robot built for the harshest job sites — modular, rugged, intelligent. Engineered for <em>environments where humans shouldn't have to go.</em></p>
-      <div class="pp-feats">Quadrupedal <span>·</span> SLAM Nav <span>·</span> Modular Tools <span>·</span> IIoT <span>·</span> Predictive AI</div>
-      <a href="#contact" class="btn-arrow">Learn More</a>
+<!-- QUOTE -->
+<section class="quote-bay">
+  <div class="container">
+    <div class="quote-card glass reveal">
+      <span class="mark">“</span>
+      <blockquote>The most powerful technology is the kind that <em>makes life better</em> for real people. That is what drives everything we build at Hanzō.</blockquote>
+      <div class="attrib">
+        <div class="av"></div>
+        <div class="who">
+          <div class="n">Ezequiel</div>
+          <div class="r">Founder & CEO · Hanzō Technologies Inc.</div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="product-panel">
-    <div class="pp-grad"></div>
-    <div class="pp-num">04</div>
-    <div class="pp-content reveal">
-      <span class="pp-cat">Retail · Commerce</span>
-      <h2 class="pp-name">Hanzō R.A.I</h2>
-      <span class="pp-full">Retail Automation & Intelligence</span>
-      <p class="pp-desc">AI-powered humanoid retail assistant combining natural language intelligence with <em>seamless super app integration</em> for next-generation customer experiences.</p>
-      <div class="pp-feats">NLP Service <span>·</span> Inventory AI <span>·</span> Payments <span>·</span> Analytics</div>
-      <a href="#contact" class="btn-arrow">Learn More</a>
+<!-- LOCATIONS -->
+<section class="bay" style="padding-top:0;" data-screen-label="06 Locations">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow mono"><span class="hash"></span> LOCATIONS — 04 / 04</div>
+        <h2 style="margin-top:20px;">Three cities. <em>One</em><br/>operating radius.</h2>
+      </div>
+    </div>
+    <div class="locs">
+      <div class="loc glass active reveal">
+        <div>
+          <div class="tag"><span class="d"></span> Headquarters · Active</div>
+          <h3>Vancouver</h3>
+          <div class="where">British Columbia, Canada</div>
+        </div>
+        <div class="coords">49.2827° N · 123.1207° W</div>
+      </div>
+      <div class="loc glass planned reveal">
+        <div>
+          <div class="tag"><span class="d"></span> Future Office · Planned</div>
+          <h3>Palo Alto</h3>
+          <div class="where">California, United States</div>
+        </div>
+        <div class="coords">37.4419° N · 122.1430° W</div>
+      </div>
+      <div class="loc glass priority reveal">
+        <div>
+          <div class="tag"><span class="d"></span> Strategic Market · Priority</div>
+          <h3>Tokyo</h3>
+          <div class="where">Kantō, Japan</div>
+        </div>
+        <div class="coords">35.6762° N · 139.6503° E</div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="product-panel">
-    <div class="pp-grad"></div>
-    <div class="pp-num">05</div>
-    <div class="pp-content reveal">
-      <span class="pp-cat">Medicine · Environment</span>
-      <h2 class="pp-name">Nanorobotics</h2>
-      <span class="pp-full">Silicon-Based Medical Platform</span>
-      <p class="pp-desc">Silicon-based nanorobots at the molecular scale — targeting cancer, repairing DNA, delivering drugs with <em>surgical precision,</em> and restoring environments.</p>
-      <div class="pp-feats">Cancer Treatment <span>·</span> DNA Repair <span>·</span> Drug Delivery <span>·</span> Reef Restoration</div>
-      <a href="#contact" class="btn-arrow">Learn More</a>
+<!-- CONTACT -->
+<section class="contact" id="contact" data-screen-label="07 Contact">
+  <div class="container">
+    <div class="contact-card glass reveal">
+      <div class="mono" style="margin-bottom:20px;">INQUIRIES · PARTNERSHIPS · PRESS</div>
+      <h2>Ready to innovate? <em>Let's build<br/>the future together.</em></h2>
+      <p>Whether you're an investor, a research partner, a potential collaborator, or press — we want to hear from you. <em>Something extraordinary is being built.</em></p>
+      <div class="row">
+        <a class="btn primary" href="mailto:general@hanzotechnologies.com">General Inquiries <span class="arrow">→</span></a>
+        <a class="btn ghost" href="mailto:outreach@hanzotechnologies.com">Partnerships & Press</a>
+      </div>
+      <div class="contact-meta">
+        <div class="cmeta glass-thin" style="border-radius:18px;">
+          <div class="lab">General</div>
+          <div class="em">general@hanzotechnologies.com</div>
+        </div>
+        <div class="cmeta glass-thin" style="border-radius:18px;">
+          <div class="lab">Partnerships & Press</div>
+          <div class="em">outreach@hanzotechnologies.com</div>
+        </div>
+        <div class="cmeta glass-thin" style="border-radius:18px;">
+          <div class="lab">Support</div>
+          <div class="em">support@hanzotechnologies.com</div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="product-panel">
-    <div class="pp-grad"></div>
-    <div class="pp-num">06</div>
-    <div class="pp-content reveal">
-      <span class="pp-cat">Digital · Payments · Messaging</span>
-      <h2 class="pp-name">Super App</h2>
-      <span class="pp-full">Integrated Digital Services Platform</span>
-      <p class="pp-desc">The digital backbone of the Hanzō ecosystem — payments, messaging, and services with seamless robotics integration across <em>US-Japan markets.</em></p>
-      <div class="pp-feats">Payments <span>·</span> Messaging <span>·</span> Banking <span>·</span> R.A.I Connect <span>·</span> US–JP</div>
-      <a href="#contact" class="btn-arrow">Learn More</a>
-    </div>
+<footer>
+  <div class="container row">
+    <div class="l">HANZŌ.</div>
+    <div>© 2026 Hanzō Technologies Inc. · Vancouver · Palo Alto · Tokyo</div>
+    <div class="mono">BUILT FOR THE WORLD</div>
   </div>
+</footer>
 
 </div>
 
-<!-- ═══ ROADMAP ═══ -->
-<section id="roadmap">
-  <div class="roadmap-top reveal">
-    <span class="eyebrow">Development Roadmap</span>
-    <h2 class="big-h">A Systematic Path<br><em>Toward the Inevitable.</em></h2>
-  </div>
-  <div class="phases">
-    <div class="phase-card reveal d1">
-      <div class="phase-bg-n">1</div>
-      <span class="phase-eyebrow">Phase One</span>
-      <span class="phase-time">Months 1 – 18</span>
-      <h3 class="phase-title">Super App Foundation</h3>
-      <p class="phase-body">Launch the integrated messaging and payment platform for US-Japan markets — establishing a user base and revenue stream while building the digital infrastructure for future robotics integration.</p>
-      <ul class="phase-list">
-        <li>Beta launch at Month 6</li>
-        <li>Payment processing integration</li>
-        <li>10,000+ user target</li>
-        <li>Initial revenue generation</li>
-      </ul>
-    </div>
-    <div class="phase-card reveal d2">
-      <div class="phase-bg-n">2</div>
-      <span class="phase-eyebrow">Phase Two</span>
-      <span class="phase-time">Months 12 – 36</span>
-      <h3 class="phase-title">Hanzō Robotics Series</h3>
-      <p class="phase-body">Develop and test three specialized humanoid robots, establishing partnerships with hospitals, construction firms, and retail chains for real-world pilot deployments across Japan and North America.</p>
-      <ul class="phase-list">
-        <li>M.E.C design specs (Month 12)</li>
-        <li>M.E.C prototype (Month 18)</li>
-        <li>Healthcare trials (Month 24)</li>
-        <li>C.E.M & R.A.I development</li>
-      </ul>
-    </div>
-    <div class="phase-card reveal d3">
-      <div class="phase-bg-n">3</div>
-      <span class="phase-eyebrow">Phase Three</span>
-      <span class="phase-time">Months 24 – 60</span>
-      <h3 class="phase-title">Nanorobotics Research</h3>
-      <p class="phase-body">Initiate silicon-based nanorobotics R&D through world-class research partnerships — developing cancer treatment and DNA repair applications with a clear path toward clinical trials.</p>
-      <ul class="phase-list">
-        <li>Research partnerships secured</li>
-        <li>Computational modeling</li>
-        <li>Biocompatibility research</li>
-        <li>Clinical trial preparation</li>
-      </ul>
+<!-- Tweaks -->
+<div id="tweaks" class="glass">
+  <div class="th"><h4>Tweaks</h4><span class="close" onclick="document.getElementById('tweaks').classList.remove('on')">×</span></div>
+  <div class="row">
+    <label>Accent Hue</label>
+    <div class="pills" id="acc-pills">
+      <button data-acc="cyan" class="on">Cyan</button>
+      <button data-acc="violet">Violet</button>
+      <button data-acc="mint">Mint</button>
+      <button data-acc="amber">Amber</button>
     </div>
   </div>
-</section>
-
-<!-- ═══ FOUNDER ═══ -->
-<section id="founder">
-  <div class="reveal">
-    <h2 class="founder-q">"The most powerful technology is the kind that makes life better for <em>real people.</em> That is what drives everything we build at Hanzō."</h2>
-    <div class="founder-attr">
-      <div class="founder-rule"></div>
-      <span class="founder-name">Ezequiel — Founder & CEO, Hanzō Technologies Inc.</span>
+  <div class="row">
+    <label>Glass Weight</label>
+    <div class="pills" id="gl-pills">
+      <button data-gl="light">Light</button>
+      <button data-gl="default" class="on">Default</button>
+      <button data-gl="heavy">Heavy</button>
     </div>
   </div>
-</section>
-
-<!-- ═══ LOCATIONS ═══ -->
-<section id="locations">
-  <div class="loc-grid">
-    <div class="loc-card reveal d1">
-      <span class="loc-status">Headquarters · Active</span>
-      <div class="loc-city">Vancouver</div>
-      <div class="loc-country">British Columbia, Canada</div>
-    </div>
-    <div class="loc-card reveal d2">
-      <span class="loc-status">Future Office · Planned</span>
-      <div class="loc-city">Palo Alto</div>
-      <div class="loc-country">California, United States</div>
-    </div>
-    <div class="loc-card reveal d3">
-      <span class="loc-status">Strategic Market · Priority</span>
-      <div class="loc-city">Tokyo</div>
-      <div class="loc-country">Japan</div>
-    </div>
+  <div class="row">
+    <label>Ambient Intensity</label>
+    <input type="range" id="amb-range" min="0" max="100" value="55">
   </div>
-</section>
-
-<!-- ═══ CONTACT ═══ -->
-<section id="contact">
-  <h2 class="contact-h reveal">
-    Ready To<br>Innovate?
-    <em>Let's build the future together.</em>
-  </h2>
-  <p class="contact-body reveal d2">Whether you're an investor, a research partner, a potential collaborator, or press — we want to hear from you. <em>Something extraordinary is being built.</em></p>
-  <div class="contact-btns reveal d3">
-    <a href="mailto:general@hanzotechnologies.com" class="btn-red">General Inquiries</a>
-    <a href="mailto:outreach@hanzotechnologies.com" class="btn-arrow">Partnerships & Press</a>
-  </div>
-  <div class="contact-emails reveal d4">
-    <div>
-      <span class="email-label">General</span>
-      <a href="mailto:general@hanzotechnologies.com" class="email-addr">general@hanzotechnologies.com</a>
-    </div>
-    <div>
-      <span class="email-label">Partnerships & Press</span>
-      <a href="mailto:outreach@hanzotechnologies.com" class="email-addr">outreach@hanzotechnologies.com</a>
-    </div>
-    <div>
-      <span class="email-label">Support</span>
-      <a href="mailto:support@hanzotechnologies.com" class="email-addr">support@hanzotechnologies.com</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FOOTER ═══ -->
-<footer>
-  <a href="#hero" class="footer-logo">HANZŌ.</a>
-  <p class="footer-copy">© 2026 Hanzō Technologies Inc. All rights reserved.</p>
-  <p class="footer-locs">Vancouver · Palo Alto · Tokyo</p>
-</footer>
+</div>
 
 <script>
-  // CURSOR
-  const cur = document.getElementById('cur');
-  const ring = document.getElementById('cur-ring');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{ mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'; });
-  (function tick(){ rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick); })();
-  document.querySelectorAll('a,button').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{ cur.style.width='10px';cur.style.height='10px';ring.style.width='38px';ring.style.height='38px'; });
-    el.addEventListener('mouseleave',()=>{ cur.style.width='5px';cur.style.height='5px';ring.style.width='24px';ring.style.height='24px'; });
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "cyan",
+    "glass": "default",
+    "ambient": 55
+  }/*EDITMODE-END*/;
+
+  // Glass cursor spotlight
+  document.querySelectorAll('.glass').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100)+'%');
+      el.style.setProperty('--my', ((e.clientY - r.top)/r.height*100)+'%');
+    });
   });
 
-  // NAV
-  const nav=document.getElementById('nav');
-  window.addEventListener('scroll',()=>nav.classList.toggle('dim',scrollY>50));
+  // Parallax orbs
+  const orbs = document.querySelectorAll('.orb');
+  window.addEventListener('mousemove', (e) => {
+    const cx = (e.clientX / window.innerWidth - 0.5);
+    const cy = (e.clientY / window.innerHeight - 0.5);
+    orbs.forEach((o, i) => {
+      const f = (i+1) * 12;
+      o.style.transform = `translate(${cx*f}px, ${cy*f}px)`;
+    });
+  });
 
-  // REVEAL + PRODUCT PANEL RED LINE
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('visible');
-        const pp=e.target.closest('.product-panel');
-        if(pp) pp.classList.add('in-view');
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Pillar tabs
+  const pillars = [
+    { meta: "BIPEDAL & QUADRUPEDAL — FIELD-DEPLOYABLE",
+      title: "Robots that work <em>alongside</em> humans — not replace them.",
+      body: "Advanced humanoid and quadrupedal platforms designed for elderly care, hospital operations, construction automation, and retail environments. AI-powered vision, dynamic balancing, and modular tool integration for any environment.",
+      tags: ["AI Vision","SLAM Nav","Modular","Human-Robot"],
+      viz: "humanoid" },
+    { meta: "SILICON-BASED MEDICAL — MOLECULAR SCALE",
+      title: "The <em>smallest</em> robots. The biggest impact.",
+      body: "Proprietary nanoscale robots for precision medicine — targeting cancer treatment, DNA repair, drug delivery, and environmental restoration at the molecular level.",
+      tags: ["Molecular","Biocompat.","Drug Delivery","DNA Repair"],
+      viz: "nano" },
+    { meta: "INTEGRATED SUPER APP — US/JP MARKETS",
+      title: "The digital backbone <em>that connects</em> every Hanzō system.",
+      body: "An integrated super app ecosystem combining payments, messaging, and services with seamless robotics integration — the digital layer powering the entire Hanzō platform.",
+      tags: ["NLP","ML","Real-time","Cross-platform"],
+      viz: "ai" }
+  ];
+  const tabs = document.querySelectorAll('.pillars-tabs .tab');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    const i = +t.dataset.pill;
+    const p = pillars[i];
+    document.getElementById('pill-meta').textContent = p.meta;
+    document.getElementById('pill-title').innerHTML = p.title;
+    document.getElementById('pill-body').textContent = p.body;
+    document.getElementById('pill-tags').innerHTML = p.tags.map(x=>`<span>${x}</span>`).join('');
+    const right = document.getElementById('pill-right');
+    const chips = {
+      humanoid: ['balance.init()','vision.slam','arm.modular','voice.jp/en'],
+      nano: ['target.scan','dna.repair','drug.deliver','reef.restore'],
+      ai: ['nlp.parse','ml.predict','pay.route','mesh.sync']
+    }[p.viz];
+    right.innerHTML = `
+      <div class="viz ${p.viz}">
+        <div class="ring r3"></div><div class="ring r2"></div><div class="ring r1"></div>
+        <div class="core"></div>
+        <div class="chip c1">${chips[0]}</div>
+        <div class="chip c2">${chips[1]}</div>
+        <div class="chip c3">${chips[2]}</div>
+        <div class="chip c4">${chips[3]}</div>
+        <div class="label">Systems Online · 04 / 04</div>
+      </div>`;
+    if (p.viz === 'nano') {
+      const v = right.querySelector('.viz');
+      for (let k=0;k<14;k++) {
+        const d = document.createElement('div'); d.className='dot';
+        const a = (k/14)*Math.PI*2, r = 120 + Math.random()*120;
+        d.style.left = `calc(50% + ${Math.cos(a)*r}px)`;
+        d.style.top = `calc(50% + ${Math.sin(a)*r}px)`;
+        v.appendChild(d);
       }
-    });
-  },{threshold:0.07,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  document.querySelectorAll('.product-panel').forEach(p=>io.observe(p));
+    }
+  }));
 
-  // SMOOTH SCROLL
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{
-      e.preventDefault();
-      const t=document.querySelector(a.getAttribute('href'));
-      if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+  // Project filter
+  document.querySelectorAll('.fbtn').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.fbtn').forEach(x => { x.classList.remove('on'); x.style.background='transparent'; x.style.color='var(--ink-dim)'; });
+    b.classList.add('on'); b.style.background='rgba(255,255,255,0.12)'; b.style.color='var(--ink)';
+    const f = b.dataset.f;
+    document.querySelectorAll('.proj').forEach(p => {
+      const show = f === 'all' || (f==='health' && p.dataset.cat==='health') || (f==='industrial' && p.dataset.cat==='industrial') || (f==='digital' && p.dataset.cat==='digital');
+      p.style.opacity = show ? 1 : 0.2;
+      p.style.filter = show ? 'none' : 'saturate(.4) blur(1px)';
     });
+  }));
+
+  // Tweaks integration
+  const tw = document.getElementById('tweaks');
+  window.addEventListener('message', (e) => {
+    if (e.data?.type === '__activate_edit_mode') tw.classList.add('on');
+    if (e.data?.type === '__deactivate_edit_mode') tw.classList.remove('on');
+  });
+  window.parent.postMessage({type:'__edit_mode_available'}, '*');
+
+  function applyTweaks(t) {
+    document.body.className = document.body.className.replace(/accent-\w+/g,'').replace(/glass-\w+/g,'');
+    document.body.classList.add('accent-'+t.accent, 'glass-'+t.glass);
+    document.querySelectorAll('.ambient').forEach(a => a.style.opacity = (t.ambient/100));
+  }
+  applyTweaks(TWEAK_DEFAULTS);
+
+  document.querySelectorAll('#acc-pills button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#acc-pills button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    TWEAK_DEFAULTS.accent = b.dataset.acc;
+    applyTweaks(TWEAK_DEFAULTS);
+    window.parent.postMessage({type:'__edit_mode_set_keys', edits:{accent: b.dataset.acc}}, '*');
+  }));
+  document.querySelectorAll('#gl-pills button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#gl-pills button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    TWEAK_DEFAULTS.glass = b.dataset.gl;
+    applyTweaks(TWEAK_DEFAULTS);
+    window.parent.postMessage({type:'__edit_mode_set_keys', edits:{glass: b.dataset.gl}}, '*');
+  }));
+  document.getElementById('amb-range').addEventListener('input', (e) => {
+    TWEAK_DEFAULTS.ambient = +e.target.value;
+    applyTweaks(TWEAK_DEFAULTS);
+    window.parent.postMessage({type:'__edit_mode_set_keys', edits:{ambient: +e.target.value}}, '*');
   });
 </script>
+
 </body>
 </html>
